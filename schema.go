@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 2.3.0
-// SOURCE CODE SHA: 79a4c101191931900eea34b8537a33b8f34e084a
-// GENERATED: 2018-05-25 04:42:17.531745192 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 2.5.0
+// SOURCE CODE SHA: e40a034597a3952017f3bb0c75caa8491616dff1
+// GENERATED: 2018-07-15 14:00:59.673559569 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "2.3.0"
+const ResourceSpecificationVersion = "2.5.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -32,6 +32,96 @@ func RegisterCustomResourceProvider(provider CustomResourceProvider) {
 //                 |_|
 //
 
+// AmazonMQBrokerConfigurationID represents the AWS::AmazonMQ::Broker.ConfigurationId CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-configurationid.html 
+type AmazonMQBrokerConfigurationID struct {
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-configurationid.html#cfn-amazonmq-broker-configurationid-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Revision docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-configurationid.html#cfn-amazonmq-broker-configurationid-revision
+	Revision *IntegerExpr `json:"Revision,omitempty" validate:"dive,required"`
+}
+
+// AmazonMQBrokerConfigurationIDList represents a list of AmazonMQBrokerConfigurationID
+type AmazonMQBrokerConfigurationIDList []AmazonMQBrokerConfigurationID
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AmazonMQBrokerConfigurationIDList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AmazonMQBrokerConfigurationID{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AmazonMQBrokerConfigurationIDList{item}
+		return nil
+	}
+	list := []AmazonMQBrokerConfigurationID{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AmazonMQBrokerConfigurationIDList(list)
+		return nil
+	}
+	return err
+}
+// AmazonMQBrokerMaintenanceWindow represents the AWS::AmazonMQ::Broker.MaintenanceWindow CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html 
+type AmazonMQBrokerMaintenanceWindow struct {
+	// DayOfWeek docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-dayofweek
+	DayOfWeek *StringExpr `json:"DayOfWeek,omitempty" validate:"dive,required"`
+	// TimeOfDay docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-timeofday
+	TimeOfDay *StringExpr `json:"TimeOfDay,omitempty" validate:"dive,required"`
+	// TimeZone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-timezone
+	TimeZone *StringExpr `json:"TimeZone,omitempty" validate:"dive,required"`
+}
+
+// AmazonMQBrokerMaintenanceWindowList represents a list of AmazonMQBrokerMaintenanceWindow
+type AmazonMQBrokerMaintenanceWindowList []AmazonMQBrokerMaintenanceWindow
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AmazonMQBrokerMaintenanceWindowList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AmazonMQBrokerMaintenanceWindow{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AmazonMQBrokerMaintenanceWindowList{item}
+		return nil
+	}
+	list := []AmazonMQBrokerMaintenanceWindow{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AmazonMQBrokerMaintenanceWindowList(list)
+		return nil
+	}
+	return err
+}
+// AmazonMQBrokerUser represents the AWS::AmazonMQ::Broker.User CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html 
+type AmazonMQBrokerUser struct {
+	// ConsoleAccess docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-consoleaccess
+	ConsoleAccess *BoolExpr `json:"ConsoleAccess,omitempty"`
+	// Groups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-groups
+	Groups *StringListExpr `json:"Groups,omitempty"`
+	// Password docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-password
+	Password *StringExpr `json:"Password,omitempty" validate:"dive,required"`
+	// Username docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-username
+	Username *StringExpr `json:"Username,omitempty" validate:"dive,required"`
+}
+
+// AmazonMQBrokerUserList represents a list of AmazonMQBrokerUser
+type AmazonMQBrokerUserList []AmazonMQBrokerUser
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AmazonMQBrokerUserList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AmazonMQBrokerUser{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AmazonMQBrokerUserList{item}
+		return nil
+	}
+	list := []AmazonMQBrokerUser{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AmazonMQBrokerUserList(list)
+		return nil
+	}
+	return err
+}
 // APIGatewayAPIKeyStageKey represents the AWS::ApiGateway::ApiKey.StageKey CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html 
 type APIGatewayAPIKeyStageKey struct {
@@ -570,6 +660,32 @@ func (l *AppSyncDataSourceElasticsearchConfigList) UnmarshalJSON(buf []byte) err
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = AppSyncDataSourceElasticsearchConfigList(list)
+		return nil
+	}
+	return err
+}
+// AppSyncDataSourceHTTPConfig represents the AWS::AppSync::DataSource.HttpConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html 
+type AppSyncDataSourceHTTPConfig struct {
+	// Endpoint docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-endpoint
+	Endpoint *StringExpr `json:"Endpoint,omitempty" validate:"dive,required"`
+}
+
+// AppSyncDataSourceHTTPConfigList represents a list of AppSyncDataSourceHTTPConfig
+type AppSyncDataSourceHTTPConfigList []AppSyncDataSourceHTTPConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppSyncDataSourceHTTPConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppSyncDataSourceHTTPConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppSyncDataSourceHTTPConfigList{item}
+		return nil
+	}
+	list := []AppSyncDataSourceHTTPConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppSyncDataSourceHTTPConfigList(list)
 		return nil
 	}
 	return err
@@ -2149,6 +2265,8 @@ type CloudFrontDistributionCacheBehavior struct {
 	Compress *BoolExpr `json:"Compress,omitempty"`
 	// DefaultTTL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
 	DefaultTTL *IntegerExpr `json:"DefaultTTL,omitempty"`
+	// FieldLevelEncryptionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
+	FieldLevelEncryptionID *StringExpr `json:"FieldLevelEncryptionId,omitempty"`
 	// ForwardedValues docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
 	ForwardedValues *CloudFrontDistributionForwardedValues `json:"ForwardedValues,omitempty" validate:"dive,required"`
 	// LambdaFunctionAssociations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
@@ -2295,6 +2413,8 @@ type CloudFrontDistributionDefaultCacheBehavior struct {
 	Compress *BoolExpr `json:"Compress,omitempty"`
 	// DefaultTTL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
 	DefaultTTL *IntegerExpr `json:"DefaultTTL,omitempty"`
+	// FieldLevelEncryptionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
+	FieldLevelEncryptionID *StringExpr `json:"FieldLevelEncryptionId,omitempty"`
 	// ForwardedValues docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
 	ForwardedValues *CloudFrontDistributionForwardedValues `json:"ForwardedValues,omitempty" validate:"dive,required"`
 	// LambdaFunctionAssociations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
@@ -2903,6 +3023,8 @@ func (l *CodeBuildProjectArtifactsList) UnmarshalJSON(buf []byte) error {
 // CodeBuildProjectEnvironment represents the AWS::CodeBuild::Project.Environment CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html 
 type CodeBuildProjectEnvironment struct {
+	// Certificate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-certificate
+	Certificate *StringExpr `json:"Certificate,omitempty"`
 	// ComputeType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
 	ComputeType *StringExpr `json:"ComputeType,omitempty" validate:"dive,required"`
 	// EnvironmentVariables docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-environmentvariables
@@ -3031,6 +3153,8 @@ type CodeBuildProjectSource struct {
 	InsecureSsl *BoolExpr `json:"InsecureSsl,omitempty"`
 	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-location
 	Location *StringExpr `json:"Location,omitempty"`
+	// ReportBuildStatus docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-reportbuildstatus
+	ReportBuildStatus *BoolExpr `json:"ReportBuildStatus,omitempty"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-type
 	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
@@ -3942,6 +4066,62 @@ func (l *CodePipelinePipelineStageTransitionList) UnmarshalJSON(buf []byte) erro
 	}
 	return err
 }
+// CodePipelineWebhookWebhookAuthConfiguration represents the AWS::CodePipeline::Webhook.WebhookAuthConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookauthconfiguration.html 
+type CodePipelineWebhookWebhookAuthConfiguration struct {
+	// AllowedIPRange docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookauthconfiguration.html#cfn-codepipeline-webhook-webhookauthconfiguration-allowediprange
+	AllowedIPRange *StringExpr `json:"AllowedIPRange,omitempty"`
+	// SecretToken docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookauthconfiguration.html#cfn-codepipeline-webhook-webhookauthconfiguration-secrettoken
+	SecretToken *StringExpr `json:"SecretToken,omitempty"`
+}
+
+// CodePipelineWebhookWebhookAuthConfigurationList represents a list of CodePipelineWebhookWebhookAuthConfiguration
+type CodePipelineWebhookWebhookAuthConfigurationList []CodePipelineWebhookWebhookAuthConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodePipelineWebhookWebhookAuthConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodePipelineWebhookWebhookAuthConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodePipelineWebhookWebhookAuthConfigurationList{item}
+		return nil
+	}
+	list := []CodePipelineWebhookWebhookAuthConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodePipelineWebhookWebhookAuthConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// CodePipelineWebhookWebhookFilterRule represents the AWS::CodePipeline::Webhook.WebhookFilterRule CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookfilterrule.html 
+type CodePipelineWebhookWebhookFilterRule struct {
+	// JSONPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-jsonpath
+	JSONPath *StringExpr `json:"JsonPath,omitempty" validate:"dive,required"`
+	// MatchEquals docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-matchequals
+	MatchEquals *StringExpr `json:"MatchEquals,omitempty"`
+}
+
+// CodePipelineWebhookWebhookFilterRuleList represents a list of CodePipelineWebhookWebhookFilterRule
+type CodePipelineWebhookWebhookFilterRuleList []CodePipelineWebhookWebhookFilterRule
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodePipelineWebhookWebhookFilterRuleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodePipelineWebhookWebhookFilterRule{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodePipelineWebhookWebhookFilterRuleList{item}
+		return nil
+	}
+	list := []CodePipelineWebhookWebhookFilterRule{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodePipelineWebhookWebhookFilterRuleList(list)
+		return nil
+	}
+	return err
+}
 // CognitoIDentityPoolCognitoIDentityProvider represents the AWS::Cognito::IdentityPool.CognitoIdentityProvider CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html 
 type CognitoIDentityPoolCognitoIDentityProvider struct {
@@ -4572,6 +4752,66 @@ func (l *ConfigConfigRuleSourceDetailList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ConfigConfigRuleSourceDetailList(list)
+		return nil
+	}
+	return err
+}
+// ConfigConfigurationAggregatorAccountAggregationSource represents the AWS::Config::ConfigurationAggregator.AccountAggregationSource CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html 
+type ConfigConfigurationAggregatorAccountAggregationSource struct {
+	// AccountIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
+	AccountIDs *StringListExpr `json:"AccountIds,omitempty" validate:"dive,required"`
+	// AllAwsRegions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
+	AllAwsRegions *BoolExpr `json:"AllAwsRegions,omitempty"`
+	// AwsRegions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
+	AwsRegions *StringListExpr `json:"AwsRegions,omitempty"`
+}
+
+// ConfigConfigurationAggregatorAccountAggregationSourceList represents a list of ConfigConfigurationAggregatorAccountAggregationSource
+type ConfigConfigurationAggregatorAccountAggregationSourceList []ConfigConfigurationAggregatorAccountAggregationSource
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ConfigConfigurationAggregatorAccountAggregationSourceList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ConfigConfigurationAggregatorAccountAggregationSource{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ConfigConfigurationAggregatorAccountAggregationSourceList{item}
+		return nil
+	}
+	list := []ConfigConfigurationAggregatorAccountAggregationSource{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ConfigConfigurationAggregatorAccountAggregationSourceList(list)
+		return nil
+	}
+	return err
+}
+// ConfigConfigurationAggregatorOrganizationAggregationSource represents the AWS::Config::ConfigurationAggregator.OrganizationAggregationSource CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html 
+type ConfigConfigurationAggregatorOrganizationAggregationSource struct {
+	// AllAwsRegions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
+	AllAwsRegions *BoolExpr `json:"AllAwsRegions,omitempty"`
+	// AwsRegions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
+	AwsRegions *StringListExpr `json:"AwsRegions,omitempty"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+}
+
+// ConfigConfigurationAggregatorOrganizationAggregationSourceList represents a list of ConfigConfigurationAggregatorOrganizationAggregationSource
+type ConfigConfigurationAggregatorOrganizationAggregationSourceList []ConfigConfigurationAggregatorOrganizationAggregationSource
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ConfigConfigurationAggregatorOrganizationAggregationSourceList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ConfigConfigurationAggregatorOrganizationAggregationSource{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ConfigConfigurationAggregatorOrganizationAggregationSourceList{item}
+		return nil
+	}
+	list := []ConfigConfigurationAggregatorOrganizationAggregationSource{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ConfigConfigurationAggregatorOrganizationAggregationSourceList(list)
 		return nil
 	}
 	return err
@@ -7434,6 +7674,34 @@ func (l *EFSFileSystemElasticFileSystemTagList) UnmarshalJSON(buf []byte) error 
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = EFSFileSystemElasticFileSystemTagList(list)
+		return nil
+	}
+	return err
+}
+// EKSClusterResourcesVPCConfig represents the AWS::EKS::Cluster.ResourcesVpcConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html 
+type EKSClusterResourcesVPCConfig struct {
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty" validate:"dive,required"`
+}
+
+// EKSClusterResourcesVPCConfigList represents a list of EKSClusterResourcesVPCConfig
+type EKSClusterResourcesVPCConfigList []EKSClusterResourcesVPCConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EKSClusterResourcesVPCConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EKSClusterResourcesVPCConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EKSClusterResourcesVPCConfigList{item}
+		return nil
+	}
+	list := []EKSClusterResourcesVPCConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EKSClusterResourcesVPCConfigList(list)
 		return nil
 	}
 	return err
@@ -16304,6 +16572,126 @@ func (l *SSMPatchBaselineRuleGroupList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// SageMakerEndpointConfigProductionVariant represents the AWS::SageMaker::EndpointConfig.ProductionVariant CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html 
+type SageMakerEndpointConfigProductionVariant struct {
+	// InitialInstanceCount docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
+	InitialInstanceCount *IntegerExpr `json:"InitialInstanceCount,omitempty" validate:"dive,required"`
+	// InitialVariantWeight docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
+	InitialVariantWeight *IntegerExpr `json:"InitialVariantWeight,omitempty" validate:"dive,required"`
+	// InstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
+	InstanceType *StringExpr `json:"InstanceType,omitempty" validate:"dive,required"`
+	// ModelName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
+	ModelName *StringExpr `json:"ModelName,omitempty" validate:"dive,required"`
+	// VariantName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname
+	VariantName *StringExpr `json:"VariantName,omitempty" validate:"dive,required"`
+}
+
+// SageMakerEndpointConfigProductionVariantList represents a list of SageMakerEndpointConfigProductionVariant
+type SageMakerEndpointConfigProductionVariantList []SageMakerEndpointConfigProductionVariant
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SageMakerEndpointConfigProductionVariantList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SageMakerEndpointConfigProductionVariant{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SageMakerEndpointConfigProductionVariantList{item}
+		return nil
+	}
+	list := []SageMakerEndpointConfigProductionVariant{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SageMakerEndpointConfigProductionVariantList(list)
+		return nil
+	}
+	return err
+}
+// SageMakerModelContainerDefinition represents the AWS::SageMaker::Model.ContainerDefinition CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html 
+type SageMakerModelContainerDefinition struct {
+	// ContainerHostname docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname
+	ContainerHostname *StringExpr `json:"ContainerHostname,omitempty"`
+	// Environment docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-environment
+	Environment interface{} `json:"Environment,omitempty"`
+	// Image docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image
+	Image *StringExpr `json:"Image,omitempty" validate:"dive,required"`
+	// ModelDataURL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl
+	ModelDataURL *StringExpr `json:"ModelDataUrl,omitempty"`
+}
+
+// SageMakerModelContainerDefinitionList represents a list of SageMakerModelContainerDefinition
+type SageMakerModelContainerDefinitionList []SageMakerModelContainerDefinition
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SageMakerModelContainerDefinitionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SageMakerModelContainerDefinition{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SageMakerModelContainerDefinitionList{item}
+		return nil
+	}
+	list := []SageMakerModelContainerDefinition{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SageMakerModelContainerDefinitionList(list)
+		return nil
+	}
+	return err
+}
+// SageMakerModelVPCConfig represents the AWS::SageMaker::Model.VpcConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html 
+type SageMakerModelVPCConfig struct {
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty" validate:"dive,required"`
+	// Subnets docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-subnets
+	Subnets *StringListExpr `json:"Subnets,omitempty" validate:"dive,required"`
+}
+
+// SageMakerModelVPCConfigList represents a list of SageMakerModelVPCConfig
+type SageMakerModelVPCConfigList []SageMakerModelVPCConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SageMakerModelVPCConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SageMakerModelVPCConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SageMakerModelVPCConfigList{item}
+		return nil
+	}
+	list := []SageMakerModelVPCConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SageMakerModelVPCConfigList(list)
+		return nil
+	}
+	return err
+}
+// SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook represents the AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html 
+type SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook struct {
+	// Content docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content
+	Content *StringExpr `json:"Content,omitempty"`
+}
+
+// SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookList represents a list of SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook
+type SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookList []SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookList{item}
+		return nil
+	}
+	list := []SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookList(list)
+		return nil
+	}
+	return err
+}
 // ServiceCatalogCloudFormationProductProvisioningArtifactProperties represents the AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html 
 type ServiceCatalogCloudFormationProductProvisioningArtifactProperties struct {
@@ -16369,6 +16757,8 @@ type ServiceDiscoveryServiceDNSConfig struct {
 	DNSRecords *ServiceDiscoveryServiceDNSRecordList `json:"DnsRecords,omitempty" validate:"dive,required"`
 	// NamespaceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid
 	NamespaceID *StringExpr `json:"NamespaceId,omitempty" validate:"dive,required"`
+	// RoutingPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-routingpolicy
+	RoutingPolicy *StringExpr `json:"RoutingPolicy,omitempty"`
 }
 
 // ServiceDiscoveryServiceDNSConfigList represents a list of ServiceDiscoveryServiceDNSConfig
@@ -16444,6 +16834,32 @@ func (l *ServiceDiscoveryServiceHealthCheckConfigList) UnmarshalJSON(buf []byte)
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ServiceDiscoveryServiceHealthCheckConfigList(list)
+		return nil
+	}
+	return err
+}
+// ServiceDiscoveryServiceHealthCheckCustomConfig represents the AWS::ServiceDiscovery::Service.HealthCheckCustomConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckcustomconfig.html 
+type ServiceDiscoveryServiceHealthCheckCustomConfig struct {
+	// FailureThreshold docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckcustomconfig.html#cfn-servicediscovery-service-healthcheckcustomconfig-failurethreshold
+	FailureThreshold *IntegerExpr `json:"FailureThreshold,omitempty"`
+}
+
+// ServiceDiscoveryServiceHealthCheckCustomConfigList represents a list of ServiceDiscoveryServiceHealthCheckCustomConfig
+type ServiceDiscoveryServiceHealthCheckCustomConfigList []ServiceDiscoveryServiceHealthCheckCustomConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ServiceDiscoveryServiceHealthCheckCustomConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ServiceDiscoveryServiceHealthCheckCustomConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ServiceDiscoveryServiceHealthCheckCustomConfigList{item}
+		return nil
+	}
+	list := []ServiceDiscoveryServiceHealthCheckCustomConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ServiceDiscoveryServiceHealthCheckCustomConfigList(list)
 		return nil
 	}
 	return err
@@ -17181,6 +17597,60 @@ func (l *TagList) UnmarshalJSON(buf []byte) error {
 // |_| \_\___||___/\___/ \__,_|_|  \___\___||___/
 //
 
+// AmazonMQBroker represents the AWS::AmazonMQ::Broker CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html 
+type AmazonMQBroker struct {
+	// AutoMinorVersionUpgrade docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
+	AutoMinorVersionUpgrade *BoolExpr `json:"AutoMinorVersionUpgrade,omitempty" validate:"dive,required"`
+	// BrokerName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername
+	BrokerName *StringExpr `json:"BrokerName,omitempty" validate:"dive,required"`
+	// Configuration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration
+	Configuration *AmazonMQBrokerConfigurationID `json:"Configuration,omitempty"`
+	// DeploymentMode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode
+	DeploymentMode *StringExpr `json:"DeploymentMode,omitempty" validate:"dive,required"`
+	// EngineType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype
+	EngineType *StringExpr `json:"EngineType,omitempty" validate:"dive,required"`
+	// EngineVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion
+	EngineVersion *StringExpr `json:"EngineVersion,omitempty" validate:"dive,required"`
+	// HostInstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
+	HostInstanceType *StringExpr `json:"HostInstanceType,omitempty" validate:"dive,required"`
+	// MaintenanceWindowStartTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
+	MaintenanceWindowStartTime *AmazonMQBrokerMaintenanceWindow `json:"MaintenanceWindowStartTime,omitempty"`
+	// PubliclyAccessible docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible
+	PubliclyAccessible *BoolExpr `json:"PubliclyAccessible,omitempty" validate:"dive,required"`
+	// SecurityGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
+	SecurityGroups *StringListExpr `json:"SecurityGroups,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+	// Users docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
+	Users *AmazonMQBrokerUserList `json:"Users,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AmazonMQ::Broker to implement the ResourceProperties interface
+func (s AmazonMQBroker) CfnResourceType() string {
+	
+	return "AWS::AmazonMQ::Broker"
+}
+// AmazonMQConfiguration represents the AWS::AmazonMQ::Configuration CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html 
+type AmazonMQConfiguration struct {
+	// Data docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-data
+	Data *StringExpr `json:"Data,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// EngineType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-enginetype
+	EngineType *StringExpr `json:"EngineType,omitempty" validate:"dive,required"`
+	// EngineVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-engineversion
+	EngineVersion *StringExpr `json:"EngineVersion,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AmazonMQ::Configuration to implement the ResourceProperties interface
+func (s AmazonMQConfiguration) CfnResourceType() string {
+	
+	return "AWS::AmazonMQ::Configuration"
+}
 // APIGatewayAccount represents the AWS::ApiGateway::Account CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html 
 type APIGatewayAccount struct {
@@ -17594,6 +18064,8 @@ type AppSyncDataSource struct {
 	DynamoDBConfig *AppSyncDataSourceDynamoDBConfig `json:"DynamoDBConfig,omitempty"`
 	// ElasticsearchConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig
 	ElasticsearchConfig *AppSyncDataSourceElasticsearchConfig `json:"ElasticsearchConfig,omitempty"`
+	// HTTPConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig
+	HTTPConfig *AppSyncDataSourceHTTPConfig `json:"HttpConfig,omitempty"`
 	// LambdaConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig
 	LambdaConfig *AppSyncDataSourceLambdaConfig `json:"LambdaConfig,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-name
@@ -18410,6 +18882,32 @@ func (s CodePipelinePipeline) CfnResourceType() string {
 	
 	return "AWS::CodePipeline::Pipeline"
 }
+// CodePipelineWebhook represents the AWS::CodePipeline::Webhook CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html 
+type CodePipelineWebhook struct {
+	// Authentication docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-authentication
+	Authentication *StringExpr `json:"Authentication,omitempty" validate:"dive,required"`
+	// AuthenticationConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-authenticationconfiguration
+	AuthenticationConfiguration *CodePipelineWebhookWebhookAuthConfiguration `json:"AuthenticationConfiguration,omitempty" validate:"dive,required"`
+	// Filters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-filters
+	Filters *CodePipelineWebhookWebhookFilterRuleList `json:"Filters,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// RegisterWithThirdParty docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-registerwiththirdparty
+	RegisterWithThirdParty *BoolExpr `json:"RegisterWithThirdParty,omitempty"`
+	// TargetAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetaction
+	TargetAction *StringExpr `json:"TargetAction,omitempty" validate:"dive,required"`
+	// TargetPipeline docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipeline
+	TargetPipeline *StringExpr `json:"TargetPipeline,omitempty" validate:"dive,required"`
+	// TargetPipelineVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipelineversion
+	TargetPipelineVersion *IntegerExpr `json:"TargetPipelineVersion,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::CodePipeline::Webhook to implement the ResourceProperties interface
+func (s CodePipelineWebhook) CfnResourceType() string {
+	
+	return "AWS::CodePipeline::Webhook"
+}
 // CognitoIDentityPool represents the AWS::Cognito::IdentityPool CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html 
 type CognitoIDentityPool struct {
@@ -18584,6 +19082,20 @@ func (s CognitoUserPoolUserToGroupAttachment) CfnResourceType() string {
 	
 	return "AWS::Cognito::UserPoolUserToGroupAttachment"
 }
+// ConfigAggregationAuthorization represents the AWS::Config::AggregationAuthorization CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html 
+type ConfigAggregationAuthorization struct {
+	// AuthorizedAccountID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedaccountid
+	AuthorizedAccountID *StringExpr `json:"AuthorizedAccountId,omitempty" validate:"dive,required"`
+	// AuthorizedAwsRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedawsregion
+	AuthorizedAwsRegion *StringExpr `json:"AuthorizedAwsRegion,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Config::AggregationAuthorization to implement the ResourceProperties interface
+func (s ConfigAggregationAuthorization) CfnResourceType() string {
+	
+	return "AWS::Config::AggregationAuthorization"
+}
 // ConfigConfigRule represents the AWS::Config::ConfigRule CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html 
 type ConfigConfigRule struct {
@@ -18605,6 +19117,22 @@ type ConfigConfigRule struct {
 func (s ConfigConfigRule) CfnResourceType() string {
 	
 	return "AWS::Config::ConfigRule"
+}
+// ConfigConfigurationAggregator represents the AWS::Config::ConfigurationAggregator CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html 
+type ConfigConfigurationAggregator struct {
+	// AccountAggregationSources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
+	AccountAggregationSources *ConfigConfigurationAggregatorAccountAggregationSourceList `json:"AccountAggregationSources,omitempty"`
+	// ConfigurationAggregatorName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
+	ConfigurationAggregatorName *StringExpr `json:"ConfigurationAggregatorName,omitempty" validate:"dive,required"`
+	// OrganizationAggregationSource docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
+	OrganizationAggregationSource *ConfigConfigurationAggregatorOrganizationAggregationSource `json:"OrganizationAggregationSource,omitempty"`
+}
+
+// CfnResourceType returns AWS::Config::ConfigurationAggregator to implement the ResourceProperties interface
+func (s ConfigConfigurationAggregator) CfnResourceType() string {
+	
+	return "AWS::Config::ConfigurationAggregator"
 }
 // ConfigConfigurationRecorder represents the AWS::Config::ConfigurationRecorder CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html 
@@ -19611,12 +20139,20 @@ func (s EC2VPCDHCPOptionsAssociation) CfnResourceType() string {
 // EC2VPCEndpoint represents the AWS::EC2::VPCEndpoint CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html 
 type EC2VPCEndpoint struct {
+	// IsPrivateDNSEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-isprivatednsenabled
+	IsPrivateDNSEnabled *BoolExpr `json:"IsPrivateDnsEnabled,omitempty"`
 	// PolicyDocument docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument
 	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
 	// RouteTableIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
 	RouteTableIDs *StringListExpr `json:"RouteTableIds,omitempty"`
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
 	// ServiceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
 	ServiceName *StringExpr `json:"ServiceName,omitempty" validate:"dive,required"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+	// VPCEndpointType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype
+	VPCEndpointType *StringExpr `json:"VPCEndpointType,omitempty"`
 	// VPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
 	VPCID *StringExpr `json:"VpcId,omitempty" validate:"dive,required"`
 }
@@ -19625,6 +20161,38 @@ type EC2VPCEndpoint struct {
 func (s EC2VPCEndpoint) CfnResourceType() string {
 	
 	return "AWS::EC2::VPCEndpoint"
+}
+// EC2VPCEndpointConnectionNotification represents the AWS::EC2::VPCEndpointConnectionNotification CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html 
+type EC2VPCEndpointConnectionNotification struct {
+	// ConnectionEvents docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionevents
+	ConnectionEvents *StringListExpr `json:"ConnectionEvents,omitempty" validate:"dive,required"`
+	// ConnectionNotificationArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionnotificationarn
+	ConnectionNotificationArn *StringExpr `json:"ConnectionNotificationArn,omitempty" validate:"dive,required"`
+	// ServiceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-serviceid
+	ServiceID *StringExpr `json:"ServiceId,omitempty"`
+	// VPCEndpointID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-vpcendpointid
+	VPCEndpointID *StringExpr `json:"VPCEndpointId,omitempty"`
+}
+
+// CfnResourceType returns AWS::EC2::VPCEndpointConnectionNotification to implement the ResourceProperties interface
+func (s EC2VPCEndpointConnectionNotification) CfnResourceType() string {
+	
+	return "AWS::EC2::VPCEndpointConnectionNotification"
+}
+// EC2VPCEndpointService represents the AWS::EC2::VPCEndpointService CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html 
+type EC2VPCEndpointService struct {
+	// AcceptanceRequired docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
+	AcceptanceRequired *BoolExpr `json:"AcceptanceRequired,omitempty"`
+	// NetworkLoadBalancerArns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
+	NetworkLoadBalancerArns *StringListExpr `json:"NetworkLoadBalancerArns,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::EC2::VPCEndpointService to implement the ResourceProperties interface
+func (s EC2VPCEndpointService) CfnResourceType() string {
+	
+	return "AWS::EC2::VPCEndpointService"
 }
 // EC2VPCGatewayAttachment represents the AWS::EC2::VPCGatewayAttachment CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html 
@@ -19903,6 +20471,24 @@ type EFSMountTarget struct {
 func (s EFSMountTarget) CfnResourceType() string {
 	
 	return "AWS::EFS::MountTarget"
+}
+// EKSCluster represents the AWS::EKS::Cluster CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html 
+type EKSCluster struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// ResourcesVPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
+	ResourcesVPCConfig *EKSClusterResourcesVPCConfig `json:"ResourcesVpcConfig,omitempty" validate:"dive,required"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version
+	Version *StringExpr `json:"Version,omitempty"`
+}
+
+// CfnResourceType returns AWS::EKS::Cluster to implement the ResourceProperties interface
+func (s EKSCluster) CfnResourceType() string {
+	
+	return "AWS::EKS::Cluster"
 }
 // EMRCluster represents the AWS::EMR::Cluster CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html 
@@ -20826,7 +21412,7 @@ type GuardDutyMaster struct {
 	// DetectorID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-detectorid
 	DetectorID *StringExpr `json:"DetectorId,omitempty" validate:"dive,required"`
 	// InvitationID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-invitationid
-	InvitationID *StringExpr `json:"InvitationId,omitempty" validate:"dive,required"`
+	InvitationID *StringExpr `json:"InvitationId,omitempty"`
 	// MasterID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-masterid
 	MasterID *StringExpr `json:"MasterId,omitempty" validate:"dive,required"`
 }
@@ -21485,6 +22071,134 @@ type LogsSubscriptionFilter struct {
 func (s LogsSubscriptionFilter) CfnResourceType() string {
 	
 	return "AWS::Logs::SubscriptionFilter"
+}
+// NeptuneDBCluster represents the AWS::Neptune::DBCluster CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html 
+type NeptuneDBCluster struct {
+	// AvailabilityZones docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
+	AvailabilityZones *StringListExpr `json:"AvailabilityZones,omitempty"`
+	// BackupRetentionPeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backupretentionperiod
+	BackupRetentionPeriod *IntegerExpr `json:"BackupRetentionPeriod,omitempty"`
+	// DBClusterIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusteridentifier
+	DBClusterIDentifier *StringExpr `json:"DBClusterIdentifier,omitempty"`
+	// DBClusterParameterGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusterparametergroupname
+	DBClusterParameterGroupName *StringExpr `json:"DBClusterParameterGroupName,omitempty"`
+	// DBSubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbsubnetgroupname
+	DBSubnetGroupName *StringExpr `json:"DBSubnetGroupName,omitempty"`
+	// IamAuthEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled
+	IamAuthEnabled *BoolExpr `json:"IamAuthEnabled,omitempty"`
+	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-kmskeyid
+	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-port
+	Port *IntegerExpr `json:"Port,omitempty"`
+	// PreferredBackupWindow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-preferredbackupwindow
+	PreferredBackupWindow *StringExpr `json:"PreferredBackupWindow,omitempty"`
+	// PreferredMaintenanceWindow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-preferredmaintenancewindow
+	PreferredMaintenanceWindow *StringExpr `json:"PreferredMaintenanceWindow,omitempty"`
+	// SnapshotIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-snapshotidentifier
+	SnapshotIDentifier *StringExpr `json:"SnapshotIdentifier,omitempty"`
+	// StorageEncrypted docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-storageencrypted
+	StorageEncrypted *BoolExpr `json:"StorageEncrypted,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// VPCSecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-vpcsecuritygroupids
+	VPCSecurityGroupIDs *StringListExpr `json:"VpcSecurityGroupIds,omitempty"`
+}
+
+// CfnResourceType returns AWS::Neptune::DBCluster to implement the ResourceProperties interface
+func (s NeptuneDBCluster) CfnResourceType() string {
+	
+	return "AWS::Neptune::DBCluster"
+}
+// NeptuneDBClusterParameterGroup represents the AWS::Neptune::DBClusterParameterGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html 
+type NeptuneDBClusterParameterGroup struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html#cfn-neptune-dbclusterparametergroup-description
+	Description *StringExpr `json:"Description,omitempty" validate:"dive,required"`
+	// Family docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html#cfn-neptune-dbclusterparametergroup-family
+	Family *StringExpr `json:"Family,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html#cfn-neptune-dbclusterparametergroup-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Parameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html#cfn-neptune-dbclusterparametergroup-parameters
+	Parameters interface{} `json:"Parameters,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html#cfn-neptune-dbclusterparametergroup-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::Neptune::DBClusterParameterGroup to implement the ResourceProperties interface
+func (s NeptuneDBClusterParameterGroup) CfnResourceType() string {
+	
+	return "AWS::Neptune::DBClusterParameterGroup"
+}
+// NeptuneDBInstance represents the AWS::Neptune::DBInstance CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html 
+type NeptuneDBInstance struct {
+	// AllowMajorVersionUpgrade docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-allowmajorversionupgrade
+	AllowMajorVersionUpgrade *BoolExpr `json:"AllowMajorVersionUpgrade,omitempty"`
+	// AutoMinorVersionUpgrade docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-autominorversionupgrade
+	AutoMinorVersionUpgrade *BoolExpr `json:"AutoMinorVersionUpgrade,omitempty"`
+	// AvailabilityZone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-availabilityzone
+	AvailabilityZone *StringExpr `json:"AvailabilityZone,omitempty"`
+	// DBClusterIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbclusteridentifier
+	DBClusterIDentifier *StringExpr `json:"DBClusterIdentifier,omitempty"`
+	// DBInstanceClass docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbinstanceclass
+	DBInstanceClass *StringExpr `json:"DBInstanceClass,omitempty" validate:"dive,required"`
+	// DBInstanceIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbinstanceidentifier
+	DBInstanceIDentifier *StringExpr `json:"DBInstanceIdentifier,omitempty"`
+	// DBParameterGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbparametergroupname
+	DBParameterGroupName *StringExpr `json:"DBParameterGroupName,omitempty"`
+	// DBSnapshotIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbsnapshotidentifier
+	DBSnapshotIDentifier *StringExpr `json:"DBSnapshotIdentifier,omitempty"`
+	// DBSubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbsubnetgroupname
+	DBSubnetGroupName *StringExpr `json:"DBSubnetGroupName,omitempty"`
+	// PreferredMaintenanceWindow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-preferredmaintenancewindow
+	PreferredMaintenanceWindow *StringExpr `json:"PreferredMaintenanceWindow,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::Neptune::DBInstance to implement the ResourceProperties interface
+func (s NeptuneDBInstance) CfnResourceType() string {
+	
+	return "AWS::Neptune::DBInstance"
+}
+// NeptuneDBParameterGroup represents the AWS::Neptune::DBParameterGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html 
+type NeptuneDBParameterGroup struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-description
+	Description *StringExpr `json:"Description,omitempty" validate:"dive,required"`
+	// Family docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-family
+	Family *StringExpr `json:"Family,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Parameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-parameters
+	Parameters interface{} `json:"Parameters,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::Neptune::DBParameterGroup to implement the ResourceProperties interface
+func (s NeptuneDBParameterGroup) CfnResourceType() string {
+	
+	return "AWS::Neptune::DBParameterGroup"
+}
+// NeptuneDBSubnetGroup represents the AWS::Neptune::DBSubnetGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html 
+type NeptuneDBSubnetGroup struct {
+	// DBSubnetGroupDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html#cfn-neptune-dbsubnetgroup-dbsubnetgroupdescription
+	DBSubnetGroupDescription *StringExpr `json:"DBSubnetGroupDescription,omitempty" validate:"dive,required"`
+	// DBSubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html#cfn-neptune-dbsubnetgroup-dbsubnetgroupname
+	DBSubnetGroupName *StringExpr `json:"DBSubnetGroupName,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html#cfn-neptune-dbsubnetgroup-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html#cfn-neptune-dbsubnetgroup-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::Neptune::DBSubnetGroup to implement the ResourceProperties interface
+func (s NeptuneDBSubnetGroup) CfnResourceType() string {
+	
+	return "AWS::Neptune::DBSubnetGroup"
 }
 // OpsWorksApp represents the AWS::OpsWorks::App CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html 
@@ -22588,6 +23302,126 @@ func (s SSMPatchBaseline) CfnResourceType() string {
 	
 	return "AWS::SSM::PatchBaseline"
 }
+// SSMResourceDataSync represents the AWS::SSM::ResourceDataSync CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html 
+type SSMResourceDataSync struct {
+	// BucketName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
+	BucketName *StringExpr `json:"BucketName,omitempty" validate:"dive,required"`
+	// BucketPrefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
+	BucketPrefix *StringExpr `json:"BucketPrefix,omitempty"`
+	// BucketRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
+	BucketRegion *StringExpr `json:"BucketRegion,omitempty" validate:"dive,required"`
+	// KMSKeyArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
+	KMSKeyArn *StringExpr `json:"KMSKeyArn,omitempty"`
+	// SyncFormat docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
+	SyncFormat *StringExpr `json:"SyncFormat,omitempty" validate:"dive,required"`
+	// SyncName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
+	SyncName *StringExpr `json:"SyncName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::SSM::ResourceDataSync to implement the ResourceProperties interface
+func (s SSMResourceDataSync) CfnResourceType() string {
+	
+	return "AWS::SSM::ResourceDataSync"
+}
+// SageMakerEndpoint represents the AWS::SageMaker::Endpoint CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html 
+type SageMakerEndpoint struct {
+	// EndpointConfigName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointconfigname
+	EndpointConfigName *StringExpr `json:"EndpointConfigName,omitempty" validate:"dive,required"`
+	// EndpointName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointname
+	EndpointName *StringExpr `json:"EndpointName,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::SageMaker::Endpoint to implement the ResourceProperties interface
+func (s SageMakerEndpoint) CfnResourceType() string {
+	
+	return "AWS::SageMaker::Endpoint"
+}
+// SageMakerEndpointConfig represents the AWS::SageMaker::EndpointConfig CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html 
+type SageMakerEndpointConfig struct {
+	// EndpointConfigName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
+	EndpointConfigName *StringExpr `json:"EndpointConfigName,omitempty"`
+	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-kmskeyid
+	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// ProductionVariants docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-productionvariants
+	ProductionVariants *SageMakerEndpointConfigProductionVariantList `json:"ProductionVariants,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::SageMaker::EndpointConfig to implement the ResourceProperties interface
+func (s SageMakerEndpointConfig) CfnResourceType() string {
+	
+	return "AWS::SageMaker::EndpointConfig"
+}
+// SageMakerModel represents the AWS::SageMaker::Model CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html 
+type SageMakerModel struct {
+	// ExecutionRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
+	ExecutionRoleArn *StringExpr `json:"ExecutionRoleArn,omitempty" validate:"dive,required"`
+	// ModelName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname
+	ModelName *StringExpr `json:"ModelName,omitempty"`
+	// PrimaryContainer docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer
+	PrimaryContainer *SageMakerModelContainerDefinition `json:"PrimaryContainer,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// VPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig
+	VPCConfig *SageMakerModelVPCConfig `json:"VpcConfig,omitempty"`
+}
+
+// CfnResourceType returns AWS::SageMaker::Model to implement the ResourceProperties interface
+func (s SageMakerModel) CfnResourceType() string {
+	
+	return "AWS::SageMaker::Model"
+}
+// SageMakerNotebookInstance represents the AWS::SageMaker::NotebookInstance CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html 
+type SageMakerNotebookInstance struct {
+	// DirectInternetAccess docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-directinternetaccess
+	DirectInternetAccess *StringExpr `json:"DirectInternetAccess,omitempty"`
+	// InstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-instancetype
+	InstanceType *StringExpr `json:"InstanceType,omitempty" validate:"dive,required"`
+	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-kmskeyid
+	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// LifecycleConfigName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-lifecycleconfigname
+	LifecycleConfigName *StringExpr `json:"LifecycleConfigName,omitempty"`
+	// NotebookInstanceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-notebookinstancename
+	NotebookInstanceName *StringExpr `json:"NotebookInstanceName,omitempty"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
+	// SubnetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-subnetid
+	SubnetID *StringExpr `json:"SubnetId,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::SageMaker::NotebookInstance to implement the ResourceProperties interface
+func (s SageMakerNotebookInstance) CfnResourceType() string {
+	
+	return "AWS::SageMaker::NotebookInstance"
+}
+// SageMakerNotebookInstanceLifecycleConfig represents the AWS::SageMaker::NotebookInstanceLifecycleConfig CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html 
+type SageMakerNotebookInstanceLifecycleConfig struct {
+	// NotebookInstanceLifecycleConfigName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecycleconfigname
+	NotebookInstanceLifecycleConfigName *StringExpr `json:"NotebookInstanceLifecycleConfigName,omitempty"`
+	// OnCreate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-oncreate
+	OnCreate *SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookList `json:"OnCreate,omitempty"`
+	// OnStart docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-onstart
+	OnStart *SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookList `json:"OnStart,omitempty"`
+}
+
+// CfnResourceType returns AWS::SageMaker::NotebookInstanceLifecycleConfig to implement the ResourceProperties interface
+func (s SageMakerNotebookInstanceLifecycleConfig) CfnResourceType() string {
+	
+	return "AWS::SageMaker::NotebookInstanceLifecycleConfig"
+}
 // ServiceCatalogAcceptedPortfolioShare represents the AWS::ServiceCatalog::AcceptedPortfolioShare CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html 
 type ServiceCatalogAcceptedPortfolioShare struct {
@@ -22879,6 +23713,8 @@ type ServiceDiscoveryService struct {
 	DNSConfig *ServiceDiscoveryServiceDNSConfig `json:"DnsConfig,omitempty" validate:"dive,required"`
 	// HealthCheckConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckconfig
 	HealthCheckConfig *ServiceDiscoveryServiceHealthCheckConfig `json:"HealthCheckConfig,omitempty"`
+	// HealthCheckCustomConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckcustomconfig
+	HealthCheckCustomConfig *ServiceDiscoveryServiceHealthCheckCustomConfig `json:"HealthCheckCustomConfig,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-name
 	Name *StringExpr `json:"Name,omitempty"`
 }
@@ -23163,6 +23999,10 @@ func (s WorkSpacesWorkspace) CfnResourceType() string {
 // NewResourceByType returns a new resource object correspoding with the provided type
 func NewResourceByType(typeName string) ResourceProperties {
 	switch typeName {
+	case "AWS::AmazonMQ::Broker":
+		return &AmazonMQBroker{}
+	case "AWS::AmazonMQ::Configuration":
+		return &AmazonMQConfiguration{}
 	case "AWS::ApiGateway::Account":
 		return &APIGatewayAccount{}
 	case "AWS::ApiGateway::ApiKey":
@@ -23275,6 +24115,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &CodePipelineCustomActionType{}
 	case "AWS::CodePipeline::Pipeline":
 		return &CodePipelinePipeline{}
+	case "AWS::CodePipeline::Webhook":
+		return &CodePipelineWebhook{}
 	case "AWS::Cognito::IdentityPool":
 		return &CognitoIDentityPool{}
 	case "AWS::Cognito::IdentityPoolRoleAttachment":
@@ -23289,8 +24131,12 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &CognitoUserPoolUser{}
 	case "AWS::Cognito::UserPoolUserToGroupAttachment":
 		return &CognitoUserPoolUserToGroupAttachment{}
+	case "AWS::Config::AggregationAuthorization":
+		return &ConfigAggregationAuthorization{}
 	case "AWS::Config::ConfigRule":
 		return &ConfigConfigRule{}
+	case "AWS::Config::ConfigurationAggregator":
+		return &ConfigConfigurationAggregator{}
 	case "AWS::Config::ConfigurationRecorder":
 		return &ConfigConfigurationRecorder{}
 	case "AWS::Config::DeliveryChannel":
@@ -23385,6 +24231,10 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EC2VPCDHCPOptionsAssociation{}
 	case "AWS::EC2::VPCEndpoint":
 		return &EC2VPCEndpoint{}
+	case "AWS::EC2::VPCEndpointConnectionNotification":
+		return &EC2VPCEndpointConnectionNotification{}
+	case "AWS::EC2::VPCEndpointService":
+		return &EC2VPCEndpointService{}
 	case "AWS::EC2::VPCGatewayAttachment":
 		return &EC2VPCGatewayAttachment{}
 	case "AWS::EC2::VPCPeeringConnection":
@@ -23413,6 +24263,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EFSFileSystem{}
 	case "AWS::EFS::MountTarget":
 		return &EFSMountTarget{}
+	case "AWS::EKS::Cluster":
+		return &EKSCluster{}
 	case "AWS::EMR::Cluster":
 		return &EMRCluster{}
 	case "AWS::EMR::InstanceFleetConfig":
@@ -23563,6 +24415,16 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &LogsMetricFilter{}
 	case "AWS::Logs::SubscriptionFilter":
 		return &LogsSubscriptionFilter{}
+	case "AWS::Neptune::DBCluster":
+		return &NeptuneDBCluster{}
+	case "AWS::Neptune::DBClusterParameterGroup":
+		return &NeptuneDBClusterParameterGroup{}
+	case "AWS::Neptune::DBInstance":
+		return &NeptuneDBInstance{}
+	case "AWS::Neptune::DBParameterGroup":
+		return &NeptuneDBParameterGroup{}
+	case "AWS::Neptune::DBSubnetGroup":
+		return &NeptuneDBSubnetGroup{}
 	case "AWS::OpsWorks::App":
 		return &OpsWorksApp{}
 	case "AWS::OpsWorks::ElasticLoadBalancerAttachment":
@@ -23651,6 +24513,18 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &SSMParameter{}
 	case "AWS::SSM::PatchBaseline":
 		return &SSMPatchBaseline{}
+	case "AWS::SSM::ResourceDataSync":
+		return &SSMResourceDataSync{}
+	case "AWS::SageMaker::Endpoint":
+		return &SageMakerEndpoint{}
+	case "AWS::SageMaker::EndpointConfig":
+		return &SageMakerEndpointConfig{}
+	case "AWS::SageMaker::Model":
+		return &SageMakerModel{}
+	case "AWS::SageMaker::NotebookInstance":
+		return &SageMakerNotebookInstance{}
+	case "AWS::SageMaker::NotebookInstanceLifecycleConfig":
+		return &SageMakerNotebookInstanceLifecycleConfig{}
 	case "AWS::ServiceCatalog::AcceptedPortfolioShare":
 		return &ServiceCatalogAcceptedPortfolioShare{}
 	case "AWS::ServiceCatalog::CloudFormationProduct":
