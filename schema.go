@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 2.5.0
-// SOURCE CODE SHA: e40a034597a3952017f3bb0c75caa8491616dff1
-// GENERATED: 2018-07-15 14:00:59.673559569 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 2.6.0
+// SOURCE CODE SHA: accd0c0dac9d6a1d6ce1aab8f862d182dd3ed787
+// GENERATED: 2018-09-03 17:24:55.806179 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "2.5.0"
+const ResourceSpecificationVersion = "2.6.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -56,6 +56,34 @@ func (l *AmazonMQBrokerConfigurationIDList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = AmazonMQBrokerConfigurationIDList(list)
+		return nil
+	}
+	return err
+}
+// AmazonMQBrokerLogList represents the AWS::AmazonMQ::Broker.LogList CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html 
+type AmazonMQBrokerLogList struct {
+	// Audit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html#cfn-amazonmq-broker-loglist-audit
+	Audit *BoolExpr `json:"Audit,omitempty"`
+	// General docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html#cfn-amazonmq-broker-loglist-general
+	General *BoolExpr `json:"General,omitempty"`
+}
+
+// AmazonMQBrokerLogListList represents a list of AmazonMQBrokerLogList
+type AmazonMQBrokerLogListList []AmazonMQBrokerLogList
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AmazonMQBrokerLogListList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AmazonMQBrokerLogList{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AmazonMQBrokerLogListList{item}
+		return nil
+	}
+	list := []AmazonMQBrokerLogList{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AmazonMQBrokerLogListList(list)
 		return nil
 	}
 	return err
@@ -2987,12 +3015,16 @@ func (l *CloudWatchAlarmDimensionList) UnmarshalJSON(buf []byte) error {
 // CodeBuildProjectArtifacts represents the AWS::CodeBuild::Project.Artifacts CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html 
 type CodeBuildProjectArtifacts struct {
+	// EncryptionDisabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-encryptiondisabled
+	EncryptionDisabled *BoolExpr `json:"EncryptionDisabled,omitempty"`
 	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-location
 	Location *StringExpr `json:"Location,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// NamespaceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-namespacetype
 	NamespaceType *StringExpr `json:"NamespaceType,omitempty"`
+	// OverrideArtifactName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-overrideartifactname
+	OverrideArtifactName *BoolExpr `json:"OverrideArtifactName,omitempty"`
 	// Packaging docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-packaging
 	Packaging *StringExpr `json:"Packaging,omitempty"`
 	// Path docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-path
@@ -4868,6 +4900,32 @@ func (l *ConfigDeliveryChannelConfigSnapshotDeliveryPropertiesList) UnmarshalJSO
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ConfigDeliveryChannelConfigSnapshotDeliveryPropertiesList(list)
+		return nil
+	}
+	return err
+}
+// DAXClusterSSESpecification represents the AWS::DAX::Cluster.SSESpecification CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html 
+type DAXClusterSSESpecification struct {
+	// SSEEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html#cfn-dax-cluster-ssespecification-sseenabled
+	SSEEnabled *BoolExpr `json:"SSEEnabled,omitempty"`
+}
+
+// DAXClusterSSESpecificationList represents a list of DAXClusterSSESpecification
+type DAXClusterSSESpecificationList []DAXClusterSSESpecification
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *DAXClusterSSESpecificationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := DAXClusterSSESpecification{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = DAXClusterSSESpecificationList{item}
+		return nil
+	}
+	list := []DAXClusterSSESpecification{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = DAXClusterSSESpecificationList(list)
 		return nil
 	}
 	return err
@@ -8110,6 +8168,40 @@ func (l *EMRClusterJobFlowInstancesConfigList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// EMRClusterKerberosAttributes represents the AWS::EMR::Cluster.KerberosAttributes CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html 
+type EMRClusterKerberosAttributes struct {
+	// ADDomainJoinPassword docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-addomainjoinpassword
+	ADDomainJoinPassword *StringExpr `json:"ADDomainJoinPassword,omitempty"`
+	// ADDomainJoinUser docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-addomainjoinuser
+	ADDomainJoinUser *StringExpr `json:"ADDomainJoinUser,omitempty"`
+	// CrossRealmTrustPrincipalPassword docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-crossrealmtrustprincipalpassword
+	CrossRealmTrustPrincipalPassword *StringExpr `json:"CrossRealmTrustPrincipalPassword,omitempty"`
+	// KdcAdminPassword docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-kdcadminpassword
+	KdcAdminPassword *StringExpr `json:"KdcAdminPassword,omitempty" validate:"dive,required"`
+	// Realm docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-realm
+	Realm *StringExpr `json:"Realm,omitempty" validate:"dive,required"`
+}
+
+// EMRClusterKerberosAttributesList represents a list of EMRClusterKerberosAttributes
+type EMRClusterKerberosAttributesList []EMRClusterKerberosAttributes
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EMRClusterKerberosAttributesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EMRClusterKerberosAttributes{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EMRClusterKerberosAttributesList{item}
+		return nil
+	}
+	list := []EMRClusterKerberosAttributes{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EMRClusterKerberosAttributesList(list)
+		return nil
+	}
+	return err
+}
 // EMRClusterMetricDimension represents the AWS::EMR::Cluster.MetricDimension CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-metricdimension.html 
 type EMRClusterMetricDimension struct {
@@ -10290,6 +10382,64 @@ func (l *GlueClassifierGrokClassifierList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = GlueClassifierGrokClassifierList(list)
+		return nil
+	}
+	return err
+}
+// GlueClassifierJSONClassifier represents the AWS::Glue::Classifier.JsonClassifier CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html 
+type GlueClassifierJSONClassifier struct {
+	// JSONPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+	JSONPath *StringExpr `json:"JsonPath,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+	Name *StringExpr `json:"Name,omitempty"`
+}
+
+// GlueClassifierJSONClassifierList represents a list of GlueClassifierJSONClassifier
+type GlueClassifierJSONClassifierList []GlueClassifierJSONClassifier
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GlueClassifierJSONClassifierList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GlueClassifierJSONClassifier{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GlueClassifierJSONClassifierList{item}
+		return nil
+	}
+	list := []GlueClassifierJSONClassifier{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GlueClassifierJSONClassifierList(list)
+		return nil
+	}
+	return err
+}
+// GlueClassifierXMLClassifier represents the AWS::Glue::Classifier.XMLClassifier CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html 
+type GlueClassifierXMLClassifier struct {
+	// Classification docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification
+	Classification *StringExpr `json:"Classification,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// RowTag docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag
+	RowTag *StringExpr `json:"RowTag,omitempty" validate:"dive,required"`
+}
+
+// GlueClassifierXMLClassifierList represents a list of GlueClassifierXMLClassifier
+type GlueClassifierXMLClassifierList []GlueClassifierXMLClassifier
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GlueClassifierXMLClassifierList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GlueClassifierXMLClassifier{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GlueClassifierXMLClassifierList{item}
+		return nil
+	}
+	list := []GlueClassifierXMLClassifier{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GlueClassifierXMLClassifierList(list)
 		return nil
 	}
 	return err
@@ -17104,7 +17254,7 @@ func (l *WAFSQLInjectionMatchSetSQLInjectionMatchTupleList) UnmarshalJSON(buf []
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html 
 type WAFWebACLActivatedRule struct {
 	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-action
-	Action *WAFWebACLWafAction `json:"Action,omitempty" validate:"dive,required"`
+	Action *WAFWebACLWafAction `json:"Action,omitempty"`
 	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-priority
 	Priority *IntegerExpr `json:"Priority,omitempty" validate:"dive,required"`
 	// RuleID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-ruleid
@@ -17561,12 +17711,12 @@ func (l *WAFRegionalXSSMatchSetXSSMatchTupleList) UnmarshalJSON(buf []byte) erro
 	return err
 }
 // Tag represents the Tag CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html 
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationsubnetgroup-tag.html 
 type Tag struct {
-	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
-	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationsubnetgroup-tag.html#cfn-dms-replicationsubnetgroup-tag-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationsubnetgroup-tag.html#cfn-dms-replicationsubnetgroup-tag-value
+	Value *StringExpr `json:"Value,omitempty"`
 }
 
 // TagList represents a list of Tag
@@ -17614,6 +17764,8 @@ type AmazonMQBroker struct {
 	EngineVersion *StringExpr `json:"EngineVersion,omitempty" validate:"dive,required"`
 	// HostInstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 	HostInstanceType *StringExpr `json:"HostInstanceType,omitempty" validate:"dive,required"`
+	// Logs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
+	Logs *AmazonMQBrokerLogList `json:"Logs,omitempty"`
 	// MaintenanceWindowStartTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
 	MaintenanceWindowStartTime *AmazonMQBrokerMaintenanceWindow `json:"MaintenanceWindowStartTime,omitempty"`
 	// PubliclyAccessible docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible
@@ -19191,6 +19343,8 @@ type DAXCluster struct {
 	PreferredMaintenanceWindow *StringExpr `json:"PreferredMaintenanceWindow,omitempty"`
 	// ReplicationFactor docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-replicationfactor
 	ReplicationFactor *IntegerExpr `json:"ReplicationFactor,omitempty" validate:"dive,required"`
+	// SSESpecification docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-ssespecification
+	SSESpecification *DAXClusterSSESpecification `json:"SSESpecification,omitempty"`
 	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-securitygroupids
 	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
 	// SubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-subnetgroupname
@@ -20194,6 +20348,20 @@ func (s EC2VPCEndpointService) CfnResourceType() string {
 	
 	return "AWS::EC2::VPCEndpointService"
 }
+// EC2VPCEndpointServicePermissions represents the AWS::EC2::VPCEndpointServicePermissions CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html 
+type EC2VPCEndpointServicePermissions struct {
+	// AllowedPrincipals docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-allowedprincipals
+	AllowedPrincipals *StringListExpr `json:"AllowedPrincipals,omitempty"`
+	// ServiceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid
+	ServiceID *StringExpr `json:"ServiceId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::EC2::VPCEndpointServicePermissions to implement the ResourceProperties interface
+func (s EC2VPCEndpointServicePermissions) CfnResourceType() string {
+	
+	return "AWS::EC2::VPCEndpointServicePermissions"
+}
 // EC2VPCGatewayAttachment represents the AWS::EC2::VPCGatewayAttachment CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html 
 type EC2VPCGatewayAttachment struct {
@@ -20215,6 +20383,8 @@ func (s EC2VPCGatewayAttachment) CfnResourceType() string {
 type EC2VPCPeeringConnection struct {
 	// PeerOwnerID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerownerid
 	PeerOwnerID *StringExpr `json:"PeerOwnerId,omitempty"`
+	// PeerRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerregion
+	PeerRegion *StringExpr `json:"PeerRegion,omitempty"`
 	// PeerRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerrolearn
 	PeerRoleArn *StringExpr `json:"PeerRoleArn,omitempty"`
 	// PeerVPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peervpcid
@@ -20447,6 +20617,10 @@ type EFSFileSystem struct {
 	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
 	// PerformanceMode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
 	PerformanceMode *StringExpr `json:"PerformanceMode,omitempty"`
+	// ProvisionedThroughputInMibps docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-provisionedthroughputinmibps
+	ProvisionedThroughputInMibps *IntegerExpr `json:"ProvisionedThroughputInMibps,omitempty"`
+	// ThroughputMode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-throughputmode
+	ThroughputMode *StringExpr `json:"ThroughputMode,omitempty"`
 }
 
 // CfnResourceType returns AWS::EFS::FileSystem to implement the ResourceProperties interface
@@ -20511,6 +20685,8 @@ type EMRCluster struct {
 	Instances *EMRClusterJobFlowInstancesConfig `json:"Instances,omitempty" validate:"dive,required"`
 	// JobFlowRole docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-jobflowrole
 	JobFlowRole *StringExpr `json:"JobFlowRole,omitempty" validate:"dive,required"`
+	// KerberosAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-kerberosattributes
+	KerberosAttributes *EMRClusterKerberosAttributes `json:"KerberosAttributes,omitempty"`
 	// LogURI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
 	LogURI *StringExpr `json:"LogUri,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
@@ -21177,6 +21353,10 @@ func (s GameLiftFleet) CfnResourceType() string {
 type GlueClassifier struct {
 	// GrokClassifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-grokclassifier
 	GrokClassifier *GlueClassifierGrokClassifier `json:"GrokClassifier,omitempty"`
+	// JSONClassifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-jsonclassifier
+	JSONClassifier *GlueClassifierJSONClassifier `json:"JsonClassifier,omitempty"`
+	// XMLClassifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-xmlclassifier
+	XMLClassifier *GlueClassifierXMLClassifier `json:"XMLClassifier,omitempty"`
 }
 
 // CfnResourceType returns AWS::Glue::Classifier to implement the ResourceProperties interface
@@ -21203,6 +21383,8 @@ func (s GlueConnection) CfnResourceType() string {
 type GlueCrawler struct {
 	// Classifiers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers
 	Classifiers *StringListExpr `json:"Classifiers,omitempty"`
+	// Configuration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration
+	Configuration *StringExpr `json:"Configuration,omitempty"`
 	// DatabaseName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-databasename
 	DatabaseName *StringExpr `json:"DatabaseName,omitempty" validate:"dive,required"`
 	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-description
@@ -21579,6 +21761,22 @@ type IAMRole struct {
 func (s IAMRole) CfnResourceType() string {
 	
 	return "AWS::IAM::Role"
+}
+// IAMServiceLinkedRole represents the AWS::IAM::ServiceLinkedRole CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html 
+type IAMServiceLinkedRole struct {
+	// AWSServiceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-awsservicename
+	AWSServiceName *StringExpr `json:"AWSServiceName,omitempty" validate:"dive,required"`
+	// CustomSuffix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-customsuffix
+	CustomSuffix *StringExpr `json:"CustomSuffix,omitempty"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-description
+	Description *StringExpr `json:"Description,omitempty"`
+}
+
+// CfnResourceType returns AWS::IAM::ServiceLinkedRole to implement the ResourceProperties interface
+func (s IAMServiceLinkedRole) CfnResourceType() string {
+	
+	return "AWS::IAM::ServiceLinkedRole"
 }
 // IAMUser represents the AWS::IAM::User CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html 
@@ -23083,10 +23281,18 @@ func (s SESTemplate) CfnResourceType() string {
 // SNSSubscription represents the AWS::SNS::Subscription CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html 
 type SNSSubscription struct {
+	// DeliveryPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-deliverypolicy
+	DeliveryPolicy interface{} `json:"DeliveryPolicy,omitempty"`
 	// Endpoint docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-endpoint
 	Endpoint *StringExpr `json:"Endpoint,omitempty"`
+	// FilterPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicy
+	FilterPolicy interface{} `json:"FilterPolicy,omitempty"`
 	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
 	Protocol *StringExpr `json:"Protocol,omitempty"`
+	// RawMessageDelivery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery
+	RawMessageDelivery *BoolExpr `json:"RawMessageDelivery,omitempty"`
+	// Region docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
+	Region *StringExpr `json:"Region,omitempty"`
 	// TopicArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
 	TopicArn *StringExpr `json:"TopicArn,omitempty"`
 }
@@ -23149,6 +23355,8 @@ type SQSQueue struct {
 	ReceiveMessageWaitTimeSeconds *IntegerExpr `json:"ReceiveMessageWaitTimeSeconds,omitempty"`
 	// RedrivePolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redrive
 	RedrivePolicy interface{} `json:"RedrivePolicy,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#cfn-sqs-queue-tags
+	Tags *TagList `json:"Tags,omitempty"`
 	// VisibilityTimeout docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-visiblitytimeout
 	VisibilityTimeout *IntegerExpr `json:"VisibilityTimeout,omitempty"`
 }
@@ -24235,6 +24443,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EC2VPCEndpointConnectionNotification{}
 	case "AWS::EC2::VPCEndpointService":
 		return &EC2VPCEndpointService{}
+	case "AWS::EC2::VPCEndpointServicePermissions":
+		return &EC2VPCEndpointServicePermissions{}
 	case "AWS::EC2::VPCGatewayAttachment":
 		return &EC2VPCGatewayAttachment{}
 	case "AWS::EC2::VPCPeeringConnection":
@@ -24359,6 +24569,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &IAMPolicy{}
 	case "AWS::IAM::Role":
 		return &IAMRole{}
+	case "AWS::IAM::ServiceLinkedRole":
+		return &IAMServiceLinkedRole{}
 	case "AWS::IAM::User":
 		return &IAMUser{}
 	case "AWS::IAM::UserToGroupAddition":
