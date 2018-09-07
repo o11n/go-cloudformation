@@ -101,8 +101,8 @@ type ResourceProperties interface {
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-transform.html
 // for more information.
 type FnTransform struct {
-	Name       string `json:",omitempty"`
-	Parameters map[string]*StringExpr
+	Name       *StringExpr `json:",omitempty"`
+	Parameters map[string]interface{}
 }
 
 // Resource represents a resource in a cloudformation template. It contains resource
