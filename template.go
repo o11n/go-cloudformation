@@ -10,6 +10,7 @@ import (
 func NewTemplate() *Template {
 	return &Template{
 		AWSTemplateFormatVersion: "2010-09-09",
+		Transform:                []string{},
 		Mappings:                 map[string]*Mapping{},
 		Parameters:               map[string]*Parameter{},
 		Resources:                map[string]*Resource{},
@@ -24,6 +25,7 @@ type Template struct {
 	Description              string                 `json:",omitempty"`
 	Mappings                 map[string]*Mapping    `json:",omitempty"`
 	Parameters               map[string]*Parameter  `json:",omitempty"`
+	Transform                []string               `json:",omitempty"`
 	Resources                map[string]*Resource   `json:",omitempty"`
 	Outputs                  map[string]*Output     `json:",omitempty"`
 	Conditions               map[string]interface{} `json:",omitempty"`
@@ -95,6 +97,14 @@ type ResourceProperties interface {
 	CfnResourceType() string
 }
 
+// FnTransform represents the Fn::Transform intrinsic function. See:
+// https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-transform.html
+// for more information.
+type FnTransform struct {
+	Name       string `json:",omitempty"`
+	Parameters map[string]*StringExpr
+}
+
 // Resource represents a resource in a cloudformation template. It contains resource
 // metadata and, in Properties, a struct that implements ResourceProperties which
 // contains the properties of the resource.
@@ -106,6 +116,7 @@ type Resource struct {
 	UpdatePolicy   *UpdatePolicy
 	Condition      string
 	Properties     ResourceProperties
+	Transform      *FnTransform
 }
 
 // MarshalJSON returns a JSON representation of the object
@@ -118,6 +129,7 @@ func (r Resource) MarshalJSON() ([]byte, error) {
 		Metadata       map[string]interface{} `json:",omitempty"`
 		UpdatePolicy   *UpdatePolicy          `json:",omitempty"`
 		Condition      string                 `json:",omitempty"`
+		Transform      *FnTransform           `json:",omitempty"`
 		Properties     ResourceProperties
 	}{
 		Type:           r.Properties.CfnResourceType(),
@@ -127,6 +139,7 @@ func (r Resource) MarshalJSON() ([]byte, error) {
 		Metadata:       r.Metadata,
 		UpdatePolicy:   r.UpdatePolicy,
 		Condition:      r.Condition,
+		Transform:      r.Transform,
 		Properties:     r.Properties,
 	})
 }

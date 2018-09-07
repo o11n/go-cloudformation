@@ -16,42 +16,42 @@ func makeTemplateTheOldWay() *cf.Template {
 	}
 
 	t.AddResource("ServerLoadBalancer", cf.ElasticLoadBalancingLoadBalancer{
-		ConnectionDrainingPolicy: &cf.ElasticLoadBalancingConnectionDrainingPolicy{
+		ConnectionDrainingPolicy: &cf.ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy{
 			Enabled: cf.Bool(true),
 			Timeout: cf.Integer(30),
 		},
 		CrossZone: cf.Bool(true),
-		HealthCheck: &cf.ElasticLoadBalancingHealthCheck{
+		HealthCheck: &cf.ElasticLoadBalancingLoadBalancerHealthCheck{
 			HealthyThreshold:   cf.String("2"),
 			Interval:           cf.String("60"),
 			Target:             cf.String("HTTP:80/"),
 			Timeout:            cf.String("5"),
 			UnhealthyThreshold: cf.String("2"),
 		},
-		Listeners: &cf.ElasticLoadBalancingListenerList{
-			cf.ElasticLoadBalancingListener{
+		Listeners: &cf.ElasticLoadBalancingLoadBalancerListenersList{
+			cf.ElasticLoadBalancingLoadBalancerListeners{
 				InstancePort:     cf.String("8000"),
 				InstanceProtocol: cf.String("TCP"),
 				LoadBalancerPort: cf.String("443"),
 				Protocol:         cf.String("SSL"),
-				SSLCertificateId: cf.Join("",
+				SSLCertificateID: cf.Join("",
 					*cf.String("arn:aws:iam::"),
 					*cf.Ref("AWS::AccountID").String(),
 					*cf.String(":server-certificate/"),
 					*cf.Ref("DnsName").String()).String(),
 			},
 		},
-		Policies: &cf.ElasticLoadBalancingPolicyList{
-			cf.ElasticLoadBalancingPolicy{
+		Policies: &cf.ElasticLoadBalancingLoadBalancerPoliciesList{
+			cf.ElasticLoadBalancingLoadBalancerPolicies{
 				PolicyName: cf.String("EnableProxyProtocol"),
 				PolicyType: cf.String("ProxyProtocolPolicyType"),
-				Attributes: []map[string]interface{}{
+				Attributes: []interface{}{
 					map[string]interface{}{
 						"Name":  "ProxyProtocol",
 						"Value": "true",
 					},
 				},
-				InstancePorts: []int{8000},
+				InstancePorts: cf.StringList(*cf.String("8000")),
 			},
 		},
 		Subnets: cf.StringList(
@@ -61,6 +61,5 @@ func makeTemplateTheOldWay() *cf.Template {
 		),
 		SecurityGroups: cf.StringList(*cf.Ref("LoadBalancerSecurityGroup").String()),
 	})
-
 	return t
 }

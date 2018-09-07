@@ -48,8 +48,8 @@ func makeTemplate() *cf.Template {
 			cf.ElasticLoadBalancingLoadBalancerPolicies{
 				PolicyName: cf.String("EnableProxyProtocol"),
 				PolicyType: cf.String("ProxyProtocolPolicyType"),
-				Attributes: []*interface{}{
-					&map[string]interface{}{
+				Attributes: []interface{}{
+					map[string]interface{}{
 						"Name":  "ProxyProtocol",
 						"Value": "true",
 					},

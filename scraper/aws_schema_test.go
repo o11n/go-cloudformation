@@ -266,6 +266,8 @@ func writePropertyFieldDefinition(t *testing.T,
 				} else if "String" == propertyTypeProperties.ItemType ||
 					"String" == propertyTypeProperties.PrimitiveItemType {
 					golangType = "*StringListExpr"
+				} else if "Json" == propertyTypeProperties.PrimitiveItemType {
+					golangType = "[]interface{}"
 				} else if "" != propertyTypeProperties.PrimitiveItemType {
 					golangType = fmt.Sprintf("[]*%s", golangPrimitiveValueType(propertyTypeProperties.PrimitiveItemType))
 				} else {
