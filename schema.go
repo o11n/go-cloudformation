@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 2.8.0
-// SOURCE CODE SHA: 9c0b967a1b12060d76ce1179c13c3ed598e19fb8
-// GENERATED: 2018-10-02 13:02:04.528179 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 2.11.0
+// SOURCE CODE SHA: eeee4706c65f3d969bc24fe8f9478ace48e59d6d
+// GENERATED: 2018-11-02 01:39:33.669751 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "2.8.0"
+const ResourceSpecificationVersion = "2.11.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -790,6 +790,258 @@ func (l *APIGatewayUsagePlanThrottleSettingsList) UnmarshalJSON(buf []byte) erro
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = APIGatewayUsagePlanThrottleSettingsList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamDirectoryConfigServiceAccountCredentials represents the AWS::AppStream::DirectoryConfig.ServiceAccountCredentials CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html 
+type AppStreamDirectoryConfigServiceAccountCredentials struct {
+	// AccountName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountname
+	AccountName *StringExpr `json:"AccountName,omitempty" validate:"dive,required"`
+	// AccountPassword docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountpassword
+	AccountPassword *StringExpr `json:"AccountPassword,omitempty" validate:"dive,required"`
+}
+
+// AppStreamDirectoryConfigServiceAccountCredentialsList represents a list of AppStreamDirectoryConfigServiceAccountCredentials
+type AppStreamDirectoryConfigServiceAccountCredentialsList []AppStreamDirectoryConfigServiceAccountCredentials
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamDirectoryConfigServiceAccountCredentialsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamDirectoryConfigServiceAccountCredentials{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamDirectoryConfigServiceAccountCredentialsList{item}
+		return nil
+	}
+	list := []AppStreamDirectoryConfigServiceAccountCredentials{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamDirectoryConfigServiceAccountCredentialsList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamFleetComputeCapacity represents the AWS::AppStream::Fleet.ComputeCapacity CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html 
+type AppStreamFleetComputeCapacity struct {
+	// DesiredInstances docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredinstances
+	DesiredInstances *IntegerExpr `json:"DesiredInstances,omitempty" validate:"dive,required"`
+}
+
+// AppStreamFleetComputeCapacityList represents a list of AppStreamFleetComputeCapacity
+type AppStreamFleetComputeCapacityList []AppStreamFleetComputeCapacity
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamFleetComputeCapacityList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamFleetComputeCapacity{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamFleetComputeCapacityList{item}
+		return nil
+	}
+	list := []AppStreamFleetComputeCapacity{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamFleetComputeCapacityList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamFleetDomainJoinInfo represents the AWS::AppStream::Fleet.DomainJoinInfo CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html 
+type AppStreamFleetDomainJoinInfo struct {
+	// DirectoryName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html#cfn-appstream-fleet-domainjoininfo-directoryname
+	DirectoryName *StringExpr `json:"DirectoryName,omitempty"`
+	// OrganizationalUnitDistinguishedName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html#cfn-appstream-fleet-domainjoininfo-organizationalunitdistinguishedname
+	OrganizationalUnitDistinguishedName *StringExpr `json:"OrganizationalUnitDistinguishedName,omitempty"`
+}
+
+// AppStreamFleetDomainJoinInfoList represents a list of AppStreamFleetDomainJoinInfo
+type AppStreamFleetDomainJoinInfoList []AppStreamFleetDomainJoinInfo
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamFleetDomainJoinInfoList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamFleetDomainJoinInfo{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamFleetDomainJoinInfoList{item}
+		return nil
+	}
+	list := []AppStreamFleetDomainJoinInfo{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamFleetDomainJoinInfoList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamFleetVPCConfig represents the AWS::AppStream::Fleet.VpcConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html 
+type AppStreamFleetVPCConfig struct {
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+}
+
+// AppStreamFleetVPCConfigList represents a list of AppStreamFleetVPCConfig
+type AppStreamFleetVPCConfigList []AppStreamFleetVPCConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamFleetVPCConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamFleetVPCConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamFleetVPCConfigList{item}
+		return nil
+	}
+	list := []AppStreamFleetVPCConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamFleetVPCConfigList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamImageBuilderDomainJoinInfo represents the AWS::AppStream::ImageBuilder.DomainJoinInfo CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html 
+type AppStreamImageBuilderDomainJoinInfo struct {
+	// DirectoryName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-directoryname
+	DirectoryName *StringExpr `json:"DirectoryName,omitempty"`
+	// OrganizationalUnitDistinguishedName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-organizationalunitdistinguishedname
+	OrganizationalUnitDistinguishedName *StringExpr `json:"OrganizationalUnitDistinguishedName,omitempty"`
+}
+
+// AppStreamImageBuilderDomainJoinInfoList represents a list of AppStreamImageBuilderDomainJoinInfo
+type AppStreamImageBuilderDomainJoinInfoList []AppStreamImageBuilderDomainJoinInfo
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamImageBuilderDomainJoinInfoList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamImageBuilderDomainJoinInfo{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamImageBuilderDomainJoinInfoList{item}
+		return nil
+	}
+	list := []AppStreamImageBuilderDomainJoinInfo{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamImageBuilderDomainJoinInfoList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamImageBuilderVPCConfig represents the AWS::AppStream::ImageBuilder.VpcConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html 
+type AppStreamImageBuilderVPCConfig struct {
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+}
+
+// AppStreamImageBuilderVPCConfigList represents a list of AppStreamImageBuilderVPCConfig
+type AppStreamImageBuilderVPCConfigList []AppStreamImageBuilderVPCConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamImageBuilderVPCConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamImageBuilderVPCConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamImageBuilderVPCConfigList{item}
+		return nil
+	}
+	list := []AppStreamImageBuilderVPCConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamImageBuilderVPCConfigList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamStackApplicationSettings represents the AWS::AppStream::Stack.ApplicationSettings CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html 
+type AppStreamStackApplicationSettings struct {
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty" validate:"dive,required"`
+	// SettingsGroup docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-settingsgroup
+	SettingsGroup *StringExpr `json:"SettingsGroup,omitempty"`
+}
+
+// AppStreamStackApplicationSettingsList represents a list of AppStreamStackApplicationSettings
+type AppStreamStackApplicationSettingsList []AppStreamStackApplicationSettings
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamStackApplicationSettingsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamStackApplicationSettings{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamStackApplicationSettingsList{item}
+		return nil
+	}
+	list := []AppStreamStackApplicationSettings{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamStackApplicationSettingsList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamStackStorageConnector represents the AWS::AppStream::Stack.StorageConnector CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html 
+type AppStreamStackStorageConnector struct {
+	// ConnectorType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-connectortype
+	ConnectorType *StringExpr `json:"ConnectorType,omitempty" validate:"dive,required"`
+	// Domains docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-domains
+	Domains *StringListExpr `json:"Domains,omitempty"`
+	// ResourceIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-resourceidentifier
+	ResourceIDentifier *StringExpr `json:"ResourceIdentifier,omitempty"`
+}
+
+// AppStreamStackStorageConnectorList represents a list of AppStreamStackStorageConnector
+type AppStreamStackStorageConnectorList []AppStreamStackStorageConnector
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamStackStorageConnectorList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamStackStorageConnector{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamStackStorageConnectorList{item}
+		return nil
+	}
+	list := []AppStreamStackStorageConnector{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamStackStorageConnectorList(list)
+		return nil
+	}
+	return err
+}
+// AppStreamStackUserSetting represents the AWS::AppStream::Stack.UserSetting CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html 
+type AppStreamStackUserSetting struct {
+	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-action
+	Action *StringExpr `json:"Action,omitempty" validate:"dive,required"`
+	// Permission docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-permission
+	Permission *StringExpr `json:"Permission,omitempty" validate:"dive,required"`
+}
+
+// AppStreamStackUserSettingList represents a list of AppStreamStackUserSetting
+type AppStreamStackUserSettingList []AppStreamStackUserSetting
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppStreamStackUserSettingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppStreamStackUserSetting{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppStreamStackUserSettingList{item}
+		return nil
+	}
+	list := []AppStreamStackUserSetting{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppStreamStackUserSettingList(list)
 		return nil
 	}
 	return err
@@ -10804,6 +11056,36 @@ func (l *ElasticsearchDomainVPCOptionsList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// EventsEventBusPolicyCondition represents the AWS::Events::EventBusPolicy.Condition CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html 
+type EventsEventBusPolicyCondition struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-type
+	Type *StringExpr `json:"Type,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// EventsEventBusPolicyConditionList represents a list of EventsEventBusPolicyCondition
+type EventsEventBusPolicyConditionList []EventsEventBusPolicyCondition
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EventsEventBusPolicyConditionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EventsEventBusPolicyCondition{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EventsEventBusPolicyConditionList{item}
+		return nil
+	}
+	list := []EventsEventBusPolicyCondition{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EventsEventBusPolicyConditionList(list)
+		return nil
+	}
+	return err
+}
 // EventsRuleEcsParameters represents the AWS::Events::Rule.EcsParameters CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html 
 type EventsRuleEcsParameters struct {
@@ -17112,6 +17394,34 @@ func (l *SSMAssociationTargetList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// SSMMaintenanceWindowTargetTargets represents the AWS::SSM::MaintenanceWindowTarget.Targets CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html 
+type SSMMaintenanceWindowTargetTargets struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Values docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values
+	Values *StringListExpr `json:"Values,omitempty"`
+}
+
+// SSMMaintenanceWindowTargetTargetsList represents a list of SSMMaintenanceWindowTargetTargets
+type SSMMaintenanceWindowTargetTargetsList []SSMMaintenanceWindowTargetTargets
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SSMMaintenanceWindowTargetTargetsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SSMMaintenanceWindowTargetTargets{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SSMMaintenanceWindowTargetTargetsList{item}
+		return nil
+	}
+	list := []SSMMaintenanceWindowTargetTargets{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SSMMaintenanceWindowTargetTargetsList(list)
+		return nil
+	}
+	return err
+}
 // SSMMaintenanceWindowTaskLoggingInfo represents the AWS::SSM::MaintenanceWindowTask.LoggingInfo CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html 
 type SSMMaintenanceWindowTaskLoggingInfo struct {
@@ -18976,6 +19286,170 @@ type APIGatewayVPCLink struct {
 func (s APIGatewayVPCLink) CfnResourceType() string {
 	
 	return "AWS::ApiGateway::VpcLink"
+}
+// AppStreamDirectoryConfig represents the AWS::AppStream::DirectoryConfig CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html 
+type AppStreamDirectoryConfig struct {
+	// DirectoryName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-directoryname
+	DirectoryName *StringExpr `json:"DirectoryName,omitempty" validate:"dive,required"`
+	// OrganizationalUnitDistinguishedNames docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-organizationalunitdistinguishednames
+	OrganizationalUnitDistinguishedNames *StringListExpr `json:"OrganizationalUnitDistinguishedNames,omitempty" validate:"dive,required"`
+	// ServiceAccountCredentials docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-serviceaccountcredentials
+	ServiceAccountCredentials *AppStreamDirectoryConfigServiceAccountCredentials `json:"ServiceAccountCredentials,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppStream::DirectoryConfig to implement the ResourceProperties interface
+func (s AppStreamDirectoryConfig) CfnResourceType() string {
+	
+	return "AWS::AppStream::DirectoryConfig"
+}
+// AppStreamFleet represents the AWS::AppStream::Fleet CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html 
+type AppStreamFleet struct {
+	// ComputeCapacity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-computecapacity
+	ComputeCapacity *AppStreamFleetComputeCapacity `json:"ComputeCapacity,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// DisconnectTimeoutInSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-disconnecttimeoutinseconds
+	DisconnectTimeoutInSeconds *IntegerExpr `json:"DisconnectTimeoutInSeconds,omitempty"`
+	// DisplayName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-displayname
+	DisplayName *StringExpr `json:"DisplayName,omitempty"`
+	// DomainJoinInfo docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-domainjoininfo
+	DomainJoinInfo *AppStreamFleetDomainJoinInfo `json:"DomainJoinInfo,omitempty"`
+	// EnableDefaultInternetAccess docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-enabledefaultinternetaccess
+	EnableDefaultInternetAccess *BoolExpr `json:"EnableDefaultInternetAccess,omitempty"`
+	// FleetType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
+	FleetType *StringExpr `json:"FleetType,omitempty"`
+	// ImageArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
+	ImageArn *StringExpr `json:"ImageArn,omitempty"`
+	// ImageName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagename
+	ImageName *StringExpr `json:"ImageName,omitempty"`
+	// InstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-instancetype
+	InstanceType *StringExpr `json:"InstanceType,omitempty" validate:"dive,required"`
+	// MaxUserDurationInSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxuserdurationinseconds
+	MaxUserDurationInSeconds *IntegerExpr `json:"MaxUserDurationInSeconds,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// VPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
+	VPCConfig *AppStreamFleetVPCConfig `json:"VpcConfig,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppStream::Fleet to implement the ResourceProperties interface
+func (s AppStreamFleet) CfnResourceType() string {
+	
+	return "AWS::AppStream::Fleet"
+}
+// AppStreamImageBuilder represents the AWS::AppStream::ImageBuilder CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html 
+type AppStreamImageBuilder struct {
+	// AppstreamAgentVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-appstreamagentversion
+	AppstreamAgentVersion *StringExpr `json:"AppstreamAgentVersion,omitempty"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// DisplayName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-displayname
+	DisplayName *StringExpr `json:"DisplayName,omitempty"`
+	// DomainJoinInfo docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-domainjoininfo
+	DomainJoinInfo *AppStreamImageBuilderDomainJoinInfo `json:"DomainJoinInfo,omitempty"`
+	// EnableDefaultInternetAccess docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-enabledefaultinternetaccess
+	EnableDefaultInternetAccess *BoolExpr `json:"EnableDefaultInternetAccess,omitempty"`
+	// ImageArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
+	ImageArn *StringExpr `json:"ImageArn,omitempty"`
+	// ImageName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename
+	ImageName *StringExpr `json:"ImageName,omitempty"`
+	// InstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-instancetype
+	InstanceType *StringExpr `json:"InstanceType,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// VPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-vpcconfig
+	VPCConfig *AppStreamImageBuilderVPCConfig `json:"VpcConfig,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppStream::ImageBuilder to implement the ResourceProperties interface
+func (s AppStreamImageBuilder) CfnResourceType() string {
+	
+	return "AWS::AppStream::ImageBuilder"
+}
+// AppStreamStack represents the AWS::AppStream::Stack CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html 
+type AppStreamStack struct {
+	// ApplicationSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-applicationsettings
+	ApplicationSettings *AppStreamStackApplicationSettings `json:"ApplicationSettings,omitempty"`
+	// AttributesToDelete docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-attributestodelete
+	AttributesToDelete *StringListExpr `json:"AttributesToDelete,omitempty"`
+	// DeleteStorageConnectors docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-deletestorageconnectors
+	DeleteStorageConnectors *BoolExpr `json:"DeleteStorageConnectors,omitempty"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// DisplayName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-displayname
+	DisplayName *StringExpr `json:"DisplayName,omitempty"`
+	// FeedbackURL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-feedbackurl
+	FeedbackURL *StringExpr `json:"FeedbackURL,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// RedirectURL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-redirecturl
+	RedirectURL *StringExpr `json:"RedirectURL,omitempty"`
+	// StorageConnectors docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors
+	StorageConnectors *AppStreamStackStorageConnectorList `json:"StorageConnectors,omitempty"`
+	// UserSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-usersettings
+	UserSettings *AppStreamStackUserSettingList `json:"UserSettings,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppStream::Stack to implement the ResourceProperties interface
+func (s AppStreamStack) CfnResourceType() string {
+	
+	return "AWS::AppStream::Stack"
+}
+// AppStreamStackFleetAssociation represents the AWS::AppStream::StackFleetAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html 
+type AppStreamStackFleetAssociation struct {
+	// FleetName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html#cfn-appstream-stackfleetassociation-fleetname
+	FleetName *StringExpr `json:"FleetName,omitempty" validate:"dive,required"`
+	// StackName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html#cfn-appstream-stackfleetassociation-stackname
+	StackName *StringExpr `json:"StackName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppStream::StackFleetAssociation to implement the ResourceProperties interface
+func (s AppStreamStackFleetAssociation) CfnResourceType() string {
+	
+	return "AWS::AppStream::StackFleetAssociation"
+}
+// AppStreamStackUserAssociation represents the AWS::AppStream::StackUserAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html 
+type AppStreamStackUserAssociation struct {
+	// AuthenticationType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-authenticationtype
+	AuthenticationType *StringExpr `json:"AuthenticationType,omitempty" validate:"dive,required"`
+	// SendEmailNotification docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-sendemailnotification
+	SendEmailNotification *BoolExpr `json:"SendEmailNotification,omitempty"`
+	// StackName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-stackname
+	StackName *StringExpr `json:"StackName,omitempty" validate:"dive,required"`
+	// UserName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-username
+	UserName *StringExpr `json:"UserName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppStream::StackUserAssociation to implement the ResourceProperties interface
+func (s AppStreamStackUserAssociation) CfnResourceType() string {
+	
+	return "AWS::AppStream::StackUserAssociation"
+}
+// AppStreamUser represents the AWS::AppStream::User CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html 
+type AppStreamUser struct {
+	// AuthenticationType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-authenticationtype
+	AuthenticationType *StringExpr `json:"AuthenticationType,omitempty" validate:"dive,required"`
+	// FirstName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-firstname
+	FirstName *StringExpr `json:"FirstName,omitempty"`
+	// LastName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-lastname
+	LastName *StringExpr `json:"LastName,omitempty"`
+	// MessageAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-messageaction
+	MessageAction *StringExpr `json:"MessageAction,omitempty"`
+	// UserName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-username
+	UserName *StringExpr `json:"UserName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppStream::User to implement the ResourceProperties interface
+func (s AppStreamUser) CfnResourceType() string {
+	
+	return "AWS::AppStream::User"
 }
 // AppSyncAPIKey represents the AWS::AppSync::ApiKey CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html 
@@ -21097,10 +21571,10 @@ func (s EC2VPCDHCPOptionsAssociation) CfnResourceType() string {
 // EC2VPCEndpoint represents the AWS::EC2::VPCEndpoint CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html 
 type EC2VPCEndpoint struct {
-	// IsPrivateDNSEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-isprivatednsenabled
-	IsPrivateDNSEnabled *BoolExpr `json:"IsPrivateDnsEnabled,omitempty"`
 	// PolicyDocument docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument
 	PolicyDocument interface{} `json:"PolicyDocument,omitempty"`
+	// PrivateDNSEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled
+	PrivateDNSEnabled *BoolExpr `json:"PrivateDnsEnabled,omitempty"`
 	// RouteTableIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
 	RouteTableIDs *StringListExpr `json:"RouteTableIds,omitempty"`
 	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
@@ -21119,38 +21593,6 @@ type EC2VPCEndpoint struct {
 func (s EC2VPCEndpoint) CfnResourceType() string {
 	
 	return "AWS::EC2::VPCEndpoint"
-}
-// EC2VPCEndpointConnectionNotification represents the AWS::EC2::VPCEndpointConnectionNotification CloudFormation resource type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html 
-type EC2VPCEndpointConnectionNotification struct {
-	// ConnectionEvents docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionevents
-	ConnectionEvents *StringListExpr `json:"ConnectionEvents,omitempty" validate:"dive,required"`
-	// ConnectionNotificationArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionnotificationarn
-	ConnectionNotificationArn *StringExpr `json:"ConnectionNotificationArn,omitempty" validate:"dive,required"`
-	// ServiceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-serviceid
-	ServiceID *StringExpr `json:"ServiceId,omitempty"`
-	// VPCEndpointID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-vpcendpointid
-	VPCEndpointID *StringExpr `json:"VPCEndpointId,omitempty"`
-}
-
-// CfnResourceType returns AWS::EC2::VPCEndpointConnectionNotification to implement the ResourceProperties interface
-func (s EC2VPCEndpointConnectionNotification) CfnResourceType() string {
-	
-	return "AWS::EC2::VPCEndpointConnectionNotification"
-}
-// EC2VPCEndpointService represents the AWS::EC2::VPCEndpointService CloudFormation resource type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html 
-type EC2VPCEndpointService struct {
-	// AcceptanceRequired docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
-	AcceptanceRequired *BoolExpr `json:"AcceptanceRequired,omitempty"`
-	// NetworkLoadBalancerArns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
-	NetworkLoadBalancerArns *StringListExpr `json:"NetworkLoadBalancerArns,omitempty" validate:"dive,required"`
-}
-
-// CfnResourceType returns AWS::EC2::VPCEndpointService to implement the ResourceProperties interface
-func (s EC2VPCEndpointService) CfnResourceType() string {
-	
-	return "AWS::EC2::VPCEndpointService"
 }
 // EC2VPCEndpointServicePermissions represents the AWS::EC2::VPCEndpointServicePermissions CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html 
@@ -22066,6 +22508,24 @@ func (s ElasticsearchDomain) CfnResourceType() string {
 	
 	return "AWS::Elasticsearch::Domain"
 }
+// EventsEventBusPolicy represents the AWS::Events::EventBusPolicy CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html 
+type EventsEventBusPolicy struct {
+	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
+	Action *StringExpr `json:"Action,omitempty" validate:"dive,required"`
+	// Condition docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
+	Condition *EventsEventBusPolicyCondition `json:"Condition,omitempty"`
+	// Principal docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
+	Principal *StringExpr `json:"Principal,omitempty" validate:"dive,required"`
+	// StatementID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
+	StatementID *StringExpr `json:"StatementId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Events::EventBusPolicy to implement the ResourceProperties interface
+func (s EventsEventBusPolicy) CfnResourceType() string {
+	
+	return "AWS::Events::EventBusPolicy"
+}
 // EventsRule represents the AWS::Events::Rule CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html 
 type EventsRule struct {
@@ -22345,6 +22805,8 @@ func (s GlueTrigger) CfnResourceType() string {
 type GuardDutyDetector struct {
 	// Enable docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
 	Enable *BoolExpr `json:"Enable,omitempty" validate:"dive,required"`
+	// FindingPublishingFrequency docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
+	FindingPublishingFrequency *StringExpr `json:"FindingPublishingFrequency,omitempty"`
 }
 
 // CfnResourceType returns AWS::GuardDuty::Detector to implement the ResourceProperties interface
@@ -24264,6 +24726,56 @@ func (s SSMDocument) CfnResourceType() string {
 	
 	return "AWS::SSM::Document"
 }
+// SSMMaintenanceWindow represents the AWS::SSM::MaintenanceWindow CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html 
+type SSMMaintenanceWindow struct {
+	// AllowUnassociatedTargets docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-allowunassociatedtargets
+	AllowUnassociatedTargets *BoolExpr `json:"AllowUnassociatedTargets,omitempty" validate:"dive,required"`
+	// Cutoff docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-cutoff
+	Cutoff *IntegerExpr `json:"Cutoff,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Duration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-duration
+	Duration *IntegerExpr `json:"Duration,omitempty" validate:"dive,required"`
+	// EndDate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-enddate
+	EndDate *StringExpr `json:"EndDate,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Schedule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-schedule
+	Schedule *StringExpr `json:"Schedule,omitempty" validate:"dive,required"`
+	// ScheduleTimezone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-scheduletimezone
+	ScheduleTimezone *StringExpr `json:"ScheduleTimezone,omitempty"`
+	// StartDate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-startdate
+	StartDate *StringExpr `json:"StartDate,omitempty"`
+}
+
+// CfnResourceType returns AWS::SSM::MaintenanceWindow to implement the ResourceProperties interface
+func (s SSMMaintenanceWindow) CfnResourceType() string {
+	
+	return "AWS::SSM::MaintenanceWindow"
+}
+// SSMMaintenanceWindowTarget represents the AWS::SSM::MaintenanceWindowTarget CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html 
+type SSMMaintenanceWindowTarget struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// OwnerInformation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-ownerinformation
+	OwnerInformation *StringExpr `json:"OwnerInformation,omitempty"`
+	// ResourceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-resourcetype
+	ResourceType *StringExpr `json:"ResourceType,omitempty" validate:"dive,required"`
+	// Targets docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-targets
+	Targets *SSMMaintenanceWindowTargetTargetsList `json:"Targets,omitempty" validate:"dive,required"`
+	// WindowID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-windowid
+	WindowID *StringExpr `json:"WindowId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::SSM::MaintenanceWindowTarget to implement the ResourceProperties interface
+func (s SSMMaintenanceWindowTarget) CfnResourceType() string {
+	
+	return "AWS::SSM::MaintenanceWindowTarget"
+}
 // SSMMaintenanceWindowTask represents the AWS::SSM::MaintenanceWindowTask CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html 
 type SSMMaintenanceWindowTask struct {
@@ -24343,6 +24855,8 @@ type SSMPatchBaseline struct {
 	PatchGroups *StringListExpr `json:"PatchGroups,omitempty"`
 	// RejectedPatches docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatches
 	RejectedPatches *StringListExpr `json:"RejectedPatches,omitempty"`
+	// RejectedPatchesAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction
+	RejectedPatchesAction *StringExpr `json:"RejectedPatchesAction,omitempty"`
 	// Sources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
 	Sources *SSMPatchBaselinePatchSourceList `json:"Sources,omitempty"`
 }
@@ -25091,6 +25605,20 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &APIGatewayUsagePlanKey{}
 	case "AWS::ApiGateway::VpcLink":
 		return &APIGatewayVPCLink{}
+	case "AWS::AppStream::DirectoryConfig":
+		return &AppStreamDirectoryConfig{}
+	case "AWS::AppStream::Fleet":
+		return &AppStreamFleet{}
+	case "AWS::AppStream::ImageBuilder":
+		return &AppStreamImageBuilder{}
+	case "AWS::AppStream::Stack":
+		return &AppStreamStack{}
+	case "AWS::AppStream::StackFleetAssociation":
+		return &AppStreamStackFleetAssociation{}
+	case "AWS::AppStream::StackUserAssociation":
+		return &AppStreamStackUserAssociation{}
+	case "AWS::AppStream::User":
+		return &AppStreamUser{}
 	case "AWS::AppSync::ApiKey":
 		return &AppSyncAPIKey{}
 	case "AWS::AppSync::DataSource":
@@ -25281,10 +25809,6 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EC2VPCDHCPOptionsAssociation{}
 	case "AWS::EC2::VPCEndpoint":
 		return &EC2VPCEndpoint{}
-	case "AWS::EC2::VPCEndpointConnectionNotification":
-		return &EC2VPCEndpointConnectionNotification{}
-	case "AWS::EC2::VPCEndpointService":
-		return &EC2VPCEndpointService{}
 	case "AWS::EC2::VPCEndpointServicePermissions":
 		return &EC2VPCEndpointServicePermissions{}
 	case "AWS::EC2::VPCGatewayAttachment":
@@ -25361,6 +25885,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &ElasticLoadBalancingV2TargetGroup{}
 	case "AWS::Elasticsearch::Domain":
 		return &ElasticsearchDomain{}
+	case "AWS::Events::EventBusPolicy":
+		return &EventsEventBusPolicy{}
 	case "AWS::Events::Rule":
 		return &EventsRule{}
 	case "AWS::GameLift::Alias":
@@ -25565,6 +26091,10 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &SSMAssociation{}
 	case "AWS::SSM::Document":
 		return &SSMDocument{}
+	case "AWS::SSM::MaintenanceWindow":
+		return &SSMMaintenanceWindow{}
+	case "AWS::SSM::MaintenanceWindowTarget":
+		return &SSMMaintenanceWindowTarget{}
 	case "AWS::SSM::MaintenanceWindowTask":
 		return &SSMMaintenanceWindowTask{}
 	case "AWS::SSM::Parameter":
