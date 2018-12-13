@@ -95,6 +95,7 @@ type Output struct {
 // ResourceProperties is an interface that is implemented by resource objects.
 type ResourceProperties interface {
 	CfnResourceType() string
+	CfnResourceAttributes() []string
 }
 
 // FnTransform represents the Fn::Transform intrinsic function. See:

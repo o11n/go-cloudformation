@@ -222,6 +222,8 @@ func writePropertyFieldDefinition(t *testing.T,
 			golangPrimitiveType = "*IntegerExpr"
 		case "Json":
 			golangPrimitiveType = "interface{}"
+		case "Map":
+			golangPrimitiveType = "interface{}"
 		default:
 			// Any chance it's another property reference?
 			t.Fatalf("Can't determine Go primitive type for: %s\nName: %s\nProperties: %+v",
@@ -500,7 +502,31 @@ func writeResourceTypesDefinition(t *testing.T, resourceTypes map[string]Resourc
 `)
 	for _, eachResourceName := range sortedResourceNames {
 		eachResourceType := resourceTypes[eachResourceName]
-		writePropertyDefinition(t, eachResourceName, eachResourceType.Properties, eachResourceType.Documentation, true, w)
+		writePropertyDefinition(t,
+			eachResourceName,
+			eachResourceType.Properties,
+			eachResourceType.Documentation,
+			true,
+			w)
+		attrNames := make([]string, 0)
+		for eachAttrName := range eachResourceType.Attributes {
+			// Create the set of attributes for this type
+			attrNames = append(attrNames, eachAttrName)
+		}
+		// Create the entry that produces the set of all attributes...
+		golangTypename := canonicalGoTypename(t, eachResourceName, true)
+		// Write out the function that returns these as a string
+		fmt.Fprintln(w, "// CfnResourceAttributes returns the attributes produced by this resource")
+		fmt.Fprintf(w, "func (s %s) CfnResourceAttributes() []string {\n", golangTypename)
+		fmt.Fprintf(w, "	return []string{")
+		for index, eachAttr := range attrNames {
+			fmt.Fprintf(w, `"%s"`, eachAttr)
+			if index < len(attrNames)-1 {
+				fmt.Fprint(w, ",")
+			}
+		}
+		fmt.Fprintf(w, "}\n")
+		fmt.Fprintf(w, "}\n")
 	}
 }
 
