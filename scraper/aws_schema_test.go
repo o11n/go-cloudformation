@@ -161,7 +161,11 @@ func writeOutputFile(t *testing.T, filename string, contents []byte) error {
 func golintTransformedIdentifier(identifier string) string {
 	canonicalName := identifier
 	for eachMatch, eachReplacement := range golintTransformations {
+		// Exception for anything with Identity - leave that the way it is
+		// If this is a cognito identity thing, don't update the identity part
 		canonicalName = strings.Replace(canonicalName, eachMatch, eachReplacement, -1)
+		// If we changed "Identity" to "IDentity", then change it back
+		canonicalName = strings.Replace(canonicalName, "IDentity", "Identity", -1)
 	}
 	return canonicalName
 }

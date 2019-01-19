@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 2.17.0
-// SOURCE CODE SHA: 23292627a1b38e1f248808957ac37a9df928dcba
-// GENERATED: 2018-12-12 04:12:40.400226 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 2.19.0
+// SOURCE CODE SHA: cde564df4228c2b166b443463fa69181159b24ea
+// GENERATED: 2019-01-18 01:19:03.506974 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "2.17.0"
+const ResourceSpecificationVersion = "2.19.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -118,6 +118,34 @@ func (l *AmazonMQBrokerMaintenanceWindowList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// AmazonMQBrokerTagsEntry represents the AWS::AmazonMQ::Broker.TagsEntry CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html 
+type AmazonMQBrokerTagsEntry struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html#cfn-amazonmq-broker-tagsentry-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-tagsentry.html#cfn-amazonmq-broker-tagsentry-value
+	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// AmazonMQBrokerTagsEntryList represents a list of AmazonMQBrokerTagsEntry
+type AmazonMQBrokerTagsEntryList []AmazonMQBrokerTagsEntry
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AmazonMQBrokerTagsEntryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AmazonMQBrokerTagsEntry{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AmazonMQBrokerTagsEntryList{item}
+		return nil
+	}
+	list := []AmazonMQBrokerTagsEntry{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AmazonMQBrokerTagsEntryList(list)
+		return nil
+	}
+	return err
+}
 // AmazonMQBrokerUser represents the AWS::AmazonMQ::Broker.User CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html 
 type AmazonMQBrokerUser struct {
@@ -146,6 +174,62 @@ func (l *AmazonMQBrokerUserList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = AmazonMQBrokerUserList(list)
+		return nil
+	}
+	return err
+}
+// AmazonMQConfigurationTagsEntry represents the AWS::AmazonMQ::Configuration.TagsEntry CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configuration-tagsentry.html 
+type AmazonMQConfigurationTagsEntry struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configuration-tagsentry.html#cfn-amazonmq-configuration-tagsentry-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configuration-tagsentry.html#cfn-amazonmq-configuration-tagsentry-value
+	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// AmazonMQConfigurationTagsEntryList represents a list of AmazonMQConfigurationTagsEntry
+type AmazonMQConfigurationTagsEntryList []AmazonMQConfigurationTagsEntry
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AmazonMQConfigurationTagsEntryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AmazonMQConfigurationTagsEntry{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AmazonMQConfigurationTagsEntryList{item}
+		return nil
+	}
+	list := []AmazonMQConfigurationTagsEntry{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AmazonMQConfigurationTagsEntryList(list)
+		return nil
+	}
+	return err
+}
+// AmazonMQConfigurationAssociationConfigurationID represents the AWS::AmazonMQ::ConfigurationAssociation.ConfigurationId CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html 
+type AmazonMQConfigurationAssociationConfigurationID struct {
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Revision docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-revision
+	Revision *IntegerExpr `json:"Revision,omitempty" validate:"dive,required"`
+}
+
+// AmazonMQConfigurationAssociationConfigurationIDList represents a list of AmazonMQConfigurationAssociationConfigurationID
+type AmazonMQConfigurationAssociationConfigurationIDList []AmazonMQConfigurationAssociationConfigurationID
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AmazonMQConfigurationAssociationConfigurationIDList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AmazonMQConfigurationAssociationConfigurationID{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AmazonMQConfigurationAssociationConfigurationIDList{item}
+		return nil
+	}
+	list := []AmazonMQConfigurationAssociationConfigurationID{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AmazonMQConfigurationAssociationConfigurationIDList(list)
 		return nil
 	}
 	return err
@@ -3138,28 +3222,28 @@ func (l *Cloud9EnvironmentEC2RepositoryList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfig represents the AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig CloudFormation property type
+// CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig represents the AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html 
-type CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfig struct {
+type CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig struct {
 	// Comment docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
 	Comment *StringExpr `json:"Comment,omitempty" validate:"dive,required"`
 }
 
-// CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfigList represents a list of CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfig
-type CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfigList []CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfig
+// CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigList represents a list of CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
+type CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigList []CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfigList) UnmarshalJSON(buf []byte) error {
+func (l *CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfig{}
+	item := CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfigList{item}
+		*l = CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigList{item}
 		return nil
 	}
-	list := []CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfig{}
+	list := []CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfigList(list)
+		*l = CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigList(list)
 		return nil
 	}
 	return err
@@ -3627,8 +3711,8 @@ func (l *CloudFrontDistributionRestrictionsList) UnmarshalJSON(buf []byte) error
 // CloudFrontDistributionS3OriginConfig represents the AWS::CloudFront::Distribution.S3OriginConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html 
 type CloudFrontDistributionS3OriginConfig struct {
-	// OriginAccessIDentity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
-	OriginAccessIDentity *StringExpr `json:"OriginAccessIdentity,omitempty"`
+	// OriginAccessIdentity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
+	OriginAccessIdentity *StringExpr `json:"OriginAccessIdentity,omitempty"`
 }
 
 // CloudFrontDistributionS3OriginConfigList represents a list of CloudFrontDistributionS3OriginConfig
@@ -3719,8 +3803,8 @@ func (l *CloudFrontStreamingDistributionLoggingList) UnmarshalJSON(buf []byte) e
 type CloudFrontStreamingDistributionS3Origin struct {
 	// DomainName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-domainname
 	DomainName *StringExpr `json:"DomainName,omitempty" validate:"dive,required"`
-	// OriginAccessIDentity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
-	OriginAccessIDentity *StringExpr `json:"OriginAccessIdentity,omitempty" validate:"dive,required"`
+	// OriginAccessIdentity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
+	OriginAccessIdentity *StringExpr `json:"OriginAccessIdentity,omitempty" validate:"dive,required"`
 }
 
 // CloudFrontStreamingDistributionS3OriginList represents a list of CloudFrontStreamingDistributionS3Origin
@@ -5260,9 +5344,9 @@ func (l *CodePipelineWebhookWebhookFilterRuleList) UnmarshalJSON(buf []byte) err
 	}
 	return err
 }
-// CognitoIDentityPoolCognitoIDentityProvider represents the AWS::Cognito::IdentityPool.CognitoIdentityProvider CloudFormation property type
+// CognitoIdentityPoolCognitoIdentityProvider represents the AWS::Cognito::IdentityPool.CognitoIdentityProvider CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html 
-type CognitoIDentityPoolCognitoIDentityProvider struct {
+type CognitoIdentityPoolCognitoIdentityProvider struct {
 	// ClientID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-clientid
 	ClientID *StringExpr `json:"ClientId,omitempty"`
 	// ProviderName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-providername
@@ -5271,28 +5355,28 @@ type CognitoIDentityPoolCognitoIDentityProvider struct {
 	ServerSideTokenCheck *BoolExpr `json:"ServerSideTokenCheck,omitempty"`
 }
 
-// CognitoIDentityPoolCognitoIDentityProviderList represents a list of CognitoIDentityPoolCognitoIDentityProvider
-type CognitoIDentityPoolCognitoIDentityProviderList []CognitoIDentityPoolCognitoIDentityProvider
+// CognitoIdentityPoolCognitoIdentityProviderList represents a list of CognitoIdentityPoolCognitoIdentityProvider
+type CognitoIdentityPoolCognitoIdentityProviderList []CognitoIdentityPoolCognitoIdentityProvider
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *CognitoIDentityPoolCognitoIDentityProviderList) UnmarshalJSON(buf []byte) error {
+func (l *CognitoIdentityPoolCognitoIdentityProviderList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := CognitoIDentityPoolCognitoIDentityProvider{}
+	item := CognitoIdentityPoolCognitoIdentityProvider{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = CognitoIDentityPoolCognitoIDentityProviderList{item}
+		*l = CognitoIdentityPoolCognitoIdentityProviderList{item}
 		return nil
 	}
-	list := []CognitoIDentityPoolCognitoIDentityProvider{}
+	list := []CognitoIdentityPoolCognitoIdentityProvider{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = CognitoIDentityPoolCognitoIDentityProviderList(list)
+		*l = CognitoIdentityPoolCognitoIdentityProviderList(list)
 		return nil
 	}
 	return err
 }
-// CognitoIDentityPoolCognitoStreams represents the AWS::Cognito::IdentityPool.CognitoStreams CloudFormation property type
+// CognitoIdentityPoolCognitoStreams represents the AWS::Cognito::IdentityPool.CognitoStreams CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html 
-type CognitoIDentityPoolCognitoStreams struct {
+type CognitoIdentityPoolCognitoStreams struct {
 	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-rolearn
 	RoleArn *StringExpr `json:"RoleArn,omitempty"`
 	// StreamName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-streamname
@@ -5301,56 +5385,56 @@ type CognitoIDentityPoolCognitoStreams struct {
 	StreamingStatus *StringExpr `json:"StreamingStatus,omitempty"`
 }
 
-// CognitoIDentityPoolCognitoStreamsList represents a list of CognitoIDentityPoolCognitoStreams
-type CognitoIDentityPoolCognitoStreamsList []CognitoIDentityPoolCognitoStreams
+// CognitoIdentityPoolCognitoStreamsList represents a list of CognitoIdentityPoolCognitoStreams
+type CognitoIdentityPoolCognitoStreamsList []CognitoIdentityPoolCognitoStreams
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *CognitoIDentityPoolCognitoStreamsList) UnmarshalJSON(buf []byte) error {
+func (l *CognitoIdentityPoolCognitoStreamsList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := CognitoIDentityPoolCognitoStreams{}
+	item := CognitoIdentityPoolCognitoStreams{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = CognitoIDentityPoolCognitoStreamsList{item}
+		*l = CognitoIdentityPoolCognitoStreamsList{item}
 		return nil
 	}
-	list := []CognitoIDentityPoolCognitoStreams{}
+	list := []CognitoIdentityPoolCognitoStreams{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = CognitoIDentityPoolCognitoStreamsList(list)
+		*l = CognitoIdentityPoolCognitoStreamsList(list)
 		return nil
 	}
 	return err
 }
-// CognitoIDentityPoolPushSync represents the AWS::Cognito::IdentityPool.PushSync CloudFormation property type
+// CognitoIdentityPoolPushSync represents the AWS::Cognito::IdentityPool.PushSync CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html 
-type CognitoIDentityPoolPushSync struct {
+type CognitoIdentityPoolPushSync struct {
 	// ApplicationArns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-applicationarns
 	ApplicationArns *StringListExpr `json:"ApplicationArns,omitempty"`
 	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-rolearn
 	RoleArn *StringExpr `json:"RoleArn,omitempty"`
 }
 
-// CognitoIDentityPoolPushSyncList represents a list of CognitoIDentityPoolPushSync
-type CognitoIDentityPoolPushSyncList []CognitoIDentityPoolPushSync
+// CognitoIdentityPoolPushSyncList represents a list of CognitoIdentityPoolPushSync
+type CognitoIdentityPoolPushSyncList []CognitoIdentityPoolPushSync
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *CognitoIDentityPoolPushSyncList) UnmarshalJSON(buf []byte) error {
+func (l *CognitoIdentityPoolPushSyncList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := CognitoIDentityPoolPushSync{}
+	item := CognitoIdentityPoolPushSync{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = CognitoIDentityPoolPushSyncList{item}
+		*l = CognitoIdentityPoolPushSyncList{item}
 		return nil
 	}
-	list := []CognitoIDentityPoolPushSync{}
+	list := []CognitoIdentityPoolPushSync{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = CognitoIDentityPoolPushSyncList(list)
+		*l = CognitoIdentityPoolPushSyncList(list)
 		return nil
 	}
 	return err
 }
-// CognitoIDentityPoolRoleAttachmentMappingRule represents the AWS::Cognito::IdentityPoolRoleAttachment.MappingRule CloudFormation property type
+// CognitoIdentityPoolRoleAttachmentMappingRule represents the AWS::Cognito::IdentityPoolRoleAttachment.MappingRule CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html 
-type CognitoIDentityPoolRoleAttachmentMappingRule struct {
+type CognitoIdentityPoolRoleAttachmentMappingRule struct {
 	// Claim docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html#cfn-cognito-identitypoolroleattachment-mappingrule-claim
 	Claim *StringExpr `json:"Claim,omitempty" validate:"dive,required"`
 	// MatchType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html#cfn-cognito-identitypoolroleattachment-mappingrule-matchtype
@@ -5361,77 +5445,77 @@ type CognitoIDentityPoolRoleAttachmentMappingRule struct {
 	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
 }
 
-// CognitoIDentityPoolRoleAttachmentMappingRuleList represents a list of CognitoIDentityPoolRoleAttachmentMappingRule
-type CognitoIDentityPoolRoleAttachmentMappingRuleList []CognitoIDentityPoolRoleAttachmentMappingRule
+// CognitoIdentityPoolRoleAttachmentMappingRuleList represents a list of CognitoIdentityPoolRoleAttachmentMappingRule
+type CognitoIdentityPoolRoleAttachmentMappingRuleList []CognitoIdentityPoolRoleAttachmentMappingRule
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *CognitoIDentityPoolRoleAttachmentMappingRuleList) UnmarshalJSON(buf []byte) error {
+func (l *CognitoIdentityPoolRoleAttachmentMappingRuleList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := CognitoIDentityPoolRoleAttachmentMappingRule{}
+	item := CognitoIdentityPoolRoleAttachmentMappingRule{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = CognitoIDentityPoolRoleAttachmentMappingRuleList{item}
+		*l = CognitoIdentityPoolRoleAttachmentMappingRuleList{item}
 		return nil
 	}
-	list := []CognitoIDentityPoolRoleAttachmentMappingRule{}
+	list := []CognitoIdentityPoolRoleAttachmentMappingRule{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = CognitoIDentityPoolRoleAttachmentMappingRuleList(list)
+		*l = CognitoIdentityPoolRoleAttachmentMappingRuleList(list)
 		return nil
 	}
 	return err
 }
-// CognitoIDentityPoolRoleAttachmentRoleMapping represents the AWS::Cognito::IdentityPoolRoleAttachment.RoleMapping CloudFormation property type
+// CognitoIdentityPoolRoleAttachmentRoleMapping represents the AWS::Cognito::IdentityPoolRoleAttachment.RoleMapping CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html 
-type CognitoIDentityPoolRoleAttachmentRoleMapping struct {
+type CognitoIdentityPoolRoleAttachmentRoleMapping struct {
 	// AmbiguousRoleResolution docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-ambiguousroleresolution
 	AmbiguousRoleResolution *StringExpr `json:"AmbiguousRoleResolution,omitempty"`
 	// RulesConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration
-	RulesConfiguration *CognitoIDentityPoolRoleAttachmentRulesConfigurationType `json:"RulesConfiguration,omitempty"`
+	RulesConfiguration *CognitoIdentityPoolRoleAttachmentRulesConfigurationType `json:"RulesConfiguration,omitempty"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-type
 	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
 
-// CognitoIDentityPoolRoleAttachmentRoleMappingList represents a list of CognitoIDentityPoolRoleAttachmentRoleMapping
-type CognitoIDentityPoolRoleAttachmentRoleMappingList []CognitoIDentityPoolRoleAttachmentRoleMapping
+// CognitoIdentityPoolRoleAttachmentRoleMappingList represents a list of CognitoIdentityPoolRoleAttachmentRoleMapping
+type CognitoIdentityPoolRoleAttachmentRoleMappingList []CognitoIdentityPoolRoleAttachmentRoleMapping
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *CognitoIDentityPoolRoleAttachmentRoleMappingList) UnmarshalJSON(buf []byte) error {
+func (l *CognitoIdentityPoolRoleAttachmentRoleMappingList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := CognitoIDentityPoolRoleAttachmentRoleMapping{}
+	item := CognitoIdentityPoolRoleAttachmentRoleMapping{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = CognitoIDentityPoolRoleAttachmentRoleMappingList{item}
+		*l = CognitoIdentityPoolRoleAttachmentRoleMappingList{item}
 		return nil
 	}
-	list := []CognitoIDentityPoolRoleAttachmentRoleMapping{}
+	list := []CognitoIdentityPoolRoleAttachmentRoleMapping{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = CognitoIDentityPoolRoleAttachmentRoleMappingList(list)
+		*l = CognitoIdentityPoolRoleAttachmentRoleMappingList(list)
 		return nil
 	}
 	return err
 }
-// CognitoIDentityPoolRoleAttachmentRulesConfigurationType represents the AWS::Cognito::IdentityPoolRoleAttachment.RulesConfigurationType CloudFormation property type
+// CognitoIdentityPoolRoleAttachmentRulesConfigurationType represents the AWS::Cognito::IdentityPoolRoleAttachment.RulesConfigurationType CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html 
-type CognitoIDentityPoolRoleAttachmentRulesConfigurationType struct {
+type CognitoIdentityPoolRoleAttachmentRulesConfigurationType struct {
 	// Rules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html#cfn-cognito-identitypoolroleattachment-rulesconfigurationtype-rules
-	Rules *CognitoIDentityPoolRoleAttachmentMappingRuleList `json:"Rules,omitempty" validate:"dive,required"`
+	Rules *CognitoIdentityPoolRoleAttachmentMappingRuleList `json:"Rules,omitempty" validate:"dive,required"`
 }
 
-// CognitoIDentityPoolRoleAttachmentRulesConfigurationTypeList represents a list of CognitoIDentityPoolRoleAttachmentRulesConfigurationType
-type CognitoIDentityPoolRoleAttachmentRulesConfigurationTypeList []CognitoIDentityPoolRoleAttachmentRulesConfigurationType
+// CognitoIdentityPoolRoleAttachmentRulesConfigurationTypeList represents a list of CognitoIdentityPoolRoleAttachmentRulesConfigurationType
+type CognitoIdentityPoolRoleAttachmentRulesConfigurationTypeList []CognitoIdentityPoolRoleAttachmentRulesConfigurationType
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *CognitoIDentityPoolRoleAttachmentRulesConfigurationTypeList) UnmarshalJSON(buf []byte) error {
+func (l *CognitoIdentityPoolRoleAttachmentRulesConfigurationTypeList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := CognitoIDentityPoolRoleAttachmentRulesConfigurationType{}
+	item := CognitoIdentityPoolRoleAttachmentRulesConfigurationType{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = CognitoIDentityPoolRoleAttachmentRulesConfigurationTypeList{item}
+		*l = CognitoIdentityPoolRoleAttachmentRulesConfigurationTypeList{item}
 		return nil
 	}
-	list := []CognitoIDentityPoolRoleAttachmentRulesConfigurationType{}
+	list := []CognitoIdentityPoolRoleAttachmentRulesConfigurationType{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = CognitoIDentityPoolRoleAttachmentRulesConfigurationTypeList(list)
+		*l = CognitoIdentityPoolRoleAttachmentRulesConfigurationTypeList(list)
 		return nil
 	}
 	return err
@@ -6178,6 +6262,68 @@ func (l *DMSEndpointDynamoDbSettingsList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = DMSEndpointDynamoDbSettingsList(list)
+		return nil
+	}
+	return err
+}
+// DMSEndpointElasticsearchSettings represents the AWS::DMS::Endpoint.ElasticsearchSettings CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html 
+type DMSEndpointElasticsearchSettings struct {
+	// EndpointURI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-endpointuri
+	EndpointURI *StringExpr `json:"EndpointUri,omitempty"`
+	// ErrorRetryDuration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-errorretryduration
+	ErrorRetryDuration *IntegerExpr `json:"ErrorRetryDuration,omitempty"`
+	// FullLoadErrorPercentage docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-fullloaderrorpercentage
+	FullLoadErrorPercentage *IntegerExpr `json:"FullLoadErrorPercentage,omitempty"`
+	// ServiceAccessRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html#cfn-dms-endpoint-elasticsearchsettings-serviceaccessrolearn
+	ServiceAccessRoleArn *StringExpr `json:"ServiceAccessRoleArn,omitempty"`
+}
+
+// DMSEndpointElasticsearchSettingsList represents a list of DMSEndpointElasticsearchSettings
+type DMSEndpointElasticsearchSettingsList []DMSEndpointElasticsearchSettings
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *DMSEndpointElasticsearchSettingsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := DMSEndpointElasticsearchSettings{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = DMSEndpointElasticsearchSettingsList{item}
+		return nil
+	}
+	list := []DMSEndpointElasticsearchSettings{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = DMSEndpointElasticsearchSettingsList(list)
+		return nil
+	}
+	return err
+}
+// DMSEndpointKinesisSettings represents the AWS::DMS::Endpoint.KinesisSettings CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html 
+type DMSEndpointKinesisSettings struct {
+	// MessageFormat docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-messageformat
+	MessageFormat *StringExpr `json:"MessageFormat,omitempty"`
+	// ServiceAccessRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-serviceaccessrolearn
+	ServiceAccessRoleArn *StringExpr `json:"ServiceAccessRoleArn,omitempty"`
+	// StreamArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html#cfn-dms-endpoint-kinesissettings-streamarn
+	StreamArn *StringExpr `json:"StreamArn,omitempty"`
+}
+
+// DMSEndpointKinesisSettingsList represents a list of DMSEndpointKinesisSettings
+type DMSEndpointKinesisSettingsList []DMSEndpointKinesisSettings
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *DMSEndpointKinesisSettingsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := DMSEndpointKinesisSettings{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = DMSEndpointKinesisSettingsList{item}
+		return nil
+	}
+	list := []DMSEndpointKinesisSettings{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = DMSEndpointKinesisSettingsList(list)
 		return nil
 	}
 	return err
@@ -12302,6 +12448,32 @@ func (l *ElasticsearchDomainEncryptionAtRestOptionsList) UnmarshalJSON(buf []byt
 	}
 	return err
 }
+// ElasticsearchDomainNodeToNodeEncryptionOptions represents the AWS::Elasticsearch::Domain.NodeToNodeEncryptionOptions CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html 
+type ElasticsearchDomainNodeToNodeEncryptionOptions struct {
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty"`
+}
+
+// ElasticsearchDomainNodeToNodeEncryptionOptionsList represents a list of ElasticsearchDomainNodeToNodeEncryptionOptions
+type ElasticsearchDomainNodeToNodeEncryptionOptionsList []ElasticsearchDomainNodeToNodeEncryptionOptions
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ElasticsearchDomainNodeToNodeEncryptionOptionsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ElasticsearchDomainNodeToNodeEncryptionOptions{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ElasticsearchDomainNodeToNodeEncryptionOptionsList{item}
+		return nil
+	}
+	list := []ElasticsearchDomainNodeToNodeEncryptionOptions{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ElasticsearchDomainNodeToNodeEncryptionOptionsList(list)
+		return nil
+	}
+	return err
+}
 // ElasticsearchDomainSnapshotOptions represents the AWS::Elasticsearch::Domain.SnapshotOptions CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html 
 type ElasticsearchDomainSnapshotOptions struct {
@@ -14388,6 +14560,782 @@ func (l *IoTTopicRuleTopicRulePayloadList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// IoTAnalyticsChannelRetentionPeriod represents the AWS::IoTAnalytics::Channel.RetentionPeriod CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-retentionperiod.html 
+type IoTAnalyticsChannelRetentionPeriod struct {
+	// NumberOfDays docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-retentionperiod.html#cfn-iotanalytics-channel-retentionperiod-numberofdays
+	NumberOfDays *IntegerExpr `json:"NumberOfDays,omitempty"`
+	// Unlimited docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-retentionperiod.html#cfn-iotanalytics-channel-retentionperiod-unlimited
+	Unlimited *BoolExpr `json:"Unlimited,omitempty"`
+}
+
+// IoTAnalyticsChannelRetentionPeriodList represents a list of IoTAnalyticsChannelRetentionPeriod
+type IoTAnalyticsChannelRetentionPeriodList []IoTAnalyticsChannelRetentionPeriod
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsChannelRetentionPeriodList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsChannelRetentionPeriod{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsChannelRetentionPeriodList{item}
+		return nil
+	}
+	list := []IoTAnalyticsChannelRetentionPeriod{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsChannelRetentionPeriodList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetAction represents the AWS::IoTAnalytics::Dataset.Action CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html 
+type IoTAnalyticsDatasetAction struct {
+	// ActionName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-actionname
+	ActionName *StringExpr `json:"ActionName,omitempty" validate:"dive,required"`
+	// ContainerAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-containeraction
+	ContainerAction *IoTAnalyticsDatasetContainerAction `json:"ContainerAction,omitempty"`
+	// QueryAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-queryaction
+	QueryAction *IoTAnalyticsDatasetQueryAction `json:"QueryAction,omitempty"`
+}
+
+// IoTAnalyticsDatasetActionList represents a list of IoTAnalyticsDatasetAction
+type IoTAnalyticsDatasetActionList []IoTAnalyticsDatasetAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetActionList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetContainerAction represents the AWS::IoTAnalytics::Dataset.ContainerAction CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html 
+type IoTAnalyticsDatasetContainerAction struct {
+	// ExecutionRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-executionrolearn
+	ExecutionRoleArn *StringExpr `json:"ExecutionRoleArn,omitempty" validate:"dive,required"`
+	// Image docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-image
+	Image *StringExpr `json:"Image,omitempty" validate:"dive,required"`
+	// ResourceConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-resourceconfiguration
+	ResourceConfiguration *IoTAnalyticsDatasetResourceConfiguration `json:"ResourceConfiguration,omitempty" validate:"dive,required"`
+	// Variables docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-variables
+	Variables *IoTAnalyticsDatasetVariableList `json:"Variables,omitempty"`
+}
+
+// IoTAnalyticsDatasetContainerActionList represents a list of IoTAnalyticsDatasetContainerAction
+type IoTAnalyticsDatasetContainerActionList []IoTAnalyticsDatasetContainerAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetContainerActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetContainerAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetContainerActionList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetContainerAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetContainerActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetDatasetContentVersionValue represents the AWS::IoTAnalytics::Dataset.DatasetContentVersionValue CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-datasetcontentversionvalue.html 
+type IoTAnalyticsDatasetDatasetContentVersionValue struct {
+	// DatasetName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-datasetcontentversionvalue.html#cfn-iotanalytics-dataset-variable-datasetcontentversionvalue-datasetname
+	DatasetName *StringExpr `json:"DatasetName,omitempty"`
+}
+
+// IoTAnalyticsDatasetDatasetContentVersionValueList represents a list of IoTAnalyticsDatasetDatasetContentVersionValue
+type IoTAnalyticsDatasetDatasetContentVersionValueList []IoTAnalyticsDatasetDatasetContentVersionValue
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetDatasetContentVersionValueList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetDatasetContentVersionValue{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetDatasetContentVersionValueList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetDatasetContentVersionValue{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetDatasetContentVersionValueList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetDeltaTime represents the AWS::IoTAnalytics::Dataset.DeltaTime CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html 
+type IoTAnalyticsDatasetDeltaTime struct {
+	// OffsetSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-offsetseconds
+	OffsetSeconds *IntegerExpr `json:"OffsetSeconds,omitempty" validate:"dive,required"`
+	// TimeExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-timeexpression
+	TimeExpression *StringExpr `json:"TimeExpression,omitempty" validate:"dive,required"`
+}
+
+// IoTAnalyticsDatasetDeltaTimeList represents a list of IoTAnalyticsDatasetDeltaTime
+type IoTAnalyticsDatasetDeltaTimeList []IoTAnalyticsDatasetDeltaTime
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetDeltaTimeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetDeltaTime{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetDeltaTimeList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetDeltaTime{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetDeltaTimeList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetFilter represents the AWS::IoTAnalytics::Dataset.Filter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html 
+type IoTAnalyticsDatasetFilter struct {
+	// DeltaTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html#cfn-iotanalytics-dataset-filter-deltatime
+	DeltaTime *IoTAnalyticsDatasetDeltaTime `json:"DeltaTime,omitempty"`
+}
+
+// IoTAnalyticsDatasetFilterList represents a list of IoTAnalyticsDatasetFilter
+type IoTAnalyticsDatasetFilterList []IoTAnalyticsDatasetFilter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetFilterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetFilter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetFilterList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetFilter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetFilterList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetOutputFileURIValue represents the AWS::IoTAnalytics::Dataset.OutputFileUriValue CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-outputfileurivalue.html 
+type IoTAnalyticsDatasetOutputFileURIValue struct {
+	// FileName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable-outputfileurivalue.html#cfn-iotanalytics-dataset-variable-outputfileurivalue-filename
+	FileName *StringExpr `json:"FileName,omitempty"`
+}
+
+// IoTAnalyticsDatasetOutputFileURIValueList represents a list of IoTAnalyticsDatasetOutputFileURIValue
+type IoTAnalyticsDatasetOutputFileURIValueList []IoTAnalyticsDatasetOutputFileURIValue
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetOutputFileURIValueList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetOutputFileURIValue{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetOutputFileURIValueList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetOutputFileURIValue{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetOutputFileURIValueList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetQueryAction represents the AWS::IoTAnalytics::Dataset.QueryAction CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html 
+type IoTAnalyticsDatasetQueryAction struct {
+	// Filters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-filters
+	Filters *IoTAnalyticsDatasetFilterList `json:"Filters,omitempty"`
+	// SQLQuery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-sqlquery
+	SQLQuery *StringExpr `json:"SqlQuery,omitempty" validate:"dive,required"`
+}
+
+// IoTAnalyticsDatasetQueryActionList represents a list of IoTAnalyticsDatasetQueryAction
+type IoTAnalyticsDatasetQueryActionList []IoTAnalyticsDatasetQueryAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetQueryActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetQueryAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetQueryActionList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetQueryAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetQueryActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetResourceConfiguration represents the AWS::IoTAnalytics::Dataset.ResourceConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html 
+type IoTAnalyticsDatasetResourceConfiguration struct {
+	// ComputeType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html#cfn-iotanalytics-dataset-resourceconfiguration-computetype
+	ComputeType *StringExpr `json:"ComputeType,omitempty" validate:"dive,required"`
+	// VolumeSizeInGB docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html#cfn-iotanalytics-dataset-resourceconfiguration-volumesizeingb
+	VolumeSizeInGB *IntegerExpr `json:"VolumeSizeInGB,omitempty" validate:"dive,required"`
+}
+
+// IoTAnalyticsDatasetResourceConfigurationList represents a list of IoTAnalyticsDatasetResourceConfiguration
+type IoTAnalyticsDatasetResourceConfigurationList []IoTAnalyticsDatasetResourceConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetResourceConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetResourceConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetResourceConfigurationList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetResourceConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetResourceConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetRetentionPeriod represents the AWS::IoTAnalytics::Dataset.RetentionPeriod CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html 
+type IoTAnalyticsDatasetRetentionPeriod struct {
+	// NumberOfDays docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html#cfn-iotanalytics-dataset-retentionperiod-numberofdays
+	NumberOfDays *IntegerExpr `json:"NumberOfDays,omitempty" validate:"dive,required"`
+	// Unlimited docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-retentionperiod.html#cfn-iotanalytics-dataset-retentionperiod-unlimited
+	Unlimited *BoolExpr `json:"Unlimited,omitempty" validate:"dive,required"`
+}
+
+// IoTAnalyticsDatasetRetentionPeriodList represents a list of IoTAnalyticsDatasetRetentionPeriod
+type IoTAnalyticsDatasetRetentionPeriodList []IoTAnalyticsDatasetRetentionPeriod
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetRetentionPeriodList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetRetentionPeriod{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetRetentionPeriodList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetRetentionPeriod{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetRetentionPeriodList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetSchedule represents the AWS::IoTAnalytics::Dataset.Schedule CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger-schedule.html 
+type IoTAnalyticsDatasetSchedule struct {
+	// ScheduleExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger-schedule.html#cfn-iotanalytics-dataset-trigger-schedule-scheduleexpression
+	ScheduleExpression *StringExpr `json:"ScheduleExpression,omitempty" validate:"dive,required"`
+}
+
+// IoTAnalyticsDatasetScheduleList represents a list of IoTAnalyticsDatasetSchedule
+type IoTAnalyticsDatasetScheduleList []IoTAnalyticsDatasetSchedule
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetScheduleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetSchedule{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetScheduleList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetSchedule{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetScheduleList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetTrigger represents the AWS::IoTAnalytics::Dataset.Trigger CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html 
+type IoTAnalyticsDatasetTrigger struct {
+	// Schedule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-schedule
+	Schedule *IoTAnalyticsDatasetSchedule `json:"Schedule,omitempty"`
+	// TriggeringDataset docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-triggeringdataset
+	TriggeringDataset *IoTAnalyticsDatasetTriggeringDataset `json:"TriggeringDataset,omitempty"`
+}
+
+// IoTAnalyticsDatasetTriggerList represents a list of IoTAnalyticsDatasetTrigger
+type IoTAnalyticsDatasetTriggerList []IoTAnalyticsDatasetTrigger
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetTriggerList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetTrigger{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetTriggerList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetTrigger{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetTriggerList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetTriggeringDataset represents the AWS::IoTAnalytics::Dataset.TriggeringDataset CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html 
+type IoTAnalyticsDatasetTriggeringDataset struct {
+	// DatasetName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html#cfn-iotanalytics-dataset-triggeringdataset-datasetname
+	DatasetName *StringExpr `json:"DatasetName,omitempty" validate:"dive,required"`
+}
+
+// IoTAnalyticsDatasetTriggeringDatasetList represents a list of IoTAnalyticsDatasetTriggeringDataset
+type IoTAnalyticsDatasetTriggeringDatasetList []IoTAnalyticsDatasetTriggeringDataset
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetTriggeringDatasetList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetTriggeringDataset{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetTriggeringDatasetList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetTriggeringDataset{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetTriggeringDatasetList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatasetVariable represents the AWS::IoTAnalytics::Dataset.Variable CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html 
+type IoTAnalyticsDatasetVariable struct {
+	// DatasetContentVersionValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-datasetcontentversionvalue
+	DatasetContentVersionValue *IoTAnalyticsDatasetDatasetContentVersionValue `json:"DatasetContentVersionValue,omitempty"`
+	// DoubleValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-doublevalue
+	DoubleValue *IntegerExpr `json:"DoubleValue,omitempty"`
+	// OutputFileURIValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-outputfileurivalue
+	OutputFileURIValue *IoTAnalyticsDatasetOutputFileURIValue `json:"OutputFileUriValue,omitempty"`
+	// StringValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-stringvalue
+	StringValue *StringExpr `json:"StringValue,omitempty"`
+	// VariableName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-variablename
+	VariableName *StringExpr `json:"VariableName,omitempty" validate:"dive,required"`
+}
+
+// IoTAnalyticsDatasetVariableList represents a list of IoTAnalyticsDatasetVariable
+type IoTAnalyticsDatasetVariableList []IoTAnalyticsDatasetVariable
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatasetVariableList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatasetVariable{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatasetVariableList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatasetVariable{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatasetVariableList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsDatastoreRetentionPeriod represents the AWS::IoTAnalytics::Datastore.RetentionPeriod CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html 
+type IoTAnalyticsDatastoreRetentionPeriod struct {
+	// NumberOfDays docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html#cfn-iotanalytics-datastore-retentionperiod-numberofdays
+	NumberOfDays *IntegerExpr `json:"NumberOfDays,omitempty"`
+	// Unlimited docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html#cfn-iotanalytics-datastore-retentionperiod-unlimited
+	Unlimited *BoolExpr `json:"Unlimited,omitempty"`
+}
+
+// IoTAnalyticsDatastoreRetentionPeriodList represents a list of IoTAnalyticsDatastoreRetentionPeriod
+type IoTAnalyticsDatastoreRetentionPeriodList []IoTAnalyticsDatastoreRetentionPeriod
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsDatastoreRetentionPeriodList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsDatastoreRetentionPeriod{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsDatastoreRetentionPeriodList{item}
+		return nil
+	}
+	list := []IoTAnalyticsDatastoreRetentionPeriod{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsDatastoreRetentionPeriodList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineActivity represents the AWS::IoTAnalytics::Pipeline.Activity CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html 
+type IoTAnalyticsPipelineActivity struct {
+	// AddAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-addattributes
+	AddAttributes *IoTAnalyticsPipelineAddAttributes `json:"AddAttributes,omitempty"`
+	// Channel docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-channel
+	Channel *IoTAnalyticsPipelineChannel `json:"Channel,omitempty"`
+	// Datastore docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-datastore
+	Datastore *IoTAnalyticsPipelineDatastore `json:"Datastore,omitempty"`
+	// DeviceRegistryEnrich docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceregistryenrich
+	DeviceRegistryEnrich *IoTAnalyticsPipelineDeviceRegistryEnrich `json:"DeviceRegistryEnrich,omitempty"`
+	// DeviceShadowEnrich docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceshadowenrich
+	DeviceShadowEnrich *IoTAnalyticsPipelineDeviceShadowEnrich `json:"DeviceShadowEnrich,omitempty"`
+	// Filter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-filter
+	Filter *IoTAnalyticsPipelineFilter `json:"Filter,omitempty"`
+	// Lambda docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-lambda
+	Lambda *IoTAnalyticsPipelineLambda `json:"Lambda,omitempty"`
+	// Math docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-math
+	Math *IoTAnalyticsPipelineMath `json:"Math,omitempty"`
+	// RemoveAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-removeattributes
+	RemoveAttributes *IoTAnalyticsPipelineRemoveAttributes `json:"RemoveAttributes,omitempty"`
+	// SelectAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-selectattributes
+	SelectAttributes *IoTAnalyticsPipelineSelectAttributes `json:"SelectAttributes,omitempty"`
+}
+
+// IoTAnalyticsPipelineActivityList represents a list of IoTAnalyticsPipelineActivity
+type IoTAnalyticsPipelineActivityList []IoTAnalyticsPipelineActivity
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineActivityList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineActivity{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineActivityList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineActivity{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineActivityList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineAddAttributes represents the AWS::IoTAnalytics::Pipeline.AddAttributes CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html 
+type IoTAnalyticsPipelineAddAttributes struct {
+	// Attributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-attributes
+	Attributes interface{} `json:"Attributes,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-next
+	Next *StringExpr `json:"Next,omitempty"`
+}
+
+// IoTAnalyticsPipelineAddAttributesList represents a list of IoTAnalyticsPipelineAddAttributes
+type IoTAnalyticsPipelineAddAttributesList []IoTAnalyticsPipelineAddAttributes
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineAddAttributesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineAddAttributes{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineAddAttributesList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineAddAttributes{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineAddAttributesList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineChannel represents the AWS::IoTAnalytics::Pipeline.Channel CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html 
+type IoTAnalyticsPipelineChannel struct {
+	// ChannelName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-channelname
+	ChannelName *StringExpr `json:"ChannelName,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html#cfn-iotanalytics-pipeline-channel-next
+	Next *StringExpr `json:"Next,omitempty"`
+}
+
+// IoTAnalyticsPipelineChannelList represents a list of IoTAnalyticsPipelineChannel
+type IoTAnalyticsPipelineChannelList []IoTAnalyticsPipelineChannel
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineChannelList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineChannel{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineChannelList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineChannel{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineChannelList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineDatastore represents the AWS::IoTAnalytics::Pipeline.Datastore CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html 
+type IoTAnalyticsPipelineDatastore struct {
+	// DatastoreName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html#cfn-iotanalytics-pipeline-datastore-datastorename
+	DatastoreName *StringExpr `json:"DatastoreName,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html#cfn-iotanalytics-pipeline-datastore-name
+	Name *StringExpr `json:"Name,omitempty"`
+}
+
+// IoTAnalyticsPipelineDatastoreList represents a list of IoTAnalyticsPipelineDatastore
+type IoTAnalyticsPipelineDatastoreList []IoTAnalyticsPipelineDatastore
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineDatastoreList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineDatastore{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineDatastoreList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineDatastore{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineDatastoreList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineDeviceRegistryEnrich represents the AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html 
+type IoTAnalyticsPipelineDeviceRegistryEnrich struct {
+	// Attribute docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-attribute
+	Attribute *StringExpr `json:"Attribute,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-next
+	Next *StringExpr `json:"Next,omitempty"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty"`
+	// ThingName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html#cfn-iotanalytics-pipeline-deviceregistryenrich-thingname
+	ThingName *StringExpr `json:"ThingName,omitempty"`
+}
+
+// IoTAnalyticsPipelineDeviceRegistryEnrichList represents a list of IoTAnalyticsPipelineDeviceRegistryEnrich
+type IoTAnalyticsPipelineDeviceRegistryEnrichList []IoTAnalyticsPipelineDeviceRegistryEnrich
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineDeviceRegistryEnrichList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineDeviceRegistryEnrich{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineDeviceRegistryEnrichList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineDeviceRegistryEnrich{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineDeviceRegistryEnrichList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineDeviceShadowEnrich represents the AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html 
+type IoTAnalyticsPipelineDeviceShadowEnrich struct {
+	// Attribute docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-attribute
+	Attribute *StringExpr `json:"Attribute,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-next
+	Next *StringExpr `json:"Next,omitempty"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty"`
+	// ThingName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-thingname
+	ThingName *StringExpr `json:"ThingName,omitempty"`
+}
+
+// IoTAnalyticsPipelineDeviceShadowEnrichList represents a list of IoTAnalyticsPipelineDeviceShadowEnrich
+type IoTAnalyticsPipelineDeviceShadowEnrichList []IoTAnalyticsPipelineDeviceShadowEnrich
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineDeviceShadowEnrichList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineDeviceShadowEnrich{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineDeviceShadowEnrichList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineDeviceShadowEnrich{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineDeviceShadowEnrichList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineFilter represents the AWS::IoTAnalytics::Pipeline.Filter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html 
+type IoTAnalyticsPipelineFilter struct {
+	// Filter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-filter
+	Filter *StringExpr `json:"Filter,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-next
+	Next *StringExpr `json:"Next,omitempty"`
+}
+
+// IoTAnalyticsPipelineFilterList represents a list of IoTAnalyticsPipelineFilter
+type IoTAnalyticsPipelineFilterList []IoTAnalyticsPipelineFilter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineFilterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineFilter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineFilterList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineFilter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineFilterList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineLambda represents the AWS::IoTAnalytics::Pipeline.Lambda CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html 
+type IoTAnalyticsPipelineLambda struct {
+	// BatchSize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-batchsize
+	BatchSize *IntegerExpr `json:"BatchSize,omitempty"`
+	// LambdaName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-lambdaname
+	LambdaName *StringExpr `json:"LambdaName,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-next
+	Next *StringExpr `json:"Next,omitempty"`
+}
+
+// IoTAnalyticsPipelineLambdaList represents a list of IoTAnalyticsPipelineLambda
+type IoTAnalyticsPipelineLambdaList []IoTAnalyticsPipelineLambda
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineLambdaList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineLambda{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineLambdaList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineLambda{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineLambdaList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineMath represents the AWS::IoTAnalytics::Pipeline.Math CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html 
+type IoTAnalyticsPipelineMath struct {
+	// Attribute docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-attribute
+	Attribute *StringExpr `json:"Attribute,omitempty"`
+	// Math docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-math
+	Math *StringExpr `json:"Math,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-next
+	Next *StringExpr `json:"Next,omitempty"`
+}
+
+// IoTAnalyticsPipelineMathList represents a list of IoTAnalyticsPipelineMath
+type IoTAnalyticsPipelineMathList []IoTAnalyticsPipelineMath
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineMathList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineMath{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineMathList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineMath{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineMathList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineRemoveAttributes represents the AWS::IoTAnalytics::Pipeline.RemoveAttributes CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html 
+type IoTAnalyticsPipelineRemoveAttributes struct {
+	// Attributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-attributes
+	Attributes *StringListExpr `json:"Attributes,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-next
+	Next *StringExpr `json:"Next,omitempty"`
+}
+
+// IoTAnalyticsPipelineRemoveAttributesList represents a list of IoTAnalyticsPipelineRemoveAttributes
+type IoTAnalyticsPipelineRemoveAttributesList []IoTAnalyticsPipelineRemoveAttributes
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineRemoveAttributesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineRemoveAttributes{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineRemoveAttributesList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineRemoveAttributes{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineRemoveAttributesList(list)
+		return nil
+	}
+	return err
+}
+// IoTAnalyticsPipelineSelectAttributes represents the AWS::IoTAnalytics::Pipeline.SelectAttributes CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html 
+type IoTAnalyticsPipelineSelectAttributes struct {
+	// Attributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-attributes
+	Attributes *StringListExpr `json:"Attributes,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Next docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-next
+	Next *StringExpr `json:"Next,omitempty"`
+}
+
+// IoTAnalyticsPipelineSelectAttributesList represents a list of IoTAnalyticsPipelineSelectAttributes
+type IoTAnalyticsPipelineSelectAttributesList []IoTAnalyticsPipelineSelectAttributes
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTAnalyticsPipelineSelectAttributesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTAnalyticsPipelineSelectAttributes{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTAnalyticsPipelineSelectAttributesList{item}
+		return nil
+	}
+	list := []IoTAnalyticsPipelineSelectAttributes{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTAnalyticsPipelineSelectAttributesList(list)
+		return nil
+	}
+	return err
+}
 // KinesisStreamStreamEncryption represents the AWS::Kinesis::Stream.StreamEncryption CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html 
 type KinesisStreamStreamEncryption struct {
@@ -15864,6 +16812,36 @@ func (l *LambdaFunctionVPCConfigList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = LambdaFunctionVPCConfigList(list)
+		return nil
+	}
+	return err
+}
+// LambdaLayerVersionContent represents the AWS::Lambda::LayerVersion.Content CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html 
+type LambdaLayerVersionContent struct {
+	// S3Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3bucket
+	S3Bucket *StringExpr `json:"S3Bucket,omitempty" validate:"dive,required"`
+	// S3Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3key
+	S3Key *StringExpr `json:"S3Key,omitempty" validate:"dive,required"`
+	// S3ObjectVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3objectversion
+	S3ObjectVersion *StringExpr `json:"S3ObjectVersion,omitempty"`
+}
+
+// LambdaLayerVersionContentList represents a list of LambdaLayerVersionContent
+type LambdaLayerVersionContentList []LambdaLayerVersionContent
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *LambdaLayerVersionContentList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := LambdaLayerVersionContent{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = LambdaLayerVersionContentList{item}
+		return nil
+	}
+	list := []LambdaLayerVersionContent{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = LambdaLayerVersionContentList(list)
 		return nil
 	}
 	return err
@@ -19355,6 +20333,8 @@ func (l *SSMPatchBaselineRuleGroupList) UnmarshalJSON(buf []byte) error {
 // SageMakerEndpointConfigProductionVariant represents the AWS::SageMaker::EndpointConfig.ProductionVariant CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html 
 type SageMakerEndpointConfigProductionVariant struct {
+	// AcceleratorType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
+	AcceleratorType *StringExpr `json:"AcceleratorType,omitempty"`
 	// InitialInstanceCount docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
 	InitialInstanceCount *IntegerExpr `json:"InitialInstanceCount,omitempty" validate:"dive,required"`
 	// InitialVariantWeight docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
@@ -20598,6 +21578,8 @@ type AmazonMQBroker struct {
 	SecurityGroups *StringListExpr `json:"SecurityGroups,omitempty"`
 	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
 	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
+	Tags *AmazonMQBrokerTagsEntryList `json:"Tags,omitempty"`
 	// Users docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
 	Users *AmazonMQBrokerUserList `json:"Users,omitempty" validate:"dive,required"`
 }
@@ -20609,7 +21591,7 @@ func (s AmazonMQBroker) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AmazonMQBroker) CfnResourceAttributes() []string {
-	return []string{"BrokerId"}
+	return []string{"StompEndpoints","MqttEndpoints","Arn","ConfigurationId","WssEndpoints","IpAddresses","OpenWireEndpoints","ConfigurationRevision","AmqpEndpoints"}
 }
 // AmazonMQConfiguration represents the AWS::AmazonMQ::Configuration CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html 
@@ -20624,6 +21606,8 @@ type AmazonMQConfiguration struct {
 	EngineVersion *StringExpr `json:"EngineVersion,omitempty" validate:"dive,required"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-name
 	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-tags
+	Tags *AmazonMQConfigurationTagsEntryList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::AmazonMQ::Configuration to implement the ResourceProperties interface
@@ -20634,6 +21618,24 @@ func (s AmazonMQConfiguration) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AmazonMQConfiguration) CfnResourceAttributes() []string {
 	return []string{"Revision","Id","Arn"}
+}
+// AmazonMQConfigurationAssociation represents the AWS::AmazonMQ::ConfigurationAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html 
+type AmazonMQConfigurationAssociation struct {
+	// Broker docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-broker
+	Broker *StringExpr `json:"Broker,omitempty" validate:"dive,required"`
+	// Configuration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-configuration
+	Configuration *AmazonMQConfigurationAssociationConfigurationID `json:"Configuration,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AmazonMQ::ConfigurationAssociation to implement the ResourceProperties interface
+func (s AmazonMQConfigurationAssociation) CfnResourceType() string {
+	
+	return "AWS::AmazonMQ::ConfigurationAssociation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AmazonMQConfigurationAssociation) CfnResourceAttributes() []string {
+	return []string{}
 }
 // APIGatewayAccount represents the AWS::ApiGateway::Account CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html 
@@ -20666,6 +21668,8 @@ type APIGatewayAPIKey struct {
 	Name *StringExpr `json:"Name,omitempty"`
 	// StageKeys docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
 	StageKeys *APIGatewayAPIKeyStageKeyList `json:"StageKeys,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
+	Value *StringExpr `json:"Value,omitempty"`
 }
 
 // CfnResourceType returns AWS::ApiGateway::ApiKey to implement the ResourceProperties interface
@@ -20688,10 +21692,10 @@ type APIGatewayAuthorizer struct {
 	AuthorizerResultTTLInSeconds *IntegerExpr `json:"AuthorizerResultTtlInSeconds,omitempty"`
 	// AuthorizerURI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizeruri
 	AuthorizerURI *StringExpr `json:"AuthorizerUri,omitempty"`
-	// IDentitySource docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-identitysource
-	IDentitySource *StringExpr `json:"IdentitySource,omitempty"`
-	// IDentityValidationExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-identityvalidationexpression
-	IDentityValidationExpression *StringExpr `json:"IdentityValidationExpression,omitempty"`
+	// IdentitySource docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-identitysource
+	IdentitySource *StringExpr `json:"IdentitySource,omitempty"`
+	// IdentityValidationExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-identityvalidationexpression
+	IdentityValidationExpression *StringExpr `json:"IdentityValidationExpression,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// ProviderARNs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-providerarns
@@ -20833,7 +21837,7 @@ func (s APIGatewayDomainName) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s APIGatewayDomainName) CfnResourceAttributes() []string {
-	return []string{"RegionalHostedZoneId","DistributionDomainName","DistributionHostedZoneId","RegionalDomainName"}
+	return []string{"DistributionDomainName","DistributionHostedZoneId","RegionalDomainName","RegionalHostedZoneId"}
 }
 // APIGatewayGatewayResponse represents the AWS::ApiGateway::GatewayResponse CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html 
@@ -21385,7 +22389,7 @@ func (s AppSyncFunctionConfiguration) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncFunctionConfiguration) CfnResourceAttributes() []string {
-	return []string{"Name","FunctionId","FunctionArn","DataSourceName"}
+	return []string{"FunctionId","FunctionArn","DataSourceName","Name"}
 }
 // AppSyncGraphQLAPI represents the AWS::AppSync::GraphQLApi CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html 
@@ -21409,7 +22413,7 @@ func (s AppSyncGraphQLAPI) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncGraphQLAPI) CfnResourceAttributes() []string {
-	return []string{"Arn","ApiId","GraphQLUrl"}
+	return []string{"GraphQLUrl","Arn","ApiId"}
 }
 // AppSyncGraphQLSchema represents the AWS::AppSync::GraphQLSchema CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html 
@@ -21463,7 +22467,7 @@ func (s AppSyncResolver) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncResolver) CfnResourceAttributes() []string {
-	return []string{"ResolverArn","FieldName","TypeName"}
+	return []string{"TypeName","ResolverArn","FieldName"}
 }
 // ApplicationAutoScalingScalableTarget represents the AWS::ApplicationAutoScaling::ScalableTarget CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html 
@@ -22012,20 +23016,20 @@ func (s CloudFormationWaitConditionHandle) CfnResourceType() string {
 func (s CloudFormationWaitConditionHandle) CfnResourceAttributes() []string {
 	return []string{}
 }
-// CloudFrontCloudFrontOriginAccessIDentity represents the AWS::CloudFront::CloudFrontOriginAccessIdentity CloudFormation resource type
+// CloudFrontCloudFrontOriginAccessIdentity represents the AWS::CloudFront::CloudFrontOriginAccessIdentity CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html 
-type CloudFrontCloudFrontOriginAccessIDentity struct {
-	// CloudFrontOriginAccessIDentityConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-	CloudFrontOriginAccessIDentityConfig *CloudFrontCloudFrontOriginAccessIDentityCloudFrontOriginAccessIDentityConfig `json:"CloudFrontOriginAccessIdentityConfig,omitempty" validate:"dive,required"`
+type CloudFrontCloudFrontOriginAccessIdentity struct {
+	// CloudFrontOriginAccessIdentityConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
+	CloudFrontOriginAccessIdentityConfig *CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig `json:"CloudFrontOriginAccessIdentityConfig,omitempty" validate:"dive,required"`
 }
 
 // CfnResourceType returns AWS::CloudFront::CloudFrontOriginAccessIdentity to implement the ResourceProperties interface
-func (s CloudFrontCloudFrontOriginAccessIDentity) CfnResourceType() string {
+func (s CloudFrontCloudFrontOriginAccessIdentity) CfnResourceType() string {
 	
 	return "AWS::CloudFront::CloudFrontOriginAccessIdentity"
 }
 // CfnResourceAttributes returns the attributes produced by this resource
-func (s CloudFrontCloudFrontOriginAccessIDentity) CfnResourceAttributes() []string {
+func (s CloudFrontCloudFrontOriginAccessIdentity) CfnResourceAttributes() []string {
 	return []string{"S3CanonicalUserId"}
 }
 // CloudFrontDistribution represents the AWS::CloudFront::Distribution CloudFormation resource type
@@ -22240,7 +23244,7 @@ func (s CodeCommitRepository) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s CodeCommitRepository) CfnResourceAttributes() []string {
-	return []string{"Name","CloneUrlHttp","CloneUrlSsh","Arn"}
+	return []string{"CloneUrlHttp","CloneUrlSsh","Arn","Name"}
 }
 // CodeDeployApplication represents the AWS::CodeDeploy::Application CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html 
@@ -22408,25 +23412,25 @@ func (s CodePipelineWebhook) CfnResourceType() string {
 func (s CodePipelineWebhook) CfnResourceAttributes() []string {
 	return []string{"Url"}
 }
-// CognitoIDentityPool represents the AWS::Cognito::IdentityPool CloudFormation resource type
+// CognitoIdentityPool represents the AWS::Cognito::IdentityPool CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html 
-type CognitoIDentityPool struct {
+type CognitoIdentityPool struct {
 	// AllowUnauthenticatedIDentities docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowunauthenticatedidentities
 	AllowUnauthenticatedIDentities *BoolExpr `json:"AllowUnauthenticatedIdentities,omitempty" validate:"dive,required"`
 	// CognitoEvents docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoevents
 	CognitoEvents interface{} `json:"CognitoEvents,omitempty"`
-	// CognitoIDentityProviders docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoidentityproviders
-	CognitoIDentityProviders *CognitoIDentityPoolCognitoIDentityProviderList `json:"CognitoIdentityProviders,omitempty"`
+	// CognitoIdentityProviders docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoidentityproviders
+	CognitoIdentityProviders *CognitoIdentityPoolCognitoIdentityProviderList `json:"CognitoIdentityProviders,omitempty"`
 	// CognitoStreams docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitostreams
-	CognitoStreams *CognitoIDentityPoolCognitoStreams `json:"CognitoStreams,omitempty"`
+	CognitoStreams *CognitoIdentityPoolCognitoStreams `json:"CognitoStreams,omitempty"`
 	// DeveloperProviderName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-developerprovidername
 	DeveloperProviderName *StringExpr `json:"DeveloperProviderName,omitempty"`
-	// IDentityPoolName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname
-	IDentityPoolName *StringExpr `json:"IdentityPoolName,omitempty"`
+	// IdentityPoolName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname
+	IdentityPoolName *StringExpr `json:"IdentityPoolName,omitempty"`
 	// OpenIDConnectProviderARNs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
 	OpenIDConnectProviderARNs *StringListExpr `json:"OpenIdConnectProviderARNs,omitempty"`
 	// PushSync docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-pushsync
-	PushSync *CognitoIDentityPoolPushSync `json:"PushSync,omitempty"`
+	PushSync *CognitoIdentityPoolPushSync `json:"PushSync,omitempty"`
 	// SamlProviderARNs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-samlproviderarns
 	SamlProviderARNs *StringListExpr `json:"SamlProviderARNs,omitempty"`
 	// SupportedLoginProviders docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-supportedloginproviders
@@ -22434,19 +23438,19 @@ type CognitoIDentityPool struct {
 }
 
 // CfnResourceType returns AWS::Cognito::IdentityPool to implement the ResourceProperties interface
-func (s CognitoIDentityPool) CfnResourceType() string {
+func (s CognitoIdentityPool) CfnResourceType() string {
 	
 	return "AWS::Cognito::IdentityPool"
 }
 // CfnResourceAttributes returns the attributes produced by this resource
-func (s CognitoIDentityPool) CfnResourceAttributes() []string {
+func (s CognitoIdentityPool) CfnResourceAttributes() []string {
 	return []string{"Name"}
 }
-// CognitoIDentityPoolRoleAttachment represents the AWS::Cognito::IdentityPoolRoleAttachment CloudFormation resource type
+// CognitoIdentityPoolRoleAttachment represents the AWS::Cognito::IdentityPoolRoleAttachment CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html 
-type CognitoIDentityPoolRoleAttachment struct {
-	// IDentityPoolID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid
-	IDentityPoolID *StringExpr `json:"IdentityPoolId,omitempty" validate:"dive,required"`
+type CognitoIdentityPoolRoleAttachment struct {
+	// IdentityPoolID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid
+	IdentityPoolID *StringExpr `json:"IdentityPoolId,omitempty" validate:"dive,required"`
 	// RoleMappings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-rolemappings
 	RoleMappings interface{} `json:"RoleMappings,omitempty"`
 	// Roles docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-roles
@@ -22454,12 +23458,12 @@ type CognitoIDentityPoolRoleAttachment struct {
 }
 
 // CfnResourceType returns AWS::Cognito::IdentityPoolRoleAttachment to implement the ResourceProperties interface
-func (s CognitoIDentityPoolRoleAttachment) CfnResourceType() string {
+func (s CognitoIdentityPoolRoleAttachment) CfnResourceType() string {
 	
 	return "AWS::Cognito::IdentityPoolRoleAttachment"
 }
 // CfnResourceAttributes returns the attributes produced by this resource
-func (s CognitoIDentityPoolRoleAttachment) CfnResourceAttributes() []string {
+func (s CognitoIdentityPoolRoleAttachment) CfnResourceAttributes() []string {
 	return []string{}
 }
 // CognitoUserPool represents the AWS::Cognito::UserPool CloudFormation resource type
@@ -22849,6 +23853,8 @@ type DMSEndpoint struct {
 	DatabaseName *StringExpr `json:"DatabaseName,omitempty"`
 	// DynamoDbSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-dynamodbsettings
 	DynamoDbSettings *DMSEndpointDynamoDbSettings `json:"DynamoDbSettings,omitempty"`
+	// ElasticsearchSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-elasticsearchsettings
+	ElasticsearchSettings *DMSEndpointElasticsearchSettings `json:"ElasticsearchSettings,omitempty"`
 	// EndpointIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-endpointidentifier
 	EndpointIDentifier *StringExpr `json:"EndpointIdentifier,omitempty"`
 	// EndpointType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-endpointtype
@@ -22857,6 +23863,8 @@ type DMSEndpoint struct {
 	EngineName *StringExpr `json:"EngineName,omitempty" validate:"dive,required"`
 	// ExtraConnectionAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-extraconnectionattributes
 	ExtraConnectionAttributes *StringExpr `json:"ExtraConnectionAttributes,omitempty"`
+	// KinesisSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kinesissettings
+	KinesisSettings *DMSEndpointKinesisSettings `json:"KinesisSettings,omitempty"`
 	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kmskeyid
 	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
 	// MongoDbSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-mongodbsettings
@@ -23096,6 +24104,126 @@ func (s DirectoryServiceSimpleAD) CfnResourceType() string {
 func (s DirectoryServiceSimpleAD) CfnResourceAttributes() []string {
 	return []string{"Alias","DnsIpAddresses"}
 }
+// DocDBDBCluster represents the AWS::DocDB::DBCluster CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html 
+type DocDBDBCluster struct {
+	// AvailabilityZones docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-availabilityzones
+	AvailabilityZones *StringListExpr `json:"AvailabilityZones,omitempty"`
+	// BackupRetentionPeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-backupretentionperiod
+	BackupRetentionPeriod *IntegerExpr `json:"BackupRetentionPeriod,omitempty"`
+	// DBClusterIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbclusteridentifier
+	DBClusterIDentifier *StringExpr `json:"DBClusterIdentifier,omitempty"`
+	// DBClusterParameterGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbclusterparametergroupname
+	DBClusterParameterGroupName *StringExpr `json:"DBClusterParameterGroupName,omitempty"`
+	// DBSubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbsubnetgroupname
+	DBSubnetGroupName *StringExpr `json:"DBSubnetGroupName,omitempty"`
+	// EngineVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion
+	EngineVersion *StringExpr `json:"EngineVersion,omitempty"`
+	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-kmskeyid
+	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// MasterUserPassword docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masteruserpassword
+	MasterUserPassword *StringExpr `json:"MasterUserPassword,omitempty"`
+	// MasterUsername docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusername
+	MasterUsername *StringExpr `json:"MasterUsername,omitempty"`
+	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-port
+	Port *IntegerExpr `json:"Port,omitempty"`
+	// PreferredBackupWindow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredbackupwindow
+	PreferredBackupWindow *StringExpr `json:"PreferredBackupWindow,omitempty"`
+	// PreferredMaintenanceWindow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredmaintenancewindow
+	PreferredMaintenanceWindow *StringExpr `json:"PreferredMaintenanceWindow,omitempty"`
+	// SnapshotIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-snapshotidentifier
+	SnapshotIDentifier *StringExpr `json:"SnapshotIdentifier,omitempty"`
+	// StorageEncrypted docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-storageencrypted
+	StorageEncrypted *BoolExpr `json:"StorageEncrypted,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// VPCSecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-vpcsecuritygroupids
+	VPCSecurityGroupIDs *StringListExpr `json:"VpcSecurityGroupIds,omitempty"`
+}
+
+// CfnResourceType returns AWS::DocDB::DBCluster to implement the ResourceProperties interface
+func (s DocDBDBCluster) CfnResourceType() string {
+	
+	return "AWS::DocDB::DBCluster"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s DocDBDBCluster) CfnResourceAttributes() []string {
+	return []string{"ClusterResourceId","Endpoint","Port","ReadEndpoint"}
+}
+// DocDBDBClusterParameterGroup represents the AWS::DocDB::DBClusterParameterGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html 
+type DocDBDBClusterParameterGroup struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-description
+	Description *StringExpr `json:"Description,omitempty" validate:"dive,required"`
+	// Family docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-family
+	Family *StringExpr `json:"Family,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Parameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-parameters
+	Parameters interface{} `json:"Parameters,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::DocDB::DBClusterParameterGroup to implement the ResourceProperties interface
+func (s DocDBDBClusterParameterGroup) CfnResourceType() string {
+	
+	return "AWS::DocDB::DBClusterParameterGroup"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s DocDBDBClusterParameterGroup) CfnResourceAttributes() []string {
+	return []string{}
+}
+// DocDBDBInstance represents the AWS::DocDB::DBInstance CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html 
+type DocDBDBInstance struct {
+	// AutoMinorVersionUpgrade docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-autominorversionupgrade
+	AutoMinorVersionUpgrade *BoolExpr `json:"AutoMinorVersionUpgrade,omitempty"`
+	// AvailabilityZone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-availabilityzone
+	AvailabilityZone *StringExpr `json:"AvailabilityZone,omitempty"`
+	// DBClusterIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-dbclusteridentifier
+	DBClusterIDentifier *StringExpr `json:"DBClusterIdentifier,omitempty" validate:"dive,required"`
+	// DBInstanceClass docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-dbinstanceclass
+	DBInstanceClass *StringExpr `json:"DBInstanceClass,omitempty" validate:"dive,required"`
+	// DBInstanceIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-dbinstanceidentifier
+	DBInstanceIDentifier *StringExpr `json:"DBInstanceIdentifier,omitempty"`
+	// PreferredMaintenanceWindow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-preferredmaintenancewindow
+	PreferredMaintenanceWindow *StringExpr `json:"PreferredMaintenanceWindow,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::DocDB::DBInstance to implement the ResourceProperties interface
+func (s DocDBDBInstance) CfnResourceType() string {
+	
+	return "AWS::DocDB::DBInstance"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s DocDBDBInstance) CfnResourceAttributes() []string {
+	return []string{"Endpoint","Port"}
+}
+// DocDBDBSubnetGroup represents the AWS::DocDB::DBSubnetGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html 
+type DocDBDBSubnetGroup struct {
+	// DBSubnetGroupDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-dbsubnetgroupdescription
+	DBSubnetGroupDescription *StringExpr `json:"DBSubnetGroupDescription,omitempty" validate:"dive,required"`
+	// DBSubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-dbsubnetgroupname
+	DBSubnetGroupName *StringExpr `json:"DBSubnetGroupName,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::DocDB::DBSubnetGroup to implement the ResourceProperties interface
+func (s DocDBDBSubnetGroup) CfnResourceType() string {
+	
+	return "AWS::DocDB::DBSubnetGroup"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s DocDBDBSubnetGroup) CfnResourceAttributes() []string {
+	return []string{}
+}
 // DynamoDBTable represents the AWS::DynamoDB::Table CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html 
 type DynamoDBTable struct {
@@ -23204,9 +24332,9 @@ type EC2EC2Fleet struct {
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
 	Type *StringExpr `json:"Type,omitempty"`
 	// ValidFrom docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-	ValidFrom *IntegerExpr `json:"ValidFrom,omitempty"`
+	ValidFrom *StringExpr `json:"ValidFrom,omitempty"`
 	// ValidUntil docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-	ValidUntil *IntegerExpr `json:"ValidUntil,omitempty"`
+	ValidUntil *StringExpr `json:"ValidUntil,omitempty"`
 }
 
 // CfnResourceType returns AWS::EC2::EC2Fleet to implement the ResourceProperties interface
@@ -23546,7 +24674,7 @@ func (s EC2NetworkInterface) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2NetworkInterface) CfnResourceAttributes() []string {
-	return []string{"PrimaryPrivateIpAddress","SecondaryPrivateIpAddresses"}
+	return []string{"SecondaryPrivateIpAddresses","PrimaryPrivateIpAddress"}
 }
 // EC2NetworkInterfaceAttachment represents the AWS::EC2::NetworkInterfaceAttachment CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html 
@@ -24022,7 +25150,7 @@ func (s EC2VPC) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2VPC) CfnResourceAttributes() []string {
-	return []string{"DefaultNetworkAcl","DefaultSecurityGroup","Ipv6CidrBlocks","CidrBlock","CidrBlockAssociations"}
+	return []string{"CidrBlock","CidrBlockAssociations","DefaultNetworkAcl","DefaultSecurityGroup","Ipv6CidrBlocks"}
 }
 // EC2VPCCidrBlock represents the AWS::EC2::VPCCidrBlock CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html 
@@ -24090,7 +25218,7 @@ func (s EC2VPCEndpoint) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2VPCEndpoint) CfnResourceAttributes() []string {
-	return []string{"CreationTimestamp","DnsEntries","NetworkInterfaceIds"}
+	return []string{"NetworkInterfaceIds","CreationTimestamp","DnsEntries"}
 }
 // EC2VPCEndpointServicePermissions represents the AWS::EC2::VPCEndpointServicePermissions CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html 
@@ -24315,6 +25443,8 @@ func (s ECRRepository) CfnResourceAttributes() []string {
 type ECSCluster struct {
 	// ClusterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
 	ClusterName *StringExpr `json:"ClusterName,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::ECS::Cluster to implement the ResourceProperties interface
@@ -24357,6 +25487,8 @@ type ECSService struct {
 	ServiceName *StringExpr `json:"ServiceName,omitempty"`
 	// ServiceRegistries docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
 	ServiceRegistries *ECSServiceServiceRegistryList `json:"ServiceRegistries,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
+	Tags *TagList `json:"Tags,omitempty"`
 	// TaskDefinition docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
 	TaskDefinition *StringExpr `json:"TaskDefinition,omitempty" validate:"dive,required"`
 }
@@ -24389,6 +25521,8 @@ type ECSTaskDefinition struct {
 	PlacementConstraints *ECSTaskDefinitionTaskDefinitionPlacementConstraintList `json:"PlacementConstraints,omitempty"`
 	// RequiresCompatibilities docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
 	RequiresCompatibilities *StringListExpr `json:"RequiresCompatibilities,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
+	Tags *TagList `json:"Tags,omitempty"`
 	// TaskRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 	TaskRoleArn *StringExpr `json:"TaskRoleArn,omitempty"`
 	// Volumes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
@@ -24774,7 +25908,7 @@ func (s ElastiCacheReplicationGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElastiCacheReplicationGroup) CfnResourceAttributes() []string {
-	return []string{"ReadEndPoint.Ports.List","ConfigurationEndPoint.Address","ConfigurationEndPoint.Port","PrimaryEndPoint.Address","PrimaryEndPoint.Port","ReadEndPoint.Addresses","ReadEndPoint.Addresses.List","ReadEndPoint.Ports"}
+	return []string{"ReadEndPoint.Addresses","ReadEndPoint.Addresses.List","ReadEndPoint.Ports","ReadEndPoint.Ports.List","ConfigurationEndPoint.Address","ConfigurationEndPoint.Port","PrimaryEndPoint.Address","PrimaryEndPoint.Port"}
 }
 // ElastiCacheSecurityGroup represents the AWS::ElastiCache::SecurityGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html 
@@ -24980,7 +26114,7 @@ func (s ElasticLoadBalancingLoadBalancer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticLoadBalancingLoadBalancer) CfnResourceAttributes() []string {
-	return []string{"DNSName","SourceSecurityGroup.GroupName","SourceSecurityGroup.OwnerAlias","CanonicalHostedZoneName","CanonicalHostedZoneNameID"}
+	return []string{"CanonicalHostedZoneName","CanonicalHostedZoneNameID","DNSName","SourceSecurityGroup.GroupName","SourceSecurityGroup.OwnerAlias"}
 }
 // ElasticLoadBalancingV2Listener represents the AWS::ElasticLoadBalancingV2::Listener CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html 
@@ -25078,7 +26212,7 @@ func (s ElasticLoadBalancingV2LoadBalancer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticLoadBalancingV2LoadBalancer) CfnResourceAttributes() []string {
-	return []string{"LoadBalancerName","SecurityGroups","CanonicalHostedZoneID","DNSName","LoadBalancerFullName"}
+	return []string{"SecurityGroups","CanonicalHostedZoneID","DNSName","LoadBalancerFullName","LoadBalancerName"}
 }
 // ElasticLoadBalancingV2TargetGroup represents the AWS::ElasticLoadBalancingV2::TargetGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html 
@@ -25143,6 +26277,8 @@ type ElasticsearchDomain struct {
 	ElasticsearchVersion *StringExpr `json:"ElasticsearchVersion,omitempty"`
 	// EncryptionAtRestOptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-encryptionatrestoptions
 	EncryptionAtRestOptions *ElasticsearchDomainEncryptionAtRestOptions `json:"EncryptionAtRestOptions,omitempty"`
+	// NodeToNodeEncryptionOptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions
+	NodeToNodeEncryptionOptions *ElasticsearchDomainNodeToNodeEncryptionOptions `json:"NodeToNodeEncryptionOptions,omitempty"`
 	// SnapshotOptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-snapshotoptions
 	SnapshotOptions *ElasticsearchDomainSnapshotOptions `json:"SnapshotOptions,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-tags
@@ -25158,7 +26294,7 @@ func (s ElasticsearchDomain) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticsearchDomain) CfnResourceAttributes() []string {
-	return []string{"DomainArn","DomainEndpoint","Arn"}
+	return []string{"Arn","DomainArn","DomainEndpoint"}
 }
 // EventsEventBusPolicy represents the AWS::Events::EventBusPolicy CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html 
@@ -25860,7 +26996,7 @@ type InspectorAssessmentTarget struct {
 	// AssessmentTargetName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-assessmenttargetname
 	AssessmentTargetName *StringExpr `json:"AssessmentTargetName,omitempty"`
 	// ResourceGroupArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-resourcegrouparn
-	ResourceGroupArn *StringExpr `json:"ResourceGroupArn,omitempty" validate:"dive,required"`
+	ResourceGroupArn *StringExpr `json:"ResourceGroupArn,omitempty"`
 }
 
 // CfnResourceType returns AWS::Inspector::AssessmentTarget to implement the ResourceProperties interface
@@ -25928,7 +27064,7 @@ func (s IoT1ClickDevice) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s IoT1ClickDevice) CfnResourceAttributes() []string {
-	return []string{"Arn","DeviceId","Enabled"}
+	return []string{"DeviceId","Enabled","Arn"}
 }
 // IoT1ClickPlacement represents the AWS::IoT1Click::Placement CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html 
@@ -26079,6 +27215,90 @@ func (s IoTTopicRule) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s IoTTopicRule) CfnResourceAttributes() []string {
 	return []string{"Arn"}
+}
+// IoTAnalyticsChannel represents the AWS::IoTAnalytics::Channel CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html 
+type IoTAnalyticsChannel struct {
+	// ChannelName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-channelname
+	ChannelName *StringExpr `json:"ChannelName,omitempty"`
+	// RetentionPeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-retentionperiod
+	RetentionPeriod *IoTAnalyticsChannelRetentionPeriod `json:"RetentionPeriod,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::IoTAnalytics::Channel to implement the ResourceProperties interface
+func (s IoTAnalyticsChannel) CfnResourceType() string {
+	
+	return "AWS::IoTAnalytics::Channel"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s IoTAnalyticsChannel) CfnResourceAttributes() []string {
+	return []string{}
+}
+// IoTAnalyticsDataset represents the AWS::IoTAnalytics::Dataset CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html 
+type IoTAnalyticsDataset struct {
+	// Actions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-actions
+	Actions *IoTAnalyticsDatasetActionList `json:"Actions,omitempty" validate:"dive,required"`
+	// DatasetName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-datasetname
+	DatasetName *StringExpr `json:"DatasetName,omitempty"`
+	// RetentionPeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-retentionperiod
+	RetentionPeriod *IoTAnalyticsDatasetRetentionPeriod `json:"RetentionPeriod,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// Triggers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers
+	Triggers *IoTAnalyticsDatasetTriggerList `json:"Triggers,omitempty"`
+}
+
+// CfnResourceType returns AWS::IoTAnalytics::Dataset to implement the ResourceProperties interface
+func (s IoTAnalyticsDataset) CfnResourceType() string {
+	
+	return "AWS::IoTAnalytics::Dataset"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s IoTAnalyticsDataset) CfnResourceAttributes() []string {
+	return []string{}
+}
+// IoTAnalyticsDatastore represents the AWS::IoTAnalytics::Datastore CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html 
+type IoTAnalyticsDatastore struct {
+	// DatastoreName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorename
+	DatastoreName *StringExpr `json:"DatastoreName,omitempty"`
+	// RetentionPeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-retentionperiod
+	RetentionPeriod *IoTAnalyticsDatastoreRetentionPeriod `json:"RetentionPeriod,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::IoTAnalytics::Datastore to implement the ResourceProperties interface
+func (s IoTAnalyticsDatastore) CfnResourceType() string {
+	
+	return "AWS::IoTAnalytics::Datastore"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s IoTAnalyticsDatastore) CfnResourceAttributes() []string {
+	return []string{}
+}
+// IoTAnalyticsPipeline represents the AWS::IoTAnalytics::Pipeline CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html 
+type IoTAnalyticsPipeline struct {
+	// PipelineActivities docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelineactivities
+	PipelineActivities *IoTAnalyticsPipelineActivityList `json:"PipelineActivities,omitempty" validate:"dive,required"`
+	// PipelineName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelinename
+	PipelineName *StringExpr `json:"PipelineName,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::IoTAnalytics::Pipeline to implement the ResourceProperties interface
+func (s IoTAnalyticsPipeline) CfnResourceType() string {
+	
+	return "AWS::IoTAnalytics::Pipeline"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s IoTAnalyticsPipeline) CfnResourceAttributes() []string {
+	return []string{}
 }
 // KMSAlias represents the AWS::KMS::Alias CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html 
@@ -26350,6 +27570,30 @@ func (s LambdaFunction) CfnResourceType() string {
 func (s LambdaFunction) CfnResourceAttributes() []string {
 	return []string{"Arn"}
 }
+// LambdaLayerVersion represents the AWS::Lambda::LayerVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html 
+type LambdaLayerVersion struct {
+	// CompatibleRuntimes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-compatibleruntimes
+	CompatibleRuntimes *StringListExpr `json:"CompatibleRuntimes,omitempty"`
+	// Content docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-content
+	Content *LambdaLayerVersionContent `json:"Content,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// LayerName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-layername
+	LayerName *StringExpr `json:"LayerName,omitempty"`
+	// LicenseInfo docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html#cfn-lambda-layerversion-licenseinfo
+	LicenseInfo *StringExpr `json:"LicenseInfo,omitempty"`
+}
+
+// CfnResourceType returns AWS::Lambda::LayerVersion to implement the ResourceProperties interface
+func (s LambdaLayerVersion) CfnResourceType() string {
+	
+	return "AWS::Lambda::LayerVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s LambdaLayerVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
 // LambdaPermission represents the AWS::Lambda::Permission CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html 
 type LambdaPermission struct {
@@ -26536,7 +27780,7 @@ func (s NeptuneDBCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s NeptuneDBCluster) CfnResourceAttributes() []string {
-	return []string{"ReadEndpoint","ClusterResourceId","Endpoint","Port"}
+	return []string{"ClusterResourceId","Endpoint","Port","ReadEndpoint"}
 }
 // NeptuneDBClusterParameterGroup represents the AWS::Neptune::DBClusterParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html 
@@ -26596,7 +27840,7 @@ func (s NeptuneDBInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s NeptuneDBInstance) CfnResourceAttributes() []string {
-	return []string{"Port","Endpoint"}
+	return []string{"Endpoint","Port"}
 }
 // NeptuneDBParameterGroup represents the AWS::Neptune::DBParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html 
@@ -26754,7 +27998,7 @@ func (s OpsWorksInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s OpsWorksInstance) CfnResourceAttributes() []string {
-	return []string{"PublicIp","AvailabilityZone","PrivateDnsName","PrivateIp","PublicDnsName"}
+	return []string{"PrivateDnsName","PrivateIp","PublicDnsName","PublicIp","AvailabilityZone"}
 }
 // OpsWorksLayer represents the AWS::OpsWorks::Layer CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html 
@@ -26963,6 +28207,8 @@ type RDSDBCluster struct {
 	ScalingConfiguration *RDSDBClusterScalingConfiguration `json:"ScalingConfiguration,omitempty"`
 	// SnapshotIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
 	SnapshotIDentifier *StringExpr `json:"SnapshotIdentifier,omitempty"`
+	// SourceRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
+	SourceRegion *StringExpr `json:"SourceRegion,omitempty"`
 	// StorageEncrypted docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
 	StorageEncrypted *BoolExpr `json:"StorageEncrypted,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags
@@ -26978,7 +28224,7 @@ func (s RDSDBCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s RDSDBCluster) CfnResourceAttributes() []string {
-	return []string{"ReadEndpoint.Address","Endpoint.Address","Endpoint.Port"}
+	return []string{"Endpoint.Address","Endpoint.Port","ReadEndpoint.Address"}
 }
 // RDSDBClusterParameterGroup represents the AWS::RDS::DBClusterParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html 
@@ -27099,6 +28345,8 @@ type RDSDBInstance struct {
 	Tags *TagList `json:"Tags,omitempty"`
 	// Timezone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-timezone
 	Timezone *StringExpr `json:"Timezone,omitempty"`
+	// UseDefaultProcessorFeatures docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-usedefaultprocessorfeatures
+	UseDefaultProcessorFeatures *BoolExpr `json:"UseDefaultProcessorFeatures,omitempty"`
 	// VPCSecurityGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups
 	VPCSecurityGroups *StringListExpr `json:"VPCSecurityGroups,omitempty"`
 }
@@ -27320,7 +28568,7 @@ func (s RedshiftCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s RedshiftCluster) CfnResourceAttributes() []string {
-	return []string{"Endpoint.Address","Endpoint.Port"}
+	return []string{"Endpoint.Port","Endpoint.Address"}
 }
 // RedshiftClusterParameterGroup represents the AWS::Redshift::ClusterParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html 
@@ -27534,7 +28782,7 @@ func (s Route53ResolverResolverEndpoint) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverEndpoint) CfnResourceAttributes() []string {
-	return []string{"Direction","HostVPCId","Name","ResolverEndpointId","IpAddressCount","Arn"}
+	return []string{"ResolverEndpointId","IpAddressCount","Arn","Direction","HostVPCId","Name"}
 }
 // Route53ResolverResolverRule represents the AWS::Route53Resolver::ResolverRule CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html 
@@ -27560,7 +28808,27 @@ func (s Route53ResolverResolverRule) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverRule) CfnResourceAttributes() []string {
-	return []string{"ResolverEndpointId","DomainName","ResolverRuleId","Arn","TargetIps"}
+	return []string{"Arn","TargetIps","Name","ResolverEndpointId","DomainName","ResolverRuleId"}
+}
+// Route53ResolverResolverRuleAssociation represents the AWS::Route53Resolver::ResolverRuleAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html 
+type Route53ResolverResolverRuleAssociation struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// ResolverRuleID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-resolverruleid
+	ResolverRuleID *StringExpr `json:"ResolverRuleId,omitempty" validate:"dive,required"`
+	// VPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-vpcid
+	VPCID *StringExpr `json:"VPCId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Route53Resolver::ResolverRuleAssociation to implement the ResourceProperties interface
+func (s Route53ResolverResolverRuleAssociation) CfnResourceType() string {
+	
+	return "AWS::Route53Resolver::ResolverRuleAssociation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s Route53ResolverResolverRuleAssociation) CfnResourceAttributes() []string {
+	return []string{"VPCId","ResolverRuleId","ResolverRuleAssociationId","Name"}
 }
 // S3Bucket represents the AWS::S3::Bucket CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html 
@@ -28149,12 +29417,14 @@ func (s SageMakerEndpointConfig) CfnResourceAttributes() []string {
 // SageMakerModel represents the AWS::SageMaker::Model CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html 
 type SageMakerModel struct {
+	// Containers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers
+	Containers *SageMakerModelContainerDefinitionList `json:"Containers,omitempty"`
 	// ExecutionRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
 	ExecutionRoleArn *StringExpr `json:"ExecutionRoleArn,omitempty" validate:"dive,required"`
 	// ModelName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname
 	ModelName *StringExpr `json:"ModelName,omitempty"`
 	// PrimaryContainer docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer
-	PrimaryContainer *SageMakerModelContainerDefinition `json:"PrimaryContainer,omitempty" validate:"dive,required"`
+	PrimaryContainer *SageMakerModelContainerDefinition `json:"PrimaryContainer,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags
 	Tags *TagList `json:"Tags,omitempty"`
 	// VPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig
@@ -28358,7 +29628,7 @@ func (s ServiceCatalogCloudFormationProduct) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceCatalogCloudFormationProduct) CfnResourceAttributes() []string {
-	return []string{"ProductName","ProvisioningArtifactIds","ProvisioningArtifactNames"}
+	return []string{"ProvisioningArtifactNames","ProductName","ProvisioningArtifactIds"}
 }
 // ServiceCatalogCloudFormationProvisionedProduct represents the AWS::ServiceCatalog::CloudFormationProvisionedProduct CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html 
@@ -28608,7 +29878,7 @@ func (s ServiceDiscoveryHTTPNamespace) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceDiscoveryHTTPNamespace) CfnResourceAttributes() []string {
-	return []string{"Id","Arn"}
+	return []string{"Arn","Id"}
 }
 // ServiceDiscoveryInstance represents the AWS::ServiceDiscovery::Instance CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html 
@@ -29069,6 +30339,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &AmazonMQBroker{}
 	case "AWS::AmazonMQ::Configuration":
 		return &AmazonMQConfiguration{}
+	case "AWS::AmazonMQ::ConfigurationAssociation":
+		return &AmazonMQConfigurationAssociation{}
 	case "AWS::ApiGateway::Account":
 		return &APIGatewayAccount{}
 	case "AWS::ApiGateway::ApiKey":
@@ -29174,7 +30446,7 @@ func NewResourceByType(typeName string) ResourceProperties {
 	case "AWS::CloudFormation::WaitConditionHandle":
 		return &CloudFormationWaitConditionHandle{}
 	case "AWS::CloudFront::CloudFrontOriginAccessIdentity":
-		return &CloudFrontCloudFrontOriginAccessIDentity{}
+		return &CloudFrontCloudFrontOriginAccessIdentity{}
 	case "AWS::CloudFront::Distribution":
 		return &CloudFrontDistribution{}
 	case "AWS::CloudFront::StreamingDistribution":
@@ -29202,9 +30474,9 @@ func NewResourceByType(typeName string) ResourceProperties {
 	case "AWS::CodePipeline::Webhook":
 		return &CodePipelineWebhook{}
 	case "AWS::Cognito::IdentityPool":
-		return &CognitoIDentityPool{}
+		return &CognitoIdentityPool{}
 	case "AWS::Cognito::IdentityPoolRoleAttachment":
-		return &CognitoIDentityPoolRoleAttachment{}
+		return &CognitoIdentityPoolRoleAttachment{}
 	case "AWS::Cognito::UserPool":
 		return &CognitoUserPool{}
 	case "AWS::Cognito::UserPoolClient":
@@ -29251,6 +30523,14 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &DirectoryServiceMicrosoftAD{}
 	case "AWS::DirectoryService::SimpleAD":
 		return &DirectoryServiceSimpleAD{}
+	case "AWS::DocDB::DBCluster":
+		return &DocDBDBCluster{}
+	case "AWS::DocDB::DBClusterParameterGroup":
+		return &DocDBDBClusterParameterGroup{}
+	case "AWS::DocDB::DBInstance":
+		return &DocDBDBInstance{}
+	case "AWS::DocDB::DBSubnetGroup":
+		return &DocDBDBSubnetGroup{}
 	case "AWS::DynamoDB::Table":
 		return &DynamoDBTable{}
 	case "AWS::EC2::CustomerGateway":
@@ -29489,6 +30769,14 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &IoTThingPrincipalAttachment{}
 	case "AWS::IoT::TopicRule":
 		return &IoTTopicRule{}
+	case "AWS::IoTAnalytics::Channel":
+		return &IoTAnalyticsChannel{}
+	case "AWS::IoTAnalytics::Dataset":
+		return &IoTAnalyticsDataset{}
+	case "AWS::IoTAnalytics::Datastore":
+		return &IoTAnalyticsDatastore{}
+	case "AWS::IoTAnalytics::Pipeline":
+		return &IoTAnalyticsPipeline{}
 	case "AWS::KMS::Alias":
 		return &KMSAlias{}
 	case "AWS::KMS::Key":
@@ -29511,6 +30799,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &LambdaEventSourceMapping{}
 	case "AWS::Lambda::Function":
 		return &LambdaFunction{}
+	case "AWS::Lambda::LayerVersion":
+		return &LambdaLayerVersion{}
 	case "AWS::Lambda::Permission":
 		return &LambdaPermission{}
 	case "AWS::Lambda::Version":
@@ -29589,6 +30879,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &Route53ResolverResolverEndpoint{}
 	case "AWS::Route53Resolver::ResolverRule":
 		return &Route53ResolverResolverRule{}
+	case "AWS::Route53Resolver::ResolverRuleAssociation":
+		return &Route53ResolverResolverRuleAssociation{}
 	case "AWS::S3::Bucket":
 		return &S3Bucket{}
 	case "AWS::S3::BucketPolicy":
