@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 2.22.0
-// SOURCE CODE SHA: 26ca46ebcbd3371dd031ba196f43e53b273e1f32
-// GENERATED: 2019-02-17 14:33:11.687208 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 2.30.0
+// SOURCE CODE SHA: 91fb734c0cf2e8643857571543a9e7ba7aa31c3b
+// GENERATED: 2019-04-06 02:59:02.08662 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "2.22.0"
+const ResourceSpecificationVersion = "2.30.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -992,6 +992,880 @@ func (l *APIGatewayV2StageRouteSettingsList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = APIGatewayV2StageRouteSettingsList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshMeshEgressFilter represents the AWS::AppMesh::Mesh.EgressFilter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html 
+type AppMeshMeshEgressFilter struct {
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html#cfn-appmesh-mesh-egressfilter-type
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
+}
+
+// AppMeshMeshEgressFilterList represents a list of AppMeshMeshEgressFilter
+type AppMeshMeshEgressFilterList []AppMeshMeshEgressFilter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshMeshEgressFilterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshMeshEgressFilter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshMeshEgressFilterList{item}
+		return nil
+	}
+	list := []AppMeshMeshEgressFilter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshMeshEgressFilterList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshMeshMeshSpec represents the AWS::AppMesh::Mesh.MeshSpec CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html 
+type AppMeshMeshMeshSpec struct {
+	// EgressFilter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html#cfn-appmesh-mesh-meshspec-egressfilter
+	EgressFilter *AppMeshMeshEgressFilter `json:"EgressFilter,omitempty"`
+}
+
+// AppMeshMeshMeshSpecList represents a list of AppMeshMeshMeshSpec
+type AppMeshMeshMeshSpecList []AppMeshMeshMeshSpec
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshMeshMeshSpecList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshMeshMeshSpec{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshMeshMeshSpecList{item}
+		return nil
+	}
+	list := []AppMeshMeshMeshSpec{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshMeshMeshSpecList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshMeshTagRef represents the AWS::AppMesh::Mesh.TagRef CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html 
+type AppMeshMeshTagRef struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html#cfn-appmesh-mesh-tagref-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-tagref.html#cfn-appmesh-mesh-tagref-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppMeshMeshTagRefList represents a list of AppMeshMeshTagRef
+type AppMeshMeshTagRefList []AppMeshMeshTagRef
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshMeshTagRefList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshMeshTagRef{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshMeshTagRefList{item}
+		return nil
+	}
+	list := []AppMeshMeshTagRef{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshMeshTagRefList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteHTTPRoute represents the AWS::AppMesh::Route.HttpRoute CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html 
+type AppMeshRouteHTTPRoute struct {
+	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-action
+	Action *AppMeshRouteHTTPRouteAction `json:"Action,omitempty" validate:"dive,required"`
+	// Match docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-match
+	Match *AppMeshRouteHTTPRouteMatch `json:"Match,omitempty" validate:"dive,required"`
+}
+
+// AppMeshRouteHTTPRouteList represents a list of AppMeshRouteHTTPRoute
+type AppMeshRouteHTTPRouteList []AppMeshRouteHTTPRoute
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteHTTPRouteList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteHTTPRoute{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteHTTPRouteList{item}
+		return nil
+	}
+	list := []AppMeshRouteHTTPRoute{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteHTTPRouteList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteHTTPRouteAction represents the AWS::AppMesh::Route.HttpRouteAction CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html 
+type AppMeshRouteHTTPRouteAction struct {
+	// WeightedTargets docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html#cfn-appmesh-route-httprouteaction-weightedtargets
+	WeightedTargets *AppMeshRouteWeightedTargetList `json:"WeightedTargets,omitempty" validate:"dive,required"`
+}
+
+// AppMeshRouteHTTPRouteActionList represents a list of AppMeshRouteHTTPRouteAction
+type AppMeshRouteHTTPRouteActionList []AppMeshRouteHTTPRouteAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteHTTPRouteActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteHTTPRouteAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteHTTPRouteActionList{item}
+		return nil
+	}
+	list := []AppMeshRouteHTTPRouteAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteHTTPRouteActionList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteHTTPRouteMatch represents the AWS::AppMesh::Route.HttpRouteMatch CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html 
+type AppMeshRouteHTTPRouteMatch struct {
+	// Prefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html#cfn-appmesh-route-httproutematch-prefix
+	Prefix *StringExpr `json:"Prefix,omitempty" validate:"dive,required"`
+}
+
+// AppMeshRouteHTTPRouteMatchList represents a list of AppMeshRouteHTTPRouteMatch
+type AppMeshRouteHTTPRouteMatchList []AppMeshRouteHTTPRouteMatch
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteHTTPRouteMatchList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteHTTPRouteMatch{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteHTTPRouteMatchList{item}
+		return nil
+	}
+	list := []AppMeshRouteHTTPRouteMatch{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteHTTPRouteMatchList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteRouteSpec represents the AWS::AppMesh::Route.RouteSpec CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html 
+type AppMeshRouteRouteSpec struct {
+	// HTTPRoute docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-httproute
+	HTTPRoute *AppMeshRouteHTTPRoute `json:"HttpRoute,omitempty"`
+	// TcpRoute docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-tcproute
+	TcpRoute *AppMeshRouteTcpRoute `json:"TcpRoute,omitempty"`
+}
+
+// AppMeshRouteRouteSpecList represents a list of AppMeshRouteRouteSpec
+type AppMeshRouteRouteSpecList []AppMeshRouteRouteSpec
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteRouteSpecList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteRouteSpec{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteRouteSpecList{item}
+		return nil
+	}
+	list := []AppMeshRouteRouteSpec{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteRouteSpecList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteTagRef represents the AWS::AppMesh::Route.TagRef CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html 
+type AppMeshRouteTagRef struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html#cfn-appmesh-route-tagref-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tagref.html#cfn-appmesh-route-tagref-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppMeshRouteTagRefList represents a list of AppMeshRouteTagRef
+type AppMeshRouteTagRefList []AppMeshRouteTagRef
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteTagRefList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteTagRef{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteTagRefList{item}
+		return nil
+	}
+	list := []AppMeshRouteTagRef{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteTagRefList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteTcpRoute represents the AWS::AppMesh::Route.TcpRoute CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html 
+type AppMeshRouteTcpRoute struct {
+	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action
+	Action *AppMeshRouteTcpRouteAction `json:"Action,omitempty" validate:"dive,required"`
+}
+
+// AppMeshRouteTcpRouteList represents a list of AppMeshRouteTcpRoute
+type AppMeshRouteTcpRouteList []AppMeshRouteTcpRoute
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteTcpRouteList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteTcpRoute{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteTcpRouteList{item}
+		return nil
+	}
+	list := []AppMeshRouteTcpRoute{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteTcpRouteList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteTcpRouteAction represents the AWS::AppMesh::Route.TcpRouteAction CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcprouteaction.html 
+type AppMeshRouteTcpRouteAction struct {
+	// WeightedTargets docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcprouteaction.html#cfn-appmesh-route-tcprouteaction-weightedtargets
+	WeightedTargets *AppMeshRouteWeightedTargetList `json:"WeightedTargets,omitempty" validate:"dive,required"`
+}
+
+// AppMeshRouteTcpRouteActionList represents a list of AppMeshRouteTcpRouteAction
+type AppMeshRouteTcpRouteActionList []AppMeshRouteTcpRouteAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteTcpRouteActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteTcpRouteAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteTcpRouteActionList{item}
+		return nil
+	}
+	list := []AppMeshRouteTcpRouteAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteTcpRouteActionList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshRouteWeightedTarget represents the AWS::AppMesh::Route.WeightedTarget CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html 
+type AppMeshRouteWeightedTarget struct {
+	// VirtualNode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-virtualnode
+	VirtualNode *StringExpr `json:"VirtualNode,omitempty" validate:"dive,required"`
+	// Weight docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-weight
+	Weight *IntegerExpr `json:"Weight,omitempty" validate:"dive,required"`
+}
+
+// AppMeshRouteWeightedTargetList represents a list of AppMeshRouteWeightedTarget
+type AppMeshRouteWeightedTargetList []AppMeshRouteWeightedTarget
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshRouteWeightedTargetList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshRouteWeightedTarget{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshRouteWeightedTargetList{item}
+		return nil
+	}
+	list := []AppMeshRouteWeightedTarget{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshRouteWeightedTargetList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeAccessLog represents the AWS::AppMesh::VirtualNode.AccessLog CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html 
+type AppMeshVirtualNodeAccessLog struct {
+	// File docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html#cfn-appmesh-virtualnode-accesslog-file
+	File *AppMeshVirtualNodeFileAccessLog `json:"File,omitempty"`
+}
+
+// AppMeshVirtualNodeAccessLogList represents a list of AppMeshVirtualNodeAccessLog
+type AppMeshVirtualNodeAccessLogList []AppMeshVirtualNodeAccessLog
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeAccessLogList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeAccessLog{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeAccessLogList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeAccessLog{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeAccessLogList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeBackend represents the AWS::AppMesh::VirtualNode.Backend CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html 
+type AppMeshVirtualNodeBackend struct {
+	// VirtualService docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html#cfn-appmesh-virtualnode-backend-virtualservice
+	VirtualService *AppMeshVirtualNodeVirtualServiceBackend `json:"VirtualService,omitempty"`
+}
+
+// AppMeshVirtualNodeBackendList represents a list of AppMeshVirtualNodeBackend
+type AppMeshVirtualNodeBackendList []AppMeshVirtualNodeBackend
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeBackendList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeBackend{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeBackendList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeBackend{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeBackendList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeDNSServiceDiscovery represents the AWS::AppMesh::VirtualNode.DnsServiceDiscovery CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html 
+type AppMeshVirtualNodeDNSServiceDiscovery struct {
+	// Hostname docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-hostname
+	Hostname *StringExpr `json:"Hostname,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeDNSServiceDiscoveryList represents a list of AppMeshVirtualNodeDNSServiceDiscovery
+type AppMeshVirtualNodeDNSServiceDiscoveryList []AppMeshVirtualNodeDNSServiceDiscovery
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeDNSServiceDiscoveryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeDNSServiceDiscovery{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeDNSServiceDiscoveryList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeDNSServiceDiscovery{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeDNSServiceDiscoveryList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeFileAccessLog represents the AWS::AppMesh::VirtualNode.FileAccessLog CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html 
+type AppMeshVirtualNodeFileAccessLog struct {
+	// Path docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html#cfn-appmesh-virtualnode-fileaccesslog-path
+	Path *StringExpr `json:"Path,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeFileAccessLogList represents a list of AppMeshVirtualNodeFileAccessLog
+type AppMeshVirtualNodeFileAccessLogList []AppMeshVirtualNodeFileAccessLog
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeFileAccessLogList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeFileAccessLog{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeFileAccessLogList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeFileAccessLog{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeFileAccessLogList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeHealthCheck represents the AWS::AppMesh::VirtualNode.HealthCheck CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html 
+type AppMeshVirtualNodeHealthCheck struct {
+	// HealthyThreshold docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-healthythreshold
+	HealthyThreshold *IntegerExpr `json:"HealthyThreshold,omitempty" validate:"dive,required"`
+	// IntervalMillis docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-intervalmillis
+	IntervalMillis *IntegerExpr `json:"IntervalMillis,omitempty" validate:"dive,required"`
+	// Path docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-path
+	Path *StringExpr `json:"Path,omitempty"`
+	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-port
+	Port *IntegerExpr `json:"Port,omitempty"`
+	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-protocol
+	Protocol *StringExpr `json:"Protocol,omitempty" validate:"dive,required"`
+	// TimeoutMillis docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-timeoutmillis
+	TimeoutMillis *IntegerExpr `json:"TimeoutMillis,omitempty" validate:"dive,required"`
+	// UnhealthyThreshold docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-unhealthythreshold
+	UnhealthyThreshold *IntegerExpr `json:"UnhealthyThreshold,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeHealthCheckList represents a list of AppMeshVirtualNodeHealthCheck
+type AppMeshVirtualNodeHealthCheckList []AppMeshVirtualNodeHealthCheck
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeHealthCheckList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeHealthCheck{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeHealthCheckList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeHealthCheck{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeHealthCheckList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeListener represents the AWS::AppMesh::VirtualNode.Listener CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html 
+type AppMeshVirtualNodeListener struct {
+	// HealthCheck docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
+	HealthCheck *AppMeshVirtualNodeHealthCheck `json:"HealthCheck,omitempty"`
+	// PortMapping docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
+	PortMapping *AppMeshVirtualNodePortMapping `json:"PortMapping,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeListenerList represents a list of AppMeshVirtualNodeListener
+type AppMeshVirtualNodeListenerList []AppMeshVirtualNodeListener
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeListenerList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeListener{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeListenerList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeListener{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeListenerList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeLogging represents the AWS::AppMesh::VirtualNode.Logging CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html 
+type AppMeshVirtualNodeLogging struct {
+	// AccessLog docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html#cfn-appmesh-virtualnode-logging-accesslog
+	AccessLog *AppMeshVirtualNodeAccessLog `json:"AccessLog,omitempty"`
+}
+
+// AppMeshVirtualNodeLoggingList represents a list of AppMeshVirtualNodeLogging
+type AppMeshVirtualNodeLoggingList []AppMeshVirtualNodeLogging
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeLoggingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeLogging{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeLoggingList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeLogging{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeLoggingList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodePortMapping represents the AWS::AppMesh::VirtualNode.PortMapping CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html 
+type AppMeshVirtualNodePortMapping struct {
+	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html#cfn-appmesh-virtualnode-portmapping-port
+	Port *IntegerExpr `json:"Port,omitempty" validate:"dive,required"`
+	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html#cfn-appmesh-virtualnode-portmapping-protocol
+	Protocol *StringExpr `json:"Protocol,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodePortMappingList represents a list of AppMeshVirtualNodePortMapping
+type AppMeshVirtualNodePortMappingList []AppMeshVirtualNodePortMapping
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodePortMappingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodePortMapping{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodePortMappingList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodePortMapping{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodePortMappingList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeServiceDiscovery represents the AWS::AppMesh::VirtualNode.ServiceDiscovery CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html 
+type AppMeshVirtualNodeServiceDiscovery struct {
+	// DNS docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-dns
+	DNS *AppMeshVirtualNodeDNSServiceDiscovery `json:"DNS,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeServiceDiscoveryList represents a list of AppMeshVirtualNodeServiceDiscovery
+type AppMeshVirtualNodeServiceDiscoveryList []AppMeshVirtualNodeServiceDiscovery
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeServiceDiscoveryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeServiceDiscovery{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeServiceDiscoveryList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeServiceDiscovery{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeServiceDiscoveryList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeTagRef represents the AWS::AppMesh::VirtualNode.TagRef CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html 
+type AppMeshVirtualNodeTagRef struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html#cfn-appmesh-virtualnode-tagref-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tagref.html#cfn-appmesh-virtualnode-tagref-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppMeshVirtualNodeTagRefList represents a list of AppMeshVirtualNodeTagRef
+type AppMeshVirtualNodeTagRefList []AppMeshVirtualNodeTagRef
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeTagRefList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeTagRef{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeTagRefList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeTagRef{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeTagRefList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeVirtualNodeSpec represents the AWS::AppMesh::VirtualNode.VirtualNodeSpec CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html 
+type AppMeshVirtualNodeVirtualNodeSpec struct {
+	// Backends docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backends
+	Backends *AppMeshVirtualNodeBackendList `json:"Backends,omitempty"`
+	// Listeners docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-listeners
+	Listeners *AppMeshVirtualNodeListenerList `json:"Listeners,omitempty"`
+	// Logging docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-logging
+	Logging *AppMeshVirtualNodeLogging `json:"Logging,omitempty"`
+	// ServiceDiscovery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-servicediscovery
+	ServiceDiscovery *AppMeshVirtualNodeServiceDiscovery `json:"ServiceDiscovery,omitempty"`
+}
+
+// AppMeshVirtualNodeVirtualNodeSpecList represents a list of AppMeshVirtualNodeVirtualNodeSpec
+type AppMeshVirtualNodeVirtualNodeSpecList []AppMeshVirtualNodeVirtualNodeSpec
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeVirtualNodeSpecList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeVirtualNodeSpec{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeVirtualNodeSpecList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeVirtualNodeSpec{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeVirtualNodeSpecList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeVirtualServiceBackend represents the AWS::AppMesh::VirtualNode.VirtualServiceBackend CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html 
+type AppMeshVirtualNodeVirtualServiceBackend struct {
+	// VirtualServiceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-virtualservicename
+	VirtualServiceName *StringExpr `json:"VirtualServiceName,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeVirtualServiceBackendList represents a list of AppMeshVirtualNodeVirtualServiceBackend
+type AppMeshVirtualNodeVirtualServiceBackendList []AppMeshVirtualNodeVirtualServiceBackend
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeVirtualServiceBackendList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeVirtualServiceBackend{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeVirtualServiceBackendList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeVirtualServiceBackend{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeVirtualServiceBackendList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualRouterPortMapping represents the AWS::AppMesh::VirtualRouter.PortMapping CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-portmapping.html 
+type AppMeshVirtualRouterPortMapping struct {
+	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-portmapping.html#cfn-appmesh-virtualrouter-portmapping-port
+	Port *IntegerExpr `json:"Port,omitempty" validate:"dive,required"`
+	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-portmapping.html#cfn-appmesh-virtualrouter-portmapping-protocol
+	Protocol *StringExpr `json:"Protocol,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualRouterPortMappingList represents a list of AppMeshVirtualRouterPortMapping
+type AppMeshVirtualRouterPortMappingList []AppMeshVirtualRouterPortMapping
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualRouterPortMappingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualRouterPortMapping{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualRouterPortMappingList{item}
+		return nil
+	}
+	list := []AppMeshVirtualRouterPortMapping{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualRouterPortMappingList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualRouterTagRef represents the AWS::AppMesh::VirtualRouter.TagRef CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html 
+type AppMeshVirtualRouterTagRef struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html#cfn-appmesh-virtualrouter-tagref-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-tagref.html#cfn-appmesh-virtualrouter-tagref-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppMeshVirtualRouterTagRefList represents a list of AppMeshVirtualRouterTagRef
+type AppMeshVirtualRouterTagRefList []AppMeshVirtualRouterTagRef
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualRouterTagRefList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualRouterTagRef{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualRouterTagRefList{item}
+		return nil
+	}
+	list := []AppMeshVirtualRouterTagRef{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualRouterTagRefList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualRouterVirtualRouterListener represents the AWS::AppMesh::VirtualRouter.VirtualRouterListener CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html 
+type AppMeshVirtualRouterVirtualRouterListener struct {
+	// PortMapping docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html#cfn-appmesh-virtualrouter-virtualrouterlistener-portmapping
+	PortMapping *AppMeshVirtualRouterPortMapping `json:"PortMapping,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualRouterVirtualRouterListenerList represents a list of AppMeshVirtualRouterVirtualRouterListener
+type AppMeshVirtualRouterVirtualRouterListenerList []AppMeshVirtualRouterVirtualRouterListener
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualRouterVirtualRouterListenerList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualRouterVirtualRouterListener{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualRouterVirtualRouterListenerList{item}
+		return nil
+	}
+	list := []AppMeshVirtualRouterVirtualRouterListener{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualRouterVirtualRouterListenerList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualRouterVirtualRouterSpec represents the AWS::AppMesh::VirtualRouter.VirtualRouterSpec CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html 
+type AppMeshVirtualRouterVirtualRouterSpec struct {
+	// Listeners docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html#cfn-appmesh-virtualrouter-virtualrouterspec-listeners
+	Listeners *AppMeshVirtualRouterVirtualRouterListenerList `json:"Listeners,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualRouterVirtualRouterSpecList represents a list of AppMeshVirtualRouterVirtualRouterSpec
+type AppMeshVirtualRouterVirtualRouterSpecList []AppMeshVirtualRouterVirtualRouterSpec
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualRouterVirtualRouterSpecList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualRouterVirtualRouterSpec{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualRouterVirtualRouterSpecList{item}
+		return nil
+	}
+	list := []AppMeshVirtualRouterVirtualRouterSpec{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualRouterVirtualRouterSpecList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualServiceTagRef represents the AWS::AppMesh::VirtualService.TagRef CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html 
+type AppMeshVirtualServiceTagRef struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html#cfn-appmesh-virtualservice-tagref-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-tagref.html#cfn-appmesh-virtualservice-tagref-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppMeshVirtualServiceTagRefList represents a list of AppMeshVirtualServiceTagRef
+type AppMeshVirtualServiceTagRefList []AppMeshVirtualServiceTagRef
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualServiceTagRefList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualServiceTagRef{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualServiceTagRefList{item}
+		return nil
+	}
+	list := []AppMeshVirtualServiceTagRef{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualServiceTagRefList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualServiceVirtualNodeServiceProvider represents the AWS::AppMesh::VirtualService.VirtualNodeServiceProvider CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html 
+type AppMeshVirtualServiceVirtualNodeServiceProvider struct {
+	// VirtualNodeName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html#cfn-appmesh-virtualservice-virtualnodeserviceprovider-virtualnodename
+	VirtualNodeName *StringExpr `json:"VirtualNodeName,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualServiceVirtualNodeServiceProviderList represents a list of AppMeshVirtualServiceVirtualNodeServiceProvider
+type AppMeshVirtualServiceVirtualNodeServiceProviderList []AppMeshVirtualServiceVirtualNodeServiceProvider
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualServiceVirtualNodeServiceProviderList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualServiceVirtualNodeServiceProvider{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualServiceVirtualNodeServiceProviderList{item}
+		return nil
+	}
+	list := []AppMeshVirtualServiceVirtualNodeServiceProvider{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualServiceVirtualNodeServiceProviderList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualServiceVirtualRouterServiceProvider represents the AWS::AppMesh::VirtualService.VirtualRouterServiceProvider CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html 
+type AppMeshVirtualServiceVirtualRouterServiceProvider struct {
+	// VirtualRouterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html#cfn-appmesh-virtualservice-virtualrouterserviceprovider-virtualroutername
+	VirtualRouterName *StringExpr `json:"VirtualRouterName,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualServiceVirtualRouterServiceProviderList represents a list of AppMeshVirtualServiceVirtualRouterServiceProvider
+type AppMeshVirtualServiceVirtualRouterServiceProviderList []AppMeshVirtualServiceVirtualRouterServiceProvider
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualServiceVirtualRouterServiceProviderList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualServiceVirtualRouterServiceProvider{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualServiceVirtualRouterServiceProviderList{item}
+		return nil
+	}
+	list := []AppMeshVirtualServiceVirtualRouterServiceProvider{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualServiceVirtualRouterServiceProviderList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualServiceVirtualServiceProvider represents the AWS::AppMesh::VirtualService.VirtualServiceProvider CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html 
+type AppMeshVirtualServiceVirtualServiceProvider struct {
+	// VirtualNode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualnode
+	VirtualNode *AppMeshVirtualServiceVirtualNodeServiceProvider `json:"VirtualNode,omitempty"`
+	// VirtualRouter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualrouter
+	VirtualRouter *AppMeshVirtualServiceVirtualRouterServiceProvider `json:"VirtualRouter,omitempty"`
+}
+
+// AppMeshVirtualServiceVirtualServiceProviderList represents a list of AppMeshVirtualServiceVirtualServiceProvider
+type AppMeshVirtualServiceVirtualServiceProviderList []AppMeshVirtualServiceVirtualServiceProvider
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualServiceVirtualServiceProviderList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualServiceVirtualServiceProvider{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualServiceVirtualServiceProviderList{item}
+		return nil
+	}
+	list := []AppMeshVirtualServiceVirtualServiceProvider{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualServiceVirtualServiceProviderList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualServiceVirtualServiceSpec represents the AWS::AppMesh::VirtualService.VirtualServiceSpec CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html 
+type AppMeshVirtualServiceVirtualServiceSpec struct {
+	// Provider docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html#cfn-appmesh-virtualservice-virtualservicespec-provider
+	Provider *AppMeshVirtualServiceVirtualServiceProvider `json:"Provider,omitempty"`
+}
+
+// AppMeshVirtualServiceVirtualServiceSpecList represents a list of AppMeshVirtualServiceVirtualServiceSpec
+type AppMeshVirtualServiceVirtualServiceSpecList []AppMeshVirtualServiceVirtualServiceSpec
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualServiceVirtualServiceSpecList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualServiceVirtualServiceSpec{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualServiceVirtualServiceSpecList{item}
+		return nil
+	}
+	list := []AppMeshVirtualServiceVirtualServiceSpec{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualServiceVirtualServiceSpecList(list)
 		return nil
 	}
 	return err
@@ -2743,6 +3617,8 @@ type BatchJobDefinitionContainerProperties struct {
 	Privileged *BoolExpr `json:"Privileged,omitempty"`
 	// ReadonlyRootFilesystem docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
 	ReadonlyRootFilesystem *BoolExpr `json:"ReadonlyRootFilesystem,omitempty"`
+	// ResourceRequirements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
+	ResourceRequirements *BatchJobDefinitionResourceRequirementList `json:"ResourceRequirements,omitempty"`
 	// Ulimits docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
 	Ulimits *BatchJobDefinitionUlimitList `json:"Ulimits,omitempty"`
 	// User docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-user
@@ -2884,6 +3760,34 @@ func (l *BatchJobDefinitionNodeRangePropertyList) UnmarshalJSON(buf []byte) erro
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = BatchJobDefinitionNodeRangePropertyList(list)
+		return nil
+	}
+	return err
+}
+// BatchJobDefinitionResourceRequirement represents the AWS::Batch::JobDefinition.ResourceRequirement CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html 
+type BatchJobDefinitionResourceRequirement struct {
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html#cfn-batch-jobdefinition-resourcerequirement-type
+	Type *StringExpr `json:"Type,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html#cfn-batch-jobdefinition-resourcerequirement-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// BatchJobDefinitionResourceRequirementList represents a list of BatchJobDefinitionResourceRequirement
+type BatchJobDefinitionResourceRequirementList []BatchJobDefinitionResourceRequirement
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *BatchJobDefinitionResourceRequirementList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := BatchJobDefinitionResourceRequirement{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = BatchJobDefinitionResourceRequirementList{item}
+		return nil
+	}
+	list := []BatchJobDefinitionResourceRequirement{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = BatchJobDefinitionResourceRequirementList(list)
 		return nil
 	}
 	return err
@@ -4092,6 +4996,102 @@ func (l *CloudWatchAlarmDimensionList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// CloudWatchAlarmMetric represents the AWS::CloudWatch::Alarm.Metric CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html 
+type CloudWatchAlarmMetric struct {
+	// Dimensions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-dimensions
+	Dimensions *CloudWatchAlarmDimensionList `json:"Dimensions,omitempty"`
+	// MetricName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-metricname
+	MetricName *StringExpr `json:"MetricName,omitempty"`
+	// Namespace docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-namespace
+	Namespace *StringExpr `json:"Namespace,omitempty"`
+}
+
+// CloudWatchAlarmMetricList represents a list of CloudWatchAlarmMetric
+type CloudWatchAlarmMetricList []CloudWatchAlarmMetric
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudWatchAlarmMetricList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudWatchAlarmMetric{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudWatchAlarmMetricList{item}
+		return nil
+	}
+	list := []CloudWatchAlarmMetric{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudWatchAlarmMetricList(list)
+		return nil
+	}
+	return err
+}
+// CloudWatchAlarmMetricDataQuery represents the AWS::CloudWatch::Alarm.MetricDataQuery CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html 
+type CloudWatchAlarmMetricDataQuery struct {
+	// Expression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-expression
+	Expression *StringExpr `json:"Expression,omitempty"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Label docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-label
+	Label *StringExpr `json:"Label,omitempty"`
+	// MetricStat docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-metricstat
+	MetricStat *CloudWatchAlarmMetricStat `json:"MetricStat,omitempty"`
+	// ReturnData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-returndata
+	ReturnData *BoolExpr `json:"ReturnData,omitempty"`
+}
+
+// CloudWatchAlarmMetricDataQueryList represents a list of CloudWatchAlarmMetricDataQuery
+type CloudWatchAlarmMetricDataQueryList []CloudWatchAlarmMetricDataQuery
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudWatchAlarmMetricDataQueryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudWatchAlarmMetricDataQuery{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudWatchAlarmMetricDataQueryList{item}
+		return nil
+	}
+	list := []CloudWatchAlarmMetricDataQuery{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudWatchAlarmMetricDataQueryList(list)
+		return nil
+	}
+	return err
+}
+// CloudWatchAlarmMetricStat represents the AWS::CloudWatch::Alarm.MetricStat CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html 
+type CloudWatchAlarmMetricStat struct {
+	// Metric docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-metric
+	Metric *CloudWatchAlarmMetric `json:"Metric,omitempty" validate:"dive,required"`
+	// Period docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-period
+	Period *IntegerExpr `json:"Period,omitempty" validate:"dive,required"`
+	// Stat docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-stat
+	Stat *StringExpr `json:"Stat,omitempty" validate:"dive,required"`
+	// Unit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-unit
+	Unit *StringExpr `json:"Unit,omitempty"`
+}
+
+// CloudWatchAlarmMetricStatList represents a list of CloudWatchAlarmMetricStat
+type CloudWatchAlarmMetricStatList []CloudWatchAlarmMetricStat
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudWatchAlarmMetricStatList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudWatchAlarmMetricStat{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudWatchAlarmMetricStatList{item}
+		return nil
+	}
+	list := []CloudWatchAlarmMetricStat{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudWatchAlarmMetricStatList(list)
+		return nil
+	}
+	return err
+}
 // CodeBuildProjectArtifacts represents the AWS::CodeBuild::Project.Artifacts CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html 
 type CodeBuildProjectArtifacts struct {
@@ -4234,6 +5234,56 @@ func (l *CodeBuildProjectEnvironmentVariableList) UnmarshalJSON(buf []byte) erro
 	}
 	return err
 }
+// CodeBuildProjectFilterGroup represents the AWS::CodeBuild::Project.FilterGroup CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-filtergroup.html 
+type CodeBuildProjectFilterGroup struct {
+}
+
+// CodeBuildProjectFilterGroupList represents a list of CodeBuildProjectFilterGroup
+type CodeBuildProjectFilterGroupList []CodeBuildProjectFilterGroup
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodeBuildProjectFilterGroupList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodeBuildProjectFilterGroup{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodeBuildProjectFilterGroupList{item}
+		return nil
+	}
+	list := []CodeBuildProjectFilterGroup{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodeBuildProjectFilterGroupList(list)
+		return nil
+	}
+	return err
+}
+// CodeBuildProjectGitSubmodulesConfig represents the AWS::CodeBuild::Project.GitSubmodulesConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html 
+type CodeBuildProjectGitSubmodulesConfig struct {
+	// FetchSubmodules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html#cfn-codebuild-project-gitsubmodulesconfig-fetchsubmodules
+	FetchSubmodules *BoolExpr `json:"FetchSubmodules,omitempty" validate:"dive,required"`
+}
+
+// CodeBuildProjectGitSubmodulesConfigList represents a list of CodeBuildProjectGitSubmodulesConfig
+type CodeBuildProjectGitSubmodulesConfigList []CodeBuildProjectGitSubmodulesConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodeBuildProjectGitSubmodulesConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodeBuildProjectGitSubmodulesConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodeBuildProjectGitSubmodulesConfigList{item}
+		return nil
+	}
+	list := []CodeBuildProjectGitSubmodulesConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodeBuildProjectGitSubmodulesConfigList(list)
+		return nil
+	}
+	return err
+}
 // CodeBuildProjectLogsConfig represents the AWS::CodeBuild::Project.LogsConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html 
 type CodeBuildProjectLogsConfig struct {
@@ -4267,6 +5317,8 @@ func (l *CodeBuildProjectLogsConfigList) UnmarshalJSON(buf []byte) error {
 type CodeBuildProjectProjectCache struct {
 	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location
 	Location *StringExpr `json:"Location,omitempty"`
+	// Modes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes
+	Modes *StringListExpr `json:"Modes,omitempty"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type
 	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
@@ -4293,6 +5345,8 @@ func (l *CodeBuildProjectProjectCacheList) UnmarshalJSON(buf []byte) error {
 // CodeBuildProjectProjectTriggers represents the AWS::CodeBuild::Project.ProjectTriggers CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html 
 type CodeBuildProjectProjectTriggers struct {
+	// FilterGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
+	FilterGroups *CodeBuildProjectFilterGroupList `json:"FilterGroups,omitempty"`
 	// Webhook docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook
 	Webhook *BoolExpr `json:"Webhook,omitempty"`
 }
@@ -4347,6 +5401,8 @@ func (l *CodeBuildProjectRegistryCredentialList) UnmarshalJSON(buf []byte) error
 // CodeBuildProjectS3LogsConfig represents the AWS::CodeBuild::Project.S3LogsConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-s3logsconfig.html 
 type CodeBuildProjectS3LogsConfig struct {
+	// EncryptionDisabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-s3logsconfig.html#cfn-codebuild-project-s3logsconfig-encryptiondisabled
+	EncryptionDisabled *BoolExpr `json:"EncryptionDisabled,omitempty"`
 	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-s3logsconfig.html#cfn-codebuild-project-s3logsconfig-location
 	Location *StringExpr `json:"Location,omitempty"`
 	// Status docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-s3logsconfig.html#cfn-codebuild-project-s3logsconfig-status
@@ -4381,6 +5437,8 @@ type CodeBuildProjectSource struct {
 	BuildSpec *StringExpr `json:"BuildSpec,omitempty"`
 	// GitCloneDepth docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
 	GitCloneDepth *IntegerExpr `json:"GitCloneDepth,omitempty"`
+	// GitSubmodulesConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitsubmodulesconfig
+	GitSubmodulesConfig *CodeBuildProjectGitSubmodulesConfig `json:"GitSubmodulesConfig,omitempty"`
 	// InsecureSsl docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-insecuressl
 	InsecureSsl *BoolExpr `json:"InsecureSsl,omitempty"`
 	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-location
@@ -4466,6 +5524,36 @@ func (l *CodeBuildProjectVPCConfigList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = CodeBuildProjectVPCConfigList(list)
+		return nil
+	}
+	return err
+}
+// CodeBuildProjectWebhookFilter represents the AWS::CodeBuild::Project.WebhookFilter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html 
+type CodeBuildProjectWebhookFilter struct {
+	// ExcludeMatchedPattern docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-excludematchedpattern
+	ExcludeMatchedPattern *BoolExpr `json:"ExcludeMatchedPattern,omitempty"`
+	// Pattern docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-pattern
+	Pattern *StringExpr `json:"Pattern,omitempty" validate:"dive,required"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-type
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
+}
+
+// CodeBuildProjectWebhookFilterList represents a list of CodeBuildProjectWebhookFilter
+type CodeBuildProjectWebhookFilterList []CodeBuildProjectWebhookFilter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodeBuildProjectWebhookFilterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodeBuildProjectWebhookFilter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodeBuildProjectWebhookFilterList{item}
+		return nil
+	}
+	list := []CodeBuildProjectWebhookFilter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodeBuildProjectWebhookFilterList(list)
 		return nil
 	}
 	return err
@@ -13104,6 +14192,102 @@ func (l *EventsRuleTargetList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// FSxFileSystemLustreConfiguration represents the AWS::FSx::FileSystem.LustreConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html 
+type FSxFileSystemLustreConfiguration struct {
+	// ExportPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
+	ExportPath *StringExpr `json:"ExportPath,omitempty"`
+	// ImportPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importpath
+	ImportPath *StringExpr `json:"ImportPath,omitempty"`
+	// ImportedFileChunkSize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importedfilechunksize
+	ImportedFileChunkSize *IntegerExpr `json:"ImportedFileChunkSize,omitempty"`
+	// WeeklyMaintenanceStartTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-weeklymaintenancestarttime
+	WeeklyMaintenanceStartTime time.Time `json:"WeeklyMaintenanceStartTime,omitempty"`
+}
+
+// FSxFileSystemLustreConfigurationList represents a list of FSxFileSystemLustreConfiguration
+type FSxFileSystemLustreConfigurationList []FSxFileSystemLustreConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *FSxFileSystemLustreConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := FSxFileSystemLustreConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = FSxFileSystemLustreConfigurationList{item}
+		return nil
+	}
+	list := []FSxFileSystemLustreConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = FSxFileSystemLustreConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// FSxFileSystemTagEntry represents the AWS::FSx::FileSystem.TagEntry CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tagentry.html 
+type FSxFileSystemTagEntry struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tagentry.html#cfn-fsx-filesystem-tagentry-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-tagentry.html#cfn-fsx-filesystem-tagentry-value
+	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// FSxFileSystemTagEntryList represents a list of FSxFileSystemTagEntry
+type FSxFileSystemTagEntryList []FSxFileSystemTagEntry
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *FSxFileSystemTagEntryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := FSxFileSystemTagEntry{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = FSxFileSystemTagEntryList{item}
+		return nil
+	}
+	list := []FSxFileSystemTagEntry{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = FSxFileSystemTagEntryList(list)
+		return nil
+	}
+	return err
+}
+// FSxFileSystemWindowsConfiguration represents the AWS::FSx::FileSystem.WindowsConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html 
+type FSxFileSystemWindowsConfiguration struct {
+	// ActiveDirectoryID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-activedirectoryid
+	ActiveDirectoryID *StringExpr `json:"ActiveDirectoryId,omitempty"`
+	// AutomaticBackupRetentionDays docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-automaticbackupretentiondays
+	AutomaticBackupRetentionDays *IntegerExpr `json:"AutomaticBackupRetentionDays,omitempty"`
+	// CopyTagsToBackups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-copytagstobackups
+	CopyTagsToBackups *BoolExpr `json:"CopyTagsToBackups,omitempty"`
+	// DailyAutomaticBackupStartTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-dailyautomaticbackupstarttime
+	DailyAutomaticBackupStartTime time.Time `json:"DailyAutomaticBackupStartTime,omitempty"`
+	// ThroughputCapacity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-throughputcapacity
+	ThroughputCapacity *IntegerExpr `json:"ThroughputCapacity,omitempty"`
+	// WeeklyMaintenanceStartTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-weeklymaintenancestarttime
+	WeeklyMaintenanceStartTime time.Time `json:"WeeklyMaintenanceStartTime,omitempty"`
+}
+
+// FSxFileSystemWindowsConfigurationList represents a list of FSxFileSystemWindowsConfiguration
+type FSxFileSystemWindowsConfigurationList []FSxFileSystemWindowsConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *FSxFileSystemWindowsConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := FSxFileSystemWindowsConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = FSxFileSystemWindowsConfigurationList{item}
+		return nil
+	}
+	list := []FSxFileSystemWindowsConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = FSxFileSystemWindowsConfigurationList(list)
+		return nil
+	}
+	return err
+}
 // GameLiftAliasRoutingStrategy represents the AWS::GameLift::Alias.RoutingStrategy CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html 
 type GameLiftAliasRoutingStrategy struct {
@@ -14092,6 +15276,1176 @@ func (l *GlueTriggerPredicateList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = GlueTriggerPredicateList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassConnectorDefinitionConnector represents the AWS::Greengrass::ConnectorDefinition.Connector CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html 
+type GreengrassConnectorDefinitionConnector struct {
+	// ConnectorArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-connectorarn
+	ConnectorArn *StringExpr `json:"ConnectorArn,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Parameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-parameters
+	Parameters interface{} `json:"Parameters,omitempty"`
+}
+
+// GreengrassConnectorDefinitionConnectorList represents a list of GreengrassConnectorDefinitionConnector
+type GreengrassConnectorDefinitionConnectorList []GreengrassConnectorDefinitionConnector
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassConnectorDefinitionConnectorList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassConnectorDefinitionConnector{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassConnectorDefinitionConnectorList{item}
+		return nil
+	}
+	list := []GreengrassConnectorDefinitionConnector{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassConnectorDefinitionConnectorList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassConnectorDefinitionConnectorDefinitionVersion represents the AWS::Greengrass::ConnectorDefinition.ConnectorDefinitionVersion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html 
+type GreengrassConnectorDefinitionConnectorDefinitionVersion struct {
+	// Connectors docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html#cfn-greengrass-connectordefinition-connectordefinitionversion-connectors
+	Connectors *GreengrassConnectorDefinitionConnectorList `json:"Connectors,omitempty" validate:"dive,required"`
+}
+
+// GreengrassConnectorDefinitionConnectorDefinitionVersionList represents a list of GreengrassConnectorDefinitionConnectorDefinitionVersion
+type GreengrassConnectorDefinitionConnectorDefinitionVersionList []GreengrassConnectorDefinitionConnectorDefinitionVersion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassConnectorDefinitionConnectorDefinitionVersionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassConnectorDefinitionConnectorDefinitionVersion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassConnectorDefinitionConnectorDefinitionVersionList{item}
+		return nil
+	}
+	list := []GreengrassConnectorDefinitionConnectorDefinitionVersion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassConnectorDefinitionConnectorDefinitionVersionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassConnectorDefinitionVersionConnector represents the AWS::Greengrass::ConnectorDefinitionVersion.Connector CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html 
+type GreengrassConnectorDefinitionVersionConnector struct {
+	// ConnectorArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html#cfn-greengrass-connectordefinitionversion-connector-connectorarn
+	ConnectorArn *StringExpr `json:"ConnectorArn,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html#cfn-greengrass-connectordefinitionversion-connector-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Parameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html#cfn-greengrass-connectordefinitionversion-connector-parameters
+	Parameters interface{} `json:"Parameters,omitempty"`
+}
+
+// GreengrassConnectorDefinitionVersionConnectorList represents a list of GreengrassConnectorDefinitionVersionConnector
+type GreengrassConnectorDefinitionVersionConnectorList []GreengrassConnectorDefinitionVersionConnector
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassConnectorDefinitionVersionConnectorList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassConnectorDefinitionVersionConnector{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassConnectorDefinitionVersionConnectorList{item}
+		return nil
+	}
+	list := []GreengrassConnectorDefinitionVersionConnector{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassConnectorDefinitionVersionConnectorList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassCoreDefinitionCore represents the AWS::Greengrass::CoreDefinition.Core CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html 
+type GreengrassCoreDefinitionCore struct {
+	// CertificateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-certificatearn
+	CertificateArn *StringExpr `json:"CertificateArn,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// SyncShadow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-syncshadow
+	SyncShadow *BoolExpr `json:"SyncShadow,omitempty"`
+	// ThingArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-thingarn
+	ThingArn *StringExpr `json:"ThingArn,omitempty" validate:"dive,required"`
+}
+
+// GreengrassCoreDefinitionCoreList represents a list of GreengrassCoreDefinitionCore
+type GreengrassCoreDefinitionCoreList []GreengrassCoreDefinitionCore
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassCoreDefinitionCoreList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassCoreDefinitionCore{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassCoreDefinitionCoreList{item}
+		return nil
+	}
+	list := []GreengrassCoreDefinitionCore{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassCoreDefinitionCoreList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassCoreDefinitionCoreDefinitionVersion represents the AWS::Greengrass::CoreDefinition.CoreDefinitionVersion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html 
+type GreengrassCoreDefinitionCoreDefinitionVersion struct {
+	// Cores docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html#cfn-greengrass-coredefinition-coredefinitionversion-cores
+	Cores *GreengrassCoreDefinitionCoreList `json:"Cores,omitempty" validate:"dive,required"`
+}
+
+// GreengrassCoreDefinitionCoreDefinitionVersionList represents a list of GreengrassCoreDefinitionCoreDefinitionVersion
+type GreengrassCoreDefinitionCoreDefinitionVersionList []GreengrassCoreDefinitionCoreDefinitionVersion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassCoreDefinitionCoreDefinitionVersionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassCoreDefinitionCoreDefinitionVersion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassCoreDefinitionCoreDefinitionVersionList{item}
+		return nil
+	}
+	list := []GreengrassCoreDefinitionCoreDefinitionVersion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassCoreDefinitionCoreDefinitionVersionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassCoreDefinitionVersionCore represents the AWS::Greengrass::CoreDefinitionVersion.Core CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinitionversion-core.html 
+type GreengrassCoreDefinitionVersionCore struct {
+	// CertificateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinitionversion-core.html#cfn-greengrass-coredefinitionversion-core-certificatearn
+	CertificateArn *StringExpr `json:"CertificateArn,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinitionversion-core.html#cfn-greengrass-coredefinitionversion-core-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// SyncShadow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinitionversion-core.html#cfn-greengrass-coredefinitionversion-core-syncshadow
+	SyncShadow *BoolExpr `json:"SyncShadow,omitempty"`
+	// ThingArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinitionversion-core.html#cfn-greengrass-coredefinitionversion-core-thingarn
+	ThingArn *StringExpr `json:"ThingArn,omitempty" validate:"dive,required"`
+}
+
+// GreengrassCoreDefinitionVersionCoreList represents a list of GreengrassCoreDefinitionVersionCore
+type GreengrassCoreDefinitionVersionCoreList []GreengrassCoreDefinitionVersionCore
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassCoreDefinitionVersionCoreList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassCoreDefinitionVersionCore{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassCoreDefinitionVersionCoreList{item}
+		return nil
+	}
+	list := []GreengrassCoreDefinitionVersionCore{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassCoreDefinitionVersionCoreList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassDeviceDefinitionDevice represents the AWS::Greengrass::DeviceDefinition.Device CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html 
+type GreengrassDeviceDefinitionDevice struct {
+	// CertificateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html#cfn-greengrass-devicedefinition-device-certificatearn
+	CertificateArn *StringExpr `json:"CertificateArn,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html#cfn-greengrass-devicedefinition-device-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// SyncShadow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html#cfn-greengrass-devicedefinition-device-syncshadow
+	SyncShadow *BoolExpr `json:"SyncShadow,omitempty"`
+	// ThingArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html#cfn-greengrass-devicedefinition-device-thingarn
+	ThingArn *StringExpr `json:"ThingArn,omitempty" validate:"dive,required"`
+}
+
+// GreengrassDeviceDefinitionDeviceList represents a list of GreengrassDeviceDefinitionDevice
+type GreengrassDeviceDefinitionDeviceList []GreengrassDeviceDefinitionDevice
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassDeviceDefinitionDeviceList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassDeviceDefinitionDevice{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassDeviceDefinitionDeviceList{item}
+		return nil
+	}
+	list := []GreengrassDeviceDefinitionDevice{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassDeviceDefinitionDeviceList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassDeviceDefinitionDeviceDefinitionVersion represents the AWS::Greengrass::DeviceDefinition.DeviceDefinitionVersion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html 
+type GreengrassDeviceDefinitionDeviceDefinitionVersion struct {
+	// Devices docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html#cfn-greengrass-devicedefinition-devicedefinitionversion-devices
+	Devices *GreengrassDeviceDefinitionDeviceList `json:"Devices,omitempty" validate:"dive,required"`
+}
+
+// GreengrassDeviceDefinitionDeviceDefinitionVersionList represents a list of GreengrassDeviceDefinitionDeviceDefinitionVersion
+type GreengrassDeviceDefinitionDeviceDefinitionVersionList []GreengrassDeviceDefinitionDeviceDefinitionVersion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassDeviceDefinitionDeviceDefinitionVersionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassDeviceDefinitionDeviceDefinitionVersion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassDeviceDefinitionDeviceDefinitionVersionList{item}
+		return nil
+	}
+	list := []GreengrassDeviceDefinitionDeviceDefinitionVersion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassDeviceDefinitionDeviceDefinitionVersionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassDeviceDefinitionVersionDevice represents the AWS::Greengrass::DeviceDefinitionVersion.Device CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html 
+type GreengrassDeviceDefinitionVersionDevice struct {
+	// CertificateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-certificatearn
+	CertificateArn *StringExpr `json:"CertificateArn,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// SyncShadow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-syncshadow
+	SyncShadow *BoolExpr `json:"SyncShadow,omitempty"`
+	// ThingArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-thingarn
+	ThingArn *StringExpr `json:"ThingArn,omitempty" validate:"dive,required"`
+}
+
+// GreengrassDeviceDefinitionVersionDeviceList represents a list of GreengrassDeviceDefinitionVersionDevice
+type GreengrassDeviceDefinitionVersionDeviceList []GreengrassDeviceDefinitionVersionDevice
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassDeviceDefinitionVersionDeviceList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassDeviceDefinitionVersionDevice{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassDeviceDefinitionVersionDeviceList{item}
+		return nil
+	}
+	list := []GreengrassDeviceDefinitionVersionDevice{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassDeviceDefinitionVersionDeviceList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionDefaultConfig represents the AWS::Greengrass::FunctionDefinition.DefaultConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-defaultconfig.html 
+type GreengrassFunctionDefinitionDefaultConfig struct {
+	// Execution docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-defaultconfig.html#cfn-greengrass-functiondefinition-defaultconfig-execution
+	Execution *GreengrassFunctionDefinitionExecution `json:"Execution,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionDefaultConfigList represents a list of GreengrassFunctionDefinitionDefaultConfig
+type GreengrassFunctionDefinitionDefaultConfigList []GreengrassFunctionDefinitionDefaultConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionDefaultConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionDefaultConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionDefaultConfigList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionDefaultConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionDefaultConfigList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionEnvironment represents the AWS::Greengrass::FunctionDefinition.Environment CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html 
+type GreengrassFunctionDefinitionEnvironment struct {
+	// AccessSysfs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-accesssysfs
+	AccessSysfs *BoolExpr `json:"AccessSysfs,omitempty"`
+	// Execution docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-execution
+	Execution *GreengrassFunctionDefinitionExecution `json:"Execution,omitempty"`
+	// ResourceAccessPolicies docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-resourceaccesspolicies
+	ResourceAccessPolicies *GreengrassFunctionDefinitionResourceAccessPolicyList `json:"ResourceAccessPolicies,omitempty"`
+	// Variables docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-variables
+	Variables interface{} `json:"Variables,omitempty"`
+}
+
+// GreengrassFunctionDefinitionEnvironmentList represents a list of GreengrassFunctionDefinitionEnvironment
+type GreengrassFunctionDefinitionEnvironmentList []GreengrassFunctionDefinitionEnvironment
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionEnvironmentList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionEnvironment{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionEnvironmentList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionEnvironment{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionEnvironmentList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionExecution represents the AWS::Greengrass::FunctionDefinition.Execution CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-execution.html 
+type GreengrassFunctionDefinitionExecution struct {
+	// IsolationMode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-execution.html#cfn-greengrass-functiondefinition-execution-isolationmode
+	IsolationMode *StringExpr `json:"IsolationMode,omitempty"`
+	// RunAs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-execution.html#cfn-greengrass-functiondefinition-execution-runas
+	RunAs *GreengrassFunctionDefinitionRunAs `json:"RunAs,omitempty"`
+}
+
+// GreengrassFunctionDefinitionExecutionList represents a list of GreengrassFunctionDefinitionExecution
+type GreengrassFunctionDefinitionExecutionList []GreengrassFunctionDefinitionExecution
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionExecutionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionExecution{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionExecutionList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionExecution{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionExecutionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionFunction represents the AWS::Greengrass::FunctionDefinition.Function CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html 
+type GreengrassFunctionDefinitionFunction struct {
+	// FunctionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-functionarn
+	FunctionArn *StringExpr `json:"FunctionArn,omitempty" validate:"dive,required"`
+	// FunctionConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-functionconfiguration
+	FunctionConfiguration *GreengrassFunctionDefinitionFunctionConfiguration `json:"FunctionConfiguration,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionFunctionList represents a list of GreengrassFunctionDefinitionFunction
+type GreengrassFunctionDefinitionFunctionList []GreengrassFunctionDefinitionFunction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionFunctionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionFunction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionFunctionList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionFunction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionFunctionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionFunctionConfiguration represents the AWS::Greengrass::FunctionDefinition.FunctionConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html 
+type GreengrassFunctionDefinitionFunctionConfiguration struct {
+	// EncodingType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-encodingtype
+	EncodingType *StringExpr `json:"EncodingType,omitempty"`
+	// Environment docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-environment
+	Environment *GreengrassFunctionDefinitionEnvironment `json:"Environment,omitempty"`
+	// ExecArgs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-execargs
+	ExecArgs *StringExpr `json:"ExecArgs,omitempty"`
+	// Executable docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-executable
+	Executable *StringExpr `json:"Executable,omitempty"`
+	// MemorySize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-memorysize
+	MemorySize *IntegerExpr `json:"MemorySize,omitempty" validate:"dive,required"`
+	// Pinned docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-pinned
+	Pinned *BoolExpr `json:"Pinned,omitempty"`
+	// Timeout docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-timeout
+	Timeout *IntegerExpr `json:"Timeout,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionFunctionConfigurationList represents a list of GreengrassFunctionDefinitionFunctionConfiguration
+type GreengrassFunctionDefinitionFunctionConfigurationList []GreengrassFunctionDefinitionFunctionConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionFunctionConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionFunctionConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionFunctionConfigurationList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionFunctionConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionFunctionConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionFunctionDefinitionVersion represents the AWS::Greengrass::FunctionDefinition.FunctionDefinitionVersion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html 
+type GreengrassFunctionDefinitionFunctionDefinitionVersion struct {
+	// DefaultConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html#cfn-greengrass-functiondefinition-functiondefinitionversion-defaultconfig
+	DefaultConfig *GreengrassFunctionDefinitionDefaultConfig `json:"DefaultConfig,omitempty"`
+	// Functions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html#cfn-greengrass-functiondefinition-functiondefinitionversion-functions
+	Functions *GreengrassFunctionDefinitionFunctionList `json:"Functions,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionFunctionDefinitionVersionList represents a list of GreengrassFunctionDefinitionFunctionDefinitionVersion
+type GreengrassFunctionDefinitionFunctionDefinitionVersionList []GreengrassFunctionDefinitionFunctionDefinitionVersion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionFunctionDefinitionVersionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionFunctionDefinitionVersion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionFunctionDefinitionVersionList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionFunctionDefinitionVersion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionFunctionDefinitionVersionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionResourceAccessPolicy represents the AWS::Greengrass::FunctionDefinition.ResourceAccessPolicy CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-resourceaccesspolicy.html 
+type GreengrassFunctionDefinitionResourceAccessPolicy struct {
+	// Permission docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-resourceaccesspolicy.html#cfn-greengrass-functiondefinition-resourceaccesspolicy-permission
+	Permission *StringExpr `json:"Permission,omitempty"`
+	// ResourceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-resourceaccesspolicy.html#cfn-greengrass-functiondefinition-resourceaccesspolicy-resourceid
+	ResourceID *StringExpr `json:"ResourceId,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionResourceAccessPolicyList represents a list of GreengrassFunctionDefinitionResourceAccessPolicy
+type GreengrassFunctionDefinitionResourceAccessPolicyList []GreengrassFunctionDefinitionResourceAccessPolicy
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionResourceAccessPolicyList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionResourceAccessPolicy{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionResourceAccessPolicyList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionResourceAccessPolicy{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionResourceAccessPolicyList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionRunAs represents the AWS::Greengrass::FunctionDefinition.RunAs CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-runas.html 
+type GreengrassFunctionDefinitionRunAs struct {
+	// Gid docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-runas.html#cfn-greengrass-functiondefinition-runas-gid
+	Gid *IntegerExpr `json:"Gid,omitempty"`
+	// Uid docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-runas.html#cfn-greengrass-functiondefinition-runas-uid
+	Uid *IntegerExpr `json:"Uid,omitempty"`
+}
+
+// GreengrassFunctionDefinitionRunAsList represents a list of GreengrassFunctionDefinitionRunAs
+type GreengrassFunctionDefinitionRunAsList []GreengrassFunctionDefinitionRunAs
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionRunAsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionRunAs{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionRunAsList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionRunAs{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionRunAsList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionVersionDefaultConfig represents the AWS::Greengrass::FunctionDefinitionVersion.DefaultConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html 
+type GreengrassFunctionDefinitionVersionDefaultConfig struct {
+	// Execution docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html#cfn-greengrass-functiondefinitionversion-defaultconfig-execution
+	Execution *GreengrassFunctionDefinitionVersionExecution `json:"Execution,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionVersionDefaultConfigList represents a list of GreengrassFunctionDefinitionVersionDefaultConfig
+type GreengrassFunctionDefinitionVersionDefaultConfigList []GreengrassFunctionDefinitionVersionDefaultConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionVersionDefaultConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionVersionDefaultConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionVersionDefaultConfigList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionVersionDefaultConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionVersionDefaultConfigList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionVersionEnvironment represents the AWS::Greengrass::FunctionDefinitionVersion.Environment CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html 
+type GreengrassFunctionDefinitionVersionEnvironment struct {
+	// AccessSysfs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-accesssysfs
+	AccessSysfs *BoolExpr `json:"AccessSysfs,omitempty"`
+	// Execution docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-execution
+	Execution *GreengrassFunctionDefinitionVersionExecution `json:"Execution,omitempty"`
+	// ResourceAccessPolicies docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-resourceaccesspolicies
+	ResourceAccessPolicies *GreengrassFunctionDefinitionVersionResourceAccessPolicyList `json:"ResourceAccessPolicies,omitempty"`
+	// Variables docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-variables
+	Variables interface{} `json:"Variables,omitempty"`
+}
+
+// GreengrassFunctionDefinitionVersionEnvironmentList represents a list of GreengrassFunctionDefinitionVersionEnvironment
+type GreengrassFunctionDefinitionVersionEnvironmentList []GreengrassFunctionDefinitionVersionEnvironment
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionVersionEnvironmentList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionVersionEnvironment{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionVersionEnvironmentList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionVersionEnvironment{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionVersionEnvironmentList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionVersionExecution represents the AWS::Greengrass::FunctionDefinitionVersion.Execution CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html 
+type GreengrassFunctionDefinitionVersionExecution struct {
+	// IsolationMode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-isolationmode
+	IsolationMode *StringExpr `json:"IsolationMode,omitempty"`
+	// RunAs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-runas
+	RunAs *GreengrassFunctionDefinitionVersionRunAs `json:"RunAs,omitempty"`
+}
+
+// GreengrassFunctionDefinitionVersionExecutionList represents a list of GreengrassFunctionDefinitionVersionExecution
+type GreengrassFunctionDefinitionVersionExecutionList []GreengrassFunctionDefinitionVersionExecution
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionVersionExecutionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionVersionExecution{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionVersionExecutionList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionVersionExecution{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionVersionExecutionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionVersionFunction represents the AWS::Greengrass::FunctionDefinitionVersion.Function CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html 
+type GreengrassFunctionDefinitionVersionFunction struct {
+	// FunctionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html#cfn-greengrass-functiondefinitionversion-function-functionarn
+	FunctionArn *StringExpr `json:"FunctionArn,omitempty" validate:"dive,required"`
+	// FunctionConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html#cfn-greengrass-functiondefinitionversion-function-functionconfiguration
+	FunctionConfiguration *GreengrassFunctionDefinitionVersionFunctionConfiguration `json:"FunctionConfiguration,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html#cfn-greengrass-functiondefinitionversion-function-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionVersionFunctionList represents a list of GreengrassFunctionDefinitionVersionFunction
+type GreengrassFunctionDefinitionVersionFunctionList []GreengrassFunctionDefinitionVersionFunction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionVersionFunctionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionVersionFunction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionVersionFunctionList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionVersionFunction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionVersionFunctionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionVersionFunctionConfiguration represents the AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html 
+type GreengrassFunctionDefinitionVersionFunctionConfiguration struct {
+	// EncodingType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-encodingtype
+	EncodingType *StringExpr `json:"EncodingType,omitempty"`
+	// Environment docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-environment
+	Environment *GreengrassFunctionDefinitionVersionEnvironment `json:"Environment,omitempty"`
+	// ExecArgs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-execargs
+	ExecArgs *StringExpr `json:"ExecArgs,omitempty"`
+	// Executable docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-executable
+	Executable *StringExpr `json:"Executable,omitempty"`
+	// MemorySize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-memorysize
+	MemorySize *IntegerExpr `json:"MemorySize,omitempty" validate:"dive,required"`
+	// Pinned docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-pinned
+	Pinned *BoolExpr `json:"Pinned,omitempty"`
+	// Timeout docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html#cfn-greengrass-functiondefinitionversion-functionconfiguration-timeout
+	Timeout *IntegerExpr `json:"Timeout,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionVersionFunctionConfigurationList represents a list of GreengrassFunctionDefinitionVersionFunctionConfiguration
+type GreengrassFunctionDefinitionVersionFunctionConfigurationList []GreengrassFunctionDefinitionVersionFunctionConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionVersionFunctionConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionVersionFunctionConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionVersionFunctionConfigurationList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionVersionFunctionConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionVersionFunctionConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionVersionResourceAccessPolicy represents the AWS::Greengrass::FunctionDefinitionVersion.ResourceAccessPolicy CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-resourceaccesspolicy.html 
+type GreengrassFunctionDefinitionVersionResourceAccessPolicy struct {
+	// Permission docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-resourceaccesspolicy.html#cfn-greengrass-functiondefinitionversion-resourceaccesspolicy-permission
+	Permission *StringExpr `json:"Permission,omitempty"`
+	// ResourceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-resourceaccesspolicy.html#cfn-greengrass-functiondefinitionversion-resourceaccesspolicy-resourceid
+	ResourceID *StringExpr `json:"ResourceId,omitempty" validate:"dive,required"`
+}
+
+// GreengrassFunctionDefinitionVersionResourceAccessPolicyList represents a list of GreengrassFunctionDefinitionVersionResourceAccessPolicy
+type GreengrassFunctionDefinitionVersionResourceAccessPolicyList []GreengrassFunctionDefinitionVersionResourceAccessPolicy
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionVersionResourceAccessPolicyList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionVersionResourceAccessPolicy{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionVersionResourceAccessPolicyList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionVersionResourceAccessPolicy{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionVersionResourceAccessPolicyList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassFunctionDefinitionVersionRunAs represents the AWS::Greengrass::FunctionDefinitionVersion.RunAs CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-runas.html 
+type GreengrassFunctionDefinitionVersionRunAs struct {
+	// Gid docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-runas.html#cfn-greengrass-functiondefinitionversion-runas-gid
+	Gid *IntegerExpr `json:"Gid,omitempty"`
+	// Uid docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-runas.html#cfn-greengrass-functiondefinitionversion-runas-uid
+	Uid *IntegerExpr `json:"Uid,omitempty"`
+}
+
+// GreengrassFunctionDefinitionVersionRunAsList represents a list of GreengrassFunctionDefinitionVersionRunAs
+type GreengrassFunctionDefinitionVersionRunAsList []GreengrassFunctionDefinitionVersionRunAs
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassFunctionDefinitionVersionRunAsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassFunctionDefinitionVersionRunAs{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassFunctionDefinitionVersionRunAsList{item}
+		return nil
+	}
+	list := []GreengrassFunctionDefinitionVersionRunAs{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassFunctionDefinitionVersionRunAsList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassGroupGroupVersion represents the AWS::Greengrass::Group.GroupVersion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html 
+type GreengrassGroupGroupVersion struct {
+	// ConnectorDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html#cfn-greengrass-group-groupversion-connectordefinitionversionarn
+	ConnectorDefinitionVersionArn *StringExpr `json:"ConnectorDefinitionVersionArn,omitempty"`
+	// CoreDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html#cfn-greengrass-group-groupversion-coredefinitionversionarn
+	CoreDefinitionVersionArn *StringExpr `json:"CoreDefinitionVersionArn,omitempty"`
+	// DeviceDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html#cfn-greengrass-group-groupversion-devicedefinitionversionarn
+	DeviceDefinitionVersionArn *StringExpr `json:"DeviceDefinitionVersionArn,omitempty"`
+	// FunctionDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html#cfn-greengrass-group-groupversion-functiondefinitionversionarn
+	FunctionDefinitionVersionArn *StringExpr `json:"FunctionDefinitionVersionArn,omitempty"`
+	// LoggerDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html#cfn-greengrass-group-groupversion-loggerdefinitionversionarn
+	LoggerDefinitionVersionArn *StringExpr `json:"LoggerDefinitionVersionArn,omitempty"`
+	// ResourceDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html#cfn-greengrass-group-groupversion-resourcedefinitionversionarn
+	ResourceDefinitionVersionArn *StringExpr `json:"ResourceDefinitionVersionArn,omitempty"`
+	// SubscriptionDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html#cfn-greengrass-group-groupversion-subscriptiondefinitionversionarn
+	SubscriptionDefinitionVersionArn *StringExpr `json:"SubscriptionDefinitionVersionArn,omitempty"`
+}
+
+// GreengrassGroupGroupVersionList represents a list of GreengrassGroupGroupVersion
+type GreengrassGroupGroupVersionList []GreengrassGroupGroupVersion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassGroupGroupVersionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassGroupGroupVersion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassGroupGroupVersionList{item}
+		return nil
+	}
+	list := []GreengrassGroupGroupVersion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassGroupGroupVersionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassLoggerDefinitionLogger represents the AWS::Greengrass::LoggerDefinition.Logger CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html 
+type GreengrassLoggerDefinitionLogger struct {
+	// Component docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html#cfn-greengrass-loggerdefinition-logger-component
+	Component *StringExpr `json:"Component,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html#cfn-greengrass-loggerdefinition-logger-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Level docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html#cfn-greengrass-loggerdefinition-logger-level
+	Level *StringExpr `json:"Level,omitempty" validate:"dive,required"`
+	// Space docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html#cfn-greengrass-loggerdefinition-logger-space
+	Space *IntegerExpr `json:"Space,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html#cfn-greengrass-loggerdefinition-logger-type
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
+}
+
+// GreengrassLoggerDefinitionLoggerList represents a list of GreengrassLoggerDefinitionLogger
+type GreengrassLoggerDefinitionLoggerList []GreengrassLoggerDefinitionLogger
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassLoggerDefinitionLoggerList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassLoggerDefinitionLogger{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassLoggerDefinitionLoggerList{item}
+		return nil
+	}
+	list := []GreengrassLoggerDefinitionLogger{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassLoggerDefinitionLoggerList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassLoggerDefinitionLoggerDefinitionVersion represents the AWS::Greengrass::LoggerDefinition.LoggerDefinitionVersion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html 
+type GreengrassLoggerDefinitionLoggerDefinitionVersion struct {
+	// Loggers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html#cfn-greengrass-loggerdefinition-loggerdefinitionversion-loggers
+	Loggers *GreengrassLoggerDefinitionLoggerList `json:"Loggers,omitempty" validate:"dive,required"`
+}
+
+// GreengrassLoggerDefinitionLoggerDefinitionVersionList represents a list of GreengrassLoggerDefinitionLoggerDefinitionVersion
+type GreengrassLoggerDefinitionLoggerDefinitionVersionList []GreengrassLoggerDefinitionLoggerDefinitionVersion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassLoggerDefinitionLoggerDefinitionVersionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassLoggerDefinitionLoggerDefinitionVersion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassLoggerDefinitionLoggerDefinitionVersionList{item}
+		return nil
+	}
+	list := []GreengrassLoggerDefinitionLoggerDefinitionVersion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassLoggerDefinitionLoggerDefinitionVersionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassLoggerDefinitionVersionLogger represents the AWS::Greengrass::LoggerDefinitionVersion.Logger CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html 
+type GreengrassLoggerDefinitionVersionLogger struct {
+	// Component docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-component
+	Component *StringExpr `json:"Component,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Level docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-level
+	Level *StringExpr `json:"Level,omitempty" validate:"dive,required"`
+	// Space docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-space
+	Space *IntegerExpr `json:"Space,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html#cfn-greengrass-loggerdefinitionversion-logger-type
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
+}
+
+// GreengrassLoggerDefinitionVersionLoggerList represents a list of GreengrassLoggerDefinitionVersionLogger
+type GreengrassLoggerDefinitionVersionLoggerList []GreengrassLoggerDefinitionVersionLogger
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassLoggerDefinitionVersionLoggerList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassLoggerDefinitionVersionLogger{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassLoggerDefinitionVersionLoggerList{item}
+		return nil
+	}
+	list := []GreengrassLoggerDefinitionVersionLogger{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassLoggerDefinitionVersionLoggerList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionGroupOwnerSetting represents the AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html 
+type GreengrassResourceDefinitionVersionGroupOwnerSetting struct {
+	// AutoAddGroupOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html#cfn-greengrass-resourcedefinitionversion-groupownersetting-autoaddgroupowner
+	AutoAddGroupOwner *BoolExpr `json:"AutoAddGroupOwner,omitempty" validate:"dive,required"`
+	// GroupOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html#cfn-greengrass-resourcedefinitionversion-groupownersetting-groupowner
+	GroupOwner *StringExpr `json:"GroupOwner,omitempty"`
+}
+
+// GreengrassResourceDefinitionVersionGroupOwnerSettingList represents a list of GreengrassResourceDefinitionVersionGroupOwnerSetting
+type GreengrassResourceDefinitionVersionGroupOwnerSettingList []GreengrassResourceDefinitionVersionGroupOwnerSetting
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionGroupOwnerSettingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionGroupOwnerSetting{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionGroupOwnerSettingList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionGroupOwnerSetting{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionGroupOwnerSettingList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionLocalDeviceResourceData represents the AWS::Greengrass::ResourceDefinitionVersion.LocalDeviceResourceData CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html 
+type GreengrassResourceDefinitionVersionLocalDeviceResourceData struct {
+	// GroupOwnerSetting docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html#cfn-greengrass-resourcedefinitionversion-localdeviceresourcedata-groupownersetting
+	GroupOwnerSetting *GreengrassResourceDefinitionVersionGroupOwnerSetting `json:"GroupOwnerSetting,omitempty"`
+	// SourcePath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html#cfn-greengrass-resourcedefinitionversion-localdeviceresourcedata-sourcepath
+	SourcePath *StringExpr `json:"SourcePath,omitempty" validate:"dive,required"`
+}
+
+// GreengrassResourceDefinitionVersionLocalDeviceResourceDataList represents a list of GreengrassResourceDefinitionVersionLocalDeviceResourceData
+type GreengrassResourceDefinitionVersionLocalDeviceResourceDataList []GreengrassResourceDefinitionVersionLocalDeviceResourceData
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionLocalDeviceResourceDataList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionLocalDeviceResourceData{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionLocalDeviceResourceDataList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionLocalDeviceResourceData{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionLocalDeviceResourceDataList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionLocalVolumeResourceData represents the AWS::Greengrass::ResourceDefinitionVersion.LocalVolumeResourceData CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html 
+type GreengrassResourceDefinitionVersionLocalVolumeResourceData struct {
+	// DestinationPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-destinationpath
+	DestinationPath *StringExpr `json:"DestinationPath,omitempty" validate:"dive,required"`
+	// GroupOwnerSetting docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-groupownersetting
+	GroupOwnerSetting *GreengrassResourceDefinitionVersionGroupOwnerSetting `json:"GroupOwnerSetting,omitempty"`
+	// SourcePath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html#cfn-greengrass-resourcedefinitionversion-localvolumeresourcedata-sourcepath
+	SourcePath *StringExpr `json:"SourcePath,omitempty" validate:"dive,required"`
+}
+
+// GreengrassResourceDefinitionVersionLocalVolumeResourceDataList represents a list of GreengrassResourceDefinitionVersionLocalVolumeResourceData
+type GreengrassResourceDefinitionVersionLocalVolumeResourceDataList []GreengrassResourceDefinitionVersionLocalVolumeResourceData
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionLocalVolumeResourceDataList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionLocalVolumeResourceData{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionLocalVolumeResourceDataList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionLocalVolumeResourceData{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionLocalVolumeResourceDataList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionResourceDataContainer represents the AWS::Greengrass::ResourceDefinitionVersion.ResourceDataContainer CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html 
+type GreengrassResourceDefinitionVersionResourceDataContainer struct {
+	// LocalDeviceResourceData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html#cfn-greengrass-resourcedefinitionversion-resourcedatacontainer-localdeviceresourcedata
+	LocalDeviceResourceData *GreengrassResourceDefinitionVersionLocalDeviceResourceData `json:"LocalDeviceResourceData,omitempty"`
+	// LocalVolumeResourceData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html#cfn-greengrass-resourcedefinitionversion-resourcedatacontainer-localvolumeresourcedata
+	LocalVolumeResourceData *GreengrassResourceDefinitionVersionLocalVolumeResourceData `json:"LocalVolumeResourceData,omitempty"`
+	// S3MachineLearningModelResourceData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html#cfn-greengrass-resourcedefinitionversion-resourcedatacontainer-s3machinelearningmodelresourcedata
+	S3MachineLearningModelResourceData *GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData `json:"S3MachineLearningModelResourceData,omitempty"`
+	// SageMakerMachineLearningModelResourceData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html#cfn-greengrass-resourcedefinitionversion-resourcedatacontainer-sagemakermachinelearningmodelresourcedata
+	SageMakerMachineLearningModelResourceData *GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData `json:"SageMakerMachineLearningModelResourceData,omitempty"`
+	// SecretsManagerSecretResourceData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html#cfn-greengrass-resourcedefinitionversion-resourcedatacontainer-secretsmanagersecretresourcedata
+	SecretsManagerSecretResourceData *GreengrassResourceDefinitionVersionSecretsManagerSecretResourceData `json:"SecretsManagerSecretResourceData,omitempty"`
+}
+
+// GreengrassResourceDefinitionVersionResourceDataContainerList represents a list of GreengrassResourceDefinitionVersionResourceDataContainer
+type GreengrassResourceDefinitionVersionResourceDataContainerList []GreengrassResourceDefinitionVersionResourceDataContainer
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionResourceDataContainerList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionResourceDataContainer{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionResourceDataContainerList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionResourceDataContainer{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionResourceDataContainerList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionResourceInstance represents the AWS::Greengrass::ResourceDefinitionVersion.ResourceInstance CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html 
+type GreengrassResourceDefinitionVersionResourceInstance struct {
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html#cfn-greengrass-resourcedefinitionversion-resourceinstance-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html#cfn-greengrass-resourcedefinitionversion-resourceinstance-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// ResourceDataContainer docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html#cfn-greengrass-resourcedefinitionversion-resourceinstance-resourcedatacontainer
+	ResourceDataContainer *GreengrassResourceDefinitionVersionResourceDataContainer `json:"ResourceDataContainer,omitempty" validate:"dive,required"`
+}
+
+// GreengrassResourceDefinitionVersionResourceInstanceList represents a list of GreengrassResourceDefinitionVersionResourceInstance
+type GreengrassResourceDefinitionVersionResourceInstanceList []GreengrassResourceDefinitionVersionResourceInstance
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionResourceInstanceList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionResourceInstance{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionResourceInstanceList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionResourceInstance{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionResourceInstanceList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData represents the AWS::Greengrass::ResourceDefinitionVersion.S3MachineLearningModelResourceData CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html 
+type GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData struct {
+	// DestinationPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-destinationpath
+	DestinationPath *StringExpr `json:"DestinationPath,omitempty" validate:"dive,required"`
+	// S3URI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-s3uri
+	S3URI *StringExpr `json:"S3Uri,omitempty" validate:"dive,required"`
+}
+
+// GreengrassResourceDefinitionVersionS3MachineLearningModelResourceDataList represents a list of GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData
+type GreengrassResourceDefinitionVersionS3MachineLearningModelResourceDataList []GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionS3MachineLearningModelResourceDataList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionS3MachineLearningModelResourceDataList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionS3MachineLearningModelResourceDataList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData represents the AWS::Greengrass::ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html 
+type GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData struct {
+	// DestinationPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-destinationpath
+	DestinationPath *StringExpr `json:"DestinationPath,omitempty" validate:"dive,required"`
+	// SageMakerJobArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-sagemakerjobarn
+	SageMakerJobArn *StringExpr `json:"SageMakerJobArn,omitempty" validate:"dive,required"`
+}
+
+// GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceDataList represents a list of GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData
+type GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceDataList []GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceDataList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceDataList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceDataList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassResourceDefinitionVersionSecretsManagerSecretResourceData represents the AWS::Greengrass::ResourceDefinitionVersion.SecretsManagerSecretResourceData CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html 
+type GreengrassResourceDefinitionVersionSecretsManagerSecretResourceData struct {
+	// ARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html#cfn-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata-arn
+	ARN *StringExpr `json:"ARN,omitempty" validate:"dive,required"`
+	// AdditionalStagingLabelsToDownload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html#cfn-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata-additionalstaginglabelstodownload
+	AdditionalStagingLabelsToDownload *StringListExpr `json:"AdditionalStagingLabelsToDownload,omitempty"`
+}
+
+// GreengrassResourceDefinitionVersionSecretsManagerSecretResourceDataList represents a list of GreengrassResourceDefinitionVersionSecretsManagerSecretResourceData
+type GreengrassResourceDefinitionVersionSecretsManagerSecretResourceDataList []GreengrassResourceDefinitionVersionSecretsManagerSecretResourceData
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionSecretsManagerSecretResourceDataList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionSecretsManagerSecretResourceData{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionSecretsManagerSecretResourceDataList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionSecretsManagerSecretResourceData{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionSecretsManagerSecretResourceDataList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassSubscriptionDefinitionSubscription represents the AWS::Greengrass::SubscriptionDefinition.Subscription CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html 
+type GreengrassSubscriptionDefinitionSubscription struct {
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Source docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-source
+	Source *StringExpr `json:"Source,omitempty" validate:"dive,required"`
+	// Subject docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-subject
+	Subject *StringExpr `json:"Subject,omitempty" validate:"dive,required"`
+	// Target docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html#cfn-greengrass-subscriptiondefinition-subscription-target
+	Target *StringExpr `json:"Target,omitempty" validate:"dive,required"`
+}
+
+// GreengrassSubscriptionDefinitionSubscriptionList represents a list of GreengrassSubscriptionDefinitionSubscription
+type GreengrassSubscriptionDefinitionSubscriptionList []GreengrassSubscriptionDefinitionSubscription
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassSubscriptionDefinitionSubscriptionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassSubscriptionDefinitionSubscription{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassSubscriptionDefinitionSubscriptionList{item}
+		return nil
+	}
+	list := []GreengrassSubscriptionDefinitionSubscription{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassSubscriptionDefinitionSubscriptionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion represents the AWS::Greengrass::SubscriptionDefinition.SubscriptionDefinitionVersion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html 
+type GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion struct {
+	// Subscriptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinition-subscriptiondefinitionversion-subscriptions
+	Subscriptions *GreengrassSubscriptionDefinitionSubscriptionList `json:"Subscriptions,omitempty" validate:"dive,required"`
+}
+
+// GreengrassSubscriptionDefinitionSubscriptionDefinitionVersionList represents a list of GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion
+type GreengrassSubscriptionDefinitionSubscriptionDefinitionVersionList []GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassSubscriptionDefinitionSubscriptionDefinitionVersionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassSubscriptionDefinitionSubscriptionDefinitionVersionList{item}
+		return nil
+	}
+	list := []GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassSubscriptionDefinitionSubscriptionDefinitionVersionList(list)
+		return nil
+	}
+	return err
+}
+// GreengrassSubscriptionDefinitionVersionSubscription represents the AWS::Greengrass::SubscriptionDefinitionVersion.Subscription CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinitionversion-subscription.html 
+type GreengrassSubscriptionDefinitionVersionSubscription struct {
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinitionversion-subscription.html#cfn-greengrass-subscriptiondefinitionversion-subscription-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Source docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinitionversion-subscription.html#cfn-greengrass-subscriptiondefinitionversion-subscription-source
+	Source *StringExpr `json:"Source,omitempty" validate:"dive,required"`
+	// Subject docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinitionversion-subscription.html#cfn-greengrass-subscriptiondefinitionversion-subscription-subject
+	Subject *StringExpr `json:"Subject,omitempty" validate:"dive,required"`
+	// Target docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinitionversion-subscription.html#cfn-greengrass-subscriptiondefinitionversion-subscription-target
+	Target *StringExpr `json:"Target,omitempty" validate:"dive,required"`
+}
+
+// GreengrassSubscriptionDefinitionVersionSubscriptionList represents a list of GreengrassSubscriptionDefinitionVersionSubscription
+type GreengrassSubscriptionDefinitionVersionSubscriptionList []GreengrassSubscriptionDefinitionVersionSubscription
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassSubscriptionDefinitionVersionSubscriptionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassSubscriptionDefinitionVersionSubscription{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassSubscriptionDefinitionVersionSubscriptionList{item}
+		return nil
+	}
+	list := []GreengrassSubscriptionDefinitionVersionSubscription{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassSubscriptionDefinitionVersionSubscriptionList(list)
 		return nil
 	}
 	return err
@@ -16420,6 +18774,1086 @@ func (l *KinesisAnalyticsApplicationReferenceDataSourceS3ReferenceDataSourceList
 	}
 	return err
 }
+// KinesisAnalyticsV2ApplicationApplicationCodeConfiguration represents the AWS::KinesisAnalyticsV2::Application.ApplicationCodeConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html 
+type KinesisAnalyticsV2ApplicationApplicationCodeConfiguration struct {
+	// CodeContent docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontent
+	CodeContent *KinesisAnalyticsV2ApplicationCodeContent `json:"CodeContent,omitempty" validate:"dive,required"`
+	// CodeContentType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontenttype
+	CodeContentType *StringExpr `json:"CodeContentType,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationApplicationCodeConfigurationList represents a list of KinesisAnalyticsV2ApplicationApplicationCodeConfiguration
+type KinesisAnalyticsV2ApplicationApplicationCodeConfigurationList []KinesisAnalyticsV2ApplicationApplicationCodeConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationApplicationCodeConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationApplicationCodeConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationApplicationCodeConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationApplicationCodeConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationApplicationCodeConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationApplicationConfiguration represents the AWS::KinesisAnalyticsV2::Application.ApplicationConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html 
+type KinesisAnalyticsV2ApplicationApplicationConfiguration struct {
+	// ApplicationCodeConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationcodeconfiguration
+	ApplicationCodeConfiguration *KinesisAnalyticsV2ApplicationApplicationCodeConfiguration `json:"ApplicationCodeConfiguration,omitempty"`
+	// ApplicationSnapshotConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration
+	ApplicationSnapshotConfiguration *KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration `json:"ApplicationSnapshotConfiguration,omitempty"`
+	// EnvironmentProperties docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-environmentproperties
+	EnvironmentProperties *KinesisAnalyticsV2ApplicationEnvironmentProperties `json:"EnvironmentProperties,omitempty"`
+	// FlinkApplicationConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-flinkapplicationconfiguration
+	FlinkApplicationConfiguration *KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration `json:"FlinkApplicationConfiguration,omitempty"`
+	// SQLApplicationConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-sqlapplicationconfiguration
+	SQLApplicationConfiguration *KinesisAnalyticsV2ApplicationSQLApplicationConfiguration `json:"SqlApplicationConfiguration,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationApplicationConfigurationList represents a list of KinesisAnalyticsV2ApplicationApplicationConfiguration
+type KinesisAnalyticsV2ApplicationApplicationConfigurationList []KinesisAnalyticsV2ApplicationApplicationConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationApplicationConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationApplicationConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationApplicationConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationApplicationConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationApplicationConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration represents the AWS::KinesisAnalyticsV2::Application.ApplicationSnapshotConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html 
+type KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration struct {
+	// SnapshotsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html#cfn-kinesisanalyticsv2-application-applicationsnapshotconfiguration-snapshotsenabled
+	SnapshotsEnabled *BoolExpr `json:"SnapshotsEnabled,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationList represents a list of KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration
+type KinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationList []KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationCSVMappingParameters represents the AWS::KinesisAnalyticsV2::Application.CSVMappingParameters CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html 
+type KinesisAnalyticsV2ApplicationCSVMappingParameters struct {
+	// RecordColumnDelimiter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html#cfn-kinesisanalyticsv2-application-csvmappingparameters-recordcolumndelimiter
+	RecordColumnDelimiter *StringExpr `json:"RecordColumnDelimiter,omitempty" validate:"dive,required"`
+	// RecordRowDelimiter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html#cfn-kinesisanalyticsv2-application-csvmappingparameters-recordrowdelimiter
+	RecordRowDelimiter *StringExpr `json:"RecordRowDelimiter,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationCSVMappingParametersList represents a list of KinesisAnalyticsV2ApplicationCSVMappingParameters
+type KinesisAnalyticsV2ApplicationCSVMappingParametersList []KinesisAnalyticsV2ApplicationCSVMappingParameters
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationCSVMappingParametersList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationCSVMappingParameters{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationCSVMappingParametersList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationCSVMappingParameters{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationCSVMappingParametersList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationCheckpointConfiguration represents the AWS::KinesisAnalyticsV2::Application.CheckpointConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html 
+type KinesisAnalyticsV2ApplicationCheckpointConfiguration struct {
+	// CheckpointInterval docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-checkpointinterval
+	CheckpointInterval *IntegerExpr `json:"CheckpointInterval,omitempty"`
+	// CheckpointingEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-checkpointingenabled
+	CheckpointingEnabled *BoolExpr `json:"CheckpointingEnabled,omitempty"`
+	// ConfigurationType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-configurationtype
+	ConfigurationType *StringExpr `json:"ConfigurationType,omitempty" validate:"dive,required"`
+	// MinPauseBetweenCheckpoints docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html#cfn-kinesisanalyticsv2-application-checkpointconfiguration-minpausebetweencheckpoints
+	MinPauseBetweenCheckpoints *IntegerExpr `json:"MinPauseBetweenCheckpoints,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationCheckpointConfigurationList represents a list of KinesisAnalyticsV2ApplicationCheckpointConfiguration
+type KinesisAnalyticsV2ApplicationCheckpointConfigurationList []KinesisAnalyticsV2ApplicationCheckpointConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationCheckpointConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationCheckpointConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationCheckpointConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationCheckpointConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationCheckpointConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationCodeContent represents the AWS::KinesisAnalyticsV2::Application.CodeContent CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html 
+type KinesisAnalyticsV2ApplicationCodeContent struct {
+	// S3ContentLocation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-s3contentlocation
+	S3ContentLocation *KinesisAnalyticsV2ApplicationS3ContentLocation `json:"S3ContentLocation,omitempty"`
+	// TextContent docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-textcontent
+	TextContent *StringExpr `json:"TextContent,omitempty"`
+	// ZipFileContent docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-zipfilecontent
+	ZipFileContent *StringExpr `json:"ZipFileContent,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationCodeContentList represents a list of KinesisAnalyticsV2ApplicationCodeContent
+type KinesisAnalyticsV2ApplicationCodeContentList []KinesisAnalyticsV2ApplicationCodeContent
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationCodeContentList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationCodeContent{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationCodeContentList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationCodeContent{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationCodeContentList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationEnvironmentProperties represents the AWS::KinesisAnalyticsV2::Application.EnvironmentProperties CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html 
+type KinesisAnalyticsV2ApplicationEnvironmentProperties struct {
+	// PropertyGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html#cfn-kinesisanalyticsv2-application-environmentproperties-propertygroups
+	PropertyGroups *KinesisAnalyticsV2ApplicationPropertyGroupList `json:"PropertyGroups,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationEnvironmentPropertiesList represents a list of KinesisAnalyticsV2ApplicationEnvironmentProperties
+type KinesisAnalyticsV2ApplicationEnvironmentPropertiesList []KinesisAnalyticsV2ApplicationEnvironmentProperties
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationEnvironmentPropertiesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationEnvironmentProperties{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationEnvironmentPropertiesList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationEnvironmentProperties{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationEnvironmentPropertiesList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration represents the AWS::KinesisAnalyticsV2::Application.FlinkApplicationConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html 
+type KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration struct {
+	// CheckpointConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-flinkapplicationconfiguration-checkpointconfiguration
+	CheckpointConfiguration *KinesisAnalyticsV2ApplicationCheckpointConfiguration `json:"CheckpointConfiguration,omitempty"`
+	// MonitoringConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-flinkapplicationconfiguration-monitoringconfiguration
+	MonitoringConfiguration *KinesisAnalyticsV2ApplicationMonitoringConfiguration `json:"MonitoringConfiguration,omitempty"`
+	// ParallelismConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-flinkapplicationconfiguration-parallelismconfiguration
+	ParallelismConfiguration *KinesisAnalyticsV2ApplicationParallelismConfiguration `json:"ParallelismConfiguration,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationFlinkApplicationConfigurationList represents a list of KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration
+type KinesisAnalyticsV2ApplicationFlinkApplicationConfigurationList []KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationFlinkApplicationConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationFlinkApplicationConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationFlinkApplicationConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationInput represents the AWS::KinesisAnalyticsV2::Application.Input CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html 
+type KinesisAnalyticsV2ApplicationInput struct {
+	// InputParallelism docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-inputparallelism
+	InputParallelism *KinesisAnalyticsV2ApplicationInputParallelism `json:"InputParallelism,omitempty"`
+	// InputProcessingConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-inputprocessingconfiguration
+	InputProcessingConfiguration *KinesisAnalyticsV2ApplicationInputProcessingConfiguration `json:"InputProcessingConfiguration,omitempty"`
+	// InputSchema docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-inputschema
+	InputSchema *KinesisAnalyticsV2ApplicationInputSchema `json:"InputSchema,omitempty" validate:"dive,required"`
+	// KinesisFirehoseInput docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-kinesisfirehoseinput
+	KinesisFirehoseInput *KinesisAnalyticsV2ApplicationKinesisFirehoseInput `json:"KinesisFirehoseInput,omitempty"`
+	// KinesisStreamsInput docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-kinesisstreamsinput
+	KinesisStreamsInput *KinesisAnalyticsV2ApplicationKinesisStreamsInput `json:"KinesisStreamsInput,omitempty"`
+	// NamePrefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html#cfn-kinesisanalyticsv2-application-input-nameprefix
+	NamePrefix *StringExpr `json:"NamePrefix,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationInputList represents a list of KinesisAnalyticsV2ApplicationInput
+type KinesisAnalyticsV2ApplicationInputList []KinesisAnalyticsV2ApplicationInput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationInputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationInput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationInput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationInputLambdaProcessor represents the AWS::KinesisAnalyticsV2::Application.InputLambdaProcessor CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputlambdaprocessor.html 
+type KinesisAnalyticsV2ApplicationInputLambdaProcessor struct {
+	// ResourceARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputlambdaprocessor.html#cfn-kinesisanalyticsv2-application-inputlambdaprocessor-resourcearn
+	ResourceARN *StringExpr `json:"ResourceARN,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationInputLambdaProcessorList represents a list of KinesisAnalyticsV2ApplicationInputLambdaProcessor
+type KinesisAnalyticsV2ApplicationInputLambdaProcessorList []KinesisAnalyticsV2ApplicationInputLambdaProcessor
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationInputLambdaProcessorList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationInputLambdaProcessor{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputLambdaProcessorList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationInputLambdaProcessor{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputLambdaProcessorList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationInputParallelism represents the AWS::KinesisAnalyticsV2::Application.InputParallelism CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputparallelism.html 
+type KinesisAnalyticsV2ApplicationInputParallelism struct {
+	// Count docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputparallelism.html#cfn-kinesisanalyticsv2-application-inputparallelism-count
+	Count *IntegerExpr `json:"Count,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationInputParallelismList represents a list of KinesisAnalyticsV2ApplicationInputParallelism
+type KinesisAnalyticsV2ApplicationInputParallelismList []KinesisAnalyticsV2ApplicationInputParallelism
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationInputParallelismList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationInputParallelism{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputParallelismList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationInputParallelism{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputParallelismList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationInputProcessingConfiguration represents the AWS::KinesisAnalyticsV2::Application.InputProcessingConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputprocessingconfiguration.html 
+type KinesisAnalyticsV2ApplicationInputProcessingConfiguration struct {
+	// InputLambdaProcessor docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputprocessingconfiguration.html#cfn-kinesisanalyticsv2-application-inputprocessingconfiguration-inputlambdaprocessor
+	InputLambdaProcessor *KinesisAnalyticsV2ApplicationInputLambdaProcessor `json:"InputLambdaProcessor,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationInputProcessingConfigurationList represents a list of KinesisAnalyticsV2ApplicationInputProcessingConfiguration
+type KinesisAnalyticsV2ApplicationInputProcessingConfigurationList []KinesisAnalyticsV2ApplicationInputProcessingConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationInputProcessingConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationInputProcessingConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputProcessingConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationInputProcessingConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputProcessingConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationInputSchema represents the AWS::KinesisAnalyticsV2::Application.InputSchema CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html 
+type KinesisAnalyticsV2ApplicationInputSchema struct {
+	// RecordColumns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordcolumns
+	RecordColumns *KinesisAnalyticsV2ApplicationRecordColumnList `json:"RecordColumns,omitempty" validate:"dive,required"`
+	// RecordEncoding docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordencoding
+	RecordEncoding *StringExpr `json:"RecordEncoding,omitempty"`
+	// RecordFormat docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordformat
+	RecordFormat *KinesisAnalyticsV2ApplicationRecordFormat `json:"RecordFormat,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationInputSchemaList represents a list of KinesisAnalyticsV2ApplicationInputSchema
+type KinesisAnalyticsV2ApplicationInputSchemaList []KinesisAnalyticsV2ApplicationInputSchema
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationInputSchemaList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationInputSchema{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputSchemaList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationInputSchema{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationInputSchemaList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationJSONMappingParameters represents the AWS::KinesisAnalyticsV2::Application.JSONMappingParameters CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-jsonmappingparameters.html 
+type KinesisAnalyticsV2ApplicationJSONMappingParameters struct {
+	// RecordRowPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-jsonmappingparameters.html#cfn-kinesisanalyticsv2-application-jsonmappingparameters-recordrowpath
+	RecordRowPath *StringExpr `json:"RecordRowPath,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationJSONMappingParametersList represents a list of KinesisAnalyticsV2ApplicationJSONMappingParameters
+type KinesisAnalyticsV2ApplicationJSONMappingParametersList []KinesisAnalyticsV2ApplicationJSONMappingParameters
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationJSONMappingParametersList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationJSONMappingParameters{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationJSONMappingParametersList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationJSONMappingParameters{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationJSONMappingParametersList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationKinesisFirehoseInput represents the AWS::KinesisAnalyticsV2::Application.KinesisFirehoseInput CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html 
+type KinesisAnalyticsV2ApplicationKinesisFirehoseInput struct {
+	// ResourceARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html#cfn-kinesisanalyticsv2-application-kinesisfirehoseinput-resourcearn
+	ResourceARN *StringExpr `json:"ResourceARN,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationKinesisFirehoseInputList represents a list of KinesisAnalyticsV2ApplicationKinesisFirehoseInput
+type KinesisAnalyticsV2ApplicationKinesisFirehoseInputList []KinesisAnalyticsV2ApplicationKinesisFirehoseInput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationKinesisFirehoseInputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationKinesisFirehoseInput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationKinesisFirehoseInputList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationKinesisFirehoseInput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationKinesisFirehoseInputList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationKinesisStreamsInput represents the AWS::KinesisAnalyticsV2::Application.KinesisStreamsInput CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisstreamsinput.html 
+type KinesisAnalyticsV2ApplicationKinesisStreamsInput struct {
+	// ResourceARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisstreamsinput.html#cfn-kinesisanalyticsv2-application-kinesisstreamsinput-resourcearn
+	ResourceARN *StringExpr `json:"ResourceARN,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationKinesisStreamsInputList represents a list of KinesisAnalyticsV2ApplicationKinesisStreamsInput
+type KinesisAnalyticsV2ApplicationKinesisStreamsInputList []KinesisAnalyticsV2ApplicationKinesisStreamsInput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationKinesisStreamsInputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationKinesisStreamsInput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationKinesisStreamsInputList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationKinesisStreamsInput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationKinesisStreamsInputList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationMappingParameters represents the AWS::KinesisAnalyticsV2::Application.MappingParameters CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mappingparameters.html 
+type KinesisAnalyticsV2ApplicationMappingParameters struct {
+	// CSVMappingParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mappingparameters.html#cfn-kinesisanalyticsv2-application-mappingparameters-csvmappingparameters
+	CSVMappingParameters *KinesisAnalyticsV2ApplicationCSVMappingParameters `json:"CSVMappingParameters,omitempty"`
+	// JSONMappingParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mappingparameters.html#cfn-kinesisanalyticsv2-application-mappingparameters-jsonmappingparameters
+	JSONMappingParameters *KinesisAnalyticsV2ApplicationJSONMappingParameters `json:"JSONMappingParameters,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationMappingParametersList represents a list of KinesisAnalyticsV2ApplicationMappingParameters
+type KinesisAnalyticsV2ApplicationMappingParametersList []KinesisAnalyticsV2ApplicationMappingParameters
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationMappingParametersList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationMappingParameters{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationMappingParametersList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationMappingParameters{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationMappingParametersList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationMonitoringConfiguration represents the AWS::KinesisAnalyticsV2::Application.MonitoringConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html 
+type KinesisAnalyticsV2ApplicationMonitoringConfiguration struct {
+	// ConfigurationType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html#cfn-kinesisanalyticsv2-application-monitoringconfiguration-configurationtype
+	ConfigurationType *StringExpr `json:"ConfigurationType,omitempty" validate:"dive,required"`
+	// LogLevel docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html#cfn-kinesisanalyticsv2-application-monitoringconfiguration-loglevel
+	LogLevel *StringExpr `json:"LogLevel,omitempty"`
+	// MetricsLevel docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html#cfn-kinesisanalyticsv2-application-monitoringconfiguration-metricslevel
+	MetricsLevel *StringExpr `json:"MetricsLevel,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationMonitoringConfigurationList represents a list of KinesisAnalyticsV2ApplicationMonitoringConfiguration
+type KinesisAnalyticsV2ApplicationMonitoringConfigurationList []KinesisAnalyticsV2ApplicationMonitoringConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationMonitoringConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationMonitoringConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationMonitoringConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationMonitoringConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationMonitoringConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationParallelismConfiguration represents the AWS::KinesisAnalyticsV2::Application.ParallelismConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html 
+type KinesisAnalyticsV2ApplicationParallelismConfiguration struct {
+	// AutoScalingEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-autoscalingenabled
+	AutoScalingEnabled *BoolExpr `json:"AutoScalingEnabled,omitempty"`
+	// ConfigurationType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-configurationtype
+	ConfigurationType *StringExpr `json:"ConfigurationType,omitempty" validate:"dive,required"`
+	// Parallelism docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-parallelism
+	Parallelism *IntegerExpr `json:"Parallelism,omitempty"`
+	// ParallelismPerKPU docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-parallelismperkpu
+	ParallelismPerKPU *IntegerExpr `json:"ParallelismPerKPU,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationParallelismConfigurationList represents a list of KinesisAnalyticsV2ApplicationParallelismConfiguration
+type KinesisAnalyticsV2ApplicationParallelismConfigurationList []KinesisAnalyticsV2ApplicationParallelismConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationParallelismConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationParallelismConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationParallelismConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationParallelismConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationParallelismConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationPropertyGroup represents the AWS::KinesisAnalyticsV2::Application.PropertyGroup CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html 
+type KinesisAnalyticsV2ApplicationPropertyGroup struct {
+	// PropertyGroupID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertygroupid
+	PropertyGroupID *StringExpr `json:"PropertyGroupId,omitempty"`
+	// PropertyMap docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertymap
+	PropertyMap interface{} `json:"PropertyMap,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationPropertyGroupList represents a list of KinesisAnalyticsV2ApplicationPropertyGroup
+type KinesisAnalyticsV2ApplicationPropertyGroupList []KinesisAnalyticsV2ApplicationPropertyGroup
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationPropertyGroupList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationPropertyGroup{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationPropertyGroupList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationPropertyGroup{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationPropertyGroupList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationRecordColumn represents the AWS::KinesisAnalyticsV2::Application.RecordColumn CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html 
+type KinesisAnalyticsV2ApplicationRecordColumn struct {
+	// Mapping docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-mapping
+	Mapping *StringExpr `json:"Mapping,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// SQLType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordcolumn.html#cfn-kinesisanalyticsv2-application-recordcolumn-sqltype
+	SQLType *StringExpr `json:"SqlType,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationRecordColumnList represents a list of KinesisAnalyticsV2ApplicationRecordColumn
+type KinesisAnalyticsV2ApplicationRecordColumnList []KinesisAnalyticsV2ApplicationRecordColumn
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationRecordColumnList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationRecordColumn{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationRecordColumnList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationRecordColumn{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationRecordColumnList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationRecordFormat represents the AWS::KinesisAnalyticsV2::Application.RecordFormat CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordformat.html 
+type KinesisAnalyticsV2ApplicationRecordFormat struct {
+	// MappingParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordformat.html#cfn-kinesisanalyticsv2-application-recordformat-mappingparameters
+	MappingParameters *KinesisAnalyticsV2ApplicationMappingParameters `json:"MappingParameters,omitempty"`
+	// RecordFormatType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-recordformat.html#cfn-kinesisanalyticsv2-application-recordformat-recordformattype
+	RecordFormatType *StringExpr `json:"RecordFormatType,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationRecordFormatList represents a list of KinesisAnalyticsV2ApplicationRecordFormat
+type KinesisAnalyticsV2ApplicationRecordFormatList []KinesisAnalyticsV2ApplicationRecordFormat
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationRecordFormatList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationRecordFormat{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationRecordFormatList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationRecordFormat{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationRecordFormatList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationS3ContentLocation represents the AWS::KinesisAnalyticsV2::Application.S3ContentLocation CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html 
+type KinesisAnalyticsV2ApplicationS3ContentLocation struct {
+	// BucketARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-bucketarn
+	BucketARN *StringExpr `json:"BucketARN,omitempty"`
+	// FileKey docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-filekey
+	FileKey *StringExpr `json:"FileKey,omitempty"`
+	// ObjectVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-objectversion
+	ObjectVersion *StringExpr `json:"ObjectVersion,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationS3ContentLocationList represents a list of KinesisAnalyticsV2ApplicationS3ContentLocation
+type KinesisAnalyticsV2ApplicationS3ContentLocationList []KinesisAnalyticsV2ApplicationS3ContentLocation
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationS3ContentLocationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationS3ContentLocation{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationS3ContentLocationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationS3ContentLocation{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationS3ContentLocationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationSQLApplicationConfiguration represents the AWS::KinesisAnalyticsV2::Application.SqlApplicationConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html 
+type KinesisAnalyticsV2ApplicationSQLApplicationConfiguration struct {
+	// Inputs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-sqlapplicationconfiguration-inputs
+	Inputs *KinesisAnalyticsV2ApplicationInputList `json:"Inputs,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationSQLApplicationConfigurationList represents a list of KinesisAnalyticsV2ApplicationSQLApplicationConfiguration
+type KinesisAnalyticsV2ApplicationSQLApplicationConfigurationList []KinesisAnalyticsV2ApplicationSQLApplicationConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationSQLApplicationConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationSQLApplicationConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationSQLApplicationConfigurationList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationSQLApplicationConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationSQLApplicationConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption represents the AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption.CloudWatchLoggingOption CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html 
+type KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption struct {
+	// LogStreamARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption-logstreamarn
+	LogStreamARN *StringExpr `json:"LogStreamARN,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionList represents a list of KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
+type KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionList []KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationOutputDestinationSchema represents the AWS::KinesisAnalyticsV2::ApplicationOutput.DestinationSchema CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-destinationschema.html 
+type KinesisAnalyticsV2ApplicationOutputDestinationSchema struct {
+	// RecordFormatType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-destinationschema.html#cfn-kinesisanalyticsv2-applicationoutput-destinationschema-recordformattype
+	RecordFormatType *StringExpr `json:"RecordFormatType,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationOutputDestinationSchemaList represents a list of KinesisAnalyticsV2ApplicationOutputDestinationSchema
+type KinesisAnalyticsV2ApplicationOutputDestinationSchemaList []KinesisAnalyticsV2ApplicationOutputDestinationSchema
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationOutputDestinationSchemaList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationOutputDestinationSchema{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputDestinationSchemaList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationOutputDestinationSchema{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputDestinationSchemaList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput represents the AWS::KinesisAnalyticsV2::ApplicationOutput.KinesisFirehoseOutput CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html 
+type KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput struct {
+	// ResourceARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html#cfn-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput-resourcearn
+	ResourceARN *StringExpr `json:"ResourceARN,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutputList represents a list of KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput
+type KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutputList []KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutputList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutputList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput represents the AWS::KinesisAnalyticsV2::ApplicationOutput.KinesisStreamsOutput CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html 
+type KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput struct {
+	// ResourceARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html#cfn-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput-resourcearn
+	ResourceARN *StringExpr `json:"ResourceARN,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutputList represents a list of KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput
+type KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutputList []KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutputList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutputList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationOutputLambdaOutput represents the AWS::KinesisAnalyticsV2::ApplicationOutput.LambdaOutput CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-lambdaoutput.html 
+type KinesisAnalyticsV2ApplicationOutputLambdaOutput struct {
+	// ResourceARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-lambdaoutput.html#cfn-kinesisanalyticsv2-applicationoutput-lambdaoutput-resourcearn
+	ResourceARN *StringExpr `json:"ResourceARN,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationOutputLambdaOutputList represents a list of KinesisAnalyticsV2ApplicationOutputLambdaOutput
+type KinesisAnalyticsV2ApplicationOutputLambdaOutputList []KinesisAnalyticsV2ApplicationOutputLambdaOutput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationOutputLambdaOutputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationOutputLambdaOutput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputLambdaOutputList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationOutputLambdaOutput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputLambdaOutputList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationOutputOutput represents the AWS::KinesisAnalyticsV2::ApplicationOutput.Output CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html 
+type KinesisAnalyticsV2ApplicationOutputOutput struct {
+	// DestinationSchema docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-destinationschema
+	DestinationSchema *KinesisAnalyticsV2ApplicationOutputDestinationSchema `json:"DestinationSchema,omitempty" validate:"dive,required"`
+	// KinesisFirehoseOutput docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-kinesisfirehoseoutput
+	KinesisFirehoseOutput *KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput `json:"KinesisFirehoseOutput,omitempty"`
+	// KinesisStreamsOutput docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-kinesisstreamsoutput
+	KinesisStreamsOutput *KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput `json:"KinesisStreamsOutput,omitempty"`
+	// LambdaOutput docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-lambdaoutput
+	LambdaOutput *KinesisAnalyticsV2ApplicationOutputLambdaOutput `json:"LambdaOutput,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-name
+	Name *StringExpr `json:"Name,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationOutputOutputList represents a list of KinesisAnalyticsV2ApplicationOutputOutput
+type KinesisAnalyticsV2ApplicationOutputOutputList []KinesisAnalyticsV2ApplicationOutputOutput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationOutputOutputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationOutputOutput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputOutputList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationOutputOutput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationOutputOutputList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.CSVMappingParameters CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-csvmappingparameters.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters struct {
+	// RecordColumnDelimiter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-csvmappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-csvmappingparameters-recordcolumndelimiter
+	RecordColumnDelimiter *StringExpr `json:"RecordColumnDelimiter,omitempty" validate:"dive,required"`
+	// RecordRowDelimiter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-csvmappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-csvmappingparameters-recordrowdelimiter
+	RecordRowDelimiter *StringExpr `json:"RecordRowDelimiter,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParametersList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters
+type KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParametersList []KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParametersList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParametersList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParametersList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.JSONMappingParameters CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters struct {
+	// RecordRowPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters-recordrowpath
+	RecordRowPath *StringExpr `json:"RecordRowPath,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParametersList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters
+type KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParametersList []KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParametersList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParametersList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParametersList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.MappingParameters CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters struct {
+	// CSVMappingParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters-csvmappingparameters
+	CSVMappingParameters *KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters `json:"CSVMappingParameters,omitempty"`
+	// JSONMappingParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters-jsonmappingparameters
+	JSONMappingParameters *KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters `json:"JSONMappingParameters,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParametersList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters
+type KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParametersList []KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParametersList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParametersList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParametersList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumn represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.RecordColumn CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumn struct {
+	// Mapping docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn-mapping
+	Mapping *StringExpr `json:"Mapping,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// SQLType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn-sqltype
+	SQLType *StringExpr `json:"SqlType,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumnList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumn
+type KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumnList []KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumn
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumnList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumn{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumnList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumn{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumnList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.RecordFormat CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat struct {
+	// MappingParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordformat-mappingparameters
+	MappingParameters *KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters `json:"MappingParameters,omitempty"`
+	// RecordFormatType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordformat-recordformattype
+	RecordFormatType *StringExpr `json:"RecordFormatType,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormatList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat
+type KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormatList []KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormatList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormatList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormatList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.ReferenceDataSource CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource struct {
+	// ReferenceSchema docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource-referenceschema
+	ReferenceSchema *KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema `json:"ReferenceSchema,omitempty" validate:"dive,required"`
+	// S3ReferenceDataSource docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource-s3referencedatasource
+	S3ReferenceDataSource *KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource `json:"S3ReferenceDataSource,omitempty"`
+	// TableName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource-tablename
+	TableName *StringExpr `json:"TableName,omitempty"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSourceList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource
+type KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSourceList []KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSourceList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSourceList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSourceList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.ReferenceSchema CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema struct {
+	// RecordColumns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordcolumns
+	RecordColumns *KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumnList `json:"RecordColumns,omitempty" validate:"dive,required"`
+	// RecordEncoding docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordencoding
+	RecordEncoding *StringExpr `json:"RecordEncoding,omitempty"`
+	// RecordFormat docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordformat
+	RecordFormat *KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat `json:"RecordFormat,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchemaList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema
+type KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchemaList []KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchemaList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchemaList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchemaList(list)
+		return nil
+	}
+	return err
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.S3ReferenceDataSource CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource struct {
+	// BucketARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource-bucketarn
+	BucketARN *StringExpr `json:"BucketARN,omitempty" validate:"dive,required"`
+	// FileKey docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource-filekey
+	FileKey *StringExpr `json:"FileKey,omitempty" validate:"dive,required"`
+}
+
+// KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSourceList represents a list of KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource
+type KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSourceList []KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSourceList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSourceList{item}
+		return nil
+	}
+	list := []KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSourceList(list)
+		return nil
+	}
+	return err
+}
 // KinesisFirehoseDeliveryStreamBufferingHints represents the AWS::KinesisFirehose::DeliveryStream.BufferingHints CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html 
 type KinesisFirehoseDeliveryStreamBufferingHints struct {
@@ -18026,6 +21460,178 @@ func (l *RedshiftClusterParameterGroupParameterList) UnmarshalJSON(buf []byte) e
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = RedshiftClusterParameterGroupParameterList(list)
+		return nil
+	}
+	return err
+}
+// RoboMakerRobotApplicationRobotSoftwareSuite represents the AWS::RoboMaker::RobotApplication.RobotSoftwareSuite CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html 
+type RoboMakerRobotApplicationRobotSoftwareSuite struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html#cfn-robomaker-robotapplication-robotsoftwaresuite-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html#cfn-robomaker-robotapplication-robotsoftwaresuite-version
+	Version *StringExpr `json:"Version,omitempty" validate:"dive,required"`
+}
+
+// RoboMakerRobotApplicationRobotSoftwareSuiteList represents a list of RoboMakerRobotApplicationRobotSoftwareSuite
+type RoboMakerRobotApplicationRobotSoftwareSuiteList []RoboMakerRobotApplicationRobotSoftwareSuite
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *RoboMakerRobotApplicationRobotSoftwareSuiteList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := RoboMakerRobotApplicationRobotSoftwareSuite{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = RoboMakerRobotApplicationRobotSoftwareSuiteList{item}
+		return nil
+	}
+	list := []RoboMakerRobotApplicationRobotSoftwareSuite{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = RoboMakerRobotApplicationRobotSoftwareSuiteList(list)
+		return nil
+	}
+	return err
+}
+// RoboMakerRobotApplicationSourceConfig represents the AWS::RoboMaker::RobotApplication.SourceConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html 
+type RoboMakerRobotApplicationSourceConfig struct {
+	// Architecture docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html#cfn-robomaker-robotapplication-sourceconfig-architecture
+	Architecture *StringExpr `json:"Architecture,omitempty" validate:"dive,required"`
+	// S3Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html#cfn-robomaker-robotapplication-sourceconfig-s3bucket
+	S3Bucket *StringExpr `json:"S3Bucket,omitempty" validate:"dive,required"`
+	// S3Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-sourceconfig.html#cfn-robomaker-robotapplication-sourceconfig-s3key
+	S3Key *StringExpr `json:"S3Key,omitempty" validate:"dive,required"`
+}
+
+// RoboMakerRobotApplicationSourceConfigList represents a list of RoboMakerRobotApplicationSourceConfig
+type RoboMakerRobotApplicationSourceConfigList []RoboMakerRobotApplicationSourceConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *RoboMakerRobotApplicationSourceConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := RoboMakerRobotApplicationSourceConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = RoboMakerRobotApplicationSourceConfigList{item}
+		return nil
+	}
+	list := []RoboMakerRobotApplicationSourceConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = RoboMakerRobotApplicationSourceConfigList(list)
+		return nil
+	}
+	return err
+}
+// RoboMakerSimulationApplicationRenderingEngine represents the AWS::RoboMaker::SimulationApplication.RenderingEngine CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html 
+type RoboMakerSimulationApplicationRenderingEngine struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+	Version *StringExpr `json:"Version,omitempty" validate:"dive,required"`
+}
+
+// RoboMakerSimulationApplicationRenderingEngineList represents a list of RoboMakerSimulationApplicationRenderingEngine
+type RoboMakerSimulationApplicationRenderingEngineList []RoboMakerSimulationApplicationRenderingEngine
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *RoboMakerSimulationApplicationRenderingEngineList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := RoboMakerSimulationApplicationRenderingEngine{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = RoboMakerSimulationApplicationRenderingEngineList{item}
+		return nil
+	}
+	list := []RoboMakerSimulationApplicationRenderingEngine{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = RoboMakerSimulationApplicationRenderingEngineList(list)
+		return nil
+	}
+	return err
+}
+// RoboMakerSimulationApplicationRobotSoftwareSuite represents the AWS::RoboMaker::SimulationApplication.RobotSoftwareSuite CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html 
+type RoboMakerSimulationApplicationRobotSoftwareSuite struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-version
+	Version *StringExpr `json:"Version,omitempty" validate:"dive,required"`
+}
+
+// RoboMakerSimulationApplicationRobotSoftwareSuiteList represents a list of RoboMakerSimulationApplicationRobotSoftwareSuite
+type RoboMakerSimulationApplicationRobotSoftwareSuiteList []RoboMakerSimulationApplicationRobotSoftwareSuite
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *RoboMakerSimulationApplicationRobotSoftwareSuiteList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := RoboMakerSimulationApplicationRobotSoftwareSuite{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = RoboMakerSimulationApplicationRobotSoftwareSuiteList{item}
+		return nil
+	}
+	list := []RoboMakerSimulationApplicationRobotSoftwareSuite{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = RoboMakerSimulationApplicationRobotSoftwareSuiteList(list)
+		return nil
+	}
+	return err
+}
+// RoboMakerSimulationApplicationSimulationSoftwareSuite represents the AWS::RoboMaker::SimulationApplication.SimulationSoftwareSuite CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html 
+type RoboMakerSimulationApplicationSimulationSoftwareSuite struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+	Version *StringExpr `json:"Version,omitempty" validate:"dive,required"`
+}
+
+// RoboMakerSimulationApplicationSimulationSoftwareSuiteList represents a list of RoboMakerSimulationApplicationSimulationSoftwareSuite
+type RoboMakerSimulationApplicationSimulationSoftwareSuiteList []RoboMakerSimulationApplicationSimulationSoftwareSuite
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *RoboMakerSimulationApplicationSimulationSoftwareSuiteList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := RoboMakerSimulationApplicationSimulationSoftwareSuite{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = RoboMakerSimulationApplicationSimulationSoftwareSuiteList{item}
+		return nil
+	}
+	list := []RoboMakerSimulationApplicationSimulationSoftwareSuite{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = RoboMakerSimulationApplicationSimulationSoftwareSuiteList(list)
+		return nil
+	}
+	return err
+}
+// RoboMakerSimulationApplicationSourceConfig represents the AWS::RoboMaker::SimulationApplication.SourceConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html 
+type RoboMakerSimulationApplicationSourceConfig struct {
+	// Architecture docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
+	Architecture *StringExpr `json:"Architecture,omitempty" validate:"dive,required"`
+	// S3Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
+	S3Bucket *StringExpr `json:"S3Bucket,omitempty" validate:"dive,required"`
+	// S3Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
+	S3Key *StringExpr `json:"S3Key,omitempty" validate:"dive,required"`
+}
+
+// RoboMakerSimulationApplicationSourceConfigList represents a list of RoboMakerSimulationApplicationSourceConfig
+type RoboMakerSimulationApplicationSourceConfigList []RoboMakerSimulationApplicationSourceConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *RoboMakerSimulationApplicationSourceConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := RoboMakerSimulationApplicationSourceConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = RoboMakerSimulationApplicationSourceConfigList{item}
+		return nil
+	}
+	list := []RoboMakerSimulationApplicationSourceConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = RoboMakerSimulationApplicationSourceConfigList(list)
 		return nil
 	}
 	return err
@@ -20982,7 +24588,7 @@ func (l *ServiceDiscoveryServiceDNSConfigList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html 
 type ServiceDiscoveryServiceDNSRecord struct {
 	// TTL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
-	TTL *StringExpr `json:"TTL,omitempty" validate:"dive,required"`
+	TTL *IntegerExpr `json:"TTL,omitempty" validate:"dive,required"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type
 	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
@@ -21058,6 +24664,62 @@ func (l *ServiceDiscoveryServiceHealthCheckCustomConfigList) UnmarshalJSON(buf [
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ServiceDiscoveryServiceHealthCheckCustomConfigList(list)
+		return nil
+	}
+	return err
+}
+// StepFunctionsActivityTagsEntry represents the AWS::StepFunctions::Activity.TagsEntry CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html 
+type StepFunctionsActivityTagsEntry struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-value
+	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// StepFunctionsActivityTagsEntryList represents a list of StepFunctionsActivityTagsEntry
+type StepFunctionsActivityTagsEntryList []StepFunctionsActivityTagsEntry
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *StepFunctionsActivityTagsEntryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := StepFunctionsActivityTagsEntry{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = StepFunctionsActivityTagsEntryList{item}
+		return nil
+	}
+	list := []StepFunctionsActivityTagsEntry{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = StepFunctionsActivityTagsEntryList(list)
+		return nil
+	}
+	return err
+}
+// StepFunctionsStateMachineTagsEntry represents the AWS::StepFunctions::StateMachine.TagsEntry CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html 
+type StepFunctionsStateMachineTagsEntry struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-value
+	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// StepFunctionsStateMachineTagsEntryList represents a list of StepFunctionsStateMachineTagsEntry
+type StepFunctionsStateMachineTagsEntryList []StepFunctionsStateMachineTagsEntry
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *StepFunctionsStateMachineTagsEntryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := StepFunctionsStateMachineTagsEntry{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = StepFunctionsStateMachineTagsEntryList{item}
+		return nil
+	}
+	list := []StepFunctionsStateMachineTagsEntry{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = StepFunctionsStateMachineTagsEntryList(list)
 		return nil
 	}
 	return err
@@ -21959,7 +25621,7 @@ func (s AmazonMQBroker) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AmazonMQBroker) CfnResourceAttributes() []string {
-	return []string{"Arn","ConfigurationId","WssEndpoints","OpenWireEndpoints","StompEndpoints","MqttEndpoints","IpAddresses","ConfigurationRevision","AmqpEndpoints"}
+	return []string{"Arn","WssEndpoints","IpAddresses","OpenWireEndpoints","ConfigurationRevision","StompEndpoints","MqttEndpoints","AmqpEndpoints","ConfigurationId"}
 }
 // AmazonMQConfiguration represents the AWS::AmazonMQ::Configuration CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html 
@@ -22071,7 +25733,7 @@ type APIGatewayAuthorizer struct {
 	// RestAPIID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-restapiid
 	RestAPIID *StringExpr `json:"RestApiId,omitempty" validate:"dive,required"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type
-	Type *StringExpr `json:"Type,omitempty"`
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
 
 // CfnResourceType returns AWS::ApiGateway::Authorizer to implement the ResourceProperties interface
@@ -22205,7 +25867,7 @@ func (s APIGatewayDomainName) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s APIGatewayDomainName) CfnResourceAttributes() []string {
-	return []string{"DistributionDomainName","DistributionHostedZoneId","RegionalDomainName","RegionalHostedZoneId"}
+	return []string{"RegionalDomainName","RegionalHostedZoneId","DistributionDomainName","DistributionHostedZoneId"}
 }
 // APIGatewayGatewayResponse represents the AWS::ApiGateway::GatewayResponse CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html 
@@ -22747,6 +26409,116 @@ func (s APIGatewayV2Stage) CfnResourceType() string {
 func (s APIGatewayV2Stage) CfnResourceAttributes() []string {
 	return []string{}
 }
+// AppMeshMesh represents the AWS::AppMesh::Mesh CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html 
+type AppMeshMesh struct {
+	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-meshname
+	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-spec
+	Spec *AppMeshMeshMeshSpec `json:"Spec,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-tags
+	Tags *AppMeshMeshTagRefList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppMesh::Mesh to implement the ResourceProperties interface
+func (s AppMeshMesh) CfnResourceType() string {
+	
+	return "AWS::AppMesh::Mesh"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppMeshMesh) CfnResourceAttributes() []string {
+	return []string{"Uid","MeshName","Arn"}
+}
+// AppMeshRoute represents the AWS::AppMesh::Route CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html 
+type AppMeshRoute struct {
+	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshname
+	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// RouteName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-routename
+	RouteName *StringExpr `json:"RouteName,omitempty" validate:"dive,required"`
+	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-spec
+	Spec *AppMeshRouteRouteSpec `json:"Spec,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-tags
+	Tags *AppMeshRouteTagRefList `json:"Tags,omitempty"`
+	// VirtualRouterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-virtualroutername
+	VirtualRouterName *StringExpr `json:"VirtualRouterName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppMesh::Route to implement the ResourceProperties interface
+func (s AppMeshRoute) CfnResourceType() string {
+	
+	return "AWS::AppMesh::Route"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppMeshRoute) CfnResourceAttributes() []string {
+	return []string{"Uid","MeshName","VirtualRouterName","RouteName","Arn"}
+}
+// AppMeshVirtualNode represents the AWS::AppMesh::VirtualNode CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html 
+type AppMeshVirtualNode struct {
+	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-meshname
+	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-spec
+	Spec *AppMeshVirtualNodeVirtualNodeSpec `json:"Spec,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-tags
+	Tags *AppMeshVirtualNodeTagRefList `json:"Tags,omitempty"`
+	// VirtualNodeName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-virtualnodename
+	VirtualNodeName *StringExpr `json:"VirtualNodeName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppMesh::VirtualNode to implement the ResourceProperties interface
+func (s AppMeshVirtualNode) CfnResourceType() string {
+	
+	return "AWS::AppMesh::VirtualNode"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppMeshVirtualNode) CfnResourceAttributes() []string {
+	return []string{"MeshName","Arn","VirtualNodeName","Uid"}
+}
+// AppMeshVirtualRouter represents the AWS::AppMesh::VirtualRouter CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html 
+type AppMeshVirtualRouter struct {
+	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshname
+	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-spec
+	Spec *AppMeshVirtualRouterVirtualRouterSpec `json:"Spec,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-tags
+	Tags *AppMeshVirtualRouterTagRefList `json:"Tags,omitempty"`
+	// VirtualRouterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-virtualroutername
+	VirtualRouterName *StringExpr `json:"VirtualRouterName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppMesh::VirtualRouter to implement the ResourceProperties interface
+func (s AppMeshVirtualRouter) CfnResourceType() string {
+	
+	return "AWS::AppMesh::VirtualRouter"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppMeshVirtualRouter) CfnResourceAttributes() []string {
+	return []string{"MeshName","VirtualRouterName","Arn","Uid"}
+}
+// AppMeshVirtualService represents the AWS::AppMesh::VirtualService CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html 
+type AppMeshVirtualService struct {
+	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshname
+	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-spec
+	Spec *AppMeshVirtualServiceVirtualServiceSpec `json:"Spec,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-tags
+	Tags *AppMeshVirtualServiceTagRefList `json:"Tags,omitempty"`
+	// VirtualServiceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-virtualservicename
+	VirtualServiceName *StringExpr `json:"VirtualServiceName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::AppMesh::VirtualService to implement the ResourceProperties interface
+func (s AppMeshVirtualService) CfnResourceType() string {
+	
+	return "AWS::AppMesh::VirtualService"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppMeshVirtualService) CfnResourceAttributes() []string {
+	return []string{"MeshName","VirtualServiceName","Arn","Uid"}
+}
 // AppStreamDirectoryConfig represents the AWS::AppStream::DirectoryConfig CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html 
 type AppStreamDirectoryConfig struct {
@@ -22794,6 +26566,8 @@ type AppStreamFleet struct {
 	MaxUserDurationInSeconds *IntegerExpr `json:"MaxUserDurationInSeconds,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 	Name *StringExpr `json:"Name,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
+	Tags *TagList `json:"Tags,omitempty"`
 	// VPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
 	VPCConfig *AppStreamFleetVPCConfig `json:"VpcConfig,omitempty"`
 }
@@ -22828,6 +26602,8 @@ type AppStreamImageBuilder struct {
 	InstanceType *StringExpr `json:"InstanceType,omitempty" validate:"dive,required"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name
 	Name *StringExpr `json:"Name,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-tags
+	Tags *TagList `json:"Tags,omitempty"`
 	// VPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-vpcconfig
 	VPCConfig *AppStreamImageBuilderVPCConfig `json:"VpcConfig,omitempty"`
 }
@@ -22862,6 +26638,8 @@ type AppStreamStack struct {
 	RedirectURL *StringExpr `json:"RedirectURL,omitempty"`
 	// StorageConnectors docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors
 	StorageConnectors *AppStreamStackStorageConnectorList `json:"StorageConnectors,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-tags
+	Tags *TagList `json:"Tags,omitempty"`
 	// UserSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-usersettings
 	UserSettings *AppStreamStackUserSettingList `json:"UserSettings,omitempty"`
 }
@@ -23047,7 +26825,7 @@ func (s AppSyncGraphQLAPI) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncGraphQLAPI) CfnResourceAttributes() []string {
-	return []string{"ApiId","GraphQLUrl","Arn"}
+	return []string{"GraphQLUrl","Arn","ApiId"}
 }
 // AppSyncGraphQLSchema represents the AWS::AppSync::GraphQLSchema CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html 
@@ -23101,7 +26879,7 @@ func (s AppSyncResolver) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncResolver) CfnResourceAttributes() []string {
-	return []string{"TypeName","ResolverArn","FieldName"}
+	return []string{"FieldName","TypeName","ResolverArn"}
 }
 // ApplicationAutoScalingScalableTarget represents the AWS::ApplicationAutoScaling::ScalableTarget CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html 
@@ -23399,7 +27177,7 @@ func (s AutoScalingPlansScalingPlan) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AutoScalingPlansScalingPlan) CfnResourceAttributes() []string {
-	return []string{"ScalingPlanName","ScalingPlanVersion"}
+	return []string{"ScalingPlanVersion","ScalingPlanName"}
 }
 // BatchComputeEnvironment represents the AWS::Batch::ComputeEnvironment CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html 
@@ -23769,6 +27547,8 @@ type CloudWatchAlarm struct {
 	InsufficientDataActions *StringListExpr `json:"InsufficientDataActions,omitempty"`
 	// MetricName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-metricname
 	MetricName *StringExpr `json:"MetricName,omitempty"`
+	// Metrics docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarm-metrics
+	Metrics *CloudWatchAlarmMetricDataQueryList `json:"Metrics,omitempty"`
 	// Namespace docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-namespace
 	Namespace *StringExpr `json:"Namespace,omitempty"`
 	// OKActions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-okactions
@@ -23878,7 +27658,7 @@ func (s CodeCommitRepository) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s CodeCommitRepository) CfnResourceAttributes() []string {
-	return []string{"CloneUrlHttp","CloneUrlSsh","Arn","Name"}
+	return []string{"Name","CloneUrlHttp","CloneUrlSsh","Arn"}
 }
 // CodeDeployApplication represents the AWS::CodeDeploy::Application CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html 
@@ -24290,7 +28070,7 @@ func (s ConfigConfigRule) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ConfigConfigRule) CfnResourceAttributes() []string {
-	return []string{"ConfigRuleId","Arn","Compliance.Type"}
+	return []string{"Arn","Compliance.Type","ConfigRuleId"}
 }
 // ConfigConfigurationAggregator represents the AWS::Config::ConfigurationAggregator CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html 
@@ -24834,7 +28614,7 @@ func (s DocDBDBInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s DocDBDBInstance) CfnResourceAttributes() []string {
-	return []string{"Endpoint","Port"}
+	return []string{"Port","Endpoint"}
 }
 // DocDBDBSubnetGroup represents the AWS::DocDB::DBSubnetGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html 
@@ -25784,7 +29564,7 @@ func (s EC2VPC) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2VPC) CfnResourceAttributes() []string {
-	return []string{"DefaultSecurityGroup","Ipv6CidrBlocks","CidrBlock","CidrBlockAssociations","DefaultNetworkAcl"}
+	return []string{"DefaultNetworkAcl","DefaultSecurityGroup","Ipv6CidrBlocks","CidrBlock","CidrBlockAssociations"}
 }
 // EC2VPCCidrBlock represents the AWS::EC2::VPCCidrBlock CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html 
@@ -25840,7 +29620,7 @@ type EC2VPCEndpoint struct {
 	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids
 	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
 	// VPCEndpointType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype
-	VPCEndpointType *StringExpr `json:"VPCEndpointType,omitempty"`
+	VPCEndpointType *StringExpr `json:"VpcEndpointType,omitempty"`
 	// VPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
 	VPCID *StringExpr `json:"VpcId,omitempty" validate:"dive,required"`
 }
@@ -26077,8 +29857,6 @@ func (s ECRRepository) CfnResourceAttributes() []string {
 type ECSCluster struct {
 	// ClusterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
 	ClusterName *StringExpr `json:"ClusterName,omitempty"`
-	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
-	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::ECS::Cluster to implement the ResourceProperties interface
@@ -26121,8 +29899,6 @@ type ECSService struct {
 	ServiceName *StringExpr `json:"ServiceName,omitempty"`
 	// ServiceRegistries docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
 	ServiceRegistries *ECSServiceServiceRegistryList `json:"ServiceRegistries,omitempty"`
-	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-	Tags *TagList `json:"Tags,omitempty"`
 	// TaskDefinition docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
 	TaskDefinition *StringExpr `json:"TaskDefinition,omitempty" validate:"dive,required"`
 }
@@ -26155,8 +29931,6 @@ type ECSTaskDefinition struct {
 	PlacementConstraints *ECSTaskDefinitionTaskDefinitionPlacementConstraintList `json:"PlacementConstraints,omitempty"`
 	// RequiresCompatibilities docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
 	RequiresCompatibilities *StringListExpr `json:"RequiresCompatibilities,omitempty"`
-	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
-	Tags *TagList `json:"Tags,omitempty"`
 	// TaskRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 	TaskRoleArn *StringExpr `json:"TaskRoleArn,omitempty"`
 	// Volumes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
@@ -26240,7 +30014,7 @@ func (s EKSCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EKSCluster) CfnResourceAttributes() []string {
-	return []string{"CertificateAuthorityData","Endpoint","Arn"}
+	return []string{"Endpoint","Arn","CertificateAuthorityData"}
 }
 // EMRCluster represents the AWS::EMR::Cluster CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html 
@@ -26450,7 +30224,7 @@ func (s ElastiCacheCacheCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElastiCacheCacheCluster) CfnResourceAttributes() []string {
-	return []string{"RedisEndpoint.Address","RedisEndpoint.Port","ConfigurationEndpoint.Address","ConfigurationEndpoint.Port"}
+	return []string{"ConfigurationEndpoint.Address","ConfigurationEndpoint.Port","RedisEndpoint.Address","RedisEndpoint.Port"}
 }
 // ElastiCacheParameterGroup represents the AWS::ElastiCache::ParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html 
@@ -26542,7 +30316,7 @@ func (s ElastiCacheReplicationGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElastiCacheReplicationGroup) CfnResourceAttributes() []string {
-	return []string{"ConfigurationEndPoint.Port","PrimaryEndPoint.Address","PrimaryEndPoint.Port","ReadEndPoint.Addresses","ReadEndPoint.Addresses.List","ReadEndPoint.Ports","ReadEndPoint.Ports.List","ConfigurationEndPoint.Address"}
+	return []string{"ReadEndPoint.Addresses.List","ReadEndPoint.Ports","ReadEndPoint.Ports.List","ConfigurationEndPoint.Address","ConfigurationEndPoint.Port","PrimaryEndPoint.Address","PrimaryEndPoint.Port","ReadEndPoint.Addresses"}
 }
 // ElastiCacheSecurityGroup represents the AWS::ElastiCache::SecurityGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html 
@@ -26748,7 +30522,7 @@ func (s ElasticLoadBalancingLoadBalancer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticLoadBalancingLoadBalancer) CfnResourceAttributes() []string {
-	return []string{"SourceSecurityGroup.OwnerAlias","CanonicalHostedZoneName","CanonicalHostedZoneNameID","DNSName","SourceSecurityGroup.GroupName"}
+	return []string{"CanonicalHostedZoneNameID","DNSName","SourceSecurityGroup.GroupName","SourceSecurityGroup.OwnerAlias","CanonicalHostedZoneName"}
 }
 // ElasticLoadBalancingV2Listener represents the AWS::ElasticLoadBalancingV2::Listener CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html 
@@ -26846,11 +30620,13 @@ func (s ElasticLoadBalancingV2LoadBalancer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticLoadBalancingV2LoadBalancer) CfnResourceAttributes() []string {
-	return []string{"CanonicalHostedZoneID","DNSName","LoadBalancerFullName","LoadBalancerName","SecurityGroups"}
+	return []string{"LoadBalancerFullName","LoadBalancerName","SecurityGroups","CanonicalHostedZoneID","DNSName"}
 }
 // ElasticLoadBalancingV2TargetGroup represents the AWS::ElasticLoadBalancingV2::TargetGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html 
 type ElasticLoadBalancingV2TargetGroup struct {
+	// HealthCheckEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckenabled
+	HealthCheckEnabled *BoolExpr `json:"HealthCheckEnabled,omitempty"`
 	// HealthCheckIntervalSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckintervalseconds
 	HealthCheckIntervalSeconds *IntegerExpr `json:"HealthCheckIntervalSeconds,omitempty"`
 	// HealthCheckPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckpath
@@ -26868,9 +30644,9 @@ type ElasticLoadBalancingV2TargetGroup struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-port
-	Port *IntegerExpr `json:"Port,omitempty" validate:"dive,required"`
+	Port *IntegerExpr `json:"Port,omitempty"`
 	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-protocol
-	Protocol *StringExpr `json:"Protocol,omitempty" validate:"dive,required"`
+	Protocol *StringExpr `json:"Protocol,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-tags
 	Tags *TagList `json:"Tags,omitempty"`
 	// TargetGroupAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes
@@ -26882,7 +30658,7 @@ type ElasticLoadBalancingV2TargetGroup struct {
 	// UnhealthyThresholdCount docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-unhealthythresholdcount
 	UnhealthyThresholdCount *IntegerExpr `json:"UnhealthyThresholdCount,omitempty"`
 	// VPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-vpcid
-	VPCID *StringExpr `json:"VpcId,omitempty" validate:"dive,required"`
+	VPCID *StringExpr `json:"VpcId,omitempty"`
 }
 
 // CfnResourceType returns AWS::ElasticLoadBalancingV2::TargetGroup to implement the ResourceProperties interface
@@ -26928,7 +30704,7 @@ func (s ElasticsearchDomain) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticsearchDomain) CfnResourceAttributes() []string {
-	return []string{"DomainEndpoint","Arn","DomainArn"}
+	return []string{"Arn","DomainArn","DomainEndpoint"}
 }
 // EventsEventBusPolicy represents the AWS::Events::EventBusPolicy CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html 
@@ -26979,6 +30755,38 @@ func (s EventsRule) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EventsRule) CfnResourceAttributes() []string {
 	return []string{"Arn"}
+}
+// FSxFileSystem represents the AWS::FSx::FileSystem CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html 
+type FSxFileSystem struct {
+	// BackupID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-backupid
+	BackupID *StringExpr `json:"BackupId,omitempty"`
+	// FileSystemType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtype
+	FileSystemType *StringExpr `json:"FileSystemType,omitempty"`
+	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-kmskeyid
+	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// LustreConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-lustreconfiguration
+	LustreConfiguration *FSxFileSystemLustreConfiguration `json:"LustreConfiguration,omitempty"`
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
+	// StorageCapacity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagecapacity
+	StorageCapacity *IntegerExpr `json:"StorageCapacity,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags
+	Tags *FSxFileSystemTagEntryList `json:"Tags,omitempty"`
+	// WindowsConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-windowsconfiguration
+	WindowsConfiguration *FSxFileSystemWindowsConfiguration `json:"WindowsConfiguration,omitempty"`
+}
+
+// CfnResourceType returns AWS::FSx::FileSystem to implement the ResourceProperties interface
+func (s FSxFileSystem) CfnResourceType() string {
+	
+	return "AWS::FSx::FileSystem"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s FSxFileSystem) CfnResourceAttributes() []string {
+	return []string{}
 }
 // GameLiftAlias represents the AWS::GameLift::Alias CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html 
@@ -27276,6 +31084,292 @@ func (s GlueTrigger) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GlueTrigger) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassConnectorDefinition represents the AWS::Greengrass::ConnectorDefinition CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html 
+type GreengrassConnectorDefinition struct {
+	// InitialVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-initialversion
+	InitialVersion *GreengrassConnectorDefinitionConnectorDefinitionVersion `json:"InitialVersion,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::ConnectorDefinition to implement the ResourceProperties interface
+func (s GreengrassConnectorDefinition) CfnResourceType() string {
+	
+	return "AWS::Greengrass::ConnectorDefinition"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassConnectorDefinition) CfnResourceAttributes() []string {
+	return []string{"Id","Arn","Name","LatestVersionArn"}
+}
+// GreengrassConnectorDefinitionVersion represents the AWS::Greengrass::ConnectorDefinitionVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html 
+type GreengrassConnectorDefinitionVersion struct {
+	// ConnectorDefinitionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html#cfn-greengrass-connectordefinitionversion-connectordefinitionid
+	ConnectorDefinitionID *StringExpr `json:"ConnectorDefinitionId,omitempty" validate:"dive,required"`
+	// Connectors docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html#cfn-greengrass-connectordefinitionversion-connectors
+	Connectors *GreengrassConnectorDefinitionVersionConnectorList `json:"Connectors,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::ConnectorDefinitionVersion to implement the ResourceProperties interface
+func (s GreengrassConnectorDefinitionVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::ConnectorDefinitionVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassConnectorDefinitionVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassCoreDefinition represents the AWS::Greengrass::CoreDefinition CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html 
+type GreengrassCoreDefinition struct {
+	// InitialVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-initialversion
+	InitialVersion *GreengrassCoreDefinitionCoreDefinitionVersion `json:"InitialVersion,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::CoreDefinition to implement the ResourceProperties interface
+func (s GreengrassCoreDefinition) CfnResourceType() string {
+	
+	return "AWS::Greengrass::CoreDefinition"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassCoreDefinition) CfnResourceAttributes() []string {
+	return []string{"LatestVersionArn","Id","Arn","Name"}
+}
+// GreengrassCoreDefinitionVersion represents the AWS::Greengrass::CoreDefinitionVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html 
+type GreengrassCoreDefinitionVersion struct {
+	// CoreDefinitionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html#cfn-greengrass-coredefinitionversion-coredefinitionid
+	CoreDefinitionID *StringExpr `json:"CoreDefinitionId,omitempty" validate:"dive,required"`
+	// Cores docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html#cfn-greengrass-coredefinitionversion-cores
+	Cores *GreengrassCoreDefinitionVersionCoreList `json:"Cores,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::CoreDefinitionVersion to implement the ResourceProperties interface
+func (s GreengrassCoreDefinitionVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::CoreDefinitionVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassCoreDefinitionVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassDeviceDefinition represents the AWS::Greengrass::DeviceDefinition CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html 
+type GreengrassDeviceDefinition struct {
+	// InitialVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-initialversion
+	InitialVersion *GreengrassDeviceDefinitionDeviceDefinitionVersion `json:"InitialVersion,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::DeviceDefinition to implement the ResourceProperties interface
+func (s GreengrassDeviceDefinition) CfnResourceType() string {
+	
+	return "AWS::Greengrass::DeviceDefinition"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassDeviceDefinition) CfnResourceAttributes() []string {
+	return []string{"LatestVersionArn","Id","Arn","Name"}
+}
+// GreengrassDeviceDefinitionVersion represents the AWS::Greengrass::DeviceDefinitionVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html 
+type GreengrassDeviceDefinitionVersion struct {
+	// DeviceDefinitionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html#cfn-greengrass-devicedefinitionversion-devicedefinitionid
+	DeviceDefinitionID *StringExpr `json:"DeviceDefinitionId,omitempty" validate:"dive,required"`
+	// Devices docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html#cfn-greengrass-devicedefinitionversion-devices
+	Devices *GreengrassDeviceDefinitionVersionDeviceList `json:"Devices,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::DeviceDefinitionVersion to implement the ResourceProperties interface
+func (s GreengrassDeviceDefinitionVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::DeviceDefinitionVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassDeviceDefinitionVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassFunctionDefinition represents the AWS::Greengrass::FunctionDefinition CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html 
+type GreengrassFunctionDefinition struct {
+	// InitialVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-initialversion
+	InitialVersion *GreengrassFunctionDefinitionFunctionDefinitionVersion `json:"InitialVersion,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::FunctionDefinition to implement the ResourceProperties interface
+func (s GreengrassFunctionDefinition) CfnResourceType() string {
+	
+	return "AWS::Greengrass::FunctionDefinition"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassFunctionDefinition) CfnResourceAttributes() []string {
+	return []string{"Arn","Name","LatestVersionArn","Id"}
+}
+// GreengrassFunctionDefinitionVersion represents the AWS::Greengrass::FunctionDefinitionVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html 
+type GreengrassFunctionDefinitionVersion struct {
+	// DefaultConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html#cfn-greengrass-functiondefinitionversion-defaultconfig
+	DefaultConfig *GreengrassFunctionDefinitionVersionDefaultConfig `json:"DefaultConfig,omitempty"`
+	// FunctionDefinitionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html#cfn-greengrass-functiondefinitionversion-functiondefinitionid
+	FunctionDefinitionID *StringExpr `json:"FunctionDefinitionId,omitempty" validate:"dive,required"`
+	// Functions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html#cfn-greengrass-functiondefinitionversion-functions
+	Functions *GreengrassFunctionDefinitionVersionFunctionList `json:"Functions,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::FunctionDefinitionVersion to implement the ResourceProperties interface
+func (s GreengrassFunctionDefinitionVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::FunctionDefinitionVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassFunctionDefinitionVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassGroup represents the AWS::Greengrass::Group CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html 
+type GreengrassGroup struct {
+	// InitialVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-initialversion
+	InitialVersion *GreengrassGroupGroupVersion `json:"InitialVersion,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty"`
+}
+
+// CfnResourceType returns AWS::Greengrass::Group to implement the ResourceProperties interface
+func (s GreengrassGroup) CfnResourceType() string {
+	
+	return "AWS::Greengrass::Group"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassGroup) CfnResourceAttributes() []string {
+	return []string{"RoleArn","Name","RoleAttachedAt","LatestVersionArn","Id","Arn"}
+}
+// GreengrassGroupVersion represents the AWS::Greengrass::GroupVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html 
+type GreengrassGroupVersion struct {
+	// ConnectorDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-connectordefinitionversionarn
+	ConnectorDefinitionVersionArn *StringExpr `json:"ConnectorDefinitionVersionArn,omitempty"`
+	// CoreDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-coredefinitionversionarn
+	CoreDefinitionVersionArn *StringExpr `json:"CoreDefinitionVersionArn,omitempty"`
+	// DeviceDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-devicedefinitionversionarn
+	DeviceDefinitionVersionArn *StringExpr `json:"DeviceDefinitionVersionArn,omitempty"`
+	// FunctionDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-functiondefinitionversionarn
+	FunctionDefinitionVersionArn *StringExpr `json:"FunctionDefinitionVersionArn,omitempty"`
+	// GroupID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-groupid
+	GroupID *StringExpr `json:"GroupId,omitempty" validate:"dive,required"`
+	// LoggerDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-loggerdefinitionversionarn
+	LoggerDefinitionVersionArn *StringExpr `json:"LoggerDefinitionVersionArn,omitempty"`
+	// ResourceDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-resourcedefinitionversionarn
+	ResourceDefinitionVersionArn *StringExpr `json:"ResourceDefinitionVersionArn,omitempty"`
+	// SubscriptionDefinitionVersionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html#cfn-greengrass-groupversion-subscriptiondefinitionversionarn
+	SubscriptionDefinitionVersionArn *StringExpr `json:"SubscriptionDefinitionVersionArn,omitempty"`
+}
+
+// CfnResourceType returns AWS::Greengrass::GroupVersion to implement the ResourceProperties interface
+func (s GreengrassGroupVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::GroupVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassGroupVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassLoggerDefinition represents the AWS::Greengrass::LoggerDefinition CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html 
+type GreengrassLoggerDefinition struct {
+	// InitialVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-initialversion
+	InitialVersion *GreengrassLoggerDefinitionLoggerDefinitionVersion `json:"InitialVersion,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::LoggerDefinition to implement the ResourceProperties interface
+func (s GreengrassLoggerDefinition) CfnResourceType() string {
+	
+	return "AWS::Greengrass::LoggerDefinition"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassLoggerDefinition) CfnResourceAttributes() []string {
+	return []string{"LatestVersionArn","Id","Arn","Name"}
+}
+// GreengrassLoggerDefinitionVersion represents the AWS::Greengrass::LoggerDefinitionVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html 
+type GreengrassLoggerDefinitionVersion struct {
+	// LoggerDefinitionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html#cfn-greengrass-loggerdefinitionversion-loggerdefinitionid
+	LoggerDefinitionID *StringExpr `json:"LoggerDefinitionId,omitempty" validate:"dive,required"`
+	// Loggers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html#cfn-greengrass-loggerdefinitionversion-loggers
+	Loggers *GreengrassLoggerDefinitionVersionLoggerList `json:"Loggers,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::LoggerDefinitionVersion to implement the ResourceProperties interface
+func (s GreengrassLoggerDefinitionVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::LoggerDefinitionVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassLoggerDefinitionVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassResourceDefinitionVersion represents the AWS::Greengrass::ResourceDefinitionVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html 
+type GreengrassResourceDefinitionVersion struct {
+	// ResourceDefinitionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html#cfn-greengrass-resourcedefinitionversion-resourcedefinitionid
+	ResourceDefinitionID *StringExpr `json:"ResourceDefinitionId,omitempty" validate:"dive,required"`
+	// Resources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html#cfn-greengrass-resourcedefinitionversion-resources
+	Resources *GreengrassResourceDefinitionVersionResourceInstanceList `json:"Resources,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::ResourceDefinitionVersion to implement the ResourceProperties interface
+func (s GreengrassResourceDefinitionVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::ResourceDefinitionVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassResourceDefinitionVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// GreengrassSubscriptionDefinition represents the AWS::Greengrass::SubscriptionDefinition CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html 
+type GreengrassSubscriptionDefinition struct {
+	// InitialVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-initialversion
+	InitialVersion *GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion `json:"InitialVersion,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::SubscriptionDefinition to implement the ResourceProperties interface
+func (s GreengrassSubscriptionDefinition) CfnResourceType() string {
+	
+	return "AWS::Greengrass::SubscriptionDefinition"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassSubscriptionDefinition) CfnResourceAttributes() []string {
+	return []string{"LatestVersionArn","Id","Arn","Name"}
+}
+// GreengrassSubscriptionDefinitionVersion represents the AWS::Greengrass::SubscriptionDefinitionVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html 
+type GreengrassSubscriptionDefinitionVersion struct {
+	// SubscriptionDefinitionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinitionversion-subscriptiondefinitionid
+	SubscriptionDefinitionID *StringExpr `json:"SubscriptionDefinitionId,omitempty" validate:"dive,required"`
+	// Subscriptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinitionversion-subscriptions
+	Subscriptions *GreengrassSubscriptionDefinitionVersionSubscriptionList `json:"Subscriptions,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Greengrass::SubscriptionDefinitionVersion to implement the ResourceProperties interface
+func (s GreengrassSubscriptionDefinitionVersion) CfnResourceType() string {
+	
+	return "AWS::Greengrass::SubscriptionDefinitionVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GreengrassSubscriptionDefinitionVersion) CfnResourceAttributes() []string {
 	return []string{}
 }
 // GuardDutyDetector represents the AWS::GuardDuty::Detector CloudFormation resource type
@@ -28020,7 +32114,7 @@ func (s KinesisStreamConsumer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s KinesisStreamConsumer) CfnResourceAttributes() []string {
-	return []string{"ConsumerCreationTimestamp","ConsumerName","ConsumerARN","ConsumerStatus","StreamARN"}
+	return []string{"ConsumerName","ConsumerARN","ConsumerStatus","StreamARN","ConsumerCreationTimestamp"}
 }
 // KinesisAnalyticsApplication represents the AWS::KinesisAnalytics::Application CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html 
@@ -28078,6 +32172,84 @@ func (s KinesisAnalyticsApplicationReferenceDataSource) CfnResourceType() string
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s KinesisAnalyticsApplicationReferenceDataSource) CfnResourceAttributes() []string {
+	return []string{}
+}
+// KinesisAnalyticsV2Application represents the AWS::KinesisAnalyticsV2::Application CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html 
+type KinesisAnalyticsV2Application struct {
+	// ApplicationConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
+	ApplicationConfiguration *KinesisAnalyticsV2ApplicationApplicationConfiguration `json:"ApplicationConfiguration,omitempty"`
+	// ApplicationDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
+	ApplicationDescription *StringExpr `json:"ApplicationDescription,omitempty"`
+	// ApplicationName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationname
+	ApplicationName *StringExpr `json:"ApplicationName,omitempty"`
+	// RuntimeEnvironment docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runtimeenvironment
+	RuntimeEnvironment *StringExpr `json:"RuntimeEnvironment,omitempty" validate:"dive,required"`
+	// ServiceExecutionRole docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
+	ServiceExecutionRole *StringExpr `json:"ServiceExecutionRole,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::KinesisAnalyticsV2::Application to implement the ResourceProperties interface
+func (s KinesisAnalyticsV2Application) CfnResourceType() string {
+	
+	return "AWS::KinesisAnalyticsV2::Application"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s KinesisAnalyticsV2Application) CfnResourceAttributes() []string {
+	return []string{}
+}
+// KinesisAnalyticsV2ApplicationCloudWatchLoggingOption represents the AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html 
+type KinesisAnalyticsV2ApplicationCloudWatchLoggingOption struct {
+	// ApplicationName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-applicationname
+	ApplicationName *StringExpr `json:"ApplicationName,omitempty" validate:"dive,required"`
+	// CloudWatchLoggingOption docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption
+	CloudWatchLoggingOption *KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption `json:"CloudWatchLoggingOption,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption to implement the ResourceProperties interface
+func (s KinesisAnalyticsV2ApplicationCloudWatchLoggingOption) CfnResourceType() string {
+	
+	return "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s KinesisAnalyticsV2ApplicationCloudWatchLoggingOption) CfnResourceAttributes() []string {
+	return []string{}
+}
+// KinesisAnalyticsV2ApplicationOutput represents the AWS::KinesisAnalyticsV2::ApplicationOutput CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html 
+type KinesisAnalyticsV2ApplicationOutput struct {
+	// ApplicationName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-applicationname
+	ApplicationName *StringExpr `json:"ApplicationName,omitempty" validate:"dive,required"`
+	// Output docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-output
+	Output *KinesisAnalyticsV2ApplicationOutputOutput `json:"Output,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::KinesisAnalyticsV2::ApplicationOutput to implement the ResourceProperties interface
+func (s KinesisAnalyticsV2ApplicationOutput) CfnResourceType() string {
+	
+	return "AWS::KinesisAnalyticsV2::ApplicationOutput"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s KinesisAnalyticsV2ApplicationOutput) CfnResourceAttributes() []string {
+	return []string{}
+}
+// KinesisAnalyticsV2ApplicationReferenceDataSource represents the AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html 
+type KinesisAnalyticsV2ApplicationReferenceDataSource struct {
+	// ApplicationName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-applicationname
+	ApplicationName *StringExpr `json:"ApplicationName,omitempty" validate:"dive,required"`
+	// ReferenceDataSource docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource
+	ReferenceDataSource *KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource `json:"ReferenceDataSource,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource to implement the ResourceProperties interface
+func (s KinesisAnalyticsV2ApplicationReferenceDataSource) CfnResourceType() string {
+	
+	return "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s KinesisAnalyticsV2ApplicationReferenceDataSource) CfnResourceAttributes() []string {
 	return []string{}
 }
 // KinesisFirehoseDeliveryStream represents the AWS::KinesisFirehose::DeliveryStream CloudFormation resource type
@@ -28819,6 +32991,8 @@ func (s OpsWorksVolume) CfnResourceAttributes() []string {
 // OpsWorksCMServer represents the AWS::OpsWorksCM::Server CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html 
 type OpsWorksCMServer struct {
+	// AssociatePublicIPAddress docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
+	AssociatePublicIPAddress *BoolExpr `json:"AssociatePublicIpAddress,omitempty"`
 	// BackupID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
 	BackupID *StringExpr `json:"BackupId,omitempty"`
 	// BackupRetentionCount docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
@@ -28861,6 +33035,30 @@ func (s OpsWorksCMServer) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s OpsWorksCMServer) CfnResourceAttributes() []string {
 	return []string{"Endpoint","Arn"}
+}
+// RAMResourceShare represents the AWS::RAM::ResourceShare CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html 
+type RAMResourceShare struct {
+	// AllowExternalPrincipals docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-allowexternalprincipals
+	AllowExternalPrincipals *BoolExpr `json:"AllowExternalPrincipals,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Principals docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-principals
+	Principals *StringListExpr `json:"Principals,omitempty"`
+	// ResourceArns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns
+	ResourceArns *StringListExpr `json:"ResourceArns,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::RAM::ResourceShare to implement the ResourceProperties interface
+func (s RAMResourceShare) CfnResourceType() string {
+	
+	return "AWS::RAM::ResourceShare"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s RAMResourceShare) CfnResourceAttributes() []string {
+	return []string{"Arn"}
 }
 // RDSDBCluster represents the AWS::RDS::DBCluster CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html 
@@ -29270,7 +33468,7 @@ func (s RedshiftCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s RedshiftCluster) CfnResourceAttributes() []string {
-	return []string{"Endpoint.Address","Endpoint.Port"}
+	return []string{"Endpoint.Port","Endpoint.Address"}
 }
 // RedshiftClusterParameterGroup represents the AWS::Redshift::ClusterParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html 
@@ -29352,6 +33550,136 @@ func (s RedshiftClusterSubnetGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s RedshiftClusterSubnetGroup) CfnResourceAttributes() []string {
+	return []string{}
+}
+// RoboMakerFleet represents the AWS::RoboMaker::Fleet CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html 
+type RoboMakerFleet struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-tags
+	Tags interface{} `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::RoboMaker::Fleet to implement the ResourceProperties interface
+func (s RoboMakerFleet) CfnResourceType() string {
+	
+	return "AWS::RoboMaker::Fleet"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s RoboMakerFleet) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
+// RoboMakerRobot represents the AWS::RoboMaker::Robot CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html 
+type RoboMakerRobot struct {
+	// Architecture docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+	Architecture *StringExpr `json:"Architecture,omitempty" validate:"dive,required"`
+	// Fleet docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+	Fleet *StringExpr `json:"Fleet,omitempty"`
+	// GreengrassGroupID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+	GreengrassGroupID *StringExpr `json:"GreengrassGroupId,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
+	Tags interface{} `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::RoboMaker::Robot to implement the ResourceProperties interface
+func (s RoboMakerRobot) CfnResourceType() string {
+	
+	return "AWS::RoboMaker::Robot"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s RoboMakerRobot) CfnResourceAttributes() []string {
+	return []string{}
+}
+// RoboMakerRobotApplication represents the AWS::RoboMaker::RobotApplication CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html 
+type RoboMakerRobotApplication struct {
+	// CurrentRevisionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-currentrevisionid
+	CurrentRevisionID *StringExpr `json:"CurrentRevisionId,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// RobotSoftwareSuite docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-robotsoftwaresuite
+	RobotSoftwareSuite *RoboMakerRobotApplicationRobotSoftwareSuite `json:"RobotSoftwareSuite,omitempty" validate:"dive,required"`
+	// Sources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-sources
+	Sources *RoboMakerRobotApplicationSourceConfigList `json:"Sources,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-tags
+	Tags interface{} `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::RoboMaker::RobotApplication to implement the ResourceProperties interface
+func (s RoboMakerRobotApplication) CfnResourceType() string {
+	
+	return "AWS::RoboMaker::RobotApplication"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s RoboMakerRobotApplication) CfnResourceAttributes() []string {
+	return []string{"CurrentRevisionId","Arn"}
+}
+// RoboMakerRobotApplicationVersion represents the AWS::RoboMaker::RobotApplicationVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html 
+type RoboMakerRobotApplicationVersion struct {
+	// Application docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
+	Application *StringExpr `json:"Application,omitempty" validate:"dive,required"`
+	// CurrentRevisionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+	CurrentRevisionID *StringExpr `json:"CurrentRevisionId,omitempty"`
+}
+
+// CfnResourceType returns AWS::RoboMaker::RobotApplicationVersion to implement the ResourceProperties interface
+func (s RoboMakerRobotApplicationVersion) CfnResourceType() string {
+	
+	return "AWS::RoboMaker::RobotApplicationVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s RoboMakerRobotApplicationVersion) CfnResourceAttributes() []string {
+	return []string{}
+}
+// RoboMakerSimulationApplication represents the AWS::RoboMaker::SimulationApplication CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html 
+type RoboMakerSimulationApplication struct {
+	// CurrentRevisionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
+	CurrentRevisionID *StringExpr `json:"CurrentRevisionId,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// RenderingEngine docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+	RenderingEngine *RoboMakerSimulationApplicationRenderingEngine `json:"RenderingEngine,omitempty" validate:"dive,required"`
+	// RobotSoftwareSuite docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+	RobotSoftwareSuite *RoboMakerSimulationApplicationRobotSoftwareSuite `json:"RobotSoftwareSuite,omitempty" validate:"dive,required"`
+	// SimulationSoftwareSuite docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+	SimulationSoftwareSuite *RoboMakerSimulationApplicationSimulationSoftwareSuite `json:"SimulationSoftwareSuite,omitempty" validate:"dive,required"`
+	// Sources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+	Sources *RoboMakerSimulationApplicationSourceConfigList `json:"Sources,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
+	Tags interface{} `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::RoboMaker::SimulationApplication to implement the ResourceProperties interface
+func (s RoboMakerSimulationApplication) CfnResourceType() string {
+	
+	return "AWS::RoboMaker::SimulationApplication"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s RoboMakerSimulationApplication) CfnResourceAttributes() []string {
+	return []string{"CurrentRevisionId","Arn"}
+}
+// RoboMakerSimulationApplicationVersion represents the AWS::RoboMaker::SimulationApplicationVersion CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html 
+type RoboMakerSimulationApplicationVersion struct {
+	// Application docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
+	Application *StringExpr `json:"Application,omitempty" validate:"dive,required"`
+	// CurrentRevisionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
+	CurrentRevisionID *StringExpr `json:"CurrentRevisionId,omitempty"`
+}
+
+// CfnResourceType returns AWS::RoboMaker::SimulationApplicationVersion to implement the ResourceProperties interface
+func (s RoboMakerSimulationApplicationVersion) CfnResourceType() string {
+	
+	return "AWS::RoboMaker::SimulationApplicationVersion"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s RoboMakerSimulationApplicationVersion) CfnResourceAttributes() []string {
 	return []string{}
 }
 // Route53HealthCheck represents the AWS::Route53::HealthCheck CloudFormation resource type
@@ -29484,7 +33812,7 @@ func (s Route53ResolverResolverEndpoint) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverEndpoint) CfnResourceAttributes() []string {
-	return []string{"Arn","Direction","HostVPCId","Name","ResolverEndpointId","IpAddressCount"}
+	return []string{"ResolverEndpointId","IpAddressCount","Arn","Direction","HostVPCId","Name"}
 }
 // Route53ResolverResolverRule represents the AWS::Route53Resolver::ResolverRule CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html 
@@ -29510,7 +33838,7 @@ func (s Route53ResolverResolverRule) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverRule) CfnResourceAttributes() []string {
-	return []string{"Arn","TargetIps","Name","ResolverEndpointId","DomainName","ResolverRuleId"}
+	return []string{"ResolverEndpointId","DomainName","ResolverRuleId","Arn","TargetIps","Name"}
 }
 // Route53ResolverResolverRuleAssociation represents the AWS::Route53Resolver::ResolverRuleAssociation CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html 
@@ -29530,7 +33858,7 @@ func (s Route53ResolverResolverRuleAssociation) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverRuleAssociation) CfnResourceAttributes() []string {
-	return []string{"VPCId","ResolverRuleId","ResolverRuleAssociationId","Name"}
+	return []string{"ResolverRuleAssociationId","Name","VPCId","ResolverRuleId"}
 }
 // S3Bucket represents the AWS::S3::Bucket CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html 
@@ -29724,13 +34052,13 @@ type SNSSubscription struct {
 	// FilterPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicy
 	FilterPolicy interface{} `json:"FilterPolicy,omitempty"`
 	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
-	Protocol *StringExpr `json:"Protocol,omitempty"`
+	Protocol *StringExpr `json:"Protocol,omitempty" validate:"dive,required"`
 	// RawMessageDelivery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery
 	RawMessageDelivery *BoolExpr `json:"RawMessageDelivery,omitempty"`
 	// Region docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
 	Region *StringExpr `json:"Region,omitempty"`
 	// TopicArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
-	TopicArn *StringExpr `json:"TopicArn,omitempty"`
+	TopicArn *StringExpr `json:"TopicArn,omitempty" validate:"dive,required"`
 }
 
 // CfnResourceType returns AWS::SNS::Subscription to implement the ResourceProperties interface
@@ -29818,7 +34146,7 @@ func (s SQSQueue) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s SQSQueue) CfnResourceAttributes() []string {
-	return []string{"QueueName","Arn"}
+	return []string{"Arn","QueueName"}
 }
 // SQSQueuePolicy represents the AWS::SQS::QueuePolicy CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html 
@@ -29909,6 +34237,8 @@ type SSMMaintenanceWindow struct {
 	ScheduleTimezone *StringExpr `json:"ScheduleTimezone,omitempty"`
 	// StartDate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-startdate
 	StartDate *StringExpr `json:"StartDate,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::SSM::MaintenanceWindow to implement the ResourceProperties interface
@@ -30037,6 +34367,8 @@ type SSMPatchBaseline struct {
 	RejectedPatchesAction *StringExpr `json:"RejectedPatchesAction,omitempty"`
 	// Sources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
 	Sources *SSMPatchBaselinePatchSourceList `json:"Sources,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::SSM::PatchBaseline to implement the ResourceProperties interface
@@ -30157,6 +34489,8 @@ type SageMakerNotebookInstance struct {
 	NotebookInstanceName *StringExpr `json:"NotebookInstanceName,omitempty"`
 	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-rolearn
 	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+	// RootAccess docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-rootaccess
+	RootAccess *StringExpr `json:"RootAccess,omitempty"`
 	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-securitygroupids
 	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
 	// SubnetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-subnetid
@@ -30526,6 +34860,30 @@ func (s ServiceCatalogPortfolioShare) CfnResourceType() string {
 func (s ServiceCatalogPortfolioShare) CfnResourceAttributes() []string {
 	return []string{}
 }
+// ServiceCatalogResourceUpdateConstraint represents the AWS::ServiceCatalog::ResourceUpdateConstraint CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html 
+type ServiceCatalogResourceUpdateConstraint struct {
+	// AcceptLanguage docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html#cfn-servicecatalog-resourceupdateconstraint-acceptlanguage
+	AcceptLanguage *StringExpr `json:"AcceptLanguage,omitempty"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html#cfn-servicecatalog-resourceupdateconstraint-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// PortfolioID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html#cfn-servicecatalog-resourceupdateconstraint-portfolioid
+	PortfolioID *StringExpr `json:"PortfolioId,omitempty" validate:"dive,required"`
+	// ProductID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html#cfn-servicecatalog-resourceupdateconstraint-productid
+	ProductID *StringExpr `json:"ProductId,omitempty" validate:"dive,required"`
+	// TagUpdateOnProvisionedProduct docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html#cfn-servicecatalog-resourceupdateconstraint-tagupdateonprovisionedproduct
+	TagUpdateOnProvisionedProduct *StringExpr `json:"TagUpdateOnProvisionedProduct,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::ServiceCatalog::ResourceUpdateConstraint to implement the ResourceProperties interface
+func (s ServiceCatalogResourceUpdateConstraint) CfnResourceType() string {
+	
+	return "AWS::ServiceCatalog::ResourceUpdateConstraint"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ServiceCatalogResourceUpdateConstraint) CfnResourceAttributes() []string {
+	return []string{}
+}
 // ServiceCatalogTagOption represents the AWS::ServiceCatalog::TagOption CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoption.html 
 type ServiceCatalogTagOption struct {
@@ -30580,7 +34938,7 @@ func (s ServiceDiscoveryHTTPNamespace) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceDiscoveryHTTPNamespace) CfnResourceAttributes() []string {
-	return []string{"Arn","Id"}
+	return []string{"Id","Arn"}
 }
 // ServiceDiscoveryInstance represents the AWS::ServiceDiscovery::Instance CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html 
@@ -30671,6 +35029,8 @@ func (s ServiceDiscoveryService) CfnResourceAttributes() []string {
 type StepFunctionsActivity struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name
 	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-tags
+	Tags *StepFunctionsActivityTagsEntryList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::StepFunctions::Activity to implement the ResourceProperties interface
@@ -30691,6 +35051,8 @@ type StepFunctionsStateMachine struct {
 	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
 	// StateMachineName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
 	StateMachineName *StringExpr `json:"StateMachineName,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
+	Tags *StepFunctionsStateMachineTagsEntryList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::StepFunctions::StateMachine to implement the ResourceProperties interface
@@ -31099,6 +35461,16 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &APIGatewayV2RouteResponse{}
 	case "AWS::ApiGatewayV2::Stage":
 		return &APIGatewayV2Stage{}
+	case "AWS::AppMesh::Mesh":
+		return &AppMeshMesh{}
+	case "AWS::AppMesh::Route":
+		return &AppMeshRoute{}
+	case "AWS::AppMesh::VirtualNode":
+		return &AppMeshVirtualNode{}
+	case "AWS::AppMesh::VirtualRouter":
+		return &AppMeshVirtualRouter{}
+	case "AWS::AppMesh::VirtualService":
+		return &AppMeshVirtualService{}
 	case "AWS::AppStream::DirectoryConfig":
 		return &AppStreamDirectoryConfig{}
 	case "AWS::AppStream::Fleet":
@@ -31411,6 +35783,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EventsEventBusPolicy{}
 	case "AWS::Events::Rule":
 		return &EventsRule{}
+	case "AWS::FSx::FileSystem":
+		return &FSxFileSystem{}
 	case "AWS::GameLift::Alias":
 		return &GameLiftAlias{}
 	case "AWS::GameLift::Build":
@@ -31435,6 +35809,36 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &GlueTable{}
 	case "AWS::Glue::Trigger":
 		return &GlueTrigger{}
+	case "AWS::Greengrass::ConnectorDefinition":
+		return &GreengrassConnectorDefinition{}
+	case "AWS::Greengrass::ConnectorDefinitionVersion":
+		return &GreengrassConnectorDefinitionVersion{}
+	case "AWS::Greengrass::CoreDefinition":
+		return &GreengrassCoreDefinition{}
+	case "AWS::Greengrass::CoreDefinitionVersion":
+		return &GreengrassCoreDefinitionVersion{}
+	case "AWS::Greengrass::DeviceDefinition":
+		return &GreengrassDeviceDefinition{}
+	case "AWS::Greengrass::DeviceDefinitionVersion":
+		return &GreengrassDeviceDefinitionVersion{}
+	case "AWS::Greengrass::FunctionDefinition":
+		return &GreengrassFunctionDefinition{}
+	case "AWS::Greengrass::FunctionDefinitionVersion":
+		return &GreengrassFunctionDefinitionVersion{}
+	case "AWS::Greengrass::Group":
+		return &GreengrassGroup{}
+	case "AWS::Greengrass::GroupVersion":
+		return &GreengrassGroupVersion{}
+	case "AWS::Greengrass::LoggerDefinition":
+		return &GreengrassLoggerDefinition{}
+	case "AWS::Greengrass::LoggerDefinitionVersion":
+		return &GreengrassLoggerDefinitionVersion{}
+	case "AWS::Greengrass::ResourceDefinitionVersion":
+		return &GreengrassResourceDefinitionVersion{}
+	case "AWS::Greengrass::SubscriptionDefinition":
+		return &GreengrassSubscriptionDefinition{}
+	case "AWS::Greengrass::SubscriptionDefinitionVersion":
+		return &GreengrassSubscriptionDefinitionVersion{}
 	case "AWS::GuardDuty::Detector":
 		return &GuardDutyDetector{}
 	case "AWS::GuardDuty::Filter":
@@ -31511,6 +35915,14 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &KinesisAnalyticsApplicationOutput{}
 	case "AWS::KinesisAnalytics::ApplicationReferenceDataSource":
 		return &KinesisAnalyticsApplicationReferenceDataSource{}
+	case "AWS::KinesisAnalyticsV2::Application":
+		return &KinesisAnalyticsV2Application{}
+	case "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption":
+		return &KinesisAnalyticsV2ApplicationCloudWatchLoggingOption{}
+	case "AWS::KinesisAnalyticsV2::ApplicationOutput":
+		return &KinesisAnalyticsV2ApplicationOutput{}
+	case "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource":
+		return &KinesisAnalyticsV2ApplicationReferenceDataSource{}
 	case "AWS::KinesisFirehose::DeliveryStream":
 		return &KinesisFirehoseDeliveryStream{}
 	case "AWS::Lambda::Alias":
@@ -31563,6 +35975,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &OpsWorksVolume{}
 	case "AWS::OpsWorksCM::Server":
 		return &OpsWorksCMServer{}
+	case "AWS::RAM::ResourceShare":
+		return &RAMResourceShare{}
 	case "AWS::RDS::DBCluster":
 		return &RDSDBCluster{}
 	case "AWS::RDS::DBClusterParameterGroup":
@@ -31591,6 +36005,18 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &RedshiftClusterSecurityGroupIngress{}
 	case "AWS::Redshift::ClusterSubnetGroup":
 		return &RedshiftClusterSubnetGroup{}
+	case "AWS::RoboMaker::Fleet":
+		return &RoboMakerFleet{}
+	case "AWS::RoboMaker::Robot":
+		return &RoboMakerRobot{}
+	case "AWS::RoboMaker::RobotApplication":
+		return &RoboMakerRobotApplication{}
+	case "AWS::RoboMaker::RobotApplicationVersion":
+		return &RoboMakerRobotApplicationVersion{}
+	case "AWS::RoboMaker::SimulationApplication":
+		return &RoboMakerSimulationApplication{}
+	case "AWS::RoboMaker::SimulationApplicationVersion":
+		return &RoboMakerSimulationApplicationVersion{}
 	case "AWS::Route53::HealthCheck":
 		return &Route53HealthCheck{}
 	case "AWS::Route53::HostedZone":
@@ -31687,6 +36113,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &ServiceCatalogPortfolioProductAssociation{}
 	case "AWS::ServiceCatalog::PortfolioShare":
 		return &ServiceCatalogPortfolioShare{}
+	case "AWS::ServiceCatalog::ResourceUpdateConstraint":
+		return &ServiceCatalogResourceUpdateConstraint{}
 	case "AWS::ServiceCatalog::TagOption":
 		return &ServiceCatalogTagOption{}
 	case "AWS::ServiceCatalog::TagOptionAssociation":
