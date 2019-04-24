@@ -1,7 +1,7 @@
 package cloudformation
 // RESOURCE SPECIFICATION VERSION: 2.30.0
-// SOURCE CODE SHA: 91fb734c0cf2e8643857571543a9e7ba7aa31c3b
-// GENERATED: 2019-04-06 02:59:02.08662 +0000 UTC
+// SOURCE CODE SHA: daa147cb3f3f3be28b965b29b8162042011d527d
+// GENERATED: 2019-04-24 02:33:26.902458 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
@@ -25621,7 +25621,7 @@ func (s AmazonMQBroker) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AmazonMQBroker) CfnResourceAttributes() []string {
-	return []string{"Arn","WssEndpoints","IpAddresses","OpenWireEndpoints","ConfigurationRevision","StompEndpoints","MqttEndpoints","AmqpEndpoints","ConfigurationId"}
+	return []string{"MqttEndpoints","AmqpEndpoints","ConfigurationId","WssEndpoints","IpAddresses","ConfigurationRevision","StompEndpoints","OpenWireEndpoints","Arn"}
 }
 // AmazonMQConfiguration represents the AWS::AmazonMQ::Configuration CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html 
@@ -25867,7 +25867,7 @@ func (s APIGatewayDomainName) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s APIGatewayDomainName) CfnResourceAttributes() []string {
-	return []string{"RegionalDomainName","RegionalHostedZoneId","DistributionDomainName","DistributionHostedZoneId"}
+	return []string{"DistributionDomainName","DistributionHostedZoneId","RegionalDomainName","RegionalHostedZoneId"}
 }
 // APIGatewayGatewayResponse represents the AWS::ApiGateway::GatewayResponse CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html 
@@ -26451,7 +26451,7 @@ func (s AppMeshRoute) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshRoute) CfnResourceAttributes() []string {
-	return []string{"Uid","MeshName","VirtualRouterName","RouteName","Arn"}
+	return []string{"VirtualRouterName","RouteName","Arn","Uid","MeshName"}
 }
 // AppMeshVirtualNode represents the AWS::AppMesh::VirtualNode CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html 
@@ -26495,7 +26495,7 @@ func (s AppMeshVirtualRouter) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshVirtualRouter) CfnResourceAttributes() []string {
-	return []string{"MeshName","VirtualRouterName","Arn","Uid"}
+	return []string{"Uid","MeshName","VirtualRouterName","Arn"}
 }
 // AppMeshVirtualService represents the AWS::AppMesh::VirtualService CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html 
@@ -26801,7 +26801,7 @@ func (s AppSyncFunctionConfiguration) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncFunctionConfiguration) CfnResourceAttributes() []string {
-	return []string{"DataSourceName","Name","FunctionId","FunctionArn"}
+	return []string{"FunctionId","FunctionArn","DataSourceName","Name"}
 }
 // AppSyncGraphQLAPI represents the AWS::AppSync::GraphQLApi CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html 
@@ -26825,7 +26825,7 @@ func (s AppSyncGraphQLAPI) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncGraphQLAPI) CfnResourceAttributes() []string {
-	return []string{"GraphQLUrl","Arn","ApiId"}
+	return []string{"ApiId","GraphQLUrl","Arn"}
 }
 // AppSyncGraphQLSchema represents the AWS::AppSync::GraphQLSchema CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html 
@@ -26879,7 +26879,7 @@ func (s AppSyncResolver) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncResolver) CfnResourceAttributes() []string {
-	return []string{"FieldName","TypeName","ResolverArn"}
+	return []string{"TypeName","ResolverArn","FieldName"}
 }
 // ApplicationAutoScalingScalableTarget represents the AWS::ApplicationAutoScaling::ScalableTarget CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html 
@@ -27321,7 +27321,7 @@ func (s Cloud9EnvironmentEC2) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Cloud9EnvironmentEC2) CfnResourceAttributes() []string {
-	return []string{"Arn","Name"}
+	return []string{"Name","Arn"}
 }
 // CloudFormationCustomResource represents the AWS::CloudFormation::CustomResource CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html 
@@ -27658,7 +27658,7 @@ func (s CodeCommitRepository) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s CodeCommitRepository) CfnResourceAttributes() []string {
-	return []string{"Name","CloneUrlHttp","CloneUrlSsh","Arn"}
+	return []string{"CloneUrlHttp","CloneUrlSsh","Arn","Name"}
 }
 // CodeDeployApplication represents the AWS::CodeDeploy::Application CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html 
@@ -28174,7 +28174,7 @@ func (s DAXCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s DAXCluster) CfnResourceAttributes() []string {
-	return []string{"ClusterDiscoveryEndpoint","Arn"}
+	return []string{"Arn","ClusterDiscoveryEndpoint"}
 }
 // DAXParameterGroup represents the AWS::DAX::ParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html 
@@ -28614,7 +28614,7 @@ func (s DocDBDBInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s DocDBDBInstance) CfnResourceAttributes() []string {
-	return []string{"Port","Endpoint"}
+	return []string{"Endpoint","Port"}
 }
 // DocDBDBSubnetGroup represents the AWS::DocDB::DBSubnetGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html 
@@ -29088,7 +29088,7 @@ func (s EC2NetworkInterface) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2NetworkInterface) CfnResourceAttributes() []string {
-	return []string{"PrimaryPrivateIpAddress","SecondaryPrivateIpAddresses"}
+	return []string{"SecondaryPrivateIpAddresses","PrimaryPrivateIpAddress"}
 }
 // EC2NetworkInterfaceAttachment represents the AWS::EC2::NetworkInterfaceAttachment CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html 
@@ -29222,7 +29222,7 @@ func (s EC2SecurityGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2SecurityGroup) CfnResourceAttributes() []string {
-	return []string{"GroupId","VpcId"}
+	return []string{"VpcId","GroupId"}
 }
 // EC2SecurityGroupEgress represents the AWS::EC2::SecurityGroupEgress CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html 
@@ -29336,7 +29336,7 @@ func (s EC2Subnet) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2Subnet) CfnResourceAttributes() []string {
-	return []string{"AvailabilityZone","Ipv6CidrBlocks","NetworkAclAssociationId","VpcId"}
+	return []string{"NetworkAclAssociationId","VpcId","AvailabilityZone","Ipv6CidrBlocks"}
 }
 // EC2SubnetCidrBlock represents the AWS::EC2::SubnetCidrBlock CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html 
@@ -29564,7 +29564,7 @@ func (s EC2VPC) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2VPC) CfnResourceAttributes() []string {
-	return []string{"DefaultNetworkAcl","DefaultSecurityGroup","Ipv6CidrBlocks","CidrBlock","CidrBlockAssociations"}
+	return []string{"CidrBlock","CidrBlockAssociations","DefaultNetworkAcl","DefaultSecurityGroup","Ipv6CidrBlocks"}
 }
 // EC2VPCCidrBlock represents the AWS::EC2::VPCCidrBlock CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html 
@@ -30224,7 +30224,7 @@ func (s ElastiCacheCacheCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElastiCacheCacheCluster) CfnResourceAttributes() []string {
-	return []string{"ConfigurationEndpoint.Address","ConfigurationEndpoint.Port","RedisEndpoint.Address","RedisEndpoint.Port"}
+	return []string{"RedisEndpoint.Port","ConfigurationEndpoint.Address","ConfigurationEndpoint.Port","RedisEndpoint.Address"}
 }
 // ElastiCacheParameterGroup represents the AWS::ElastiCache::ParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html 
@@ -30316,7 +30316,7 @@ func (s ElastiCacheReplicationGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElastiCacheReplicationGroup) CfnResourceAttributes() []string {
-	return []string{"ReadEndPoint.Addresses.List","ReadEndPoint.Ports","ReadEndPoint.Ports.List","ConfigurationEndPoint.Address","ConfigurationEndPoint.Port","PrimaryEndPoint.Address","PrimaryEndPoint.Port","ReadEndPoint.Addresses"}
+	return []string{"PrimaryEndPoint.Address","PrimaryEndPoint.Port","ReadEndPoint.Addresses","ReadEndPoint.Addresses.List","ReadEndPoint.Ports","ReadEndPoint.Ports.List","ConfigurationEndPoint.Address","ConfigurationEndPoint.Port"}
 }
 // ElastiCacheSecurityGroup represents the AWS::ElastiCache::SecurityGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html 
@@ -30522,7 +30522,7 @@ func (s ElasticLoadBalancingLoadBalancer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticLoadBalancingLoadBalancer) CfnResourceAttributes() []string {
-	return []string{"CanonicalHostedZoneNameID","DNSName","SourceSecurityGroup.GroupName","SourceSecurityGroup.OwnerAlias","CanonicalHostedZoneName"}
+	return []string{"CanonicalHostedZoneName","CanonicalHostedZoneNameID","DNSName","SourceSecurityGroup.GroupName","SourceSecurityGroup.OwnerAlias"}
 }
 // ElasticLoadBalancingV2Listener represents the AWS::ElasticLoadBalancingV2::Listener CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html 
@@ -30620,7 +30620,7 @@ func (s ElasticLoadBalancingV2LoadBalancer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElasticLoadBalancingV2LoadBalancer) CfnResourceAttributes() []string {
-	return []string{"LoadBalancerFullName","LoadBalancerName","SecurityGroups","CanonicalHostedZoneID","DNSName"}
+	return []string{"LoadBalancerName","SecurityGroups","CanonicalHostedZoneID","DNSName","LoadBalancerFullName"}
 }
 // ElasticLoadBalancingV2TargetGroup represents the AWS::ElasticLoadBalancingV2::TargetGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html 
@@ -31102,7 +31102,7 @@ func (s GreengrassConnectorDefinition) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassConnectorDefinition) CfnResourceAttributes() []string {
-	return []string{"Id","Arn","Name","LatestVersionArn"}
+	return []string{"Name","LatestVersionArn","Id","Arn"}
 }
 // GreengrassConnectorDefinitionVersion represents the AWS::Greengrass::ConnectorDefinitionVersion CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html 
@@ -31174,7 +31174,7 @@ func (s GreengrassDeviceDefinition) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassDeviceDefinition) CfnResourceAttributes() []string {
-	return []string{"LatestVersionArn","Id","Arn","Name"}
+	return []string{"Arn","Name","LatestVersionArn","Id"}
 }
 // GreengrassDeviceDefinitionVersion represents the AWS::Greengrass::DeviceDefinitionVersion CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html 
@@ -31210,7 +31210,7 @@ func (s GreengrassFunctionDefinition) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassFunctionDefinition) CfnResourceAttributes() []string {
-	return []string{"Arn","Name","LatestVersionArn","Id"}
+	return []string{"Name","LatestVersionArn","Id","Arn"}
 }
 // GreengrassFunctionDefinitionVersion represents the AWS::Greengrass::FunctionDefinitionVersion CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html 
@@ -31250,7 +31250,7 @@ func (s GreengrassGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassGroup) CfnResourceAttributes() []string {
-	return []string{"RoleArn","Name","RoleAttachedAt","LatestVersionArn","Id","Arn"}
+	return []string{"Id","Arn","RoleArn","Name","RoleAttachedAt","LatestVersionArn"}
 }
 // GreengrassGroupVersion represents the AWS::Greengrass::GroupVersion CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html 
@@ -31792,7 +31792,7 @@ func (s IoT1ClickDevice) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s IoT1ClickDevice) CfnResourceAttributes() []string {
-	return []string{"DeviceId","Enabled","Arn"}
+	return []string{"Arn","DeviceId","Enabled"}
 }
 // IoT1ClickPlacement represents the AWS::IoT1Click::Placement CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html 
@@ -31834,7 +31834,7 @@ func (s IoT1ClickProject) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s IoT1ClickProject) CfnResourceAttributes() []string {
-	return []string{"Arn","ProjectName"}
+	return []string{"ProjectName","Arn"}
 }
 // IoTCertificate represents the AWS::IoT::Certificate CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html 
@@ -32114,7 +32114,7 @@ func (s KinesisStreamConsumer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s KinesisStreamConsumer) CfnResourceAttributes() []string {
-	return []string{"ConsumerName","ConsumerARN","ConsumerStatus","StreamARN","ConsumerCreationTimestamp"}
+	return []string{"ConsumerCreationTimestamp","ConsumerName","ConsumerARN","ConsumerStatus","StreamARN"}
 }
 // KinesisAnalyticsApplication represents the AWS::KinesisAnalytics::Application CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html 
@@ -33468,7 +33468,7 @@ func (s RedshiftCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s RedshiftCluster) CfnResourceAttributes() []string {
-	return []string{"Endpoint.Port","Endpoint.Address"}
+	return []string{"Endpoint.Address","Endpoint.Port"}
 }
 // RedshiftClusterParameterGroup represents the AWS::Redshift::ClusterParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html 
@@ -33838,7 +33838,7 @@ func (s Route53ResolverResolverRule) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverRule) CfnResourceAttributes() []string {
-	return []string{"ResolverEndpointId","DomainName","ResolverRuleId","Arn","TargetIps","Name"}
+	return []string{"Name","ResolverEndpointId","DomainName","ResolverRuleId","Arn","TargetIps"}
 }
 // Route53ResolverResolverRuleAssociation represents the AWS::Route53Resolver::ResolverRuleAssociation CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html 
@@ -33858,7 +33858,7 @@ func (s Route53ResolverResolverRuleAssociation) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverRuleAssociation) CfnResourceAttributes() []string {
-	return []string{"ResolverRuleAssociationId","Name","VPCId","ResolverRuleId"}
+	return []string{"VPCId","ResolverRuleId","ResolverRuleAssociationId","Name"}
 }
 // S3Bucket represents the AWS::S3::Bucket CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html 
@@ -33904,7 +33904,7 @@ func (s S3Bucket) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s S3Bucket) CfnResourceAttributes() []string {
-	return []string{"Arn","DomainName","DualStackDomainName","RegionalDomainName","WebsiteURL"}
+	return []string{"DualStackDomainName","RegionalDomainName","WebsiteURL","Arn","DomainName"}
 }
 // S3BucketPolicy represents the AWS::S3::BucketPolicy CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html 
@@ -34338,7 +34338,7 @@ func (s SSMParameter) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s SSMParameter) CfnResourceAttributes() []string {
-	return []string{"Type","Value"}
+	return []string{"Value","Type"}
 }
 // SSMPatchBaseline represents the AWS::SSM::PatchBaseline CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html 
@@ -34698,7 +34698,7 @@ func (s ServiceCatalogCloudFormationProvisionedProduct) CfnResourceType() string
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceCatalogCloudFormationProvisionedProduct) CfnResourceAttributes() []string {
-	return []string{"RecordId","CloudformationStackArn"}
+	return []string{"CloudformationStackArn","RecordId"}
 }
 // ServiceCatalogLaunchNotificationConstraint represents the AWS::ServiceCatalog::LaunchNotificationConstraint CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html 
@@ -34996,7 +34996,7 @@ func (s ServiceDiscoveryPublicDNSNamespace) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceDiscoveryPublicDNSNamespace) CfnResourceAttributes() []string {
-	return []string{"Id","Arn"}
+	return []string{"Arn","Id"}
 }
 // ServiceDiscoveryService represents the AWS::ServiceDiscovery::Service CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html 
