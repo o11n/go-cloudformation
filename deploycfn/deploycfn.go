@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/client"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -16,7 +16,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/crewjam/awsregion"
 
-	cfn "github.com/crewjam/go-cloudformation"
+	cfn "github.com/mweagle/go-cloudformation"
 )
 
 type DeployInput struct {
