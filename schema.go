@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 6.2.0
-// SOURCE CODE SHA: 0b695fc6095a5a9af7871adbdea48deba8c8d315
-// GENERATED: 2019-09-27 04:44:40.070313 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 6.3.0
+// SOURCE CODE SHA: 911e86284f4e46343d1ffbe6d8e647f55ad1e6be
+// GENERATED: 2019-10-08 12:41:53.216911 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "6.2.0"
+const ResourceSpecificationVersion = "6.3.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -4705,6 +4705,8 @@ type BudgetsBudgetBudgetData struct {
 	CostFilters interface{} `json:"CostFilters,omitempty"`
 	// CostTypes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
 	CostTypes *BudgetsBudgetCostTypes `json:"CostTypes,omitempty"`
+	// PlannedBudgetLimits docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+	PlannedBudgetLimits interface{} `json:"PlannedBudgetLimits,omitempty"`
 	// TimePeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
 	TimePeriod *BudgetsBudgetTimePeriod `json:"TimePeriod,omitempty"`
 	// TimeUnit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
@@ -8150,6 +8152,294 @@ func (l *CognitoUserPoolClientAnalyticsConfigurationList) UnmarshalJSON(buf []by
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = CognitoUserPoolClientAnalyticsConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolDomainCustomDomainConfigType represents the AWS::Cognito::UserPoolDomain.CustomDomainConfigType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html 
+type CognitoUserPoolDomainCustomDomainConfigType struct {
+	// CertificateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html#cfn-cognito-userpooldomain-customdomainconfigtype-certificatearn
+	CertificateArn *StringExpr `json:"CertificateArn,omitempty"`
+}
+
+// CognitoUserPoolDomainCustomDomainConfigTypeList represents a list of CognitoUserPoolDomainCustomDomainConfigType
+type CognitoUserPoolDomainCustomDomainConfigTypeList []CognitoUserPoolDomainCustomDomainConfigType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolDomainCustomDomainConfigTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolDomainCustomDomainConfigType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolDomainCustomDomainConfigTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolDomainCustomDomainConfigType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolDomainCustomDomainConfigTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolResourceServerResourceServerScopeType represents the AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html 
+type CognitoUserPoolResourceServerResourceServerScopeType struct {
+	// ScopeDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopedescription
+	ScopeDescription *StringExpr `json:"ScopeDescription,omitempty" validate:"dive,required"`
+	// ScopeName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopename
+	ScopeName *StringExpr `json:"ScopeName,omitempty" validate:"dive,required"`
+}
+
+// CognitoUserPoolResourceServerResourceServerScopeTypeList represents a list of CognitoUserPoolResourceServerResourceServerScopeType
+type CognitoUserPoolResourceServerResourceServerScopeTypeList []CognitoUserPoolResourceServerResourceServerScopeType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolResourceServerResourceServerScopeTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolResourceServerResourceServerScopeType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolResourceServerResourceServerScopeTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolResourceServerResourceServerScopeType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolResourceServerResourceServerScopeTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html 
+type CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType struct {
+	// EventAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-eventaction
+	EventAction *StringExpr `json:"EventAction,omitempty" validate:"dive,required"`
+	// Notify docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-notify
+	Notify *BoolExpr `json:"Notify,omitempty" validate:"dive,required"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType
+type CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeList []CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionsType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html 
+type CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType struct {
+	// HighAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-highaction
+	HighAction *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType `json:"HighAction,omitempty"`
+	// LowAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-lowaction
+	LowAction *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType `json:"LowAction,omitempty"`
+	// MediumAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-mediumaction
+	MediumAction *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType `json:"MediumAction,omitempty"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType
+type CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeList []CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html 
+type CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType struct {
+	// Actions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-actions
+	Actions *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType `json:"Actions,omitempty" validate:"dive,required"`
+	// NotifyConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-notifyconfiguration
+	NotifyConfiguration *CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType `json:"NotifyConfiguration,omitempty"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType
+type CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeList []CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html 
+type CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType struct {
+	// EventAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype-eventaction
+	EventAction *StringExpr `json:"EventAction,omitempty" validate:"dive,required"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType
+type CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeList []CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html 
+type CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType struct {
+	// Actions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-actions
+	Actions *CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType `json:"Actions,omitempty" validate:"dive,required"`
+	// EventFilter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-eventfilter
+	EventFilter *StringListExpr `json:"EventFilter,omitempty"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType
+type CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeList []CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyConfigurationType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html 
+type CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType struct {
+	// BlockEmail docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-blockemail
+	BlockEmail *CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType `json:"BlockEmail,omitempty"`
+	// From docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-from
+	From *StringExpr `json:"From,omitempty"`
+	// MfaEmail docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-mfaemail
+	MfaEmail *CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType `json:"MfaEmail,omitempty"`
+	// NoActionEmail docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-noactionemail
+	NoActionEmail *CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType `json:"NoActionEmail,omitempty"`
+	// ReplyTo docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-replyto
+	ReplyTo *StringExpr `json:"ReplyTo,omitempty"`
+	// SourceArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-sourcearn
+	SourceArn *StringExpr `json:"SourceArn,omitempty" validate:"dive,required"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType
+type CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationTypeList []CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html 
+type CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType struct {
+	// HtmlBody docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyemailtype-htmlbody
+	HtmlBody *StringExpr `json:"HtmlBody,omitempty"`
+	// Subject docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyemailtype-subject
+	Subject *StringExpr `json:"Subject,omitempty" validate:"dive,required"`
+	// TextBody docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyemailtype-textbody
+	TextBody *StringExpr `json:"TextBody,omitempty"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentNotifyEmailTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType
+type CognitoUserPoolRiskConfigurationAttachmentNotifyEmailTypeList []CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentNotifyEmailTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentNotifyEmailTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentNotifyEmailTypeList(list)
+		return nil
+	}
+	return err
+}
+// CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType represents the AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html 
+type CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType struct {
+	// BlockedIPRangeList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-blockediprangelist
+	BlockedIPRangeList *StringListExpr `json:"BlockedIPRangeList,omitempty"`
+	// SkippedIPRangeList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-skippediprangelist
+	SkippedIPRangeList *StringListExpr `json:"SkippedIPRangeList,omitempty"`
+}
+
+// CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeList represents a list of CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType
+type CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeList []CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeList{item}
+		return nil
+	}
+	list := []CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeList(list)
 		return nil
 	}
 	return err
@@ -11806,6 +12096,34 @@ func (l *EC2SpotFleetTargetGroupsConfigList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = EC2SpotFleetTargetGroupsConfigList(list)
+		return nil
+	}
+	return err
+}
+// EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest represents the AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRangeRequest CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest.html 
+type EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest struct {
+	// FromPort docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest-fromport
+	FromPort *IntegerExpr `json:"FromPort,omitempty" validate:"dive,required"`
+	// ToPort docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrangerequest-toport
+	ToPort *IntegerExpr `json:"ToPort,omitempty" validate:"dive,required"`
+}
+
+// EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequestList represents a list of EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest
+type EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequestList []EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequestList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequestList{item}
+		return nil
+	}
+	list := []EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequestList(list)
 		return nil
 	}
 	return err
@@ -32505,7 +32823,7 @@ func (s AmazonMQBroker) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AmazonMQBroker) CfnResourceAttributes() []string {
-	return []string{"WssEndpoints","OpenWireEndpoints","ConfigurationRevision","ConfigurationId","AmqpEndpoints","Arn","IpAddresses","StompEndpoints","MqttEndpoints"}
+	return []string{"StompEndpoints","MqttEndpoints","AmqpEndpoints","Arn","ConfigurationId","WssEndpoints","IpAddresses","OpenWireEndpoints","ConfigurationRevision"}
 }
 // AmazonMQConfiguration represents the AWS::AmazonMQ::Configuration CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html 
@@ -32587,7 +32905,7 @@ func (s AmplifyApp) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AmplifyApp) CfnResourceAttributes() []string {
-	return []string{"AppName","AppId","Arn","DefaultDomain"}
+	return []string{"AppId","Arn","DefaultDomain","AppName"}
 }
 // AmplifyBranch represents the AWS::Amplify::Branch CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html 
@@ -33447,7 +33765,7 @@ func (s AppMeshMesh) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshMesh) CfnResourceAttributes() []string {
-	return []string{"MeshName","Arn","Uid"}
+	return []string{"Uid","MeshName","Arn"}
 }
 // AppMeshRoute represents the AWS::AppMesh::Route CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html 
@@ -33471,7 +33789,7 @@ func (s AppMeshRoute) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshRoute) CfnResourceAttributes() []string {
-	return []string{"Uid","MeshName","VirtualRouterName","RouteName","Arn"}
+	return []string{"VirtualRouterName","RouteName","Arn","Uid","MeshName"}
 }
 // AppMeshVirtualNode represents the AWS::AppMesh::VirtualNode CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html 
@@ -33515,7 +33833,7 @@ func (s AppMeshVirtualRouter) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshVirtualRouter) CfnResourceAttributes() []string {
-	return []string{"VirtualRouterName","Arn","Uid","MeshName"}
+	return []string{"MeshName","VirtualRouterName","Arn","Uid"}
 }
 // AppMeshVirtualService represents the AWS::AppMesh::VirtualService CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html 
@@ -33537,7 +33855,7 @@ func (s AppMeshVirtualService) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshVirtualService) CfnResourceAttributes() []string {
-	return []string{"VirtualServiceName","Arn","Uid","MeshName"}
+	return []string{"Uid","MeshName","VirtualServiceName","Arn"}
 }
 // AppStreamDirectoryConfig represents the AWS::AppStream::DirectoryConfig CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html 
@@ -33757,7 +34075,7 @@ func (s AppSyncAPIKey) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncAPIKey) CfnResourceAttributes() []string {
-	return []string{"ApiKey","Arn"}
+	return []string{"Arn","ApiKey"}
 }
 // AppSyncDataSource represents the AWS::AppSync::DataSource CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html 
@@ -33823,7 +34141,7 @@ func (s AppSyncFunctionConfiguration) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppSyncFunctionConfiguration) CfnResourceAttributes() []string {
-	return []string{"FunctionId","FunctionArn","DataSourceName","Name"}
+	return []string{"Name","FunctionId","FunctionArn","DataSourceName"}
 }
 // AppSyncGraphQLAPI represents the AWS::AppSync::GraphQLApi CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html 
@@ -34223,7 +34541,7 @@ func (s BackupBackupPlan) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s BackupBackupPlan) CfnResourceAttributes() []string {
-	return []string{"BackupPlanArn","VersionId","BackupPlanId"}
+	return []string{"VersionId","BackupPlanId","BackupPlanArn"}
 }
 // BackupBackupSelection represents the AWS::Backup::BackupSelection CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html 
@@ -35069,6 +35387,8 @@ type CognitoUserPool struct {
 	EmailVerificationMessage *StringExpr `json:"EmailVerificationMessage,omitempty"`
 	// EmailVerificationSubject docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailverificationsubject
 	EmailVerificationSubject *StringExpr `json:"EmailVerificationSubject,omitempty"`
+	// EnabledMfas docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-enabledmfas
+	EnabledMfas *StringListExpr `json:"EnabledMfas,omitempty"`
 	// LambdaConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-lambdaconfig
 	LambdaConfig *CognitoUserPoolLambdaConfig `json:"LambdaConfig,omitempty"`
 	// MfaConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-mfaconfiguration
@@ -35148,6 +35468,26 @@ func (s CognitoUserPoolClient) CfnResourceType() string {
 func (s CognitoUserPoolClient) CfnResourceAttributes() []string {
 	return []string{"ClientSecret","Name"}
 }
+// CognitoUserPoolDomain represents the AWS::Cognito::UserPoolDomain CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html 
+type CognitoUserPoolDomain struct {
+	// CustomDomainConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-customdomainconfig
+	CustomDomainConfig *CognitoUserPoolDomainCustomDomainConfigType `json:"CustomDomainConfig,omitempty"`
+	// Domain docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-domain
+	Domain *StringExpr `json:"Domain,omitempty" validate:"dive,required"`
+	// UserPoolID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-userpoolid
+	UserPoolID *StringExpr `json:"UserPoolId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Cognito::UserPoolDomain to implement the ResourceProperties interface
+func (s CognitoUserPoolDomain) CfnResourceType() string {
+	
+	return "AWS::Cognito::UserPoolDomain"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CognitoUserPoolDomain) CfnResourceAttributes() []string {
+	return []string{}
+}
 // CognitoUserPoolGroup represents the AWS::Cognito::UserPoolGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html 
 type CognitoUserPoolGroup struct {
@@ -35170,6 +35510,98 @@ func (s CognitoUserPoolGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s CognitoUserPoolGroup) CfnResourceAttributes() []string {
+	return []string{}
+}
+// CognitoUserPoolIdentityProvider represents the AWS::Cognito::UserPoolIdentityProvider CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html 
+type CognitoUserPoolIdentityProvider struct {
+	// AttributeMapping docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-attributemapping
+	AttributeMapping interface{} `json:"AttributeMapping,omitempty"`
+	// IDpIDentifiers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers
+	IDpIDentifiers *StringListExpr `json:"IdpIdentifiers,omitempty"`
+	// ProviderDetails docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providerdetails
+	ProviderDetails interface{} `json:"ProviderDetails,omitempty"`
+	// ProviderName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providername
+	ProviderName *StringExpr `json:"ProviderName,omitempty" validate:"dive,required"`
+	// ProviderType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providertype
+	ProviderType *StringExpr `json:"ProviderType,omitempty" validate:"dive,required"`
+	// UserPoolID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-userpoolid
+	UserPoolID *StringExpr `json:"UserPoolId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Cognito::UserPoolIdentityProvider to implement the ResourceProperties interface
+func (s CognitoUserPoolIdentityProvider) CfnResourceType() string {
+	
+	return "AWS::Cognito::UserPoolIdentityProvider"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CognitoUserPoolIdentityProvider) CfnResourceAttributes() []string {
+	return []string{}
+}
+// CognitoUserPoolResourceServer represents the AWS::Cognito::UserPoolResourceServer CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html 
+type CognitoUserPoolResourceServer struct {
+	// IDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-identifier
+	IDentifier *StringExpr `json:"Identifier,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Scopes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-scopes
+	Scopes *CognitoUserPoolResourceServerResourceServerScopeTypeList `json:"Scopes,omitempty"`
+	// UserPoolID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-userpoolid
+	UserPoolID *StringExpr `json:"UserPoolId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Cognito::UserPoolResourceServer to implement the ResourceProperties interface
+func (s CognitoUserPoolResourceServer) CfnResourceType() string {
+	
+	return "AWS::Cognito::UserPoolResourceServer"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CognitoUserPoolResourceServer) CfnResourceAttributes() []string {
+	return []string{}
+}
+// CognitoUserPoolRiskConfigurationAttachment represents the AWS::Cognito::UserPoolRiskConfigurationAttachment CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html 
+type CognitoUserPoolRiskConfigurationAttachment struct {
+	// AccountTakeoverRiskConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfiguration
+	AccountTakeoverRiskConfiguration *CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType `json:"AccountTakeoverRiskConfiguration,omitempty"`
+	// ClientID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-clientid
+	ClientID *StringExpr `json:"ClientId,omitempty" validate:"dive,required"`
+	// CompromisedCredentialsRiskConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfiguration
+	CompromisedCredentialsRiskConfiguration *CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType `json:"CompromisedCredentialsRiskConfiguration,omitempty"`
+	// RiskExceptionConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfiguration
+	RiskExceptionConfiguration *CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType `json:"RiskExceptionConfiguration,omitempty"`
+	// UserPoolID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-userpoolid
+	UserPoolID *StringExpr `json:"UserPoolId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Cognito::UserPoolRiskConfigurationAttachment to implement the ResourceProperties interface
+func (s CognitoUserPoolRiskConfigurationAttachment) CfnResourceType() string {
+	
+	return "AWS::Cognito::UserPoolRiskConfigurationAttachment"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CognitoUserPoolRiskConfigurationAttachment) CfnResourceAttributes() []string {
+	return []string{}
+}
+// CognitoUserPoolUICustomizationAttachment represents the AWS::Cognito::UserPoolUICustomizationAttachment CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html 
+type CognitoUserPoolUICustomizationAttachment struct {
+	// CSS docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-css
+	CSS *StringExpr `json:"CSS,omitempty"`
+	// ClientID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-clientid
+	ClientID *StringExpr `json:"ClientId,omitempty" validate:"dive,required"`
+	// UserPoolID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-userpoolid
+	UserPoolID *StringExpr `json:"UserPoolId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Cognito::UserPoolUICustomizationAttachment to implement the ResourceProperties interface
+func (s CognitoUserPoolUICustomizationAttachment) CfnResourceType() string {
+	
+	return "AWS::Cognito::UserPoolUICustomizationAttachment"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CognitoUserPoolUICustomizationAttachment) CfnResourceAttributes() []string {
 	return []string{}
 }
 // CognitoUserPoolUser represents the AWS::Cognito::UserPoolUser CloudFormation resource type
@@ -35262,7 +35694,7 @@ func (s ConfigConfigRule) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ConfigConfigRule) CfnResourceAttributes() []string {
-	return []string{"Compliance.Type","ConfigRuleId","Arn"}
+	return []string{"Arn","Compliance.Type","ConfigRuleId"}
 }
 // ConfigConfigurationAggregator represents the AWS::Config::ConfigurationAggregator CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html 
@@ -35868,7 +36300,7 @@ func (s DocDBDBInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s DocDBDBInstance) CfnResourceAttributes() []string {
-	return []string{"Endpoint","Port"}
+	return []string{"Port","Endpoint"}
 }
 // DocDBDBSubnetGroup represents the AWS::DocDB::DBSubnetGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html 
@@ -35964,7 +36396,7 @@ func (s EC2CapacityReservation) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2CapacityReservation) CfnResourceAttributes() []string {
-	return []string{"AvailableInstanceCount","AvailabilityZone","TotalInstanceCount","InstanceType","Tenancy"}
+	return []string{"InstanceType","Tenancy","AvailableInstanceCount","AvailabilityZone","TotalInstanceCount"}
 }
 // EC2ClientVpnAuthorizationRule represents the AWS::EC2::ClientVpnAuthorizationRule CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html 
@@ -36338,7 +36770,7 @@ func (s EC2Instance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2Instance) CfnResourceAttributes() []string {
-	return []string{"PrivateDnsName","PrivateIp","PublicDnsName","PublicIp","AvailabilityZone"}
+	return []string{"AvailabilityZone","PrivateDnsName","PrivateIp","PublicDnsName","PublicIp"}
 }
 // EC2InternetGateway represents the AWS::EC2::InternetGateway CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html 
@@ -36478,7 +36910,7 @@ func (s EC2NetworkInterface) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2NetworkInterface) CfnResourceAttributes() []string {
-	return []string{"PrimaryPrivateIpAddress","SecondaryPrivateIpAddresses"}
+	return []string{"SecondaryPrivateIpAddresses","PrimaryPrivateIpAddress"}
 }
 // EC2NetworkInterfaceAttachment represents the AWS::EC2::NetworkInterfaceAttachment CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html 
@@ -36728,7 +37160,7 @@ func (s EC2Subnet) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2Subnet) CfnResourceAttributes() []string {
-	return []string{"VpcId","AvailabilityZone","Ipv6CidrBlocks","NetworkAclAssociationId"}
+	return []string{"NetworkAclAssociationId","VpcId","AvailabilityZone","Ipv6CidrBlocks"}
 }
 // EC2SubnetCidrBlock represents the AWS::EC2::SubnetCidrBlock CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html 
@@ -36782,6 +37214,112 @@ func (s EC2SubnetRouteTableAssociation) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2SubnetRouteTableAssociation) CfnResourceAttributes() []string {
+	return []string{}
+}
+// EC2TrafficMirrorFilter represents the AWS::EC2::TrafficMirrorFilter CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html 
+type EC2TrafficMirrorFilter struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// NetworkServices docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-networkservices
+	NetworkServices *StringListExpr `json:"NetworkServices,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#cfn-ec2-trafficmirrorfilter-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::EC2::TrafficMirrorFilter to implement the ResourceProperties interface
+func (s EC2TrafficMirrorFilter) CfnResourceType() string {
+	
+	return "AWS::EC2::TrafficMirrorFilter"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EC2TrafficMirrorFilter) CfnResourceAttributes() []string {
+	return []string{}
+}
+// EC2TrafficMirrorFilterRule represents the AWS::EC2::TrafficMirrorFilterRule CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html 
+type EC2TrafficMirrorFilterRule struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// DestinationCidrBlock docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationcidrblock
+	DestinationCidrBlock *StringExpr `json:"DestinationCidrBlock,omitempty" validate:"dive,required"`
+	// DestinationPortRange docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationportrange
+	DestinationPortRange *EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest `json:"DestinationPortRange,omitempty"`
+	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-protocol
+	Protocol *IntegerExpr `json:"Protocol,omitempty"`
+	// RuleAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-ruleaction
+	RuleAction *StringExpr `json:"RuleAction,omitempty" validate:"dive,required"`
+	// RuleNumber docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-rulenumber
+	RuleNumber *IntegerExpr `json:"RuleNumber,omitempty" validate:"dive,required"`
+	// SourceCidrBlock docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourcecidrblock
+	SourceCidrBlock *StringExpr `json:"SourceCidrBlock,omitempty" validate:"dive,required"`
+	// SourcePortRange docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourceportrange
+	SourcePortRange *EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest `json:"SourcePortRange,omitempty"`
+	// TrafficDirection docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficdirection
+	TrafficDirection *StringExpr `json:"TrafficDirection,omitempty" validate:"dive,required"`
+	// TrafficMirrorFilterID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorfilterid
+	TrafficMirrorFilterID *StringExpr `json:"TrafficMirrorFilterId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::EC2::TrafficMirrorFilterRule to implement the ResourceProperties interface
+func (s EC2TrafficMirrorFilterRule) CfnResourceType() string {
+	
+	return "AWS::EC2::TrafficMirrorFilterRule"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EC2TrafficMirrorFilterRule) CfnResourceAttributes() []string {
+	return []string{}
+}
+// EC2TrafficMirrorSession represents the AWS::EC2::TrafficMirrorSession CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html 
+type EC2TrafficMirrorSession struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// NetworkInterfaceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-networkinterfaceid
+	NetworkInterfaceID *StringExpr `json:"NetworkInterfaceId,omitempty" validate:"dive,required"`
+	// PacketLength docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-packetlength
+	PacketLength *IntegerExpr `json:"PacketLength,omitempty"`
+	// SessionNumber docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-sessionnumber
+	SessionNumber *IntegerExpr `json:"SessionNumber,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// TrafficMirrorFilterID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-trafficmirrorfilterid
+	TrafficMirrorFilterID *StringExpr `json:"TrafficMirrorFilterId,omitempty" validate:"dive,required"`
+	// TrafficMirrorTargetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-trafficmirrortargetid
+	TrafficMirrorTargetID *StringExpr `json:"TrafficMirrorTargetId,omitempty" validate:"dive,required"`
+	// VirtualNetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-virtualnetworkid
+	VirtualNetworkID *IntegerExpr `json:"VirtualNetworkId,omitempty"`
+}
+
+// CfnResourceType returns AWS::EC2::TrafficMirrorSession to implement the ResourceProperties interface
+func (s EC2TrafficMirrorSession) CfnResourceType() string {
+	
+	return "AWS::EC2::TrafficMirrorSession"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EC2TrafficMirrorSession) CfnResourceAttributes() []string {
+	return []string{}
+}
+// EC2TrafficMirrorTarget represents the AWS::EC2::TrafficMirrorTarget CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html 
+type EC2TrafficMirrorTarget struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// NetworkInterfaceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkinterfaceid
+	NetworkInterfaceID *StringExpr `json:"NetworkInterfaceId,omitempty"`
+	// NetworkLoadBalancerArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-networkloadbalancerarn
+	NetworkLoadBalancerArn *StringExpr `json:"NetworkLoadBalancerArn,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html#cfn-ec2-trafficmirrortarget-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::EC2::TrafficMirrorTarget to implement the ResourceProperties interface
+func (s EC2TrafficMirrorTarget) CfnResourceType() string {
+	
+	return "AWS::EC2::TrafficMirrorTarget"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EC2TrafficMirrorTarget) CfnResourceAttributes() []string {
 	return []string{}
 }
 // EC2TransitGateway represents the AWS::EC2::TransitGateway CloudFormation resource type
@@ -36934,7 +37472,7 @@ func (s EC2VPC) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2VPC) CfnResourceAttributes() []string {
-	return []string{"DefaultSecurityGroup","Ipv6CidrBlocks","CidrBlock","CidrBlockAssociations","DefaultNetworkAcl"}
+	return []string{"CidrBlock","CidrBlockAssociations","DefaultNetworkAcl","DefaultSecurityGroup","Ipv6CidrBlocks"}
 }
 // EC2VPCCidrBlock represents the AWS::EC2::VPCCidrBlock CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html 
@@ -37616,7 +38154,7 @@ func (s ElastiCacheCacheCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElastiCacheCacheCluster) CfnResourceAttributes() []string {
-	return []string{"RedisEndpoint.Address","RedisEndpoint.Port","ConfigurationEndpoint.Address","ConfigurationEndpoint.Port"}
+	return []string{"ConfigurationEndpoint.Port","RedisEndpoint.Address","RedisEndpoint.Port","ConfigurationEndpoint.Address"}
 }
 // ElastiCacheParameterGroup represents the AWS::ElastiCache::ParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html 
@@ -37710,7 +38248,7 @@ func (s ElastiCacheReplicationGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ElastiCacheReplicationGroup) CfnResourceAttributes() []string {
-	return []string{"PrimaryEndPoint.Port","ReadEndPoint.Addresses","ReadEndPoint.Addresses.List","ReadEndPoint.Ports","ReadEndPoint.Ports.List","ConfigurationEndPoint.Address","ConfigurationEndPoint.Port","PrimaryEndPoint.Address"}
+	return []string{"ReadEndPoint.Addresses.List","ReadEndPoint.Ports","ReadEndPoint.Ports.List","ConfigurationEndPoint.Address","ConfigurationEndPoint.Port","PrimaryEndPoint.Address","PrimaryEndPoint.Port","ReadEndPoint.Addresses"}
 }
 // ElastiCacheSecurityGroup represents the AWS::ElastiCache::SecurityGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html 
@@ -38107,6 +38645,8 @@ type EventsEventBusPolicy struct {
 	Action *StringExpr `json:"Action,omitempty" validate:"dive,required"`
 	// Condition docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
 	Condition *EventsEventBusPolicyCondition `json:"Condition,omitempty"`
+	// EventBusName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-eventbusname
+	EventBusName *StringExpr `json:"EventBusName,omitempty"`
 	// Principal docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
 	Principal *StringExpr `json:"Principal,omitempty" validate:"dive,required"`
 	// StatementID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
@@ -38668,7 +39208,7 @@ func (s GreengrassCoreDefinition) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassCoreDefinition) CfnResourceAttributes() []string {
-	return []string{"LatestVersionArn","Id","Arn","Name"}
+	return []string{"Id","Arn","Name","LatestVersionArn"}
 }
 // GreengrassCoreDefinitionVersion represents the AWS::Greengrass::CoreDefinitionVersion CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html 
@@ -38744,7 +39284,7 @@ func (s GreengrassFunctionDefinition) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassFunctionDefinition) CfnResourceAttributes() []string {
-	return []string{"Name","LatestVersionArn","Id","Arn"}
+	return []string{"Arn","Name","LatestVersionArn","Id"}
 }
 // GreengrassFunctionDefinitionVersion represents the AWS::Greengrass::FunctionDefinitionVersion CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html 
@@ -38874,7 +39414,7 @@ func (s GreengrassResourceDefinition) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassResourceDefinition) CfnResourceAttributes() []string {
-	return []string{"Arn","Name","LatestVersionArn","Id"}
+	return []string{"Id","Arn","Name","LatestVersionArn"}
 }
 // GreengrassResourceDefinitionVersion represents the AWS::Greengrass::ResourceDefinitionVersion CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html 
@@ -40360,7 +40900,7 @@ func (s MediaLiveInput) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s MediaLiveInput) CfnResourceAttributes() []string {
-	return []string{"Destinations","Arn","Sources"}
+	return []string{"Sources","Destinations","Arn"}
 }
 // MediaLiveInputSecurityGroup represents the AWS::MediaLive::InputSecurityGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html 
@@ -40446,7 +40986,7 @@ func (s NeptuneDBCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s NeptuneDBCluster) CfnResourceAttributes() []string {
-	return []string{"Endpoint","Port","ReadEndpoint","ClusterResourceId"}
+	return []string{"ClusterResourceId","Endpoint","Port","ReadEndpoint"}
 }
 // NeptuneDBClusterParameterGroup represents the AWS::Neptune::DBClusterParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html 
@@ -40506,7 +41046,7 @@ func (s NeptuneDBInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s NeptuneDBInstance) CfnResourceAttributes() []string {
-	return []string{"Endpoint","Port"}
+	return []string{"Port","Endpoint"}
 }
 // NeptuneDBParameterGroup represents the AWS::Neptune::DBParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html 
@@ -40664,7 +41204,7 @@ func (s OpsWorksInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s OpsWorksInstance) CfnResourceAttributes() []string {
-	return []string{"PrivateDnsName","PrivateIp","PublicDnsName","PublicIp","AvailabilityZone"}
+	return []string{"AvailabilityZone","PrivateDnsName","PrivateIp","PublicDnsName","PublicIp"}
 }
 // OpsWorksLayer represents the AWS::OpsWorks::Layer CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html 
@@ -41029,6 +41569,8 @@ func (s PinpointAPNSVoipSandboxChannel) CfnResourceAttributes() []string {
 type PinpointApp struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-name
 	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-tags
+	Tags interface{} `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::Pinpoint::App to implement the ResourceProperties interface
@@ -41038,7 +41580,7 @@ func (s PinpointApp) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s PinpointApp) CfnResourceAttributes() []string {
-	return []string{}
+	return []string{"Arn"}
 }
 // PinpointApplicationSettings represents the AWS::Pinpoint::ApplicationSettings CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html 
@@ -41113,6 +41655,8 @@ type PinpointCampaign struct {
 	SegmentID *StringExpr `json:"SegmentId,omitempty" validate:"dive,required"`
 	// SegmentVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-segmentversion
 	SegmentVersion *IntegerExpr `json:"SegmentVersion,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-tags
+	Tags interface{} `json:"Tags,omitempty"`
 	// TreatmentDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-treatmentdescription
 	TreatmentDescription *StringExpr `json:"TreatmentDescription,omitempty"`
 	// TreatmentName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-treatmentname
@@ -41126,7 +41670,7 @@ func (s PinpointCampaign) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s PinpointCampaign) CfnResourceAttributes() []string {
-	return []string{"CampaignId"}
+	return []string{"CampaignId","Arn"}
 }
 // PinpointEmailChannel represents the AWS::Pinpoint::EmailChannel CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html 
@@ -41227,6 +41771,8 @@ type PinpointSegment struct {
 	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
 	// SegmentGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-segmentgroups
 	SegmentGroups *PinpointSegmentSegmentGroups `json:"SegmentGroups,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-tags
+	Tags interface{} `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::Pinpoint::Segment to implement the ResourceProperties interface
@@ -41236,7 +41782,7 @@ func (s PinpointSegment) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s PinpointSegment) CfnResourceAttributes() []string {
-	return []string{"SegmentId"}
+	return []string{"SegmentId","Arn"}
 }
 // PinpointVoiceChannel represents the AWS::Pinpoint::VoiceChannel CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html 
@@ -41324,7 +41870,7 @@ func (s PinpointEmailIdentity) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s PinpointEmailIdentity) CfnResourceAttributes() []string {
-	return []string{"IdentityDNSRecordValue1","IdentityDNSRecordName3","IdentityDNSRecordName1","IdentityDNSRecordName2","IdentityDNSRecordValue3","IdentityDNSRecordValue2"}
+	return []string{"IdentityDNSRecordName3","IdentityDNSRecordName1","IdentityDNSRecordName2","IdentityDNSRecordValue3","IdentityDNSRecordValue2","IdentityDNSRecordValue1"}
 }
 // QLDBLedger represents the AWS::QLDB::Ledger CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html 
@@ -41580,7 +42126,7 @@ func (s RDSDBInstance) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s RDSDBInstance) CfnResourceAttributes() []string {
-	return []string{"Endpoint.Address","Endpoint.Port"}
+	return []string{"Endpoint.Port","Endpoint.Address"}
 }
 // RDSDBParameterGroup represents the AWS::RDS::DBParameterGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html 
@@ -42160,7 +42706,7 @@ func (s Route53ResolverResolverRule) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s Route53ResolverResolverRule) CfnResourceAttributes() []string {
-	return []string{"Name","ResolverEndpointId","DomainName","ResolverRuleId","Arn","TargetIps"}
+	return []string{"ResolverEndpointId","DomainName","ResolverRuleId","Arn","TargetIps","Name"}
 }
 // Route53ResolverResolverRuleAssociation represents the AWS::Route53Resolver::ResolverRuleAssociation CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html 
@@ -43368,7 +43914,7 @@ func (s ServiceDiscoveryHTTPNamespace) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceDiscoveryHTTPNamespace) CfnResourceAttributes() []string {
-	return []string{"Id","Arn"}
+	return []string{"Arn","Id"}
 }
 // ServiceDiscoveryInstance represents the AWS::ServiceDiscovery::Instance CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html 
@@ -43426,7 +43972,7 @@ func (s ServiceDiscoveryPublicDNSNamespace) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceDiscoveryPublicDNSNamespace) CfnResourceAttributes() []string {
-	return []string{"Id","Arn"}
+	return []string{"Arn","Id"}
 }
 // ServiceDiscoveryService represents the AWS::ServiceDiscovery::Service CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html 
@@ -43452,7 +43998,7 @@ func (s ServiceDiscoveryService) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ServiceDiscoveryService) CfnResourceAttributes() []string {
-	return []string{"Id","Arn","Name"}
+	return []string{"Arn","Name","Id"}
 }
 // StepFunctionsActivity represents the AWS::StepFunctions::Activity CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html 
@@ -44139,8 +44685,18 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &CognitoUserPool{}
 	case "AWS::Cognito::UserPoolClient":
 		return &CognitoUserPoolClient{}
+	case "AWS::Cognito::UserPoolDomain":
+		return &CognitoUserPoolDomain{}
 	case "AWS::Cognito::UserPoolGroup":
 		return &CognitoUserPoolGroup{}
+	case "AWS::Cognito::UserPoolIdentityProvider":
+		return &CognitoUserPoolIdentityProvider{}
+	case "AWS::Cognito::UserPoolResourceServer":
+		return &CognitoUserPoolResourceServer{}
+	case "AWS::Cognito::UserPoolRiskConfigurationAttachment":
+		return &CognitoUserPoolRiskConfigurationAttachment{}
+	case "AWS::Cognito::UserPoolUICustomizationAttachment":
+		return &CognitoUserPoolUICustomizationAttachment{}
 	case "AWS::Cognito::UserPoolUser":
 		return &CognitoUserPoolUser{}
 	case "AWS::Cognito::UserPoolUserToGroupAttachment":
@@ -44261,6 +44817,14 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EC2SubnetNetworkACLAssociation{}
 	case "AWS::EC2::SubnetRouteTableAssociation":
 		return &EC2SubnetRouteTableAssociation{}
+	case "AWS::EC2::TrafficMirrorFilter":
+		return &EC2TrafficMirrorFilter{}
+	case "AWS::EC2::TrafficMirrorFilterRule":
+		return &EC2TrafficMirrorFilterRule{}
+	case "AWS::EC2::TrafficMirrorSession":
+		return &EC2TrafficMirrorSession{}
+	case "AWS::EC2::TrafficMirrorTarget":
+		return &EC2TrafficMirrorTarget{}
 	case "AWS::EC2::TransitGateway":
 		return &EC2TransitGateway{}
 	case "AWS::EC2::TransitGatewayAttachment":
