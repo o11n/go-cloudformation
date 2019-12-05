@@ -448,7 +448,9 @@ func RegisterCustomResourceProvider(provider CustomResourceProvider) {
 ////////////////////////////////////////////////////////////////////////////////
 // Write referenced properties
 ////////////////////////////////////////////////////////////////////////////////
-func writePropertyTypesDefinition(t *testing.T, propertyTypes map[string]PropertyTypes, w io.Writer) {
+func writePropertyTypesDefinition(t *testing.T,
+	propertyTypes map[string]PropertyTypes,
+	w io.Writer) {
 
 	// Sort the property names
 	sortedPropertyNames := make([]string, 0)
@@ -517,6 +519,9 @@ func writeResourceTypesDefinition(t *testing.T, resourceTypes map[string]Resourc
 			// Create the set of attributes for this type
 			attrNames = append(attrNames, eachAttrName)
 		}
+
+		// Sort them...
+		sort.Strings(attrNames)
 		// Create the entry that produces the set of all attributes...
 		golangTypename := canonicalGoTypename(t, eachResourceName, true)
 		// Write out the function that returns these as a string
