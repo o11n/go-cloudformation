@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 10.0.0
-// SOURCE CODE SHA: b51de29f58d8f01232a722b94be719b7740c4a1c
-// GENERATED: 2019-12-05 02:57:57.388869 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 10.1.0
+// SOURCE CODE SHA: 7c0f5b51ad9c162e95171f2205b667fe5ae2d762
+// GENERATED: 2019-12-14 13:35:30.457586 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "10.0.0"
+const ResourceSpecificationVersion = "10.1.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -46835,12 +46835,16 @@ func (s PinpointEmailChannel) CfnResourceAttributes() []string {
 // PinpointEmailTemplate represents the AWS::Pinpoint::EmailTemplate CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html 
 type PinpointEmailTemplate struct {
+	// DefaultSubstitutions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-defaultsubstitutions
+	DefaultSubstitutions *StringExpr `json:"DefaultSubstitutions,omitempty"`
 	// HtmlPart docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-htmlpart
 	HtmlPart *StringExpr `json:"HtmlPart,omitempty"`
 	// Subject docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-subject
 	Subject *StringExpr `json:"Subject,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-tags
 	Tags interface{} `json:"Tags,omitempty"`
+	// TemplateDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-templatedescription
+	TemplateDescription *StringExpr `json:"TemplateDescription,omitempty"`
 	// TemplateName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-templatename
 	TemplateName *StringExpr `json:"TemplateName,omitempty" validate:"dive,required"`
 	// TextPart docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-textpart
@@ -46907,10 +46911,14 @@ type PinpointPushTemplate struct {
 	Baidu *PinpointPushTemplateAndroidPushNotificationTemplate `json:"Baidu,omitempty"`
 	// Default docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-default
 	Default *PinpointPushTemplateDefaultPushNotificationTemplate `json:"Default,omitempty"`
+	// DefaultSubstitutions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-defaultsubstitutions
+	DefaultSubstitutions *StringExpr `json:"DefaultSubstitutions,omitempty"`
 	// GCM docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-gcm
 	GCM *PinpointPushTemplateAndroidPushNotificationTemplate `json:"GCM,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-tags
 	Tags interface{} `json:"Tags,omitempty"`
+	// TemplateDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-templatedescription
+	TemplateDescription *StringExpr `json:"TemplateDescription,omitempty"`
 	// TemplateName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-templatename
 	TemplateName *StringExpr `json:"TemplateName,omitempty" validate:"dive,required"`
 }
@@ -46975,8 +46983,12 @@ func (s PinpointSegment) CfnResourceAttributes() []string {
 type PinpointSmsTemplate struct {
 	// Body docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-body
 	Body *StringExpr `json:"Body,omitempty" validate:"dive,required"`
+	// DefaultSubstitutions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-defaultsubstitutions
+	DefaultSubstitutions *StringExpr `json:"DefaultSubstitutions,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-tags
 	Tags interface{} `json:"Tags,omitempty"`
+	// TemplateDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-templatedescription
+	TemplateDescription *StringExpr `json:"TemplateDescription,omitempty"`
 	// TemplateName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-templatename
 	TemplateName *StringExpr `json:"TemplateName,omitempty" validate:"dive,required"`
 }
