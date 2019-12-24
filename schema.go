@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 10.1.0
-// SOURCE CODE SHA: 7c0f5b51ad9c162e95171f2205b667fe5ae2d762
-// GENERATED: 2019-12-14 13:35:30.457586 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 10.2.0
+// SOURCE CODE SHA: e7e247d21f5fe57abe094c74a2a396e8944d7d69
+// GENERATED: 2019-12-24 14:02:37.666458 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "10.1.0"
+const ResourceSpecificationVersion = "10.2.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -6936,6 +6936,68 @@ func (l *CodeBuildProjectWebhookFilterList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// CodeBuildReportGroupReportExportConfig represents the AWS::CodeBuild::ReportGroup.ReportExportConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-reportexportconfig.html 
+type CodeBuildReportGroupReportExportConfig struct {
+	// ExportConfigType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-reportexportconfig.html#cfn-codebuild-reportgroup-reportexportconfig-exportconfigtype
+	ExportConfigType *StringExpr `json:"ExportConfigType,omitempty" validate:"dive,required"`
+	// S3Destination docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-reportexportconfig.html#cfn-codebuild-reportgroup-reportexportconfig-s3destination
+	S3Destination *CodeBuildReportGroupS3ReportExportConfig `json:"S3Destination,omitempty"`
+}
+
+// CodeBuildReportGroupReportExportConfigList represents a list of CodeBuildReportGroupReportExportConfig
+type CodeBuildReportGroupReportExportConfigList []CodeBuildReportGroupReportExportConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodeBuildReportGroupReportExportConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodeBuildReportGroupReportExportConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodeBuildReportGroupReportExportConfigList{item}
+		return nil
+	}
+	list := []CodeBuildReportGroupReportExportConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodeBuildReportGroupReportExportConfigList(list)
+		return nil
+	}
+	return err
+}
+// CodeBuildReportGroupS3ReportExportConfig represents the AWS::CodeBuild::ReportGroup.S3ReportExportConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html 
+type CodeBuildReportGroupS3ReportExportConfig struct {
+	// Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-bucket
+	Bucket *StringExpr `json:"Bucket,omitempty" validate:"dive,required"`
+	// EncryptionDisabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-encryptiondisabled
+	EncryptionDisabled *BoolExpr `json:"EncryptionDisabled,omitempty"`
+	// EncryptionKey docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-encryptionkey
+	EncryptionKey *StringExpr `json:"EncryptionKey,omitempty"`
+	// Packaging docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-packaging
+	Packaging *StringExpr `json:"Packaging,omitempty"`
+	// Path docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html#cfn-codebuild-reportgroup-s3reportexportconfig-path
+	Path *StringExpr `json:"Path,omitempty"`
+}
+
+// CodeBuildReportGroupS3ReportExportConfigList represents a list of CodeBuildReportGroupS3ReportExportConfig
+type CodeBuildReportGroupS3ReportExportConfigList []CodeBuildReportGroupS3ReportExportConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodeBuildReportGroupS3ReportExportConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodeBuildReportGroupS3ReportExportConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodeBuildReportGroupS3ReportExportConfigList{item}
+		return nil
+	}
+	list := []CodeBuildReportGroupS3ReportExportConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodeBuildReportGroupS3ReportExportConfigList(list)
+		return nil
+	}
+	return err
+}
 // CodeCommitRepositoryCode represents the AWS::CodeCommit::Repository.Code CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html 
 type CodeCommitRepositoryCode struct {
@@ -9516,13 +9578,79 @@ func (l *DLMLifecyclePolicyCreateRuleList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// DLMLifecyclePolicyCrossRegionCopyRetainRule represents the AWS::DLM::LifecyclePolicy.CrossRegionCopyRetainRule CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html 
+type DLMLifecyclePolicyCrossRegionCopyRetainRule struct {
+	// Interval docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-interval
+	Interval *IntegerExpr `json:"Interval,omitempty"`
+	// IntervalUnit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-intervalunit
+	IntervalUnit *StringExpr `json:"IntervalUnit,omitempty"`
+}
+
+// DLMLifecyclePolicyCrossRegionCopyRetainRuleList represents a list of DLMLifecyclePolicyCrossRegionCopyRetainRule
+type DLMLifecyclePolicyCrossRegionCopyRetainRuleList []DLMLifecyclePolicyCrossRegionCopyRetainRule
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *DLMLifecyclePolicyCrossRegionCopyRetainRuleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := DLMLifecyclePolicyCrossRegionCopyRetainRule{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = DLMLifecyclePolicyCrossRegionCopyRetainRuleList{item}
+		return nil
+	}
+	list := []DLMLifecyclePolicyCrossRegionCopyRetainRule{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = DLMLifecyclePolicyCrossRegionCopyRetainRuleList(list)
+		return nil
+	}
+	return err
+}
+// DLMLifecyclePolicyCrossRegionCopyRule represents the AWS::DLM::LifecyclePolicy.CrossRegionCopyRule CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html 
+type DLMLifecyclePolicyCrossRegionCopyRule struct {
+	// CmkArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-cmkarn
+	CmkArn *StringExpr `json:"CmkArn,omitempty"`
+	// CopyTags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-copytags
+	CopyTags *BoolExpr `json:"CopyTags,omitempty"`
+	// Encrypted docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-encrypted
+	Encrypted *BoolExpr `json:"Encrypted,omitempty"`
+	// RetainRule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-retainrule
+	RetainRule *DLMLifecyclePolicyCrossRegionCopyRetainRule `json:"RetainRule,omitempty"`
+	// TargetRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-targetregion
+	TargetRegion *StringExpr `json:"TargetRegion,omitempty"`
+}
+
+// DLMLifecyclePolicyCrossRegionCopyRuleList represents a list of DLMLifecyclePolicyCrossRegionCopyRule
+type DLMLifecyclePolicyCrossRegionCopyRuleList []DLMLifecyclePolicyCrossRegionCopyRule
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *DLMLifecyclePolicyCrossRegionCopyRuleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := DLMLifecyclePolicyCrossRegionCopyRule{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = DLMLifecyclePolicyCrossRegionCopyRuleList{item}
+		return nil
+	}
+	list := []DLMLifecyclePolicyCrossRegionCopyRule{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = DLMLifecyclePolicyCrossRegionCopyRuleList(list)
+		return nil
+	}
+	return err
+}
 // DLMLifecyclePolicyFastRestoreRule represents the AWS::DLM::LifecyclePolicy.FastRestoreRule CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html 
 type DLMLifecyclePolicyFastRestoreRule struct {
 	// AvailabilityZones docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-availabilityzones
 	AvailabilityZones *StringListExpr `json:"AvailabilityZones,omitempty"`
 	// Count docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-count
-	Count *IntegerExpr `json:"Count,omitempty" validate:"dive,required"`
+	Count *IntegerExpr `json:"Count,omitempty"`
+	// Interval docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-interval
+	Interval *IntegerExpr `json:"Interval,omitempty"`
+	// IntervalUnit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-intervalunit
+	IntervalUnit *StringExpr `json:"IntervalUnit,omitempty"`
 }
 
 // DLMLifecyclePolicyFastRestoreRuleList represents a list of DLMLifecyclePolicyFastRestoreRule
@@ -9578,11 +9706,11 @@ type DLMLifecyclePolicyPolicyDetails struct {
 	// PolicyType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policytype
 	PolicyType *StringExpr `json:"PolicyType,omitempty"`
 	// ResourceTypes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes
-	ResourceTypes *StringListExpr `json:"ResourceTypes,omitempty"`
+	ResourceTypes *StringListExpr `json:"ResourceTypes,omitempty" validate:"dive,required"`
 	// Schedules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-schedules
-	Schedules *DLMLifecyclePolicyScheduleList `json:"Schedules,omitempty"`
+	Schedules *DLMLifecyclePolicyScheduleList `json:"Schedules,omitempty" validate:"dive,required"`
 	// TargetTags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
-	TargetTags *TagList `json:"TargetTags,omitempty"`
+	TargetTags *TagList `json:"TargetTags,omitempty" validate:"dive,required"`
 }
 
 // DLMLifecyclePolicyPolicyDetailsList represents a list of DLMLifecyclePolicyPolicyDetails
@@ -9608,7 +9736,11 @@ func (l *DLMLifecyclePolicyPolicyDetailsList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html 
 type DLMLifecyclePolicyRetainRule struct {
 	// Count docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-count
-	Count *IntegerExpr `json:"Count,omitempty" validate:"dive,required"`
+	Count *IntegerExpr `json:"Count,omitempty"`
+	// Interval docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-interval
+	Interval *IntegerExpr `json:"Interval,omitempty"`
+	// IntervalUnit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-intervalunit
+	IntervalUnit *StringExpr `json:"IntervalUnit,omitempty"`
 }
 
 // DLMLifecyclePolicyRetainRuleList represents a list of DLMLifecyclePolicyRetainRule
@@ -9637,6 +9769,8 @@ type DLMLifecyclePolicySchedule struct {
 	CopyTags *BoolExpr `json:"CopyTags,omitempty"`
 	// CreateRule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-createrule
 	CreateRule *DLMLifecyclePolicyCreateRule `json:"CreateRule,omitempty"`
+	// CrossRegionCopyRules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-crossregioncopyrules
+	CrossRegionCopyRules *DLMLifecyclePolicyCrossRegionCopyRuleList `json:"CrossRegionCopyRules,omitempty"`
 	// FastRestoreRule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-fastrestorerule
 	FastRestoreRule *DLMLifecyclePolicyFastRestoreRule `json:"FastRestoreRule,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-name
@@ -26908,6 +27042,112 @@ func (l *MSKClusterEncryptionInfoList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// MSKClusterJmxExporter represents the AWS::MSK::Cluster.JmxExporter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html 
+type MSKClusterJmxExporter struct {
+	// EnabledInBroker docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html#cfn-msk-cluster-jmxexporter-enabledinbroker
+	EnabledInBroker *BoolExpr `json:"EnabledInBroker,omitempty" validate:"dive,required"`
+}
+
+// MSKClusterJmxExporterList represents a list of MSKClusterJmxExporter
+type MSKClusterJmxExporterList []MSKClusterJmxExporter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterJmxExporterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterJmxExporter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterJmxExporterList{item}
+		return nil
+	}
+	list := []MSKClusterJmxExporter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterJmxExporterList(list)
+		return nil
+	}
+	return err
+}
+// MSKClusterNodeExporter represents the AWS::MSK::Cluster.NodeExporter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-nodeexporter.html 
+type MSKClusterNodeExporter struct {
+	// EnabledInBroker docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-nodeexporter.html#cfn-msk-cluster-nodeexporter-enabledinbroker
+	EnabledInBroker *BoolExpr `json:"EnabledInBroker,omitempty" validate:"dive,required"`
+}
+
+// MSKClusterNodeExporterList represents a list of MSKClusterNodeExporter
+type MSKClusterNodeExporterList []MSKClusterNodeExporter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterNodeExporterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterNodeExporter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterNodeExporterList{item}
+		return nil
+	}
+	list := []MSKClusterNodeExporter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterNodeExporterList(list)
+		return nil
+	}
+	return err
+}
+// MSKClusterOpenMonitoring represents the AWS::MSK::Cluster.OpenMonitoring CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html 
+type MSKClusterOpenMonitoring struct {
+	// Prometheus docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html#cfn-msk-cluster-openmonitoring-prometheus
+	Prometheus *MSKClusterPrometheus `json:"Prometheus,omitempty" validate:"dive,required"`
+}
+
+// MSKClusterOpenMonitoringList represents a list of MSKClusterOpenMonitoring
+type MSKClusterOpenMonitoringList []MSKClusterOpenMonitoring
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterOpenMonitoringList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterOpenMonitoring{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterOpenMonitoringList{item}
+		return nil
+	}
+	list := []MSKClusterOpenMonitoring{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterOpenMonitoringList(list)
+		return nil
+	}
+	return err
+}
+// MSKClusterPrometheus represents the AWS::MSK::Cluster.Prometheus CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html 
+type MSKClusterPrometheus struct {
+	// JmxExporter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-jmxexporter
+	JmxExporter *MSKClusterJmxExporter `json:"JmxExporter,omitempty"`
+	// NodeExporter docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-nodeexporter
+	NodeExporter *MSKClusterNodeExporter `json:"NodeExporter,omitempty"`
+}
+
+// MSKClusterPrometheusList represents a list of MSKClusterPrometheus
+type MSKClusterPrometheusList []MSKClusterPrometheus
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterPrometheusList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterPrometheus{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterPrometheusList{item}
+		return nil
+	}
+	list := []MSKClusterPrometheus{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterPrometheusList(list)
+		return nil
+	}
+	return err
+}
 // MSKClusterStorageInfo represents the AWS::MSK::Cluster.StorageInfo CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html 
 type MSKClusterStorageInfo struct {
@@ -39332,6 +39572,8 @@ type Cloud9EnvironmentEC2 struct {
 	Repositories *Cloud9EnvironmentEC2RepositoryList `json:"Repositories,omitempty"`
 	// SubnetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-subnetid
 	SubnetID *StringExpr `json:"SubnetId,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::Cloud9::EnvironmentEC2 to implement the ResourceProperties interface
@@ -39708,6 +39950,26 @@ func (s CodeBuildProject) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s CodeBuildProject) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
+// CodeBuildReportGroup represents the AWS::CodeBuild::ReportGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html 
+type CodeBuildReportGroup struct {
+	// ExportConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
+	ExportConfig *CodeBuildReportGroupReportExportConfig `json:"ExportConfig,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-type
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::CodeBuild::ReportGroup to implement the ResourceProperties interface
+func (s CodeBuildReportGroup) CfnResourceType() string {
+	
+	return "AWS::CodeBuild::ReportGroup"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CodeBuildReportGroup) CfnResourceAttributes() []string {
 	return []string{"Arn"}
 }
 // CodeBuildSourceCredential represents the AWS::CodeBuild::SourceCredential CloudFormation resource type
@@ -41339,6 +41601,24 @@ func (s EC2FlowLog) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2FlowLog) CfnResourceAttributes() []string {
 	return []string{}
+}
+// EC2GatewayRouteTableAssociation represents the AWS::EC2::GatewayRouteTableAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html 
+type EC2GatewayRouteTableAssociation struct {
+	// GatewayID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+	GatewayID *StringExpr `json:"GatewayId,omitempty" validate:"dive,required"`
+	// RouteTableID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+	RouteTableID *StringExpr `json:"RouteTableId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::EC2::GatewayRouteTableAssociation to implement the ResourceProperties interface
+func (s EC2GatewayRouteTableAssociation) CfnResourceType() string {
+	
+	return "AWS::EC2::GatewayRouteTableAssociation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EC2GatewayRouteTableAssociation) CfnResourceAttributes() []string {
+	return []string{"AssociationId"}
 }
 // EC2Host represents the AWS::EC2::Host CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html 
@@ -45873,6 +46153,8 @@ type MSKCluster struct {
 	KafkaVersion *StringExpr `json:"KafkaVersion,omitempty" validate:"dive,required"`
 	// NumberOfBrokerNodes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes
 	NumberOfBrokerNodes *IntegerExpr `json:"NumberOfBrokerNodes,omitempty" validate:"dive,required"`
+	// OpenMonitoring docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-openmonitoring
+	OpenMonitoring *MSKClusterOpenMonitoring `json:"OpenMonitoring,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-tags
 	Tags interface{} `json:"Tags,omitempty"`
 }
@@ -47297,6 +47579,8 @@ type RDSDBInstance struct {
 	MasterUserPassword *StringExpr `json:"MasterUserPassword,omitempty"`
 	// MasterUsername docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masterusername
 	MasterUsername *StringExpr `json:"MasterUsername,omitempty"`
+	// MaxAllocatedStorage docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-maxallocatedstorage
+	MaxAllocatedStorage *IntegerExpr `json:"MaxAllocatedStorage,omitempty"`
 	// MonitoringInterval docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval
 	MonitoringInterval *IntegerExpr `json:"MonitoringInterval,omitempty"`
 	// MonitoringRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringrolearn
@@ -48329,6 +48613,8 @@ type SSMDocument struct {
 	Content interface{} `json:"Content,omitempty" validate:"dive,required"`
 	// DocumentType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
 	DocumentType *StringExpr `json:"DocumentType,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+	Name *StringExpr `json:"Name,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
 	Tags *TagList `json:"Tags,omitempty"`
 }
@@ -50033,6 +50319,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &CloudWatchInsightRule{}
 	case "AWS::CodeBuild::Project":
 		return &CodeBuildProject{}
+	case "AWS::CodeBuild::ReportGroup":
+		return &CodeBuildReportGroup{}
 	case "AWS::CodeBuild::SourceCredential":
 		return &CodeBuildSourceCredential{}
 	case "AWS::CodeCommit::Repository":
@@ -50151,6 +50439,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EC2EgressOnlyInternetGateway{}
 	case "AWS::EC2::FlowLog":
 		return &EC2FlowLog{}
+	case "AWS::EC2::GatewayRouteTableAssociation":
+		return &EC2GatewayRouteTableAssociation{}
 	case "AWS::EC2::Host":
 		return &EC2Host{}
 	case "AWS::EC2::Instance":
