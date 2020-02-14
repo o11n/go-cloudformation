@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 10.4.0
-// SOURCE CODE SHA: 3d9e648fa883304e4d382d50ced0f4ebe18768b8
-// GENERATED: 2020-02-02 00:29:12.656644 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 10.5.0
+// SOURCE CODE SHA: 9c3a1cfe356867833f9247591c1fb9ef7cc62629
+// GENERATED: 2020-02-14 04:54:38.834464 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "10.4.0"
+const ResourceSpecificationVersion = "10.5.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -32,6 +32,144 @@ func RegisterCustomResourceProvider(provider CustomResourceProvider) {
 //                 |_|
 //
 
+// ACMPCACertificateValidity represents the AWS::ACMPCA::Certificate.Validity CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html 
+type ACMPCACertificateValidity struct {
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
+	Value *IntegerExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// ACMPCACertificateValidityList represents a list of ACMPCACertificateValidity
+type ACMPCACertificateValidityList []ACMPCACertificateValidity
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ACMPCACertificateValidityList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ACMPCACertificateValidity{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ACMPCACertificateValidityList{item}
+		return nil
+	}
+	list := []ACMPCACertificateValidity{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ACMPCACertificateValidityList(list)
+		return nil
+	}
+	return err
+}
+// ACMPCACertificateAuthorityCrlConfiguration represents the AWS::ACMPCA::CertificateAuthority.CrlConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html 
+type ACMPCACertificateAuthorityCrlConfiguration struct {
+	// CustomCname docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
+	CustomCname *StringExpr `json:"CustomCname,omitempty"`
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty"`
+	// ExpirationInDays docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
+	ExpirationInDays *IntegerExpr `json:"ExpirationInDays,omitempty"`
+	// S3BucketName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
+	S3BucketName *StringExpr `json:"S3BucketName,omitempty"`
+}
+
+// ACMPCACertificateAuthorityCrlConfigurationList represents a list of ACMPCACertificateAuthorityCrlConfiguration
+type ACMPCACertificateAuthorityCrlConfigurationList []ACMPCACertificateAuthorityCrlConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ACMPCACertificateAuthorityCrlConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ACMPCACertificateAuthorityCrlConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ACMPCACertificateAuthorityCrlConfigurationList{item}
+		return nil
+	}
+	list := []ACMPCACertificateAuthorityCrlConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ACMPCACertificateAuthorityCrlConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// ACMPCACertificateAuthorityRevocationConfiguration represents the AWS::ACMPCA::CertificateAuthority.RevocationConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html 
+type ACMPCACertificateAuthorityRevocationConfiguration struct {
+	// CrlConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
+	CrlConfiguration *ACMPCACertificateAuthorityCrlConfiguration `json:"CrlConfiguration,omitempty"`
+}
+
+// ACMPCACertificateAuthorityRevocationConfigurationList represents a list of ACMPCACertificateAuthorityRevocationConfiguration
+type ACMPCACertificateAuthorityRevocationConfigurationList []ACMPCACertificateAuthorityRevocationConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ACMPCACertificateAuthorityRevocationConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ACMPCACertificateAuthorityRevocationConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ACMPCACertificateAuthorityRevocationConfigurationList{item}
+		return nil
+	}
+	list := []ACMPCACertificateAuthorityRevocationConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ACMPCACertificateAuthorityRevocationConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// ACMPCACertificateAuthoritySubject represents the AWS::ACMPCA::CertificateAuthority.Subject CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html 
+type ACMPCACertificateAuthoritySubject struct {
+	// CommonName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-commonname
+	CommonName *StringExpr `json:"CommonName,omitempty"`
+	// Country docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-country
+	Country *StringExpr `json:"Country,omitempty"`
+	// DistinguishedNameQualifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-distinguishednamequalifier
+	DistinguishedNameQualifier *StringExpr `json:"DistinguishedNameQualifier,omitempty"`
+	// GenerationQualifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-generationqualifier
+	GenerationQualifier *StringExpr `json:"GenerationQualifier,omitempty"`
+	// GivenName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-givenname
+	GivenName *StringExpr `json:"GivenName,omitempty"`
+	// Initials docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-initials
+	Initials *StringExpr `json:"Initials,omitempty"`
+	// Locality docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-locality
+	Locality *StringExpr `json:"Locality,omitempty"`
+	// Organization docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organization
+	Organization *StringExpr `json:"Organization,omitempty"`
+	// OrganizationalUnit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organizationalunit
+	OrganizationalUnit *StringExpr `json:"OrganizationalUnit,omitempty"`
+	// Pseudonym docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-pseudonym
+	Pseudonym *StringExpr `json:"Pseudonym,omitempty"`
+	// SerialNumber docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-serialnumber
+	SerialNumber *StringExpr `json:"SerialNumber,omitempty"`
+	// State docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-state
+	State *StringExpr `json:"State,omitempty"`
+	// Surname docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-surname
+	Surname *StringExpr `json:"Surname,omitempty"`
+	// Title docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-title
+	Title *StringExpr `json:"Title,omitempty"`
+}
+
+// ACMPCACertificateAuthoritySubjectList represents a list of ACMPCACertificateAuthoritySubject
+type ACMPCACertificateAuthoritySubjectList []ACMPCACertificateAuthoritySubject
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ACMPCACertificateAuthoritySubjectList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ACMPCACertificateAuthoritySubject{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ACMPCACertificateAuthoritySubjectList{item}
+		return nil
+	}
+	list := []ACMPCACertificateAuthoritySubject{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ACMPCACertificateAuthoritySubjectList(list)
+		return nil
+	}
+	return err
+}
 // AccessAnalyzerAnalyzerArchiveRule represents the AWS::AccessAnalyzer::Analyzer.ArchiveRule CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html 
 type AccessAnalyzerAnalyzerArchiveRule struct {
@@ -1428,6 +1566,202 @@ func (l *APIGatewayV2StageRouteSettingsList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = APIGatewayV2StageRouteSettingsList(list)
+		return nil
+	}
+	return err
+}
+// AppConfigApplicationTags represents the AWS::AppConfig::Application.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-application-tags.html 
+type AppConfigApplicationTags struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-application-tags.html#cfn-appconfig-application-tags-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-application-tags.html#cfn-appconfig-application-tags-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppConfigApplicationTagsList represents a list of AppConfigApplicationTags
+type AppConfigApplicationTagsList []AppConfigApplicationTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppConfigApplicationTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppConfigApplicationTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppConfigApplicationTagsList{item}
+		return nil
+	}
+	list := []AppConfigApplicationTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppConfigApplicationTagsList(list)
+		return nil
+	}
+	return err
+}
+// AppConfigConfigurationProfileTags represents the AWS::AppConfig::ConfigurationProfile.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-tags.html 
+type AppConfigConfigurationProfileTags struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-tags.html#cfn-appconfig-configurationprofile-tags-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-tags.html#cfn-appconfig-configurationprofile-tags-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppConfigConfigurationProfileTagsList represents a list of AppConfigConfigurationProfileTags
+type AppConfigConfigurationProfileTagsList []AppConfigConfigurationProfileTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppConfigConfigurationProfileTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppConfigConfigurationProfileTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppConfigConfigurationProfileTagsList{item}
+		return nil
+	}
+	list := []AppConfigConfigurationProfileTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppConfigConfigurationProfileTagsList(list)
+		return nil
+	}
+	return err
+}
+// AppConfigConfigurationProfileValidators represents the AWS::AppConfig::ConfigurationProfile.Validators CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html 
+type AppConfigConfigurationProfileValidators struct {
+	// Content docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html#cfn-appconfig-configurationprofile-validators-content
+	Content *StringExpr `json:"Content,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html#cfn-appconfig-configurationprofile-validators-type
+	Type *StringExpr `json:"Type,omitempty"`
+}
+
+// AppConfigConfigurationProfileValidatorsList represents a list of AppConfigConfigurationProfileValidators
+type AppConfigConfigurationProfileValidatorsList []AppConfigConfigurationProfileValidators
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppConfigConfigurationProfileValidatorsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppConfigConfigurationProfileValidators{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppConfigConfigurationProfileValidatorsList{item}
+		return nil
+	}
+	list := []AppConfigConfigurationProfileValidators{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppConfigConfigurationProfileValidatorsList(list)
+		return nil
+	}
+	return err
+}
+// AppConfigDeploymentTags represents the AWS::AppConfig::Deployment.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-tags.html 
+type AppConfigDeploymentTags struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-tags.html#cfn-appconfig-deployment-tags-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-tags.html#cfn-appconfig-deployment-tags-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppConfigDeploymentTagsList represents a list of AppConfigDeploymentTags
+type AppConfigDeploymentTagsList []AppConfigDeploymentTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppConfigDeploymentTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppConfigDeploymentTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppConfigDeploymentTagsList{item}
+		return nil
+	}
+	list := []AppConfigDeploymentTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppConfigDeploymentTagsList(list)
+		return nil
+	}
+	return err
+}
+// AppConfigDeploymentStrategyTags represents the AWS::AppConfig::DeploymentStrategy.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deploymentstrategy-tags.html 
+type AppConfigDeploymentStrategyTags struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deploymentstrategy-tags.html#cfn-appconfig-deploymentstrategy-tags-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deploymentstrategy-tags.html#cfn-appconfig-deploymentstrategy-tags-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppConfigDeploymentStrategyTagsList represents a list of AppConfigDeploymentStrategyTags
+type AppConfigDeploymentStrategyTagsList []AppConfigDeploymentStrategyTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppConfigDeploymentStrategyTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppConfigDeploymentStrategyTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppConfigDeploymentStrategyTagsList{item}
+		return nil
+	}
+	list := []AppConfigDeploymentStrategyTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppConfigDeploymentStrategyTagsList(list)
+		return nil
+	}
+	return err
+}
+// AppConfigEnvironmentMonitors represents the AWS::AppConfig::Environment.Monitors CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html 
+type AppConfigEnvironmentMonitors struct {
+	// AlarmArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmarn
+	AlarmArn *StringExpr `json:"AlarmArn,omitempty"`
+	// AlarmRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmrolearn
+	AlarmRoleArn *StringExpr `json:"AlarmRoleArn,omitempty"`
+}
+
+// AppConfigEnvironmentMonitorsList represents a list of AppConfigEnvironmentMonitors
+type AppConfigEnvironmentMonitorsList []AppConfigEnvironmentMonitors
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppConfigEnvironmentMonitorsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppConfigEnvironmentMonitors{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppConfigEnvironmentMonitorsList{item}
+		return nil
+	}
+	list := []AppConfigEnvironmentMonitors{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppConfigEnvironmentMonitorsList(list)
+		return nil
+	}
+	return err
+}
+// AppConfigEnvironmentTags represents the AWS::AppConfig::Environment.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-tags.html 
+type AppConfigEnvironmentTags struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-tags.html#cfn-appconfig-environment-tags-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-tags.html#cfn-appconfig-environment-tags-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// AppConfigEnvironmentTagsList represents a list of AppConfigEnvironmentTags
+type AppConfigEnvironmentTagsList []AppConfigEnvironmentTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppConfigEnvironmentTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppConfigEnvironmentTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppConfigEnvironmentTagsList{item}
+		return nil
+	}
+	list := []AppConfigEnvironmentTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppConfigEnvironmentTagsList(list)
 		return nil
 	}
 	return err
@@ -11821,6 +12155,8 @@ type EC2LaunchTemplateLaunchTemplateData struct {
 	KeyName *StringExpr `json:"KeyName,omitempty"`
 	// LicenseSpecifications docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
 	LicenseSpecifications *EC2LaunchTemplateLicenseSpecificationList `json:"LicenseSpecifications,omitempty"`
+	// MetadataOptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions
+	MetadataOptions *EC2LaunchTemplateMetadataOptions `json:"MetadataOptions,omitempty"`
 	// Monitoring docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring
 	Monitoring *EC2LaunchTemplateMonitoring `json:"Monitoring,omitempty"`
 	// NetworkInterfaces docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces
@@ -11861,6 +12197,8 @@ func (l *EC2LaunchTemplateLaunchTemplateDataList) UnmarshalJSON(buf []byte) erro
 // EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator represents the AWS::EC2::LaunchTemplate.LaunchTemplateElasticInferenceAccelerator CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html 
 type EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator struct {
+	// Count docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-count
+	Count *IntegerExpr `json:"Count,omitempty"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-type
 	Type *StringExpr `json:"Type,omitempty"`
 }
@@ -11906,6 +12244,36 @@ func (l *EC2LaunchTemplateLicenseSpecificationList) UnmarshalJSON(buf []byte) er
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = EC2LaunchTemplateLicenseSpecificationList(list)
+		return nil
+	}
+	return err
+}
+// EC2LaunchTemplateMetadataOptions represents the AWS::EC2::LaunchTemplate.MetadataOptions CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html 
+type EC2LaunchTemplateMetadataOptions struct {
+	// HTTPEndpoint docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint
+	HTTPEndpoint *StringExpr `json:"HttpEndpoint,omitempty"`
+	// HTTPPutResponseHopLimit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpputresponsehoplimit
+	HTTPPutResponseHopLimit *IntegerExpr `json:"HttpPutResponseHopLimit,omitempty"`
+	// HTTPTokens docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httptokens
+	HTTPTokens *StringExpr `json:"HttpTokens,omitempty"`
+}
+
+// EC2LaunchTemplateMetadataOptionsList represents a list of EC2LaunchTemplateMetadataOptions
+type EC2LaunchTemplateMetadataOptionsList []EC2LaunchTemplateMetadataOptions
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EC2LaunchTemplateMetadataOptionsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EC2LaunchTemplateMetadataOptions{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EC2LaunchTemplateMetadataOptionsList{item}
+		return nil
+	}
+	list := []EC2LaunchTemplateMetadataOptions{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EC2LaunchTemplateMetadataOptionsList(list)
 		return nil
 	}
 	return err
@@ -11997,6 +12365,12 @@ type EC2LaunchTemplatePlacement struct {
 	GroupName *StringExpr `json:"GroupName,omitempty"`
 	// HostID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostid
 	HostID *StringExpr `json:"HostId,omitempty"`
+	// HostResourceGroupArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostresourcegrouparn
+	HostResourceGroupArn *StringExpr `json:"HostResourceGroupArn,omitempty"`
+	// PartitionNumber docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-partitionnumber
+	PartitionNumber *IntegerExpr `json:"PartitionNumber,omitempty"`
+	// SpreadDomain docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-spreaddomain
+	SpreadDomain *StringExpr `json:"SpreadDomain,omitempty"`
 	// Tenancy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-tenancy
 	Tenancy *StringExpr `json:"Tenancy,omitempty"`
 }
@@ -17905,12 +18279,16 @@ func (l *EventsRuleTargetList) UnmarshalJSON(buf []byte) error {
 // FSxFileSystemLustreConfiguration represents the AWS::FSx::FileSystem.LustreConfiguration CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html 
 type FSxFileSystemLustreConfiguration struct {
+	// DeploymentType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
+	DeploymentType *StringExpr `json:"DeploymentType,omitempty"`
 	// ExportPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
 	ExportPath *StringExpr `json:"ExportPath,omitempty"`
 	// ImportPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importpath
 	ImportPath *StringExpr `json:"ImportPath,omitempty"`
 	// ImportedFileChunkSize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importedfilechunksize
 	ImportedFileChunkSize *IntegerExpr `json:"ImportedFileChunkSize,omitempty"`
+	// PerUnitStorageThroughput docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-perunitstoragethroughput
+	PerUnitStorageThroughput *IntegerExpr `json:"PerUnitStorageThroughput,omitempty"`
 	// WeeklyMaintenanceStartTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-weeklymaintenancestarttime
 	WeeklyMaintenanceStartTime time.Time `json:"WeeklyMaintenanceStartTime,omitempty"`
 }
@@ -27396,262 +27774,6 @@ func (l *MSKClusterTlsList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = MSKClusterTlsList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberApprovalThresholdPolicy represents the AWS::ManagedBlockchain::Member.ApprovalThresholdPolicy CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html 
-type ManagedBlockchainMemberApprovalThresholdPolicy struct {
-	// ProposalDurationInHours docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-proposaldurationinhours
-	ProposalDurationInHours *IntegerExpr `json:"ProposalDurationInHours,omitempty"`
-	// ThresholdComparator docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-thresholdcomparator
-	ThresholdComparator *StringExpr `json:"ThresholdComparator,omitempty"`
-	// ThresholdPercentage docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-thresholdpercentage
-	ThresholdPercentage *IntegerExpr `json:"ThresholdPercentage,omitempty"`
-}
-
-// ManagedBlockchainMemberApprovalThresholdPolicyList represents a list of ManagedBlockchainMemberApprovalThresholdPolicy
-type ManagedBlockchainMemberApprovalThresholdPolicyList []ManagedBlockchainMemberApprovalThresholdPolicy
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberApprovalThresholdPolicyList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberApprovalThresholdPolicy{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberApprovalThresholdPolicyList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberApprovalThresholdPolicy{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberApprovalThresholdPolicyList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberMemberConfiguration represents the AWS::ManagedBlockchain::Member.MemberConfiguration CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html 
-type ManagedBlockchainMemberMemberConfiguration struct {
-	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html#cfn-managedblockchain-member-memberconfiguration-description
-	Description *StringExpr `json:"Description,omitempty"`
-	// MemberFrameworkConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html#cfn-managedblockchain-member-memberconfiguration-memberframeworkconfiguration
-	MemberFrameworkConfiguration *ManagedBlockchainMemberMemberFrameworkConfiguration `json:"MemberFrameworkConfiguration,omitempty"`
-	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html#cfn-managedblockchain-member-memberconfiguration-name
-	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
-}
-
-// ManagedBlockchainMemberMemberConfigurationList represents a list of ManagedBlockchainMemberMemberConfiguration
-type ManagedBlockchainMemberMemberConfigurationList []ManagedBlockchainMemberMemberConfiguration
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberMemberConfigurationList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberMemberConfiguration{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberMemberConfigurationList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberMemberConfiguration{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberMemberConfigurationList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberMemberFabricConfiguration represents the AWS::ManagedBlockchain::Member.MemberFabricConfiguration CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html 
-type ManagedBlockchainMemberMemberFabricConfiguration struct {
-	// AdminPassword docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html#cfn-managedblockchain-member-memberfabricconfiguration-adminpassword
-	AdminPassword *StringExpr `json:"AdminPassword,omitempty" validate:"dive,required"`
-	// AdminUsername docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html#cfn-managedblockchain-member-memberfabricconfiguration-adminusername
-	AdminUsername *StringExpr `json:"AdminUsername,omitempty" validate:"dive,required"`
-}
-
-// ManagedBlockchainMemberMemberFabricConfigurationList represents a list of ManagedBlockchainMemberMemberFabricConfiguration
-type ManagedBlockchainMemberMemberFabricConfigurationList []ManagedBlockchainMemberMemberFabricConfiguration
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberMemberFabricConfigurationList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberMemberFabricConfiguration{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberMemberFabricConfigurationList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberMemberFabricConfiguration{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberMemberFabricConfigurationList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberMemberFrameworkConfiguration represents the AWS::ManagedBlockchain::Member.MemberFrameworkConfiguration CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberframeworkconfiguration.html 
-type ManagedBlockchainMemberMemberFrameworkConfiguration struct {
-	// MemberFabricConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberframeworkconfiguration.html#cfn-managedblockchain-member-memberframeworkconfiguration-memberfabricconfiguration
-	MemberFabricConfiguration *ManagedBlockchainMemberMemberFabricConfiguration `json:"MemberFabricConfiguration,omitempty"`
-}
-
-// ManagedBlockchainMemberMemberFrameworkConfigurationList represents a list of ManagedBlockchainMemberMemberFrameworkConfiguration
-type ManagedBlockchainMemberMemberFrameworkConfigurationList []ManagedBlockchainMemberMemberFrameworkConfiguration
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberMemberFrameworkConfigurationList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberMemberFrameworkConfiguration{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberMemberFrameworkConfigurationList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberMemberFrameworkConfiguration{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberMemberFrameworkConfigurationList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberNetworkConfiguration represents the AWS::ManagedBlockchain::Member.NetworkConfiguration CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html 
-type ManagedBlockchainMemberNetworkConfiguration struct {
-	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html#cfn-managedblockchain-member-networkconfiguration-description
-	Description *StringExpr `json:"Description,omitempty"`
-	// Framework docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html#cfn-managedblockchain-member-networkconfiguration-framework
-	Framework *StringExpr `json:"Framework,omitempty" validate:"dive,required"`
-	// FrameworkVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html#cfn-managedblockchain-member-networkconfiguration-frameworkversion
-	FrameworkVersion *StringExpr `json:"FrameworkVersion,omitempty" validate:"dive,required"`
-	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html#cfn-managedblockchain-member-networkconfiguration-name
-	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
-	// NetworkFrameworkConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html#cfn-managedblockchain-member-networkconfiguration-networkframeworkconfiguration
-	NetworkFrameworkConfiguration *ManagedBlockchainMemberNetworkFrameworkConfiguration `json:"NetworkFrameworkConfiguration,omitempty"`
-	// VotingPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html#cfn-managedblockchain-member-networkconfiguration-votingpolicy
-	VotingPolicy *ManagedBlockchainMemberVotingPolicy `json:"VotingPolicy,omitempty" validate:"dive,required"`
-}
-
-// ManagedBlockchainMemberNetworkConfigurationList represents a list of ManagedBlockchainMemberNetworkConfiguration
-type ManagedBlockchainMemberNetworkConfigurationList []ManagedBlockchainMemberNetworkConfiguration
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberNetworkConfigurationList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberNetworkConfiguration{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberNetworkConfigurationList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberNetworkConfiguration{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberNetworkConfigurationList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberNetworkFabricConfiguration represents the AWS::ManagedBlockchain::Member.NetworkFabricConfiguration CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html 
-type ManagedBlockchainMemberNetworkFabricConfiguration struct {
-	// Edition docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html#cfn-managedblockchain-member-networkfabricconfiguration-edition
-	Edition *StringExpr `json:"Edition,omitempty" validate:"dive,required"`
-}
-
-// ManagedBlockchainMemberNetworkFabricConfigurationList represents a list of ManagedBlockchainMemberNetworkFabricConfiguration
-type ManagedBlockchainMemberNetworkFabricConfigurationList []ManagedBlockchainMemberNetworkFabricConfiguration
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberNetworkFabricConfigurationList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberNetworkFabricConfiguration{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberNetworkFabricConfigurationList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberNetworkFabricConfiguration{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberNetworkFabricConfigurationList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberNetworkFrameworkConfiguration represents the AWS::ManagedBlockchain::Member.NetworkFrameworkConfiguration CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkframeworkconfiguration.html 
-type ManagedBlockchainMemberNetworkFrameworkConfiguration struct {
-	// NetworkFabricConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkframeworkconfiguration.html#cfn-managedblockchain-member-networkframeworkconfiguration-networkfabricconfiguration
-	NetworkFabricConfiguration *ManagedBlockchainMemberNetworkFabricConfiguration `json:"NetworkFabricConfiguration,omitempty"`
-}
-
-// ManagedBlockchainMemberNetworkFrameworkConfigurationList represents a list of ManagedBlockchainMemberNetworkFrameworkConfiguration
-type ManagedBlockchainMemberNetworkFrameworkConfigurationList []ManagedBlockchainMemberNetworkFrameworkConfiguration
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberNetworkFrameworkConfigurationList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberNetworkFrameworkConfiguration{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberNetworkFrameworkConfigurationList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberNetworkFrameworkConfiguration{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberNetworkFrameworkConfigurationList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainMemberVotingPolicy represents the AWS::ManagedBlockchain::Member.VotingPolicy CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-votingpolicy.html 
-type ManagedBlockchainMemberVotingPolicy struct {
-	// ApprovalThresholdPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-votingpolicy.html#cfn-managedblockchain-member-votingpolicy-approvalthresholdpolicy
-	ApprovalThresholdPolicy *ManagedBlockchainMemberApprovalThresholdPolicy `json:"ApprovalThresholdPolicy,omitempty"`
-}
-
-// ManagedBlockchainMemberVotingPolicyList represents a list of ManagedBlockchainMemberVotingPolicy
-type ManagedBlockchainMemberVotingPolicyList []ManagedBlockchainMemberVotingPolicy
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainMemberVotingPolicyList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainMemberVotingPolicy{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainMemberVotingPolicyList{item}
-		return nil
-	}
-	list := []ManagedBlockchainMemberVotingPolicy{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainMemberVotingPolicyList(list)
-		return nil
-	}
-	return err
-}
-// ManagedBlockchainNodeNodeConfiguration represents the AWS::ManagedBlockchain::Node.NodeConfiguration CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html 
-type ManagedBlockchainNodeNodeConfiguration struct {
-	// AvailabilityZone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html#cfn-managedblockchain-node-nodeconfiguration-availabilityzone
-	AvailabilityZone *StringExpr `json:"AvailabilityZone,omitempty" validate:"dive,required"`
-	// InstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html#cfn-managedblockchain-node-nodeconfiguration-instancetype
-	InstanceType *StringExpr `json:"InstanceType,omitempty" validate:"dive,required"`
-}
-
-// ManagedBlockchainNodeNodeConfigurationList represents a list of ManagedBlockchainNodeNodeConfiguration
-type ManagedBlockchainNodeNodeConfigurationList []ManagedBlockchainNodeNodeConfiguration
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *ManagedBlockchainNodeNodeConfigurationList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := ManagedBlockchainNodeNodeConfiguration{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ManagedBlockchainNodeNodeConfigurationList{item}
-		return nil
-	}
-	list := []ManagedBlockchainNodeNodeConfiguration{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = ManagedBlockchainNodeNodeConfigurationList(list)
 		return nil
 	}
 	return err
@@ -38193,7 +38315,7 @@ type ACMPCACertificate struct {
 	// TemplateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
 	TemplateArn *StringExpr `json:"TemplateArn,omitempty"`
 	// Validity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
-	Validity interface{} `json:"Validity,omitempty" validate:"dive,required"`
+	Validity *ACMPCACertificateValidity `json:"Validity,omitempty" validate:"dive,required"`
 }
 
 // CfnResourceType returns AWS::ACMPCA::Certificate to implement the ResourceProperties interface
@@ -38211,11 +38333,11 @@ type ACMPCACertificateAuthority struct {
 	// KeyAlgorithm docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
 	KeyAlgorithm *StringExpr `json:"KeyAlgorithm,omitempty" validate:"dive,required"`
 	// RevocationConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
-	RevocationConfiguration interface{} `json:"RevocationConfiguration,omitempty"`
+	RevocationConfiguration *ACMPCACertificateAuthorityRevocationConfiguration `json:"RevocationConfiguration,omitempty"`
 	// SigningAlgorithm docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
 	SigningAlgorithm *StringExpr `json:"SigningAlgorithm,omitempty" validate:"dive,required"`
 	// Subject docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-	Subject interface{} `json:"Subject,omitempty" validate:"dive,required"`
+	Subject *ACMPCACertificateAuthoritySubject `json:"Subject,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
 	Tags *TagList `json:"Tags,omitempty"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
@@ -39281,6 +39403,136 @@ func (s APIGatewayV2Stage) CfnResourceType() string {
 func (s APIGatewayV2Stage) CfnResourceAttributes() []string {
 	return []string{}
 }
+// AppConfigApplication represents the AWS::AppConfig::Application CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html 
+type AppConfigApplication struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html#cfn-appconfig-application-tags
+	Tags *AppConfigApplicationTagsList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppConfig::Application to implement the ResourceProperties interface
+func (s AppConfigApplication) CfnResourceType() string {
+	
+	return "AWS::AppConfig::Application"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppConfigApplication) CfnResourceAttributes() []string {
+	return []string{}
+}
+// AppConfigConfigurationProfile represents the AWS::AppConfig::ConfigurationProfile CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html 
+type AppConfigConfigurationProfile struct {
+	// ApplicationID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-applicationid
+	ApplicationID *StringExpr `json:"ApplicationId,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// LocationURI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-locationuri
+	LocationURI *StringExpr `json:"LocationUri,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// RetrievalRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-retrievalrolearn
+	RetrievalRoleArn *StringExpr `json:"RetrievalRoleArn,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-tags
+	Tags *AppConfigConfigurationProfileTagsList `json:"Tags,omitempty"`
+	// Validators docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-validators
+	Validators *AppConfigConfigurationProfileValidatorsList `json:"Validators,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppConfig::ConfigurationProfile to implement the ResourceProperties interface
+func (s AppConfigConfigurationProfile) CfnResourceType() string {
+	
+	return "AWS::AppConfig::ConfigurationProfile"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppConfigConfigurationProfile) CfnResourceAttributes() []string {
+	return []string{}
+}
+// AppConfigDeployment represents the AWS::AppConfig::Deployment CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html 
+type AppConfigDeployment struct {
+	// ApplicationID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-applicationid
+	ApplicationID *StringExpr `json:"ApplicationId,omitempty" validate:"dive,required"`
+	// ConfigurationProfileID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-configurationprofileid
+	ConfigurationProfileID *StringExpr `json:"ConfigurationProfileId,omitempty" validate:"dive,required"`
+	// ConfigurationVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-configurationversion
+	ConfigurationVersion *StringExpr `json:"ConfigurationVersion,omitempty" validate:"dive,required"`
+	// DeploymentStrategyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-deploymentstrategyid
+	DeploymentStrategyID *StringExpr `json:"DeploymentStrategyId,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// EnvironmentID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-environmentid
+	EnvironmentID *StringExpr `json:"EnvironmentId,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-tags
+	Tags *AppConfigDeploymentTagsList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppConfig::Deployment to implement the ResourceProperties interface
+func (s AppConfigDeployment) CfnResourceType() string {
+	
+	return "AWS::AppConfig::Deployment"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppConfigDeployment) CfnResourceAttributes() []string {
+	return []string{}
+}
+// AppConfigDeploymentStrategy represents the AWS::AppConfig::DeploymentStrategy CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html 
+type AppConfigDeploymentStrategy struct {
+	// DeploymentDurationInMinutes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-deploymentdurationinminutes
+	DeploymentDurationInMinutes *IntegerExpr `json:"DeploymentDurationInMinutes,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// FinalBakeTimeInMinutes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-finalbaketimeinminutes
+	FinalBakeTimeInMinutes *IntegerExpr `json:"FinalBakeTimeInMinutes,omitempty"`
+	// GrowthFactor docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-growthfactor
+	GrowthFactor *IntegerExpr `json:"GrowthFactor,omitempty" validate:"dive,required"`
+	// GrowthType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-growthtype
+	GrowthType *StringExpr `json:"GrowthType,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// ReplicateTo docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-replicateto
+	ReplicateTo *StringExpr `json:"ReplicateTo,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-tags
+	Tags *AppConfigDeploymentStrategyTagsList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppConfig::DeploymentStrategy to implement the ResourceProperties interface
+func (s AppConfigDeploymentStrategy) CfnResourceType() string {
+	
+	return "AWS::AppConfig::DeploymentStrategy"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppConfigDeploymentStrategy) CfnResourceAttributes() []string {
+	return []string{}
+}
+// AppConfigEnvironment represents the AWS::AppConfig::Environment CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html 
+type AppConfigEnvironment struct {
+	// ApplicationID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-applicationid
+	ApplicationID *StringExpr `json:"ApplicationId,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Monitors docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-monitors
+	Monitors *AppConfigEnvironmentMonitorsList `json:"Monitors,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-tags
+	Tags *AppConfigEnvironmentTagsList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::AppConfig::Environment to implement the ResourceProperties interface
+func (s AppConfigEnvironment) CfnResourceType() string {
+	
+	return "AWS::AppConfig::Environment"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AppConfigEnvironment) CfnResourceAttributes() []string {
+	return []string{}
+}
 // AppMeshMesh represents the AWS::AppMesh::Mesh CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html 
 type AppMeshMesh struct {
@@ -39726,6 +39978,8 @@ type AppSyncGraphQLAPI struct {
 	Tags *AppSyncGraphQLAPITags `json:"Tags,omitempty"`
 	// UserPoolConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
 	UserPoolConfig *AppSyncGraphQLAPIUserPoolConfig `json:"UserPoolConfig,omitempty"`
+	// XrayEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
+	XrayEnabled *BoolExpr `json:"XrayEnabled,omitempty"`
 }
 
 // CfnResourceType returns AWS::AppSync::GraphQLApi to implement the ResourceProperties interface
@@ -39875,7 +40129,7 @@ func (s AthenaNamedQuery) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AthenaNamedQuery) CfnResourceAttributes() []string {
-	return []string{"NamedQueryId"}
+	return []string{}
 }
 // AutoScalingAutoScalingGroup represents the AWS::AutoScaling::AutoScalingGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html 
@@ -43219,28 +43473,6 @@ func (s EC2VPCEndpoint) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2VPCEndpoint) CfnResourceAttributes() []string {
 	return []string{"CreationTimestamp","DnsEntries","NetworkInterfaceIds"}
-}
-// EC2VPCEndpointConnectionNotification represents the AWS::EC2::VPCEndpointConnectionNotification CloudFormation resource type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html 
-type EC2VPCEndpointConnectionNotification struct {
-	// ConnectionEvents docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionevents
-	ConnectionEvents *StringListExpr `json:"ConnectionEvents,omitempty" validate:"dive,required"`
-	// ConnectionNotificationArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionnotificationarn
-	ConnectionNotificationArn *StringExpr `json:"ConnectionNotificationArn,omitempty" validate:"dive,required"`
-	// ServiceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-serviceid
-	ServiceID *StringExpr `json:"ServiceId,omitempty"`
-	// VPCEndpointID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-vpcendpointid
-	VPCEndpointID *StringExpr `json:"VPCEndpointId,omitempty"`
-}
-
-// CfnResourceType returns AWS::EC2::VPCEndpointConnectionNotification to implement the ResourceProperties interface
-func (s EC2VPCEndpointConnectionNotification) CfnResourceType() string {
-	
-	return "AWS::EC2::VPCEndpointConnectionNotification"
-}
-// CfnResourceAttributes returns the attributes produced by this resource
-func (s EC2VPCEndpointConnectionNotification) CfnResourceAttributes() []string {
-	return []string{}
 }
 // EC2VPCEndpointService represents the AWS::EC2::VPCEndpointService CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html 
@@ -46916,48 +47148,6 @@ func (s MSKCluster) CfnResourceType() string {
 func (s MSKCluster) CfnResourceAttributes() []string {
 	return []string{}
 }
-// ManagedBlockchainMember represents the AWS::ManagedBlockchain::Member CloudFormation resource type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html 
-type ManagedBlockchainMember struct {
-	// InvitationID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-invitationid
-	InvitationID *StringExpr `json:"InvitationId,omitempty"`
-	// MemberConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-memberconfiguration
-	MemberConfiguration *ManagedBlockchainMemberMemberConfiguration `json:"MemberConfiguration,omitempty" validate:"dive,required"`
-	// NetworkConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-networkconfiguration
-	NetworkConfiguration *ManagedBlockchainMemberNetworkConfiguration `json:"NetworkConfiguration,omitempty"`
-	// NetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html#cfn-managedblockchain-member-networkid
-	NetworkID *StringExpr `json:"NetworkId,omitempty"`
-}
-
-// CfnResourceType returns AWS::ManagedBlockchain::Member to implement the ResourceProperties interface
-func (s ManagedBlockchainMember) CfnResourceType() string {
-	
-	return "AWS::ManagedBlockchain::Member"
-}
-// CfnResourceAttributes returns the attributes produced by this resource
-func (s ManagedBlockchainMember) CfnResourceAttributes() []string {
-	return []string{"MemberId","NetworkId"}
-}
-// ManagedBlockchainNode represents the AWS::ManagedBlockchain::Node CloudFormation resource type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html 
-type ManagedBlockchainNode struct {
-	// MemberID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid
-	MemberID *StringExpr `json:"MemberId,omitempty" validate:"dive,required"`
-	// NetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-networkid
-	NetworkID *StringExpr `json:"NetworkId,omitempty" validate:"dive,required"`
-	// NodeConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-nodeconfiguration
-	NodeConfiguration *ManagedBlockchainNodeNodeConfiguration `json:"NodeConfiguration,omitempty" validate:"dive,required"`
-}
-
-// CfnResourceType returns AWS::ManagedBlockchain::Node to implement the ResourceProperties interface
-func (s ManagedBlockchainNode) CfnResourceType() string {
-	
-	return "AWS::ManagedBlockchain::Node"
-}
-// CfnResourceAttributes returns the attributes produced by this resource
-func (s ManagedBlockchainNode) CfnResourceAttributes() []string {
-	return []string{"Arn","MemberId","NetworkId","NodeId"}
-}
 // MediaConvertJobTemplate represents the AWS::MediaConvert::JobTemplate CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html 
 type MediaConvertJobTemplate struct {
@@ -47609,6 +47799,8 @@ type OpsWorksCMServer struct {
 	ServiceRoleArn *StringExpr `json:"ServiceRoleArn,omitempty" validate:"dive,required"`
 	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
 	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::OpsWorksCM::Server to implement the ResourceProperties interface
@@ -50428,7 +50620,7 @@ func (s TransferServer) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s TransferServer) CfnResourceAttributes() []string {
-	return []string{"Arn","ServerId","VpcEndpointId"}
+	return []string{"Arn","ServerId"}
 }
 // TransferUser represents the AWS::Transfer::User CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html 
@@ -50910,6 +51102,24 @@ func (s WAFv2WebACL) CfnResourceType() string {
 func (s WAFv2WebACL) CfnResourceAttributes() []string {
 	return []string{"Arn","Capacity","Id"}
 }
+// WAFv2WebACLAssociation represents the AWS::WAFv2::WebACLAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html 
+type WAFv2WebACLAssociation struct {
+	// ResourceArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
+	ResourceArn *StringExpr `json:"ResourceArn,omitempty" validate:"dive,required"`
+	// WebACLArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
+	WebACLArn *StringExpr `json:"WebACLArn,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::WAFv2::WebACLAssociation to implement the ResourceProperties interface
+func (s WAFv2WebACLAssociation) CfnResourceType() string {
+	
+	return "AWS::WAFv2::WebACLAssociation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s WAFv2WebACLAssociation) CfnResourceAttributes() []string {
+	return []string{}
+}
 // WorkSpacesWorkspace represents the AWS::WorkSpaces::Workspace CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html 
 type WorkSpacesWorkspace struct {
@@ -51043,6 +51253,16 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &APIGatewayV2RouteResponse{}
 	case "AWS::ApiGatewayV2::Stage":
 		return &APIGatewayV2Stage{}
+	case "AWS::AppConfig::Application":
+		return &AppConfigApplication{}
+	case "AWS::AppConfig::ConfigurationProfile":
+		return &AppConfigConfigurationProfile{}
+	case "AWS::AppConfig::Deployment":
+		return &AppConfigDeployment{}
+	case "AWS::AppConfig::DeploymentStrategy":
+		return &AppConfigDeploymentStrategy{}
+	case "AWS::AppConfig::Environment":
+		return &AppConfigEnvironment{}
 	case "AWS::AppMesh::Mesh":
 		return &AppMeshMesh{}
 	case "AWS::AppMesh::Route":
@@ -51337,8 +51557,6 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EC2VPCDHCPOptionsAssociation{}
 	case "AWS::EC2::VPCEndpoint":
 		return &EC2VPCEndpoint{}
-	case "AWS::EC2::VPCEndpointConnectionNotification":
-		return &EC2VPCEndpointConnectionNotification{}
 	case "AWS::EC2::VPCEndpointService":
 		return &EC2VPCEndpointService{}
 	case "AWS::EC2::VPCEndpointServicePermissions":
@@ -51635,10 +51853,6 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &LogsSubscriptionFilter{}
 	case "AWS::MSK::Cluster":
 		return &MSKCluster{}
-	case "AWS::ManagedBlockchain::Member":
-		return &ManagedBlockchainMember{}
-	case "AWS::ManagedBlockchain::Node":
-		return &ManagedBlockchainNode{}
 	case "AWS::MediaConvert::JobTemplate":
 		return &MediaConvertJobTemplate{}
 	case "AWS::MediaConvert::Preset":
@@ -51941,6 +52155,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &WAFv2RuleGroup{}
 	case "AWS::WAFv2::WebACL":
 		return &WAFv2WebACL{}
+	case "AWS::WAFv2::WebACLAssociation":
+		return &WAFv2WebACLAssociation{}
 	case "AWS::WorkSpaces::Workspace":
 		return &WorkSpacesWorkspace{}
 	case "Alexa::ASK::Skill":
