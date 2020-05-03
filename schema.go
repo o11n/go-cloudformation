@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 10.5.0
-// SOURCE CODE SHA: 9c3a1cfe356867833f9247591c1fb9ef7cc62629
-// GENERATED: 2020-02-14 04:54:38.834464 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 14.1.0
+// SOURCE CODE SHA: 244753d8838ea6605437db0f7d85ffc8f14d7850
+// GENERATED: 2020-05-03 00:01:19.479187 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "10.5.0"
+const ResourceSpecificationVersion = "14.1.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -1456,6 +1456,32 @@ func (l *APIGatewayV2DomainNameDomainNameConfigurationList) UnmarshalJSON(buf []
 	}
 	return err
 }
+// APIGatewayV2IntegrationTlsConfig represents the AWS::ApiGatewayV2::Integration.TlsConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html 
+type APIGatewayV2IntegrationTlsConfig struct {
+	// ServerNameToVerify docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html#cfn-apigatewayv2-integration-tlsconfig-servernametoverify
+	ServerNameToVerify *StringExpr `json:"ServerNameToVerify,omitempty"`
+}
+
+// APIGatewayV2IntegrationTlsConfigList represents a list of APIGatewayV2IntegrationTlsConfig
+type APIGatewayV2IntegrationTlsConfigList []APIGatewayV2IntegrationTlsConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *APIGatewayV2IntegrationTlsConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := APIGatewayV2IntegrationTlsConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = APIGatewayV2IntegrationTlsConfigList{item}
+		return nil
+	}
+	list := []APIGatewayV2IntegrationTlsConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = APIGatewayV2IntegrationTlsConfigList(list)
+		return nil
+	}
+	return err
+}
 // APIGatewayV2RouteParameterConstraints represents the AWS::ApiGatewayV2::Route.ParameterConstraints CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html 
 type APIGatewayV2RouteParameterConstraints struct {
@@ -2466,6 +2492,88 @@ func (l *AppMeshVirtualNodeBackendList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// AppMeshVirtualNodeBackendDefaults represents the AWS::AppMesh::VirtualNode.BackendDefaults CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backenddefaults.html 
+type AppMeshVirtualNodeBackendDefaults struct {
+	// ClientPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backenddefaults.html#cfn-appmesh-virtualnode-backenddefaults-clientpolicy
+	ClientPolicy *AppMeshVirtualNodeClientPolicy `json:"ClientPolicy,omitempty"`
+}
+
+// AppMeshVirtualNodeBackendDefaultsList represents a list of AppMeshVirtualNodeBackendDefaults
+type AppMeshVirtualNodeBackendDefaultsList []AppMeshVirtualNodeBackendDefaults
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeBackendDefaultsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeBackendDefaults{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeBackendDefaultsList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeBackendDefaults{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeBackendDefaultsList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeClientPolicy represents the AWS::AppMesh::VirtualNode.ClientPolicy CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html 
+type AppMeshVirtualNodeClientPolicy struct {
+	// TLS docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html#cfn-appmesh-virtualnode-clientpolicy-tls
+	TLS *AppMeshVirtualNodeClientPolicyTls `json:"TLS,omitempty"`
+}
+
+// AppMeshVirtualNodeClientPolicyList represents a list of AppMeshVirtualNodeClientPolicy
+type AppMeshVirtualNodeClientPolicyList []AppMeshVirtualNodeClientPolicy
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeClientPolicyList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeClientPolicy{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeClientPolicyList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeClientPolicy{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeClientPolicyList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeClientPolicyTls represents the AWS::AppMesh::VirtualNode.ClientPolicyTls CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html 
+type AppMeshVirtualNodeClientPolicyTls struct {
+	// Enforce docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-enforce
+	Enforce *BoolExpr `json:"Enforce,omitempty"`
+	// Ports docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-ports
+	Ports []**IntegerExpr `json:"Ports,omitempty"`
+	// Validation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-validation
+	Validation *AppMeshVirtualNodeTlsValidationContext `json:"Validation,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeClientPolicyTlsList represents a list of AppMeshVirtualNodeClientPolicyTls
+type AppMeshVirtualNodeClientPolicyTlsList []AppMeshVirtualNodeClientPolicyTls
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeClientPolicyTlsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeClientPolicyTls{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeClientPolicyTlsList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeClientPolicyTls{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeClientPolicyTlsList(list)
+		return nil
+	}
+	return err
+}
 // AppMeshVirtualNodeDNSServiceDiscovery represents the AWS::AppMesh::VirtualNode.DnsServiceDiscovery CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html 
 type AppMeshVirtualNodeDNSServiceDiscovery struct {
@@ -2563,6 +2671,8 @@ type AppMeshVirtualNodeListener struct {
 	HealthCheck *AppMeshVirtualNodeHealthCheck `json:"HealthCheck,omitempty"`
 	// PortMapping docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
 	PortMapping *AppMeshVirtualNodePortMapping `json:"PortMapping,omitempty" validate:"dive,required"`
+	// TLS docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls
+	TLS *AppMeshVirtualNodeListenerTls `json:"TLS,omitempty"`
 }
 
 // AppMeshVirtualNodeListenerList represents a list of AppMeshVirtualNodeListener
@@ -2580,6 +2690,116 @@ func (l *AppMeshVirtualNodeListenerList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = AppMeshVirtualNodeListenerList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeListenerTls represents the AWS::AppMesh::VirtualNode.ListenerTls CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html 
+type AppMeshVirtualNodeListenerTls struct {
+	// Certificate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-certificate
+	Certificate *AppMeshVirtualNodeListenerTlsCertificate `json:"Certificate,omitempty" validate:"dive,required"`
+	// Mode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-mode
+	Mode *StringExpr `json:"Mode,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeListenerTlsList represents a list of AppMeshVirtualNodeListenerTls
+type AppMeshVirtualNodeListenerTlsList []AppMeshVirtualNodeListenerTls
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeListenerTlsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeListenerTls{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeListenerTlsList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeListenerTls{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeListenerTlsList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeListenerTlsAcmCertificate represents the AWS::AppMesh::VirtualNode.ListenerTlsAcmCertificate CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsacmcertificate.html 
+type AppMeshVirtualNodeListenerTlsAcmCertificate struct {
+	// CertificateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsacmcertificate.html#cfn-appmesh-virtualnode-listenertlsacmcertificate-certificatearn
+	CertificateArn *StringExpr `json:"CertificateArn,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeListenerTlsAcmCertificateList represents a list of AppMeshVirtualNodeListenerTlsAcmCertificate
+type AppMeshVirtualNodeListenerTlsAcmCertificateList []AppMeshVirtualNodeListenerTlsAcmCertificate
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeListenerTlsAcmCertificateList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeListenerTlsAcmCertificate{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeListenerTlsAcmCertificateList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeListenerTlsAcmCertificate{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeListenerTlsAcmCertificateList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeListenerTlsCertificate represents the AWS::AppMesh::VirtualNode.ListenerTlsCertificate CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html 
+type AppMeshVirtualNodeListenerTlsCertificate struct {
+	// ACM docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-acm
+	ACM *AppMeshVirtualNodeListenerTlsAcmCertificate `json:"ACM,omitempty"`
+	// File docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-file
+	File *AppMeshVirtualNodeListenerTlsFileCertificate `json:"File,omitempty"`
+}
+
+// AppMeshVirtualNodeListenerTlsCertificateList represents a list of AppMeshVirtualNodeListenerTlsCertificate
+type AppMeshVirtualNodeListenerTlsCertificateList []AppMeshVirtualNodeListenerTlsCertificate
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeListenerTlsCertificateList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeListenerTlsCertificate{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeListenerTlsCertificateList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeListenerTlsCertificate{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeListenerTlsCertificateList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeListenerTlsFileCertificate represents the AWS::AppMesh::VirtualNode.ListenerTlsFileCertificate CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html 
+type AppMeshVirtualNodeListenerTlsFileCertificate struct {
+	// CertificateChain docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html#cfn-appmesh-virtualnode-listenertlsfilecertificate-certificatechain
+	CertificateChain *StringExpr `json:"CertificateChain,omitempty" validate:"dive,required"`
+	// PrivateKey docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html#cfn-appmesh-virtualnode-listenertlsfilecertificate-privatekey
+	PrivateKey *StringExpr `json:"PrivateKey,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeListenerTlsFileCertificateList represents a list of AppMeshVirtualNodeListenerTlsFileCertificate
+type AppMeshVirtualNodeListenerTlsFileCertificateList []AppMeshVirtualNodeListenerTlsFileCertificate
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeListenerTlsFileCertificateList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeListenerTlsFileCertificate{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeListenerTlsFileCertificateList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeListenerTlsFileCertificate{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeListenerTlsFileCertificateList(list)
 		return nil
 	}
 	return err
@@ -2666,9 +2886,117 @@ func (l *AppMeshVirtualNodeServiceDiscoveryList) UnmarshalJSON(buf []byte) error
 	}
 	return err
 }
+// AppMeshVirtualNodeTlsValidationContext represents the AWS::AppMesh::VirtualNode.TlsValidationContext CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontext.html 
+type AppMeshVirtualNodeTlsValidationContext struct {
+	// Trust docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontext.html#cfn-appmesh-virtualnode-tlsvalidationcontext-trust
+	Trust *AppMeshVirtualNodeTlsValidationContextTrust `json:"Trust,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeTlsValidationContextList represents a list of AppMeshVirtualNodeTlsValidationContext
+type AppMeshVirtualNodeTlsValidationContextList []AppMeshVirtualNodeTlsValidationContext
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeTlsValidationContextList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeTlsValidationContext{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeTlsValidationContext{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeTlsValidationContextAcmTrust represents the AWS::AppMesh::VirtualNode.TlsValidationContextAcmTrust CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextacmtrust.html 
+type AppMeshVirtualNodeTlsValidationContextAcmTrust struct {
+	// CertificateAuthorityArns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextacmtrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextacmtrust-certificateauthorityarns
+	CertificateAuthorityArns *StringListExpr `json:"CertificateAuthorityArns,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeTlsValidationContextAcmTrustList represents a list of AppMeshVirtualNodeTlsValidationContextAcmTrust
+type AppMeshVirtualNodeTlsValidationContextAcmTrustList []AppMeshVirtualNodeTlsValidationContextAcmTrust
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeTlsValidationContextAcmTrustList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeTlsValidationContextAcmTrust{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextAcmTrustList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeTlsValidationContextAcmTrust{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextAcmTrustList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeTlsValidationContextFileTrust represents the AWS::AppMesh::VirtualNode.TlsValidationContextFileTrust CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html 
+type AppMeshVirtualNodeTlsValidationContextFileTrust struct {
+	// CertificateChain docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextfiletrust-certificatechain
+	CertificateChain *StringExpr `json:"CertificateChain,omitempty" validate:"dive,required"`
+}
+
+// AppMeshVirtualNodeTlsValidationContextFileTrustList represents a list of AppMeshVirtualNodeTlsValidationContextFileTrust
+type AppMeshVirtualNodeTlsValidationContextFileTrustList []AppMeshVirtualNodeTlsValidationContextFileTrust
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeTlsValidationContextFileTrustList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeTlsValidationContextFileTrust{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextFileTrustList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeTlsValidationContextFileTrust{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextFileTrustList(list)
+		return nil
+	}
+	return err
+}
+// AppMeshVirtualNodeTlsValidationContextTrust represents the AWS::AppMesh::VirtualNode.TlsValidationContextTrust CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html 
+type AppMeshVirtualNodeTlsValidationContextTrust struct {
+	// ACM docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-acm
+	ACM *AppMeshVirtualNodeTlsValidationContextAcmTrust `json:"ACM,omitempty"`
+	// File docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-file
+	File *AppMeshVirtualNodeTlsValidationContextFileTrust `json:"File,omitempty"`
+}
+
+// AppMeshVirtualNodeTlsValidationContextTrustList represents a list of AppMeshVirtualNodeTlsValidationContextTrust
+type AppMeshVirtualNodeTlsValidationContextTrustList []AppMeshVirtualNodeTlsValidationContextTrust
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AppMeshVirtualNodeTlsValidationContextTrustList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AppMeshVirtualNodeTlsValidationContextTrust{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextTrustList{item}
+		return nil
+	}
+	list := []AppMeshVirtualNodeTlsValidationContextTrust{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AppMeshVirtualNodeTlsValidationContextTrustList(list)
+		return nil
+	}
+	return err
+}
 // AppMeshVirtualNodeVirtualNodeSpec represents the AWS::AppMesh::VirtualNode.VirtualNodeSpec CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html 
 type AppMeshVirtualNodeVirtualNodeSpec struct {
+	// BackendDefaults docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backenddefaults
+	BackendDefaults *AppMeshVirtualNodeBackendDefaults `json:"BackendDefaults,omitempty"`
 	// Backends docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backends
 	Backends *AppMeshVirtualNodeBackendList `json:"Backends,omitempty"`
 	// Listeners docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-listeners
@@ -2701,6 +3029,8 @@ func (l *AppMeshVirtualNodeVirtualNodeSpecList) UnmarshalJSON(buf []byte) error 
 // AppMeshVirtualNodeVirtualServiceBackend represents the AWS::AppMesh::VirtualNode.VirtualServiceBackend CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html 
 type AppMeshVirtualNodeVirtualServiceBackend struct {
+	// ClientPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-clientpolicy
+	ClientPolicy *AppMeshVirtualNodeClientPolicy `json:"ClientPolicy,omitempty"`
 	// VirtualServiceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-virtualservicename
 	VirtualServiceName *StringExpr `json:"VirtualServiceName,omitempty" validate:"dive,required"`
 }
@@ -4076,6 +4406,190 @@ func (l *ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigura
 	}
 	return err
 }
+// AthenaWorkGroupEncryptionConfiguration represents the AWS::Athena::WorkGroup.EncryptionConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html 
+type AthenaWorkGroupEncryptionConfiguration struct {
+	// EncryptionOption docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
+	EncryptionOption *StringExpr `json:"EncryptionOption,omitempty" validate:"dive,required"`
+	// KmsKey docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
+	KmsKey *StringExpr `json:"KmsKey,omitempty"`
+}
+
+// AthenaWorkGroupEncryptionConfigurationList represents a list of AthenaWorkGroupEncryptionConfiguration
+type AthenaWorkGroupEncryptionConfigurationList []AthenaWorkGroupEncryptionConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AthenaWorkGroupEncryptionConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AthenaWorkGroupEncryptionConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AthenaWorkGroupEncryptionConfigurationList{item}
+		return nil
+	}
+	list := []AthenaWorkGroupEncryptionConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AthenaWorkGroupEncryptionConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// AthenaWorkGroupResultConfiguration represents the AWS::Athena::WorkGroup.ResultConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html 
+type AthenaWorkGroupResultConfiguration struct {
+	// EncryptionConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
+	EncryptionConfiguration *AthenaWorkGroupEncryptionConfiguration `json:"EncryptionConfiguration,omitempty"`
+	// OutputLocation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
+	OutputLocation *StringExpr `json:"OutputLocation,omitempty"`
+}
+
+// AthenaWorkGroupResultConfigurationList represents a list of AthenaWorkGroupResultConfiguration
+type AthenaWorkGroupResultConfigurationList []AthenaWorkGroupResultConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AthenaWorkGroupResultConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AthenaWorkGroupResultConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AthenaWorkGroupResultConfigurationList{item}
+		return nil
+	}
+	list := []AthenaWorkGroupResultConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AthenaWorkGroupResultConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// AthenaWorkGroupResultConfigurationUpdates represents the AWS::Athena::WorkGroup.ResultConfigurationUpdates CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html 
+type AthenaWorkGroupResultConfigurationUpdates struct {
+	// EncryptionConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
+	EncryptionConfiguration *AthenaWorkGroupEncryptionConfiguration `json:"EncryptionConfiguration,omitempty"`
+	// OutputLocation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
+	OutputLocation *StringExpr `json:"OutputLocation,omitempty"`
+	// RemoveEncryptionConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
+	RemoveEncryptionConfiguration *BoolExpr `json:"RemoveEncryptionConfiguration,omitempty"`
+	// RemoveOutputLocation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
+	RemoveOutputLocation *BoolExpr `json:"RemoveOutputLocation,omitempty"`
+}
+
+// AthenaWorkGroupResultConfigurationUpdatesList represents a list of AthenaWorkGroupResultConfigurationUpdates
+type AthenaWorkGroupResultConfigurationUpdatesList []AthenaWorkGroupResultConfigurationUpdates
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AthenaWorkGroupResultConfigurationUpdatesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AthenaWorkGroupResultConfigurationUpdates{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AthenaWorkGroupResultConfigurationUpdatesList{item}
+		return nil
+	}
+	list := []AthenaWorkGroupResultConfigurationUpdates{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AthenaWorkGroupResultConfigurationUpdatesList(list)
+		return nil
+	}
+	return err
+}
+// AthenaWorkGroupTags represents the AWS::Athena::WorkGroup.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html 
+type AthenaWorkGroupTags struct {
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// AthenaWorkGroupTagsList represents a list of AthenaWorkGroupTags
+type AthenaWorkGroupTagsList []AthenaWorkGroupTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AthenaWorkGroupTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AthenaWorkGroupTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AthenaWorkGroupTagsList{item}
+		return nil
+	}
+	list := []AthenaWorkGroupTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AthenaWorkGroupTagsList(list)
+		return nil
+	}
+	return err
+}
+// AthenaWorkGroupWorkGroupConfiguration represents the AWS::Athena::WorkGroup.WorkGroupConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html 
+type AthenaWorkGroupWorkGroupConfiguration struct {
+	// BytesScannedCutoffPerQuery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
+	BytesScannedCutoffPerQuery *IntegerExpr `json:"BytesScannedCutoffPerQuery,omitempty"`
+	// EnforceWorkGroupConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
+	EnforceWorkGroupConfiguration *BoolExpr `json:"EnforceWorkGroupConfiguration,omitempty"`
+	// PublishCloudWatchMetricsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
+	PublishCloudWatchMetricsEnabled *BoolExpr `json:"PublishCloudWatchMetricsEnabled,omitempty"`
+	// RequesterPaysEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
+	RequesterPaysEnabled *BoolExpr `json:"RequesterPaysEnabled,omitempty"`
+	// ResultConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
+	ResultConfiguration *AthenaWorkGroupResultConfiguration `json:"ResultConfiguration,omitempty"`
+}
+
+// AthenaWorkGroupWorkGroupConfigurationList represents a list of AthenaWorkGroupWorkGroupConfiguration
+type AthenaWorkGroupWorkGroupConfigurationList []AthenaWorkGroupWorkGroupConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AthenaWorkGroupWorkGroupConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AthenaWorkGroupWorkGroupConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AthenaWorkGroupWorkGroupConfigurationList{item}
+		return nil
+	}
+	list := []AthenaWorkGroupWorkGroupConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AthenaWorkGroupWorkGroupConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// AthenaWorkGroupWorkGroupConfigurationUpdates represents the AWS::Athena::WorkGroup.WorkGroupConfigurationUpdates CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html 
+type AthenaWorkGroupWorkGroupConfigurationUpdates struct {
+	// BytesScannedCutoffPerQuery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
+	BytesScannedCutoffPerQuery *IntegerExpr `json:"BytesScannedCutoffPerQuery,omitempty"`
+	// EnforceWorkGroupConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
+	EnforceWorkGroupConfiguration *BoolExpr `json:"EnforceWorkGroupConfiguration,omitempty"`
+	// PublishCloudWatchMetricsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
+	PublishCloudWatchMetricsEnabled *BoolExpr `json:"PublishCloudWatchMetricsEnabled,omitempty"`
+	// RemoveBytesScannedCutoffPerQuery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
+	RemoveBytesScannedCutoffPerQuery *BoolExpr `json:"RemoveBytesScannedCutoffPerQuery,omitempty"`
+	// RequesterPaysEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
+	RequesterPaysEnabled *BoolExpr `json:"RequesterPaysEnabled,omitempty"`
+	// ResultConfigurationUpdates docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
+	ResultConfigurationUpdates *AthenaWorkGroupResultConfigurationUpdates `json:"ResultConfigurationUpdates,omitempty"`
+}
+
+// AthenaWorkGroupWorkGroupConfigurationUpdatesList represents a list of AthenaWorkGroupWorkGroupConfigurationUpdates
+type AthenaWorkGroupWorkGroupConfigurationUpdatesList []AthenaWorkGroupWorkGroupConfigurationUpdates
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *AthenaWorkGroupWorkGroupConfigurationUpdatesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := AthenaWorkGroupWorkGroupConfigurationUpdates{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = AthenaWorkGroupWorkGroupConfigurationUpdatesList{item}
+		return nil
+	}
+	list := []AthenaWorkGroupWorkGroupConfigurationUpdates{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = AthenaWorkGroupWorkGroupConfigurationUpdatesList(list)
+		return nil
+	}
+	return err
+}
 // AutoScalingAutoScalingGroupInstancesDistribution represents the AWS::AutoScaling::AutoScalingGroup.InstancesDistribution CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html 
 type AutoScalingAutoScalingGroupInstancesDistribution struct {
@@ -5184,7 +5698,7 @@ type BatchJobDefinitionContainerProperties struct {
 	// LinuxParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters
 	LinuxParameters *BatchJobDefinitionLinuxParameters `json:"LinuxParameters,omitempty"`
 	// Memory docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
-	Memory *IntegerExpr `json:"Memory,omitempty" validate:"dive,required"`
+	Memory *IntegerExpr `json:"Memory,omitempty"`
 	// MountPoints docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
 	MountPoints *BatchJobDefinitionMountPointsList `json:"MountPoints,omitempty"`
 	// Privileged docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged
@@ -5198,7 +5712,7 @@ type BatchJobDefinitionContainerProperties struct {
 	// User docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-user
 	User *StringExpr `json:"User,omitempty"`
 	// Vcpus docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-vcpus
-	Vcpus *IntegerExpr `json:"Vcpus,omitempty" validate:"dive,required"`
+	Vcpus *IntegerExpr `json:"Vcpus,omitempty"`
 	// Volumes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes
 	Volumes *BatchJobDefinitionVolumesList `json:"Volumes,omitempty"`
 }
@@ -5816,6 +6330,118 @@ func (l *BudgetsBudgetTimePeriodList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// CassandraTableBillingMode represents the AWS::Cassandra::Table.BillingMode CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html 
+type CassandraTableBillingMode struct {
+	// Mode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
+	Mode *StringExpr `json:"Mode,omitempty" validate:"dive,required"`
+	// ProvisionedThroughput docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
+	ProvisionedThroughput *CassandraTableProvisionedThroughput `json:"ProvisionedThroughput,omitempty"`
+}
+
+// CassandraTableBillingModeList represents a list of CassandraTableBillingMode
+type CassandraTableBillingModeList []CassandraTableBillingMode
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CassandraTableBillingModeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CassandraTableBillingMode{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CassandraTableBillingModeList{item}
+		return nil
+	}
+	list := []CassandraTableBillingMode{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CassandraTableBillingModeList(list)
+		return nil
+	}
+	return err
+}
+// CassandraTableClusteringKeyColumn represents the AWS::Cassandra::Table.ClusteringKeyColumn CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html 
+type CassandraTableClusteringKeyColumn struct {
+	// Column docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
+	Column *CassandraTableColumn `json:"Column,omitempty" validate:"dive,required"`
+	// OrderBy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
+	OrderBy *StringExpr `json:"OrderBy,omitempty"`
+}
+
+// CassandraTableClusteringKeyColumnList represents a list of CassandraTableClusteringKeyColumn
+type CassandraTableClusteringKeyColumnList []CassandraTableClusteringKeyColumn
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CassandraTableClusteringKeyColumnList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CassandraTableClusteringKeyColumn{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CassandraTableClusteringKeyColumnList{item}
+		return nil
+	}
+	list := []CassandraTableClusteringKeyColumn{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CassandraTableClusteringKeyColumnList(list)
+		return nil
+	}
+	return err
+}
+// CassandraTableColumn represents the AWS::Cassandra::Table.Column CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html 
+type CassandraTableColumn struct {
+	// ColumnName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname
+	ColumnName *StringExpr `json:"ColumnName,omitempty" validate:"dive,required"`
+	// ColumnType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype
+	ColumnType *StringExpr `json:"ColumnType,omitempty" validate:"dive,required"`
+}
+
+// CassandraTableColumnList represents a list of CassandraTableColumn
+type CassandraTableColumnList []CassandraTableColumn
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CassandraTableColumnList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CassandraTableColumn{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CassandraTableColumnList{item}
+		return nil
+	}
+	list := []CassandraTableColumn{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CassandraTableColumnList(list)
+		return nil
+	}
+	return err
+}
+// CassandraTableProvisionedThroughput represents the AWS::Cassandra::Table.ProvisionedThroughput CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html 
+type CassandraTableProvisionedThroughput struct {
+	// ReadCapacityUnits docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
+	ReadCapacityUnits *IntegerExpr `json:"ReadCapacityUnits,omitempty" validate:"dive,required"`
+	// WriteCapacityUnits docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits
+	WriteCapacityUnits *IntegerExpr `json:"WriteCapacityUnits,omitempty" validate:"dive,required"`
+}
+
+// CassandraTableProvisionedThroughputList represents a list of CassandraTableProvisionedThroughput
+type CassandraTableProvisionedThroughputList []CassandraTableProvisionedThroughput
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CassandraTableProvisionedThroughputList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CassandraTableProvisionedThroughput{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CassandraTableProvisionedThroughputList{item}
+		return nil
+	}
+	list := []CassandraTableProvisionedThroughput{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CassandraTableProvisionedThroughputList(list)
+		return nil
+	}
+	return err
+}
 // CertificateManagerCertificateDomainValidationOption represents the AWS::CertificateManager::Certificate.DomainValidationOption CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html 
 type CertificateManagerCertificateDomainValidationOption struct {
@@ -6119,6 +6745,8 @@ type CloudFrontDistributionDistributionConfig struct {
 	IPV6Enabled *BoolExpr `json:"IPV6Enabled,omitempty"`
 	// Logging docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
 	Logging *CloudFrontDistributionLogging `json:"Logging,omitempty"`
+	// OriginGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
+	OriginGroups *CloudFrontDistributionOriginGroups `json:"OriginGroups,omitempty"`
 	// Origins docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
 	Origins *CloudFrontDistributionOriginList `json:"Origins,omitempty"`
 	// PriceClass docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
@@ -6215,6 +6843,8 @@ func (l *CloudFrontDistributionGeoRestrictionList) UnmarshalJSON(buf []byte) err
 type CloudFrontDistributionLambdaFunctionAssociation struct {
 	// EventType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
 	EventType *StringExpr `json:"EventType,omitempty"`
+	// IncludeBody docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
+	IncludeBody *BoolExpr `json:"IncludeBody,omitempty"`
 	// LambdaFunctionARN docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
 	LambdaFunctionARN *StringExpr `json:"LambdaFunctionARN,omitempty"`
 }
@@ -6332,6 +6962,144 @@ func (l *CloudFrontDistributionOriginCustomHeaderList) UnmarshalJSON(buf []byte)
 	}
 	return err
 }
+// CloudFrontDistributionOriginGroup represents the AWS::CloudFront::Distribution.OriginGroup CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html 
+type CloudFrontDistributionOriginGroup struct {
+	// FailoverCriteria docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
+	FailoverCriteria *CloudFrontDistributionOriginGroupFailoverCriteria `json:"FailoverCriteria,omitempty" validate:"dive,required"`
+	// ID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
+	ID *StringExpr `json:"Id,omitempty" validate:"dive,required"`
+	// Members docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
+	Members *CloudFrontDistributionOriginGroupMembers `json:"Members,omitempty" validate:"dive,required"`
+}
+
+// CloudFrontDistributionOriginGroupList represents a list of CloudFrontDistributionOriginGroup
+type CloudFrontDistributionOriginGroupList []CloudFrontDistributionOriginGroup
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudFrontDistributionOriginGroupList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudFrontDistributionOriginGroup{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudFrontDistributionOriginGroupList{item}
+		return nil
+	}
+	list := []CloudFrontDistributionOriginGroup{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudFrontDistributionOriginGroupList(list)
+		return nil
+	}
+	return err
+}
+// CloudFrontDistributionOriginGroupFailoverCriteria represents the AWS::CloudFront::Distribution.OriginGroupFailoverCriteria CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html 
+type CloudFrontDistributionOriginGroupFailoverCriteria struct {
+	// StatusCodes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
+	StatusCodes *CloudFrontDistributionStatusCodes `json:"StatusCodes,omitempty" validate:"dive,required"`
+}
+
+// CloudFrontDistributionOriginGroupFailoverCriteriaList represents a list of CloudFrontDistributionOriginGroupFailoverCriteria
+type CloudFrontDistributionOriginGroupFailoverCriteriaList []CloudFrontDistributionOriginGroupFailoverCriteria
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudFrontDistributionOriginGroupFailoverCriteriaList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudFrontDistributionOriginGroupFailoverCriteria{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudFrontDistributionOriginGroupFailoverCriteriaList{item}
+		return nil
+	}
+	list := []CloudFrontDistributionOriginGroupFailoverCriteria{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudFrontDistributionOriginGroupFailoverCriteriaList(list)
+		return nil
+	}
+	return err
+}
+// CloudFrontDistributionOriginGroupMember represents the AWS::CloudFront::Distribution.OriginGroupMember CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html 
+type CloudFrontDistributionOriginGroupMember struct {
+	// OriginID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
+	OriginID *StringExpr `json:"OriginId,omitempty" validate:"dive,required"`
+}
+
+// CloudFrontDistributionOriginGroupMemberList represents a list of CloudFrontDistributionOriginGroupMember
+type CloudFrontDistributionOriginGroupMemberList []CloudFrontDistributionOriginGroupMember
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudFrontDistributionOriginGroupMemberList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudFrontDistributionOriginGroupMember{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudFrontDistributionOriginGroupMemberList{item}
+		return nil
+	}
+	list := []CloudFrontDistributionOriginGroupMember{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudFrontDistributionOriginGroupMemberList(list)
+		return nil
+	}
+	return err
+}
+// CloudFrontDistributionOriginGroupMembers represents the AWS::CloudFront::Distribution.OriginGroupMembers CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html 
+type CloudFrontDistributionOriginGroupMembers struct {
+	// Items docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
+	Items *CloudFrontDistributionOriginGroupMemberList `json:"Items,omitempty" validate:"dive,required"`
+	// Quantity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
+	Quantity *IntegerExpr `json:"Quantity,omitempty" validate:"dive,required"`
+}
+
+// CloudFrontDistributionOriginGroupMembersList represents a list of CloudFrontDistributionOriginGroupMembers
+type CloudFrontDistributionOriginGroupMembersList []CloudFrontDistributionOriginGroupMembers
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudFrontDistributionOriginGroupMembersList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudFrontDistributionOriginGroupMembers{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudFrontDistributionOriginGroupMembersList{item}
+		return nil
+	}
+	list := []CloudFrontDistributionOriginGroupMembers{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudFrontDistributionOriginGroupMembersList(list)
+		return nil
+	}
+	return err
+}
+// CloudFrontDistributionOriginGroups represents the AWS::CloudFront::Distribution.OriginGroups CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html 
+type CloudFrontDistributionOriginGroups struct {
+	// Items docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
+	Items *CloudFrontDistributionOriginGroupList `json:"Items,omitempty"`
+	// Quantity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
+	Quantity *IntegerExpr `json:"Quantity,omitempty" validate:"dive,required"`
+}
+
+// CloudFrontDistributionOriginGroupsList represents a list of CloudFrontDistributionOriginGroups
+type CloudFrontDistributionOriginGroupsList []CloudFrontDistributionOriginGroups
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudFrontDistributionOriginGroupsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudFrontDistributionOriginGroups{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudFrontDistributionOriginGroupsList{item}
+		return nil
+	}
+	list := []CloudFrontDistributionOriginGroups{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudFrontDistributionOriginGroupsList(list)
+		return nil
+	}
+	return err
+}
 // CloudFrontDistributionRestrictions represents the AWS::CloudFront::Distribution.Restrictions CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html 
 type CloudFrontDistributionRestrictions struct {
@@ -6380,6 +7148,34 @@ func (l *CloudFrontDistributionS3OriginConfigList) UnmarshalJSON(buf []byte) err
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = CloudFrontDistributionS3OriginConfigList(list)
+		return nil
+	}
+	return err
+}
+// CloudFrontDistributionStatusCodes represents the AWS::CloudFront::Distribution.StatusCodes CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html 
+type CloudFrontDistributionStatusCodes struct {
+	// Items docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
+	Items []**IntegerExpr `json:"Items,omitempty" validate:"dive,required"`
+	// Quantity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
+	Quantity *IntegerExpr `json:"Quantity,omitempty" validate:"dive,required"`
+}
+
+// CloudFrontDistributionStatusCodesList represents a list of CloudFrontDistributionStatusCodes
+type CloudFrontDistributionStatusCodesList []CloudFrontDistributionStatusCodes
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudFrontDistributionStatusCodesList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudFrontDistributionStatusCodes{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudFrontDistributionStatusCodesList{item}
+		return nil
+	}
+	list := []CloudFrontDistributionStatusCodes{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudFrontDistributionStatusCodesList(list)
 		return nil
 	}
 	return err
@@ -6808,6 +7604,30 @@ func (l *CloudWatchAnomalyDetectorRangeList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// CloudWatchInsightRuleTags represents the AWS::CloudWatch::InsightRule.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-insightrule-tags.html 
+type CloudWatchInsightRuleTags struct {
+}
+
+// CloudWatchInsightRuleTagsList represents a list of CloudWatchInsightRuleTags
+type CloudWatchInsightRuleTagsList []CloudWatchInsightRuleTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CloudWatchInsightRuleTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CloudWatchInsightRuleTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CloudWatchInsightRuleTagsList{item}
+		return nil
+	}
+	list := []CloudWatchInsightRuleTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CloudWatchInsightRuleTagsList(list)
+		return nil
+	}
+	return err
+}
 // CodeBuildProjectArtifacts represents the AWS::CodeBuild::Project.Artifacts CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html 
 type CodeBuildProjectArtifacts struct {
@@ -7054,6 +7874,40 @@ func (l *CodeBuildProjectProjectCacheList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = CodeBuildProjectProjectCacheList(list)
+		return nil
+	}
+	return err
+}
+// CodeBuildProjectProjectFileSystemLocation represents the AWS::CodeBuild::Project.ProjectFileSystemLocation CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html 
+type CodeBuildProjectProjectFileSystemLocation struct {
+	// IDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html#cfn-codebuild-project-projectfilesystemlocation-identifier
+	IDentifier *StringExpr `json:"Identifier,omitempty" validate:"dive,required"`
+	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html#cfn-codebuild-project-projectfilesystemlocation-location
+	Location *StringExpr `json:"Location,omitempty" validate:"dive,required"`
+	// MountOptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html#cfn-codebuild-project-projectfilesystemlocation-mountoptions
+	MountOptions *StringExpr `json:"MountOptions,omitempty"`
+	// MountPoint docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html#cfn-codebuild-project-projectfilesystemlocation-mountpoint
+	MountPoint *StringExpr `json:"MountPoint,omitempty" validate:"dive,required"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html#cfn-codebuild-project-projectfilesystemlocation-type
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
+}
+
+// CodeBuildProjectProjectFileSystemLocationList represents a list of CodeBuildProjectProjectFileSystemLocation
+type CodeBuildProjectProjectFileSystemLocationList []CodeBuildProjectProjectFileSystemLocation
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CodeBuildProjectProjectFileSystemLocationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CodeBuildProjectProjectFileSystemLocation{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CodeBuildProjectProjectFileSystemLocationList{item}
+		return nil
+	}
+	list := []CodeBuildProjectProjectFileSystemLocation{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CodeBuildProjectProjectFileSystemLocationList(list)
 		return nil
 	}
 	return err
@@ -9134,6 +9988,32 @@ func (l *CognitoUserPoolUserPoolAddOnsList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// CognitoUserPoolUsernameConfiguration represents the AWS::Cognito::UserPool.UsernameConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-usernameconfiguration.html 
+type CognitoUserPoolUsernameConfiguration struct {
+	// CaseSensitive docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-usernameconfiguration.html#cfn-cognito-userpool-usernameconfiguration-casesensitive
+	CaseSensitive *BoolExpr `json:"CaseSensitive,omitempty"`
+}
+
+// CognitoUserPoolUsernameConfigurationList represents a list of CognitoUserPoolUsernameConfiguration
+type CognitoUserPoolUsernameConfigurationList []CognitoUserPoolUsernameConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *CognitoUserPoolUsernameConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := CognitoUserPoolUsernameConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = CognitoUserPoolUsernameConfigurationList{item}
+		return nil
+	}
+	list := []CognitoUserPoolUsernameConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = CognitoUserPoolUsernameConfigurationList(list)
+		return nil
+	}
+	return err
+}
 // CognitoUserPoolVerificationMessageTemplate represents the AWS::Cognito::UserPool.VerificationMessageTemplate CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html 
 type CognitoUserPoolVerificationMessageTemplate struct {
@@ -9700,6 +10580,34 @@ func (l *ConfigConfigurationRecorderRecordingGroupList) UnmarshalJSON(buf []byte
 	}
 	return err
 }
+// ConfigConformancePackConformancePackInputParameter represents the AWS::Config::ConformancePack.ConformancePackInputParameter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html 
+type ConfigConformancePackConformancePackInputParameter struct {
+	// ParameterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
+	ParameterName *StringExpr `json:"ParameterName,omitempty" validate:"dive,required"`
+	// ParameterValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
+	ParameterValue *StringExpr `json:"ParameterValue,omitempty" validate:"dive,required"`
+}
+
+// ConfigConformancePackConformancePackInputParameterList represents a list of ConfigConformancePackConformancePackInputParameter
+type ConfigConformancePackConformancePackInputParameterList []ConfigConformancePackConformancePackInputParameter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ConfigConformancePackConformancePackInputParameterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ConfigConformancePackConformancePackInputParameter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ConfigConformancePackConformancePackInputParameterList{item}
+		return nil
+	}
+	list := []ConfigConformancePackConformancePackInputParameter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ConfigConformancePackConformancePackInputParameterList(list)
+		return nil
+	}
+	return err
+}
 // ConfigDeliveryChannelConfigSnapshotDeliveryProperties represents the AWS::Config::DeliveryChannel.ConfigSnapshotDeliveryProperties CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html 
 type ConfigDeliveryChannelConfigSnapshotDeliveryProperties struct {
@@ -9804,6 +10712,34 @@ func (l *ConfigOrganizationConfigRuleOrganizationManagedRuleMetadataList) Unmars
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ConfigOrganizationConfigRuleOrganizationManagedRuleMetadataList(list)
+		return nil
+	}
+	return err
+}
+// ConfigOrganizationConformancePackConformancePackInputParameter represents the AWS::Config::OrganizationConformancePack.ConformancePackInputParameter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html 
+type ConfigOrganizationConformancePackConformancePackInputParameter struct {
+	// ParameterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
+	ParameterName *StringExpr `json:"ParameterName,omitempty" validate:"dive,required"`
+	// ParameterValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
+	ParameterValue *StringExpr `json:"ParameterValue,omitempty" validate:"dive,required"`
+}
+
+// ConfigOrganizationConformancePackConformancePackInputParameterList represents a list of ConfigOrganizationConformancePackConformancePackInputParameter
+type ConfigOrganizationConformancePackConformancePackInputParameterList []ConfigOrganizationConformancePackConformancePackInputParameter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ConfigOrganizationConformancePackConformancePackInputParameterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ConfigOrganizationConformancePackConformancePackInputParameter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ConfigOrganizationConformancePackConformancePackInputParameterList{item}
+		return nil
+	}
+	list := []ConfigOrganizationConformancePackConformancePackInputParameter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ConfigOrganizationConformancePackConformancePackInputParameterList(list)
 		return nil
 	}
 	return err
@@ -10276,6 +11212,34 @@ func (l *DMSEndpointElasticsearchSettingsList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = DMSEndpointElasticsearchSettingsList(list)
+		return nil
+	}
+	return err
+}
+// DMSEndpointKafkaSettings represents the AWS::DMS::Endpoint.KafkaSettings CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html 
+type DMSEndpointKafkaSettings struct {
+	// Broker docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-broker
+	Broker *StringExpr `json:"Broker,omitempty"`
+	// Topic docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-topic
+	Topic *StringExpr `json:"Topic,omitempty"`
+}
+
+// DMSEndpointKafkaSettingsList represents a list of DMSEndpointKafkaSettings
+type DMSEndpointKafkaSettingsList []DMSEndpointKafkaSettings
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *DMSEndpointKafkaSettingsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := DMSEndpointKafkaSettings{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = DMSEndpointKafkaSettingsList{item}
+		return nil
+	}
+	list := []DMSEndpointKafkaSettings{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = DMSEndpointKafkaSettingsList(list)
 		return nil
 	}
 	return err
@@ -11074,6 +12038,32 @@ func (l *EC2ClientVpnEndpointTagSpecificationList) UnmarshalJSON(buf []byte) err
 	}
 	return err
 }
+// EC2EC2FleetCapacityReservationOptionsRequest represents the AWS::EC2::EC2Fleet.CapacityReservationOptionsRequest CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html 
+type EC2EC2FleetCapacityReservationOptionsRequest struct {
+	// UsageStrategy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html#cfn-ec2-ec2fleet-capacityreservationoptionsrequest-usagestrategy
+	UsageStrategy *StringExpr `json:"UsageStrategy,omitempty"`
+}
+
+// EC2EC2FleetCapacityReservationOptionsRequestList represents a list of EC2EC2FleetCapacityReservationOptionsRequest
+type EC2EC2FleetCapacityReservationOptionsRequestList []EC2EC2FleetCapacityReservationOptionsRequest
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EC2EC2FleetCapacityReservationOptionsRequestList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EC2EC2FleetCapacityReservationOptionsRequest{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EC2EC2FleetCapacityReservationOptionsRequestList{item}
+		return nil
+	}
+	list := []EC2EC2FleetCapacityReservationOptionsRequest{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EC2EC2FleetCapacityReservationOptionsRequestList(list)
+		return nil
+	}
+	return err
+}
 // EC2EC2FleetFleetLaunchTemplateConfigRequest represents the AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html 
 type EC2EC2FleetFleetLaunchTemplateConfigRequest struct {
@@ -11111,6 +12101,8 @@ type EC2EC2FleetFleetLaunchTemplateOverridesRequest struct {
 	InstanceType *StringExpr `json:"InstanceType,omitempty"`
 	// MaxPrice docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice
 	MaxPrice *StringExpr `json:"MaxPrice,omitempty"`
+	// Placement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-placement
+	Placement *EC2EC2FleetPlacement `json:"Placement,omitempty"`
 	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority
 	Priority *IntegerExpr `json:"Priority,omitempty"`
 	// SubnetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid
@@ -11173,6 +12165,16 @@ func (l *EC2EC2FleetFleetLaunchTemplateSpecificationRequestList) UnmarshalJSON(b
 type EC2EC2FleetOnDemandOptionsRequest struct {
 	// AllocationStrategy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy
 	AllocationStrategy *StringExpr `json:"AllocationStrategy,omitempty"`
+	// CapacityReservationOptions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-capacityreservationoptions
+	CapacityReservationOptions *EC2EC2FleetCapacityReservationOptionsRequest `json:"CapacityReservationOptions,omitempty"`
+	// MaxTotalPrice docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-maxtotalprice
+	MaxTotalPrice *StringExpr `json:"MaxTotalPrice,omitempty"`
+	// MinTargetCapacity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-mintargetcapacity
+	MinTargetCapacity *IntegerExpr `json:"MinTargetCapacity,omitempty"`
+	// SingleAvailabilityZone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleavailabilityzone
+	SingleAvailabilityZone *BoolExpr `json:"SingleAvailabilityZone,omitempty"`
+	// SingleInstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleinstancetype
+	SingleInstanceType *BoolExpr `json:"SingleInstanceType,omitempty"`
 }
 
 // EC2EC2FleetOnDemandOptionsRequestList represents a list of EC2EC2FleetOnDemandOptionsRequest
@@ -11194,6 +12196,46 @@ func (l *EC2EC2FleetOnDemandOptionsRequestList) UnmarshalJSON(buf []byte) error 
 	}
 	return err
 }
+// EC2EC2FleetPlacement represents the AWS::EC2::EC2Fleet.Placement CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html 
+type EC2EC2FleetPlacement struct {
+	// Affinity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-affinity
+	Affinity *StringExpr `json:"Affinity,omitempty"`
+	// AvailabilityZone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-availabilityzone
+	AvailabilityZone *StringExpr `json:"AvailabilityZone,omitempty"`
+	// GroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-groupname
+	GroupName *StringExpr `json:"GroupName,omitempty"`
+	// HostID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostid
+	HostID *StringExpr `json:"HostId,omitempty"`
+	// HostResourceGroupArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostresourcegrouparn
+	HostResourceGroupArn *StringExpr `json:"HostResourceGroupArn,omitempty"`
+	// PartitionNumber docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-partitionnumber
+	PartitionNumber *IntegerExpr `json:"PartitionNumber,omitempty"`
+	// SpreadDomain docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-spreaddomain
+	SpreadDomain *StringExpr `json:"SpreadDomain,omitempty"`
+	// Tenancy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-tenancy
+	Tenancy *StringExpr `json:"Tenancy,omitempty"`
+}
+
+// EC2EC2FleetPlacementList represents a list of EC2EC2FleetPlacement
+type EC2EC2FleetPlacementList []EC2EC2FleetPlacement
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EC2EC2FleetPlacementList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EC2EC2FleetPlacement{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EC2EC2FleetPlacementList{item}
+		return nil
+	}
+	list := []EC2EC2FleetPlacement{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EC2EC2FleetPlacementList(list)
+		return nil
+	}
+	return err
+}
 // EC2EC2FleetSpotOptionsRequest represents the AWS::EC2::EC2Fleet.SpotOptionsRequest CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html 
 type EC2EC2FleetSpotOptionsRequest struct {
@@ -11203,6 +12245,14 @@ type EC2EC2FleetSpotOptionsRequest struct {
 	InstanceInterruptionBehavior *StringExpr `json:"InstanceInterruptionBehavior,omitempty"`
 	// InstancePoolsToUseCount docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instancepoolstousecount
 	InstancePoolsToUseCount *IntegerExpr `json:"InstancePoolsToUseCount,omitempty"`
+	// MaxTotalPrice docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-maxtotalprice
+	MaxTotalPrice *StringExpr `json:"MaxTotalPrice,omitempty"`
+	// MinTargetCapacity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-mintargetcapacity
+	MinTargetCapacity *IntegerExpr `json:"MinTargetCapacity,omitempty"`
+	// SingleAvailabilityZone docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-singleavailabilityzone
+	SingleAvailabilityZone *BoolExpr `json:"SingleAvailabilityZone,omitempty"`
+	// SingleInstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-singleinstancetype
+	SingleInstanceType *BoolExpr `json:"SingleInstanceType,omitempty"`
 }
 
 // EC2EC2FleetSpotOptionsRequestList represents a list of EC2EC2FleetSpotOptionsRequest
@@ -11224,41 +12274,13 @@ func (l *EC2EC2FleetSpotOptionsRequestList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// EC2EC2FleetTagRequest represents the AWS::EC2::EC2Fleet.TagRequest CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html 
-type EC2EC2FleetTagRequest struct {
-	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html#cfn-ec2-ec2fleet-tagrequest-key
-	Key *StringExpr `json:"Key,omitempty"`
-	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html#cfn-ec2-ec2fleet-tagrequest-value
-	Value *StringExpr `json:"Value,omitempty"`
-}
-
-// EC2EC2FleetTagRequestList represents a list of EC2EC2FleetTagRequest
-type EC2EC2FleetTagRequestList []EC2EC2FleetTagRequest
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *EC2EC2FleetTagRequestList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := EC2EC2FleetTagRequest{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = EC2EC2FleetTagRequestList{item}
-		return nil
-	}
-	list := []EC2EC2FleetTagRequest{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = EC2EC2FleetTagRequestList(list)
-		return nil
-	}
-	return err
-}
 // EC2EC2FleetTagSpecification represents the AWS::EC2::EC2Fleet.TagSpecification CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html 
 type EC2EC2FleetTagSpecification struct {
 	// ResourceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-resourcetype
 	ResourceType *StringExpr `json:"ResourceType,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-tags
-	Tags *EC2EC2FleetTagRequestList `json:"Tags,omitempty"`
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // EC2EC2FleetTagSpecificationList represents a list of EC2EC2FleetTagSpecification
@@ -12480,6 +13502,32 @@ func (l *EC2LaunchTemplateTagSpecificationList) UnmarshalJSON(buf []byte) error 
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = EC2LaunchTemplateTagSpecificationList(list)
+		return nil
+	}
+	return err
+}
+// EC2LocalGatewayRouteTableVPCAssociationTags represents the AWS::EC2::LocalGatewayRouteTableVPCAssociation.Tags CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html 
+type EC2LocalGatewayRouteTableVPCAssociationTags struct {
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// EC2LocalGatewayRouteTableVPCAssociationTagsList represents a list of EC2LocalGatewayRouteTableVPCAssociationTags
+type EC2LocalGatewayRouteTableVPCAssociationTagsList []EC2LocalGatewayRouteTableVPCAssociationTags
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EC2LocalGatewayRouteTableVPCAssociationTagsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EC2LocalGatewayRouteTableVPCAssociationTags{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EC2LocalGatewayRouteTableVPCAssociationTagsList{item}
+		return nil
+	}
+	list := []EC2LocalGatewayRouteTableVPCAssociationTags{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EC2LocalGatewayRouteTableVPCAssociationTagsList(list)
 		return nil
 	}
 	return err
@@ -14668,6 +15716,60 @@ func (l *EFSFileSystemLifecyclePolicyList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// EKSClusterEncryptionConfig represents the AWS::EKS::Cluster.EncryptionConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html 
+type EKSClusterEncryptionConfig struct {
+	// Provider docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-provider
+	Provider *EKSClusterProvider `json:"Provider,omitempty"`
+	// Resources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-resources
+	Resources *StringListExpr `json:"Resources,omitempty"`
+}
+
+// EKSClusterEncryptionConfigList represents a list of EKSClusterEncryptionConfig
+type EKSClusterEncryptionConfigList []EKSClusterEncryptionConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EKSClusterEncryptionConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EKSClusterEncryptionConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EKSClusterEncryptionConfigList{item}
+		return nil
+	}
+	list := []EKSClusterEncryptionConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EKSClusterEncryptionConfigList(list)
+		return nil
+	}
+	return err
+}
+// EKSClusterProvider represents the AWS::EKS::Cluster.Provider CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-provider.html 
+type EKSClusterProvider struct {
+	// KeyArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-provider.html#cfn-eks-cluster-provider-keyarn
+	KeyArn *StringExpr `json:"KeyArn,omitempty"`
+}
+
+// EKSClusterProviderList represents a list of EKSClusterProvider
+type EKSClusterProviderList []EKSClusterProvider
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EKSClusterProviderList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EKSClusterProvider{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EKSClusterProviderList{item}
+		return nil
+	}
+	list := []EKSClusterProvider{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EKSClusterProviderList(list)
+		return nil
+	}
+	return err
+}
 // EKSClusterResourcesVPCConfig represents the AWS::EKS::Cluster.ResourcesVpcConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html 
 type EKSClusterResourcesVPCConfig struct {
@@ -16753,6 +17855,8 @@ type ElasticLoadBalancingV2ListenerAction struct {
 	AuthenticateOidcConfig *ElasticLoadBalancingV2ListenerAuthenticateOidcConfig `json:"AuthenticateOidcConfig,omitempty"`
 	// FixedResponseConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
 	FixedResponseConfig *ElasticLoadBalancingV2ListenerFixedResponseConfig `json:"FixedResponseConfig,omitempty"`
+	// ForwardConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
+	ForwardConfig *ElasticLoadBalancingV2ListenerForwardConfig `json:"ForwardConfig,omitempty"`
 	// Order docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-order
 	Order *IntegerExpr `json:"Order,omitempty"`
 	// RedirectConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
@@ -16924,6 +18028,34 @@ func (l *ElasticLoadBalancingV2ListenerFixedResponseConfigList) UnmarshalJSON(bu
 	}
 	return err
 }
+// ElasticLoadBalancingV2ListenerForwardConfig represents the AWS::ElasticLoadBalancingV2::Listener.ForwardConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html 
+type ElasticLoadBalancingV2ListenerForwardConfig struct {
+	// TargetGroupStickinessConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig
+	TargetGroupStickinessConfig *ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig `json:"TargetGroupStickinessConfig,omitempty"`
+	// TargetGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
+	TargetGroups *ElasticLoadBalancingV2ListenerTargetGroupTupleList `json:"TargetGroups,omitempty"`
+}
+
+// ElasticLoadBalancingV2ListenerForwardConfigList represents a list of ElasticLoadBalancingV2ListenerForwardConfig
+type ElasticLoadBalancingV2ListenerForwardConfigList []ElasticLoadBalancingV2ListenerForwardConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ElasticLoadBalancingV2ListenerForwardConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ElasticLoadBalancingV2ListenerForwardConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ElasticLoadBalancingV2ListenerForwardConfigList{item}
+		return nil
+	}
+	list := []ElasticLoadBalancingV2ListenerForwardConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ElasticLoadBalancingV2ListenerForwardConfigList(list)
+		return nil
+	}
+	return err
+}
 // ElasticLoadBalancingV2ListenerRedirectConfig represents the AWS::ElasticLoadBalancingV2::Listener.RedirectConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html 
 type ElasticLoadBalancingV2ListenerRedirectConfig struct {
@@ -16956,6 +18088,62 @@ func (l *ElasticLoadBalancingV2ListenerRedirectConfigList) UnmarshalJSON(buf []b
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ElasticLoadBalancingV2ListenerRedirectConfigList(list)
+		return nil
+	}
+	return err
+}
+// ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig represents the AWS::ElasticLoadBalancingV2::Listener.TargetGroupStickinessConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html 
+type ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig struct {
+	// DurationSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-durationseconds
+	DurationSeconds *IntegerExpr `json:"DurationSeconds,omitempty"`
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty"`
+}
+
+// ElasticLoadBalancingV2ListenerTargetGroupStickinessConfigList represents a list of ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig
+type ElasticLoadBalancingV2ListenerTargetGroupStickinessConfigList []ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ElasticLoadBalancingV2ListenerTargetGroupStickinessConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ElasticLoadBalancingV2ListenerTargetGroupStickinessConfigList{item}
+		return nil
+	}
+	list := []ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ElasticLoadBalancingV2ListenerTargetGroupStickinessConfigList(list)
+		return nil
+	}
+	return err
+}
+// ElasticLoadBalancingV2ListenerTargetGroupTuple represents the AWS::ElasticLoadBalancingV2::Listener.TargetGroupTuple CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html 
+type ElasticLoadBalancingV2ListenerTargetGroupTuple struct {
+	// TargetGroupArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-targetgrouparn
+	TargetGroupArn *StringExpr `json:"TargetGroupArn,omitempty"`
+	// Weight docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-weight
+	Weight *IntegerExpr `json:"Weight,omitempty"`
+}
+
+// ElasticLoadBalancingV2ListenerTargetGroupTupleList represents a list of ElasticLoadBalancingV2ListenerTargetGroupTuple
+type ElasticLoadBalancingV2ListenerTargetGroupTupleList []ElasticLoadBalancingV2ListenerTargetGroupTuple
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ElasticLoadBalancingV2ListenerTargetGroupTupleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ElasticLoadBalancingV2ListenerTargetGroupTuple{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ElasticLoadBalancingV2ListenerTargetGroupTupleList{item}
+		return nil
+	}
+	list := []ElasticLoadBalancingV2ListenerTargetGroupTuple{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ElasticLoadBalancingV2ListenerTargetGroupTupleList(list)
 		return nil
 	}
 	return err
@@ -16995,6 +18183,8 @@ type ElasticLoadBalancingV2ListenerRuleAction struct {
 	AuthenticateOidcConfig *ElasticLoadBalancingV2ListenerRuleAuthenticateOidcConfig `json:"AuthenticateOidcConfig,omitempty"`
 	// FixedResponseConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
 	FixedResponseConfig *ElasticLoadBalancingV2ListenerRuleFixedResponseConfig `json:"FixedResponseConfig,omitempty"`
+	// ForwardConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
+	ForwardConfig *ElasticLoadBalancingV2ListenerRuleForwardConfig `json:"ForwardConfig,omitempty"`
 	// Order docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-order
 	Order *IntegerExpr `json:"Order,omitempty"`
 	// RedirectConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
@@ -17136,6 +18326,34 @@ func (l *ElasticLoadBalancingV2ListenerRuleFixedResponseConfigList) UnmarshalJSO
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ElasticLoadBalancingV2ListenerRuleFixedResponseConfigList(list)
+		return nil
+	}
+	return err
+}
+// ElasticLoadBalancingV2ListenerRuleForwardConfig represents the AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html 
+type ElasticLoadBalancingV2ListenerRuleForwardConfig struct {
+	// TargetGroupStickinessConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
+	TargetGroupStickinessConfig *ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig `json:"TargetGroupStickinessConfig,omitempty"`
+	// TargetGroups docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
+	TargetGroups *ElasticLoadBalancingV2ListenerRuleTargetGroupTupleList `json:"TargetGroups,omitempty"`
+}
+
+// ElasticLoadBalancingV2ListenerRuleForwardConfigList represents a list of ElasticLoadBalancingV2ListenerRuleForwardConfig
+type ElasticLoadBalancingV2ListenerRuleForwardConfigList []ElasticLoadBalancingV2ListenerRuleForwardConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ElasticLoadBalancingV2ListenerRuleForwardConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ElasticLoadBalancingV2ListenerRuleForwardConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ElasticLoadBalancingV2ListenerRuleForwardConfigList{item}
+		return nil
+	}
+	list := []ElasticLoadBalancingV2ListenerRuleForwardConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ElasticLoadBalancingV2ListenerRuleForwardConfigList(list)
 		return nil
 	}
 	return err
@@ -17398,6 +18616,62 @@ func (l *ElasticLoadBalancingV2ListenerRuleSourceIPConfigList) UnmarshalJSON(buf
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = ElasticLoadBalancingV2ListenerRuleSourceIPConfigList(list)
+		return nil
+	}
+	return err
+}
+// ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig represents the AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html 
+type ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig struct {
+	// DurationSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-durationseconds
+	DurationSeconds *IntegerExpr `json:"DurationSeconds,omitempty"`
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty"`
+}
+
+// ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfigList represents a list of ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig
+type ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfigList []ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfigList{item}
+		return nil
+	}
+	list := []ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfigList(list)
+		return nil
+	}
+	return err
+}
+// ElasticLoadBalancingV2ListenerRuleTargetGroupTuple represents the AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupTuple CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html 
+type ElasticLoadBalancingV2ListenerRuleTargetGroupTuple struct {
+	// TargetGroupArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn
+	TargetGroupArn *StringExpr `json:"TargetGroupArn,omitempty"`
+	// Weight docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-weight
+	Weight *IntegerExpr `json:"Weight,omitempty"`
+}
+
+// ElasticLoadBalancingV2ListenerRuleTargetGroupTupleList represents a list of ElasticLoadBalancingV2ListenerRuleTargetGroupTuple
+type ElasticLoadBalancingV2ListenerRuleTargetGroupTupleList []ElasticLoadBalancingV2ListenerRuleTargetGroupTuple
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ElasticLoadBalancingV2ListenerRuleTargetGroupTupleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ElasticLoadBalancingV2ListenerRuleTargetGroupTuple{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ElasticLoadBalancingV2ListenerRuleTargetGroupTupleList{item}
+		return nil
+	}
+	list := []ElasticLoadBalancingV2ListenerRuleTargetGroupTuple{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ElasticLoadBalancingV2ListenerRuleTargetGroupTupleList(list)
 		return nil
 	}
 	return err
@@ -18272,6 +19546,88 @@ func (l *EventsRuleTargetList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = EventsRuleTargetList(list)
+		return nil
+	}
+	return err
+}
+// FMSPolicyIEMap represents the AWS::FMS::Policy.IEMap CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html 
+type FMSPolicyIEMap struct {
+	// ACCOUNT docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
+	ACCOUNT *StringListExpr `json:"ACCOUNT,omitempty"`
+}
+
+// FMSPolicyIEMapList represents a list of FMSPolicyIEMap
+type FMSPolicyIEMapList []FMSPolicyIEMap
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *FMSPolicyIEMapList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := FMSPolicyIEMap{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = FMSPolicyIEMapList{item}
+		return nil
+	}
+	list := []FMSPolicyIEMap{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = FMSPolicyIEMapList(list)
+		return nil
+	}
+	return err
+}
+// FMSPolicyPolicyTag represents the AWS::FMS::Policy.PolicyTag CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html 
+type FMSPolicyPolicyTag struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
+	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// FMSPolicyPolicyTagList represents a list of FMSPolicyPolicyTag
+type FMSPolicyPolicyTagList []FMSPolicyPolicyTag
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *FMSPolicyPolicyTagList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := FMSPolicyPolicyTag{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = FMSPolicyPolicyTagList{item}
+		return nil
+	}
+	list := []FMSPolicyPolicyTag{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = FMSPolicyPolicyTagList(list)
+		return nil
+	}
+	return err
+}
+// FMSPolicyResourceTag represents the AWS::FMS::Policy.ResourceTag CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html 
+type FMSPolicyResourceTag struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
+	Value *StringExpr `json:"Value,omitempty"`
+}
+
+// FMSPolicyResourceTagList represents a list of FMSPolicyResourceTag
+type FMSPolicyResourceTagList []FMSPolicyResourceTag
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *FMSPolicyResourceTagList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := FMSPolicyResourceTag{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = FMSPolicyResourceTagList{item}
+		return nil
+	}
+	list := []FMSPolicyResourceTag{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = FMSPolicyResourceTagList(list)
 		return nil
 	}
 	return err
@@ -21106,6 +22462,34 @@ func (l *GreengrassResourceDefinitionResourceDefinitionVersionList) UnmarshalJSO
 	}
 	return err
 }
+// GreengrassResourceDefinitionResourceDownloadOwnerSetting represents the AWS::Greengrass::ResourceDefinition.ResourceDownloadOwnerSetting CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedownloadownersetting.html 
+type GreengrassResourceDefinitionResourceDownloadOwnerSetting struct {
+	// GroupOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinition-resourcedownloadownersetting-groupowner
+	GroupOwner *StringExpr `json:"GroupOwner,omitempty" validate:"dive,required"`
+	// GroupPermission docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinition-resourcedownloadownersetting-grouppermission
+	GroupPermission *StringExpr `json:"GroupPermission,omitempty" validate:"dive,required"`
+}
+
+// GreengrassResourceDefinitionResourceDownloadOwnerSettingList represents a list of GreengrassResourceDefinitionResourceDownloadOwnerSetting
+type GreengrassResourceDefinitionResourceDownloadOwnerSettingList []GreengrassResourceDefinitionResourceDownloadOwnerSetting
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionResourceDownloadOwnerSettingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionResourceDownloadOwnerSetting{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionResourceDownloadOwnerSettingList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionResourceDownloadOwnerSetting{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionResourceDownloadOwnerSettingList(list)
+		return nil
+	}
+	return err
+}
 // GreengrassResourceDefinitionResourceInstance represents the AWS::Greengrass::ResourceDefinition.ResourceInstance CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html 
 type GreengrassResourceDefinitionResourceInstance struct {
@@ -21141,6 +22525,8 @@ func (l *GreengrassResourceDefinitionResourceInstanceList) UnmarshalJSON(buf []b
 type GreengrassResourceDefinitionS3MachineLearningModelResourceData struct {
 	// DestinationPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-destinationpath
 	DestinationPath *StringExpr `json:"DestinationPath,omitempty" validate:"dive,required"`
+	// OwnerSetting docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-ownersetting
+	OwnerSetting *GreengrassResourceDefinitionResourceDownloadOwnerSetting `json:"OwnerSetting,omitempty"`
 	// S3URI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-s3uri
 	S3URI *StringExpr `json:"S3Uri,omitempty" validate:"dive,required"`
 }
@@ -21169,6 +22555,8 @@ func (l *GreengrassResourceDefinitionS3MachineLearningModelResourceDataList) Unm
 type GreengrassResourceDefinitionSageMakerMachineLearningModelResourceData struct {
 	// DestinationPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-destinationpath
 	DestinationPath *StringExpr `json:"DestinationPath,omitempty" validate:"dive,required"`
+	// OwnerSetting docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-ownersetting
+	OwnerSetting *GreengrassResourceDefinitionResourceDownloadOwnerSetting `json:"OwnerSetting,omitempty"`
 	// SageMakerJobArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-sagemakerjobarn
 	SageMakerJobArn *StringExpr `json:"SageMakerJobArn,omitempty" validate:"dive,required"`
 }
@@ -21340,6 +22728,34 @@ func (l *GreengrassResourceDefinitionVersionResourceDataContainerList) Unmarshal
 	}
 	return err
 }
+// GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting represents the AWS::Greengrass::ResourceDefinitionVersion.ResourceDownloadOwnerSetting CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html 
+type GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting struct {
+	// GroupOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinitionversion-resourcedownloadownersetting-groupowner
+	GroupOwner *StringExpr `json:"GroupOwner,omitempty" validate:"dive,required"`
+	// GroupPermission docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html#cfn-greengrass-resourcedefinitionversion-resourcedownloadownersetting-grouppermission
+	GroupPermission *StringExpr `json:"GroupPermission,omitempty" validate:"dive,required"`
+}
+
+// GreengrassResourceDefinitionVersionResourceDownloadOwnerSettingList represents a list of GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting
+type GreengrassResourceDefinitionVersionResourceDownloadOwnerSettingList []GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GreengrassResourceDefinitionVersionResourceDownloadOwnerSettingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GreengrassResourceDefinitionVersionResourceDownloadOwnerSettingList{item}
+		return nil
+	}
+	list := []GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GreengrassResourceDefinitionVersionResourceDownloadOwnerSettingList(list)
+		return nil
+	}
+	return err
+}
 // GreengrassResourceDefinitionVersionResourceInstance represents the AWS::Greengrass::ResourceDefinitionVersion.ResourceInstance CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html 
 type GreengrassResourceDefinitionVersionResourceInstance struct {
@@ -21375,6 +22791,8 @@ func (l *GreengrassResourceDefinitionVersionResourceInstanceList) UnmarshalJSON(
 type GreengrassResourceDefinitionVersionS3MachineLearningModelResourceData struct {
 	// DestinationPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-destinationpath
 	DestinationPath *StringExpr `json:"DestinationPath,omitempty" validate:"dive,required"`
+	// OwnerSetting docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-ownersetting
+	OwnerSetting *GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting `json:"OwnerSetting,omitempty"`
 	// S3URI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-s3uri
 	S3URI *StringExpr `json:"S3Uri,omitempty" validate:"dive,required"`
 }
@@ -21403,6 +22821,8 @@ func (l *GreengrassResourceDefinitionVersionS3MachineLearningModelResourceDataLi
 type GreengrassResourceDefinitionVersionSageMakerMachineLearningModelResourceData struct {
 	// DestinationPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-destinationpath
 	DestinationPath *StringExpr `json:"DestinationPath,omitempty" validate:"dive,required"`
+	// OwnerSetting docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-ownersetting
+	OwnerSetting *GreengrassResourceDefinitionVersionResourceDownloadOwnerSetting `json:"OwnerSetting,omitempty"`
 	// SageMakerJobArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-sagemakerjobarn
 	SageMakerJobArn *StringExpr `json:"SageMakerJobArn,omitempty" validate:"dive,required"`
 }
@@ -21540,6 +22960,148 @@ func (l *GreengrassSubscriptionDefinitionVersionSubscriptionList) UnmarshalJSON(
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = GreengrassSubscriptionDefinitionVersionSubscriptionList(list)
+		return nil
+	}
+	return err
+}
+// GroundStationDataflowEndpointGroupDataflowEndpoint represents the AWS::GroundStation::DataflowEndpointGroup.DataflowEndpoint CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html 
+type GroundStationDataflowEndpointGroupDataflowEndpoint struct {
+	// Address docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
+	Address *GroundStationDataflowEndpointGroupSocketAddress `json:"Address,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
+	Name *StringExpr `json:"Name,omitempty"`
+}
+
+// GroundStationDataflowEndpointGroupDataflowEndpointList represents a list of GroundStationDataflowEndpointGroupDataflowEndpoint
+type GroundStationDataflowEndpointGroupDataflowEndpointList []GroundStationDataflowEndpointGroupDataflowEndpoint
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GroundStationDataflowEndpointGroupDataflowEndpointList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GroundStationDataflowEndpointGroupDataflowEndpoint{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GroundStationDataflowEndpointGroupDataflowEndpointList{item}
+		return nil
+	}
+	list := []GroundStationDataflowEndpointGroupDataflowEndpoint{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GroundStationDataflowEndpointGroupDataflowEndpointList(list)
+		return nil
+	}
+	return err
+}
+// GroundStationDataflowEndpointGroupEndpointDetails represents the AWS::GroundStation::DataflowEndpointGroup.EndpointDetails CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html 
+type GroundStationDataflowEndpointGroupEndpointDetails struct {
+	// Endpoint docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
+	Endpoint *GroundStationDataflowEndpointGroupDataflowEndpoint `json:"Endpoint,omitempty"`
+	// SecurityDetails docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
+	SecurityDetails *GroundStationDataflowEndpointGroupSecurityDetails `json:"SecurityDetails,omitempty"`
+}
+
+// GroundStationDataflowEndpointGroupEndpointDetailsList represents a list of GroundStationDataflowEndpointGroupEndpointDetails
+type GroundStationDataflowEndpointGroupEndpointDetailsList []GroundStationDataflowEndpointGroupEndpointDetails
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GroundStationDataflowEndpointGroupEndpointDetailsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GroundStationDataflowEndpointGroupEndpointDetails{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GroundStationDataflowEndpointGroupEndpointDetailsList{item}
+		return nil
+	}
+	list := []GroundStationDataflowEndpointGroupEndpointDetails{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GroundStationDataflowEndpointGroupEndpointDetailsList(list)
+		return nil
+	}
+	return err
+}
+// GroundStationDataflowEndpointGroupSecurityDetails represents the AWS::GroundStation::DataflowEndpointGroup.SecurityDetails CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html 
+type GroundStationDataflowEndpointGroupSecurityDetails struct {
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty"`
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty"`
+}
+
+// GroundStationDataflowEndpointGroupSecurityDetailsList represents a list of GroundStationDataflowEndpointGroupSecurityDetails
+type GroundStationDataflowEndpointGroupSecurityDetailsList []GroundStationDataflowEndpointGroupSecurityDetails
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GroundStationDataflowEndpointGroupSecurityDetailsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GroundStationDataflowEndpointGroupSecurityDetails{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GroundStationDataflowEndpointGroupSecurityDetailsList{item}
+		return nil
+	}
+	list := []GroundStationDataflowEndpointGroupSecurityDetails{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GroundStationDataflowEndpointGroupSecurityDetailsList(list)
+		return nil
+	}
+	return err
+}
+// GroundStationDataflowEndpointGroupSocketAddress represents the AWS::GroundStation::DataflowEndpointGroup.SocketAddress CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html 
+type GroundStationDataflowEndpointGroupSocketAddress struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-port
+	Port *IntegerExpr `json:"Port,omitempty"`
+}
+
+// GroundStationDataflowEndpointGroupSocketAddressList represents a list of GroundStationDataflowEndpointGroupSocketAddress
+type GroundStationDataflowEndpointGroupSocketAddressList []GroundStationDataflowEndpointGroupSocketAddress
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GroundStationDataflowEndpointGroupSocketAddressList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GroundStationDataflowEndpointGroupSocketAddress{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GroundStationDataflowEndpointGroupSocketAddressList{item}
+		return nil
+	}
+	list := []GroundStationDataflowEndpointGroupSocketAddress{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GroundStationDataflowEndpointGroupSocketAddressList(list)
+		return nil
+	}
+	return err
+}
+// GroundStationMissionProfileDataflowEdge represents the AWS::GroundStation::MissionProfile.DataflowEdge CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html 
+type GroundStationMissionProfileDataflowEdge struct {
+	// Destination docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-destination
+	Destination *StringExpr `json:"Destination,omitempty"`
+	// Source docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source
+	Source *StringExpr `json:"Source,omitempty"`
+}
+
+// GroundStationMissionProfileDataflowEdgeList represents a list of GroundStationMissionProfileDataflowEdge
+type GroundStationMissionProfileDataflowEdgeList []GroundStationMissionProfileDataflowEdge
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GroundStationMissionProfileDataflowEdgeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GroundStationMissionProfileDataflowEdge{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GroundStationMissionProfileDataflowEdgeList{item}
+		return nil
+	}
+	list := []GroundStationMissionProfileDataflowEdge{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GroundStationMissionProfileDataflowEdgeList(list)
 		return nil
 	}
 	return err
@@ -21815,8 +23377,14 @@ type IoTTopicRuleAction struct {
 	Elasticsearch *IoTTopicRuleElasticsearchAction `json:"Elasticsearch,omitempty"`
 	// Firehose docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
 	Firehose *IoTTopicRuleFirehoseAction `json:"Firehose,omitempty"`
+	// HTTP docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
+	HTTP *IoTTopicRuleHTTPAction `json:"Http,omitempty"`
 	// IotAnalytics docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
 	IotAnalytics *IoTTopicRuleIotAnalyticsAction `json:"IotAnalytics,omitempty"`
+	// IotEvents docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
+	IotEvents *IoTTopicRuleIotEventsAction `json:"IotEvents,omitempty"`
+	// IotSiteWise docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
+	IotSiteWise *IoTTopicRuleIotSiteWiseAction `json:"IotSiteWise,omitempty"`
 	// Kinesis docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
 	Kinesis *IoTTopicRuleKinesisAction `json:"Kinesis,omitempty"`
 	// Lambda docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
@@ -21848,6 +23416,96 @@ func (l *IoTTopicRuleActionList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = IoTTopicRuleActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleAssetPropertyTimestamp represents the AWS::IoT::TopicRule.AssetPropertyTimestamp CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html 
+type IoTTopicRuleAssetPropertyTimestamp struct {
+	// OffsetInNanos docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
+	OffsetInNanos *StringExpr `json:"OffsetInNanos,omitempty"`
+	// TimeInSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
+	TimeInSeconds *StringExpr `json:"TimeInSeconds,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRuleAssetPropertyTimestampList represents a list of IoTTopicRuleAssetPropertyTimestamp
+type IoTTopicRuleAssetPropertyTimestampList []IoTTopicRuleAssetPropertyTimestamp
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleAssetPropertyTimestampList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleAssetPropertyTimestamp{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleAssetPropertyTimestampList{item}
+		return nil
+	}
+	list := []IoTTopicRuleAssetPropertyTimestamp{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleAssetPropertyTimestampList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleAssetPropertyValue represents the AWS::IoT::TopicRule.AssetPropertyValue CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html 
+type IoTTopicRuleAssetPropertyValue struct {
+	// Quality docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
+	Quality *StringExpr `json:"Quality,omitempty"`
+	// Timestamp docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
+	Timestamp *IoTTopicRuleAssetPropertyTimestamp `json:"Timestamp,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
+	Value *IoTTopicRuleAssetPropertyVariant `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRuleAssetPropertyValueList represents a list of IoTTopicRuleAssetPropertyValue
+type IoTTopicRuleAssetPropertyValueList []IoTTopicRuleAssetPropertyValue
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleAssetPropertyValueList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleAssetPropertyValue{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleAssetPropertyValueList{item}
+		return nil
+	}
+	list := []IoTTopicRuleAssetPropertyValue{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleAssetPropertyValueList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleAssetPropertyVariant represents the AWS::IoT::TopicRule.AssetPropertyVariant CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html 
+type IoTTopicRuleAssetPropertyVariant struct {
+	// BooleanValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
+	BooleanValue *StringExpr `json:"BooleanValue,omitempty"`
+	// DoubleValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue
+	DoubleValue *StringExpr `json:"DoubleValue,omitempty"`
+	// IntegerValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue
+	IntegerValue *StringExpr `json:"IntegerValue,omitempty"`
+	// StringValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
+	StringValue *StringExpr `json:"StringValue,omitempty"`
+}
+
+// IoTTopicRuleAssetPropertyVariantList represents a list of IoTTopicRuleAssetPropertyVariant
+type IoTTopicRuleAssetPropertyVariantList []IoTTopicRuleAssetPropertyVariant
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleAssetPropertyVariantList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleAssetPropertyVariant{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleAssetPropertyVariantList{item}
+		return nil
+	}
+	list := []IoTTopicRuleAssetPropertyVariant{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleAssetPropertyVariantList(list)
 		return nil
 	}
 	return err
@@ -22054,6 +23712,92 @@ func (l *IoTTopicRuleFirehoseActionList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// IoTTopicRuleHTTPAction represents the AWS::IoT::TopicRule.HttpAction CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html 
+type IoTTopicRuleHTTPAction struct {
+	// Auth docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
+	Auth *IoTTopicRuleHTTPAuthorization `json:"Auth,omitempty"`
+	// ConfirmationURL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
+	ConfirmationURL *StringExpr `json:"ConfirmationUrl,omitempty"`
+	// Headers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
+	Headers *IoTTopicRuleHTTPActionHeaderList `json:"Headers,omitempty"`
+	// URL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
+	URL *StringExpr `json:"Url,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRuleHTTPActionList represents a list of IoTTopicRuleHTTPAction
+type IoTTopicRuleHTTPActionList []IoTTopicRuleHTTPAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleHTTPActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleHTTPAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleHTTPActionList{item}
+		return nil
+	}
+	list := []IoTTopicRuleHTTPAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleHTTPActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleHTTPActionHeader represents the AWS::IoT::TopicRule.HttpActionHeader CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html 
+type IoTTopicRuleHTTPActionHeader struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-value
+	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRuleHTTPActionHeaderList represents a list of IoTTopicRuleHTTPActionHeader
+type IoTTopicRuleHTTPActionHeaderList []IoTTopicRuleHTTPActionHeader
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleHTTPActionHeaderList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleHTTPActionHeader{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleHTTPActionHeaderList{item}
+		return nil
+	}
+	list := []IoTTopicRuleHTTPActionHeader{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleHTTPActionHeaderList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleHTTPAuthorization represents the AWS::IoT::TopicRule.HttpAuthorization CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html 
+type IoTTopicRuleHTTPAuthorization struct {
+	// Sigv4 docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
+	Sigv4 *IoTTopicRuleSigV4Authorization `json:"Sigv4,omitempty"`
+}
+
+// IoTTopicRuleHTTPAuthorizationList represents a list of IoTTopicRuleHTTPAuthorization
+type IoTTopicRuleHTTPAuthorizationList []IoTTopicRuleHTTPAuthorization
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleHTTPAuthorizationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleHTTPAuthorization{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleHTTPAuthorizationList{item}
+		return nil
+	}
+	list := []IoTTopicRuleHTTPAuthorization{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleHTTPAuthorizationList(list)
+		return nil
+	}
+	return err
+}
 // IoTTopicRuleIotAnalyticsAction represents the AWS::IoT::TopicRule.IotAnalyticsAction CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html 
 type IoTTopicRuleIotAnalyticsAction struct {
@@ -22078,6 +23822,64 @@ func (l *IoTTopicRuleIotAnalyticsActionList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = IoTTopicRuleIotAnalyticsActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleIotEventsAction represents the AWS::IoT::TopicRule.IotEventsAction CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html 
+type IoTTopicRuleIotEventsAction struct {
+	// InputName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
+	InputName *StringExpr `json:"InputName,omitempty" validate:"dive,required"`
+	// MessageID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
+	MessageID *StringExpr `json:"MessageId,omitempty"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRuleIotEventsActionList represents a list of IoTTopicRuleIotEventsAction
+type IoTTopicRuleIotEventsActionList []IoTTopicRuleIotEventsAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleIotEventsActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleIotEventsAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleIotEventsActionList{item}
+		return nil
+	}
+	list := []IoTTopicRuleIotEventsAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleIotEventsActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleIotSiteWiseAction represents the AWS::IoT::TopicRule.IotSiteWiseAction CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html 
+type IoTTopicRuleIotSiteWiseAction struct {
+	// PutAssetPropertyValueEntries docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
+	PutAssetPropertyValueEntries *IoTTopicRulePutAssetPropertyValueEntryList `json:"PutAssetPropertyValueEntries,omitempty" validate:"dive,required"`
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRuleIotSiteWiseActionList represents a list of IoTTopicRuleIotSiteWiseAction
+type IoTTopicRuleIotSiteWiseActionList []IoTTopicRuleIotSiteWiseAction
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleIotSiteWiseActionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleIotSiteWiseAction{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleIotSiteWiseActionList{item}
+		return nil
+	}
+	list := []IoTTopicRuleIotSiteWiseAction{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleIotSiteWiseActionList(list)
 		return nil
 	}
 	return err
@@ -22138,6 +23940,40 @@ func (l *IoTTopicRuleLambdaActionList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// IoTTopicRulePutAssetPropertyValueEntry represents the AWS::IoT::TopicRule.PutAssetPropertyValueEntry CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html 
+type IoTTopicRulePutAssetPropertyValueEntry struct {
+	// AssetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
+	AssetID *StringExpr `json:"AssetId,omitempty"`
+	// EntryID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
+	EntryID *StringExpr `json:"EntryId,omitempty"`
+	// PropertyAlias docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
+	PropertyAlias *StringExpr `json:"PropertyAlias,omitempty"`
+	// PropertyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid
+	PropertyID *StringExpr `json:"PropertyId,omitempty"`
+	// PropertyValues docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
+	PropertyValues *IoTTopicRuleAssetPropertyValueList `json:"PropertyValues,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRulePutAssetPropertyValueEntryList represents a list of IoTTopicRulePutAssetPropertyValueEntry
+type IoTTopicRulePutAssetPropertyValueEntryList []IoTTopicRulePutAssetPropertyValueEntry
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRulePutAssetPropertyValueEntryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRulePutAssetPropertyValueEntry{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRulePutAssetPropertyValueEntryList{item}
+		return nil
+	}
+	list := []IoTTopicRulePutAssetPropertyValueEntry{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRulePutAssetPropertyValueEntryList(list)
+		return nil
+	}
+	return err
+}
 // IoTTopicRulePutItemInput represents the AWS::IoT::TopicRule.PutItemInput CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html 
 type IoTTopicRulePutItemInput struct {
@@ -22167,6 +24003,8 @@ func (l *IoTTopicRulePutItemInputList) UnmarshalJSON(buf []byte) error {
 // IoTTopicRuleRepublishAction represents the AWS::IoT::TopicRule.RepublishAction CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html 
 type IoTTopicRuleRepublishAction struct {
+	// Qos docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
+	Qos *IntegerExpr `json:"Qos,omitempty"`
 	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
 	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
 	// Topic docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
@@ -22218,6 +24056,36 @@ func (l *IoTTopicRuleS3ActionList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = IoTTopicRuleS3ActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTTopicRuleSigV4Authorization represents the AWS::IoT::TopicRule.SigV4Authorization CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html 
+type IoTTopicRuleSigV4Authorization struct {
+	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
+	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+	// ServiceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename
+	ServiceName *StringExpr `json:"ServiceName,omitempty" validate:"dive,required"`
+	// SigningRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion
+	SigningRegion *StringExpr `json:"SigningRegion,omitempty" validate:"dive,required"`
+}
+
+// IoTTopicRuleSigV4AuthorizationList represents a list of IoTTopicRuleSigV4Authorization
+type IoTTopicRuleSigV4AuthorizationList []IoTTopicRuleSigV4Authorization
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTTopicRuleSigV4AuthorizationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTTopicRuleSigV4Authorization{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTTopicRuleSigV4AuthorizationList{item}
+		return nil
+	}
+	list := []IoTTopicRuleSigV4Authorization{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTTopicRuleSigV4AuthorizationList(list)
 		return nil
 	}
 	return err
@@ -23465,10 +25333,16 @@ func (l *IoTAnalyticsPipelineSelectAttributesList) UnmarshalJSON(buf []byte) err
 type IoTEventsDetectorModelAction struct {
 	// ClearTimer docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer
 	ClearTimer *IoTEventsDetectorModelClearTimer `json:"ClearTimer,omitempty"`
+	// DynamoDB docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb
+	DynamoDB *IoTEventsDetectorModelDynamoDB `json:"DynamoDB,omitempty"`
+	// DynamoDBv2 docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2
+	DynamoDBv2 *IoTEventsDetectorModelDynamoDBv2 `json:"DynamoDBv2,omitempty"`
 	// Firehose docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose
 	Firehose *IoTEventsDetectorModelFirehose `json:"Firehose,omitempty"`
 	// IotEvents docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents
 	IotEvents *IoTEventsDetectorModelIotEvents `json:"IotEvents,omitempty"`
+	// IotSiteWise docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise
+	IotSiteWise *IoTEventsDetectorModelIotSiteWise `json:"IotSiteWise,omitempty"`
 	// IotTopicPublish docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish
 	IotTopicPublish *IoTEventsDetectorModelIotTopicPublish `json:"IotTopicPublish,omitempty"`
 	// Lambda docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-lambda
@@ -23500,6 +25374,96 @@ func (l *IoTEventsDetectorModelActionList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = IoTEventsDetectorModelActionList(list)
+		return nil
+	}
+	return err
+}
+// IoTEventsDetectorModelAssetPropertyTimestamp represents the AWS::IoTEvents::DetectorModel.AssetPropertyTimestamp CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html 
+type IoTEventsDetectorModelAssetPropertyTimestamp struct {
+	// OffsetInNanos docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
+	OffsetInNanos *StringExpr `json:"OffsetInNanos,omitempty"`
+	// TimeInSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+	TimeInSeconds *StringExpr `json:"TimeInSeconds,omitempty"`
+}
+
+// IoTEventsDetectorModelAssetPropertyTimestampList represents a list of IoTEventsDetectorModelAssetPropertyTimestamp
+type IoTEventsDetectorModelAssetPropertyTimestampList []IoTEventsDetectorModelAssetPropertyTimestamp
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTEventsDetectorModelAssetPropertyTimestampList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTEventsDetectorModelAssetPropertyTimestamp{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTEventsDetectorModelAssetPropertyTimestampList{item}
+		return nil
+	}
+	list := []IoTEventsDetectorModelAssetPropertyTimestamp{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTEventsDetectorModelAssetPropertyTimestampList(list)
+		return nil
+	}
+	return err
+}
+// IoTEventsDetectorModelAssetPropertyValue represents the AWS::IoTEvents::DetectorModel.AssetPropertyValue CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html 
+type IoTEventsDetectorModelAssetPropertyValue struct {
+	// Quality docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
+	Quality *StringExpr `json:"Quality,omitempty"`
+	// Timestamp docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
+	Timestamp *IoTEventsDetectorModelAssetPropertyTimestamp `json:"Timestamp,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
+	Value *IoTEventsDetectorModelAssetPropertyVariant `json:"Value,omitempty"`
+}
+
+// IoTEventsDetectorModelAssetPropertyValueList represents a list of IoTEventsDetectorModelAssetPropertyValue
+type IoTEventsDetectorModelAssetPropertyValueList []IoTEventsDetectorModelAssetPropertyValue
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTEventsDetectorModelAssetPropertyValueList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTEventsDetectorModelAssetPropertyValue{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTEventsDetectorModelAssetPropertyValueList{item}
+		return nil
+	}
+	list := []IoTEventsDetectorModelAssetPropertyValue{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTEventsDetectorModelAssetPropertyValueList(list)
+		return nil
+	}
+	return err
+}
+// IoTEventsDetectorModelAssetPropertyVariant represents the AWS::IoTEvents::DetectorModel.AssetPropertyVariant CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html 
+type IoTEventsDetectorModelAssetPropertyVariant struct {
+	// BooleanValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue
+	BooleanValue *StringExpr `json:"BooleanValue,omitempty"`
+	// DoubleValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue
+	DoubleValue *StringExpr `json:"DoubleValue,omitempty"`
+	// IntegerValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue
+	IntegerValue *StringExpr `json:"IntegerValue,omitempty"`
+	// StringValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue
+	StringValue *StringExpr `json:"StringValue,omitempty"`
+}
+
+// IoTEventsDetectorModelAssetPropertyVariantList represents a list of IoTEventsDetectorModelAssetPropertyVariant
+type IoTEventsDetectorModelAssetPropertyVariantList []IoTEventsDetectorModelAssetPropertyVariant
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTEventsDetectorModelAssetPropertyVariantList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTEventsDetectorModelAssetPropertyVariant{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTEventsDetectorModelAssetPropertyVariantList{item}
+		return nil
+	}
+	list := []IoTEventsDetectorModelAssetPropertyVariant{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTEventsDetectorModelAssetPropertyVariantList(list)
 		return nil
 	}
 	return err
@@ -23558,6 +25522,78 @@ func (l *IoTEventsDetectorModelDetectorModelDefinitionList) UnmarshalJSON(buf []
 	}
 	return err
 }
+// IoTEventsDetectorModelDynamoDB represents the AWS::IoTEvents::DetectorModel.DynamoDB CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html 
+type IoTEventsDetectorModelDynamoDB struct {
+	// HashKeyField docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
+	HashKeyField *StringExpr `json:"HashKeyField,omitempty"`
+	// HashKeyType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
+	HashKeyType *StringExpr `json:"HashKeyType,omitempty"`
+	// HashKeyValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
+	HashKeyValue *StringExpr `json:"HashKeyValue,omitempty"`
+	// Operation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
+	Operation *StringExpr `json:"Operation,omitempty"`
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
+	// PayloadField docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield
+	PayloadField *StringExpr `json:"PayloadField,omitempty"`
+	// RangeKeyField docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield
+	RangeKeyField *StringExpr `json:"RangeKeyField,omitempty"`
+	// RangeKeyType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype
+	RangeKeyType *StringExpr `json:"RangeKeyType,omitempty"`
+	// RangeKeyValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue
+	RangeKeyValue *StringExpr `json:"RangeKeyValue,omitempty"`
+	// TableName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
+	TableName *StringExpr `json:"TableName,omitempty"`
+}
+
+// IoTEventsDetectorModelDynamoDBList represents a list of IoTEventsDetectorModelDynamoDB
+type IoTEventsDetectorModelDynamoDBList []IoTEventsDetectorModelDynamoDB
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTEventsDetectorModelDynamoDBList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTEventsDetectorModelDynamoDB{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTEventsDetectorModelDynamoDBList{item}
+		return nil
+	}
+	list := []IoTEventsDetectorModelDynamoDB{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTEventsDetectorModelDynamoDBList(list)
+		return nil
+	}
+	return err
+}
+// IoTEventsDetectorModelDynamoDBv2 represents the AWS::IoTEvents::DetectorModel.DynamoDBv2 CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html 
+type IoTEventsDetectorModelDynamoDBv2 struct {
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
+	// TableName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+	TableName *StringExpr `json:"TableName,omitempty"`
+}
+
+// IoTEventsDetectorModelDynamoDBv2List represents a list of IoTEventsDetectorModelDynamoDBv2
+type IoTEventsDetectorModelDynamoDBv2List []IoTEventsDetectorModelDynamoDBv2
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTEventsDetectorModelDynamoDBv2List) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTEventsDetectorModelDynamoDBv2{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTEventsDetectorModelDynamoDBv2List{item}
+		return nil
+	}
+	list := []IoTEventsDetectorModelDynamoDBv2{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTEventsDetectorModelDynamoDBv2List(list)
+		return nil
+	}
+	return err
+}
 // IoTEventsDetectorModelEvent represents the AWS::IoTEvents::DetectorModel.Event CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html 
 type IoTEventsDetectorModelEvent struct {
@@ -23593,6 +25629,8 @@ func (l *IoTEventsDetectorModelEventList) UnmarshalJSON(buf []byte) error {
 type IoTEventsDetectorModelFirehose struct {
 	// DeliveryStreamName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
 	DeliveryStreamName *StringExpr `json:"DeliveryStreamName,omitempty"`
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
 	// Separator docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator
 	Separator *StringExpr `json:"Separator,omitempty"`
 }
@@ -23621,6 +25659,8 @@ func (l *IoTEventsDetectorModelFirehoseList) UnmarshalJSON(buf []byte) error {
 type IoTEventsDetectorModelIotEvents struct {
 	// InputName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
 	InputName *StringExpr `json:"InputName,omitempty"`
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
 }
 
 // IoTEventsDetectorModelIotEventsList represents a list of IoTEventsDetectorModelIotEvents
@@ -23642,11 +25682,47 @@ func (l *IoTEventsDetectorModelIotEventsList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// IoTEventsDetectorModelIotSiteWise represents the AWS::IoTEvents::DetectorModel.IotSiteWise CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html 
+type IoTEventsDetectorModelIotSiteWise struct {
+	// AssetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
+	AssetID *StringExpr `json:"AssetId,omitempty"`
+	// EntryID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
+	EntryID *StringExpr `json:"EntryId,omitempty"`
+	// PropertyAlias docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
+	PropertyAlias *StringExpr `json:"PropertyAlias,omitempty"`
+	// PropertyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
+	PropertyID *StringExpr `json:"PropertyId,omitempty"`
+	// PropertyValue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
+	PropertyValue *IoTEventsDetectorModelAssetPropertyValue `json:"PropertyValue,omitempty"`
+}
+
+// IoTEventsDetectorModelIotSiteWiseList represents a list of IoTEventsDetectorModelIotSiteWise
+type IoTEventsDetectorModelIotSiteWiseList []IoTEventsDetectorModelIotSiteWise
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTEventsDetectorModelIotSiteWiseList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTEventsDetectorModelIotSiteWise{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTEventsDetectorModelIotSiteWiseList{item}
+		return nil
+	}
+	list := []IoTEventsDetectorModelIotSiteWise{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTEventsDetectorModelIotSiteWiseList(list)
+		return nil
+	}
+	return err
+}
 // IoTEventsDetectorModelIotTopicPublish represents the AWS::IoTEvents::DetectorModel.IotTopicPublish CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html 
 type IoTEventsDetectorModelIotTopicPublish struct {
 	// MqttTopic docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
 	MqttTopic *StringExpr `json:"MqttTopic,omitempty"`
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
 }
 
 // IoTEventsDetectorModelIotTopicPublishList represents a list of IoTEventsDetectorModelIotTopicPublish
@@ -23673,6 +25749,8 @@ func (l *IoTEventsDetectorModelIotTopicPublishList) UnmarshalJSON(buf []byte) er
 type IoTEventsDetectorModelLambda struct {
 	// FunctionArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
 	FunctionArn *StringExpr `json:"FunctionArn,omitempty"`
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
 }
 
 // IoTEventsDetectorModelLambdaList represents a list of IoTEventsDetectorModelLambda
@@ -23774,6 +25852,34 @@ func (l *IoTEventsDetectorModelOnInputList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// IoTEventsDetectorModelPayload represents the AWS::IoTEvents::DetectorModel.Payload CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html 
+type IoTEventsDetectorModelPayload struct {
+	// ContentExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
+	ContentExpression *StringExpr `json:"ContentExpression,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
+	Type *StringExpr `json:"Type,omitempty"`
+}
+
+// IoTEventsDetectorModelPayloadList represents a list of IoTEventsDetectorModelPayload
+type IoTEventsDetectorModelPayloadList []IoTEventsDetectorModelPayload
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *IoTEventsDetectorModelPayloadList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := IoTEventsDetectorModelPayload{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = IoTEventsDetectorModelPayloadList{item}
+		return nil
+	}
+	list := []IoTEventsDetectorModelPayload{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = IoTEventsDetectorModelPayloadList(list)
+		return nil
+	}
+	return err
+}
 // IoTEventsDetectorModelResetTimer represents the AWS::IoTEvents::DetectorModel.ResetTimer CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html 
 type IoTEventsDetectorModelResetTimer struct {
@@ -23803,6 +25909,8 @@ func (l *IoTEventsDetectorModelResetTimerList) UnmarshalJSON(buf []byte) error {
 // IoTEventsDetectorModelSetTimer represents the AWS::IoTEvents::DetectorModel.SetTimer CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html 
 type IoTEventsDetectorModelSetTimer struct {
+	// DurationExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
+	DurationExpression *StringExpr `json:"DurationExpression,omitempty"`
 	// Seconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
 	Seconds *IntegerExpr `json:"Seconds,omitempty"`
 	// TimerName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
@@ -23859,6 +25967,8 @@ func (l *IoTEventsDetectorModelSetVariableList) UnmarshalJSON(buf []byte) error 
 // IoTEventsDetectorModelSns represents the AWS::IoTEvents::DetectorModel.Sns CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html 
 type IoTEventsDetectorModelSns struct {
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
 	// TargetArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
 	TargetArn *StringExpr `json:"TargetArn,omitempty"`
 }
@@ -23885,6 +25995,8 @@ func (l *IoTEventsDetectorModelSnsList) UnmarshalJSON(buf []byte) error {
 // IoTEventsDetectorModelSqs represents the AWS::IoTEvents::DetectorModel.Sqs CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html 
 type IoTEventsDetectorModelSqs struct {
+	// Payload docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
+	Payload *IoTEventsDetectorModelPayload `json:"Payload,omitempty"`
 	// QueueURL docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
 	QueueURL *StringExpr `json:"QueueUrl,omitempty"`
 	// UseBase64 docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
@@ -27424,6 +29536,36 @@ func (l *LogsMetricFilterMetricTransformationList) UnmarshalJSON(buf []byte) err
 	}
 	return err
 }
+// MSKClusterBrokerLogs represents the AWS::MSK::Cluster.BrokerLogs CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html 
+type MSKClusterBrokerLogs struct {
+	// CloudWatchLogs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-cloudwatchlogs
+	CloudWatchLogs *MSKClusterCloudWatchLogs `json:"CloudWatchLogs,omitempty"`
+	// Firehose docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-firehose
+	Firehose *MSKClusterFirehose `json:"Firehose,omitempty"`
+	// S3 docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-s3
+	S3 *MSKClusterS3 `json:"S3,omitempty"`
+}
+
+// MSKClusterBrokerLogsList represents a list of MSKClusterBrokerLogs
+type MSKClusterBrokerLogsList []MSKClusterBrokerLogs
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterBrokerLogsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterBrokerLogs{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterBrokerLogsList{item}
+		return nil
+	}
+	list := []MSKClusterBrokerLogs{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterBrokerLogsList(list)
+		return nil
+	}
+	return err
+}
 // MSKClusterBrokerNodeGroupInfo represents the AWS::MSK::Cluster.BrokerNodeGroupInfo CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html 
 type MSKClusterBrokerNodeGroupInfo struct {
@@ -27480,6 +29622,34 @@ func (l *MSKClusterClientAuthenticationList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = MSKClusterClientAuthenticationList(list)
+		return nil
+	}
+	return err
+}
+// MSKClusterCloudWatchLogs represents the AWS::MSK::Cluster.CloudWatchLogs CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html 
+type MSKClusterCloudWatchLogs struct {
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty" validate:"dive,required"`
+	// LogGroup docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-loggroup
+	LogGroup *StringExpr `json:"LogGroup,omitempty"`
+}
+
+// MSKClusterCloudWatchLogsList represents a list of MSKClusterCloudWatchLogs
+type MSKClusterCloudWatchLogsList []MSKClusterCloudWatchLogs
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterCloudWatchLogsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterCloudWatchLogs{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterCloudWatchLogsList{item}
+		return nil
+	}
+	list := []MSKClusterCloudWatchLogs{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterCloudWatchLogsList(list)
 		return nil
 	}
 	return err
@@ -27620,6 +29790,34 @@ func (l *MSKClusterEncryptionInfoList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// MSKClusterFirehose represents the AWS::MSK::Cluster.Firehose CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html 
+type MSKClusterFirehose struct {
+	// DeliveryStream docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html#cfn-msk-cluster-firehose-deliverystream
+	DeliveryStream *StringExpr `json:"DeliveryStream,omitempty"`
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html#cfn-msk-cluster-firehose-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty" validate:"dive,required"`
+}
+
+// MSKClusterFirehoseList represents a list of MSKClusterFirehose
+type MSKClusterFirehoseList []MSKClusterFirehose
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterFirehoseList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterFirehose{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterFirehoseList{item}
+		return nil
+	}
+	list := []MSKClusterFirehose{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterFirehoseList(list)
+		return nil
+	}
+	return err
+}
 // MSKClusterJmxExporter represents the AWS::MSK::Cluster.JmxExporter CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html 
 type MSKClusterJmxExporter struct {
@@ -27642,6 +29840,32 @@ func (l *MSKClusterJmxExporterList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = MSKClusterJmxExporterList(list)
+		return nil
+	}
+	return err
+}
+// MSKClusterLoggingInfo represents the AWS::MSK::Cluster.LoggingInfo CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html 
+type MSKClusterLoggingInfo struct {
+	// BrokerLogs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs
+	BrokerLogs *MSKClusterBrokerLogs `json:"BrokerLogs,omitempty" validate:"dive,required"`
+}
+
+// MSKClusterLoggingInfoList represents a list of MSKClusterLoggingInfo
+type MSKClusterLoggingInfoList []MSKClusterLoggingInfo
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterLoggingInfoList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterLoggingInfo{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterLoggingInfoList{item}
+		return nil
+	}
+	list := []MSKClusterLoggingInfo{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterLoggingInfoList(list)
 		return nil
 	}
 	return err
@@ -27726,6 +29950,36 @@ func (l *MSKClusterPrometheusList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// MSKClusterS3 represents the AWS::MSK::Cluster.S3 CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html 
+type MSKClusterS3 struct {
+	// Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html#cfn-msk-cluster-s3-bucket
+	Bucket *StringExpr `json:"Bucket,omitempty"`
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html#cfn-msk-cluster-s3-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty" validate:"dive,required"`
+	// Prefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html#cfn-msk-cluster-s3-prefix
+	Prefix *StringExpr `json:"Prefix,omitempty"`
+}
+
+// MSKClusterS3List represents a list of MSKClusterS3
+type MSKClusterS3List []MSKClusterS3
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MSKClusterS3List) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MSKClusterS3{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MSKClusterS3List{item}
+		return nil
+	}
+	list := []MSKClusterS3{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MSKClusterS3List(list)
+		return nil
+	}
+	return err
+}
 // MSKClusterStorageInfo represents the AWS::MSK::Cluster.StorageInfo CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html 
 type MSKClusterStorageInfo struct {
@@ -27800,6 +30054,36 @@ func (l *MediaConvertJobTemplateAccelerationSettingsList) UnmarshalJSON(buf []by
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = MediaConvertJobTemplateAccelerationSettingsList(list)
+		return nil
+	}
+	return err
+}
+// MediaConvertJobTemplateHopDestination represents the AWS::MediaConvert::JobTemplate.HopDestination CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-hopdestination.html 
+type MediaConvertJobTemplateHopDestination struct {
+	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-hopdestination.html#cfn-mediaconvert-jobtemplate-hopdestination-priority
+	Priority *IntegerExpr `json:"Priority,omitempty"`
+	// Queue docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-hopdestination.html#cfn-mediaconvert-jobtemplate-hopdestination-queue
+	Queue *StringExpr `json:"Queue,omitempty"`
+	// WaitMinutes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-hopdestination.html#cfn-mediaconvert-jobtemplate-hopdestination-waitminutes
+	WaitMinutes *IntegerExpr `json:"WaitMinutes,omitempty"`
+}
+
+// MediaConvertJobTemplateHopDestinationList represents a list of MediaConvertJobTemplateHopDestination
+type MediaConvertJobTemplateHopDestinationList []MediaConvertJobTemplateHopDestination
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MediaConvertJobTemplateHopDestinationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MediaConvertJobTemplateHopDestination{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MediaConvertJobTemplateHopDestinationList{item}
+		return nil
+	}
+	list := []MediaConvertJobTemplateHopDestination{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MediaConvertJobTemplateHopDestinationList(list)
 		return nil
 	}
 	return err
@@ -28698,6 +30982,94 @@ func (l *MediaStoreContainerCorsRuleList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = MediaStoreContainerCorsRuleList(list)
+		return nil
+	}
+	return err
+}
+// NetworkManagerDeviceLocation represents the AWS::NetworkManager::Device.Location CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html 
+type NetworkManagerDeviceLocation struct {
+	// Address docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
+	Address *StringExpr `json:"Address,omitempty"`
+	// Latitude docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
+	Latitude *StringExpr `json:"Latitude,omitempty"`
+	// Longitude docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
+	Longitude *StringExpr `json:"Longitude,omitempty"`
+}
+
+// NetworkManagerDeviceLocationList represents a list of NetworkManagerDeviceLocation
+type NetworkManagerDeviceLocationList []NetworkManagerDeviceLocation
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *NetworkManagerDeviceLocationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := NetworkManagerDeviceLocation{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = NetworkManagerDeviceLocationList{item}
+		return nil
+	}
+	list := []NetworkManagerDeviceLocation{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = NetworkManagerDeviceLocationList(list)
+		return nil
+	}
+	return err
+}
+// NetworkManagerLinkBandwidth represents the AWS::NetworkManager::Link.Bandwidth CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html 
+type NetworkManagerLinkBandwidth struct {
+	// DownloadSpeed docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+	DownloadSpeed *IntegerExpr `json:"DownloadSpeed,omitempty"`
+	// UploadSpeed docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+	UploadSpeed *IntegerExpr `json:"UploadSpeed,omitempty"`
+}
+
+// NetworkManagerLinkBandwidthList represents a list of NetworkManagerLinkBandwidth
+type NetworkManagerLinkBandwidthList []NetworkManagerLinkBandwidth
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *NetworkManagerLinkBandwidthList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := NetworkManagerLinkBandwidth{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = NetworkManagerLinkBandwidthList{item}
+		return nil
+	}
+	list := []NetworkManagerLinkBandwidth{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = NetworkManagerLinkBandwidthList(list)
+		return nil
+	}
+	return err
+}
+// NetworkManagerSiteLocation represents the AWS::NetworkManager::Site.Location CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html 
+type NetworkManagerSiteLocation struct {
+	// Address docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+	Address *StringExpr `json:"Address,omitempty"`
+	// Latitude docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+	Latitude *StringExpr `json:"Latitude,omitempty"`
+	// Longitude docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+	Longitude *StringExpr `json:"Longitude,omitempty"`
+}
+
+// NetworkManagerSiteLocationList represents a list of NetworkManagerSiteLocation
+type NetworkManagerSiteLocationList []NetworkManagerSiteLocation
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *NetworkManagerSiteLocationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := NetworkManagerSiteLocation{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = NetworkManagerSiteLocationList{item}
+		return nil
+	}
+	list := []NetworkManagerSiteLocation{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = NetworkManagerSiteLocationList(list)
 		return nil
 	}
 	return err
@@ -30960,6 +33332,92 @@ func (l *RedshiftClusterParameterGroupParameterList) UnmarshalJSON(buf []byte) e
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = RedshiftClusterParameterGroupParameterList(list)
+		return nil
+	}
+	return err
+}
+// ResourceGroupsGroupQuery represents the AWS::ResourceGroups::Group.Query CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html 
+type ResourceGroupsGroupQuery struct {
+	// ResourceTypeFilters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
+	ResourceTypeFilters *StringListExpr `json:"ResourceTypeFilters,omitempty"`
+	// StackIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
+	StackIDentifier *StringExpr `json:"StackIdentifier,omitempty"`
+	// TagFilters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
+	TagFilters *ResourceGroupsGroupTagFilterList `json:"TagFilters,omitempty"`
+}
+
+// ResourceGroupsGroupQueryList represents a list of ResourceGroupsGroupQuery
+type ResourceGroupsGroupQueryList []ResourceGroupsGroupQuery
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ResourceGroupsGroupQueryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ResourceGroupsGroupQuery{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ResourceGroupsGroupQueryList{item}
+		return nil
+	}
+	list := []ResourceGroupsGroupQuery{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ResourceGroupsGroupQueryList(list)
+		return nil
+	}
+	return err
+}
+// ResourceGroupsGroupResourceQuery represents the AWS::ResourceGroups::Group.ResourceQuery CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html 
+type ResourceGroupsGroupResourceQuery struct {
+	// Query docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
+	Query *ResourceGroupsGroupQuery `json:"Query,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
+	Type *StringExpr `json:"Type,omitempty"`
+}
+
+// ResourceGroupsGroupResourceQueryList represents a list of ResourceGroupsGroupResourceQuery
+type ResourceGroupsGroupResourceQueryList []ResourceGroupsGroupResourceQuery
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ResourceGroupsGroupResourceQueryList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ResourceGroupsGroupResourceQuery{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ResourceGroupsGroupResourceQueryList{item}
+		return nil
+	}
+	list := []ResourceGroupsGroupResourceQuery{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ResourceGroupsGroupResourceQueryList(list)
+		return nil
+	}
+	return err
+}
+// ResourceGroupsGroupTagFilter represents the AWS::ResourceGroups::Group.TagFilter CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html 
+type ResourceGroupsGroupTagFilter struct {
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
+	Key *StringExpr `json:"Key,omitempty"`
+	// Values docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
+	Values *StringListExpr `json:"Values,omitempty"`
+}
+
+// ResourceGroupsGroupTagFilterList represents a list of ResourceGroupsGroupTagFilter
+type ResourceGroupsGroupTagFilterList []ResourceGroupsGroupTagFilter
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ResourceGroupsGroupTagFilterList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ResourceGroupsGroupTagFilter{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ResourceGroupsGroupTagFilterList{item}
+		return nil
+	}
+	list := []ResourceGroupsGroupTagFilter{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ResourceGroupsGroupTagFilterList(list)
 		return nil
 	}
 	return err
@@ -33888,11 +36346,37 @@ func (l *SSMPatchBaselinePatchSourceList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// SSMPatchBaselinePatchStringDate represents the AWS::SSM::PatchBaseline.PatchStringDate CloudFormation property type
+// See  
+type SSMPatchBaselinePatchStringDate struct {
+}
+
+// SSMPatchBaselinePatchStringDateList represents a list of SSMPatchBaselinePatchStringDate
+type SSMPatchBaselinePatchStringDateList []SSMPatchBaselinePatchStringDate
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SSMPatchBaselinePatchStringDateList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SSMPatchBaselinePatchStringDate{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SSMPatchBaselinePatchStringDateList{item}
+		return nil
+	}
+	list := []SSMPatchBaselinePatchStringDate{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SSMPatchBaselinePatchStringDateList(list)
+		return nil
+	}
+	return err
+}
 // SSMPatchBaselineRule represents the AWS::SSM::PatchBaseline.Rule CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html 
 type SSMPatchBaselineRule struct {
 	// ApproveAfterDays docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
 	ApproveAfterDays *IntegerExpr `json:"ApproveAfterDays,omitempty"`
+	// ApproveUntilDate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
+	ApproveUntilDate *SSMPatchBaselinePatchStringDate `json:"ApproveUntilDate,omitempty"`
 	// ComplianceLevel docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
 	ComplianceLevel *StringExpr `json:"ComplianceLevel,omitempty"`
 	// EnableNonSecurity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
@@ -34722,6 +37206,124 @@ func (l *StepFunctionsStateMachineTagsEntryList) UnmarshalJSON(buf []byte) error
 	}
 	return err
 }
+// SyntheticsCanaryCode represents the AWS::Synthetics::Canary.Code CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html 
+type SyntheticsCanaryCode struct {
+	// Handler docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
+	Handler *StringExpr `json:"Handler,omitempty"`
+	// S3Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
+	S3Bucket *StringExpr `json:"S3Bucket,omitempty"`
+	// S3Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
+	S3Key *StringExpr `json:"S3Key,omitempty"`
+	// S3ObjectVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
+	S3ObjectVersion *StringExpr `json:"S3ObjectVersion,omitempty"`
+	// Script docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
+	Script *StringExpr `json:"Script,omitempty"`
+}
+
+// SyntheticsCanaryCodeList represents a list of SyntheticsCanaryCode
+type SyntheticsCanaryCodeList []SyntheticsCanaryCode
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SyntheticsCanaryCodeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SyntheticsCanaryCode{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SyntheticsCanaryCodeList{item}
+		return nil
+	}
+	list := []SyntheticsCanaryCode{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SyntheticsCanaryCodeList(list)
+		return nil
+	}
+	return err
+}
+// SyntheticsCanaryRunConfig represents the AWS::Synthetics::Canary.RunConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html 
+type SyntheticsCanaryRunConfig struct {
+	// TimeoutInSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+	TimeoutInSeconds *IntegerExpr `json:"TimeoutInSeconds,omitempty" validate:"dive,required"`
+}
+
+// SyntheticsCanaryRunConfigList represents a list of SyntheticsCanaryRunConfig
+type SyntheticsCanaryRunConfigList []SyntheticsCanaryRunConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SyntheticsCanaryRunConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SyntheticsCanaryRunConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SyntheticsCanaryRunConfigList{item}
+		return nil
+	}
+	list := []SyntheticsCanaryRunConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SyntheticsCanaryRunConfigList(list)
+		return nil
+	}
+	return err
+}
+// SyntheticsCanarySchedule represents the AWS::Synthetics::Canary.Schedule CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html 
+type SyntheticsCanarySchedule struct {
+	// DurationInSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
+	DurationInSeconds *StringExpr `json:"DurationInSeconds,omitempty" validate:"dive,required"`
+	// Expression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
+	Expression *StringExpr `json:"Expression,omitempty" validate:"dive,required"`
+}
+
+// SyntheticsCanaryScheduleList represents a list of SyntheticsCanarySchedule
+type SyntheticsCanaryScheduleList []SyntheticsCanarySchedule
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SyntheticsCanaryScheduleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SyntheticsCanarySchedule{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SyntheticsCanaryScheduleList{item}
+		return nil
+	}
+	list := []SyntheticsCanarySchedule{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SyntheticsCanaryScheduleList(list)
+		return nil
+	}
+	return err
+}
+// SyntheticsCanaryVPCConfig represents the AWS::Synthetics::Canary.VPCConfig CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html 
+type SyntheticsCanaryVPCConfig struct {
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty" validate:"dive,required"`
+	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
+	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty" validate:"dive,required"`
+	// VPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
+	VPCID *StringExpr `json:"VpcId,omitempty"`
+}
+
+// SyntheticsCanaryVPCConfigList represents a list of SyntheticsCanaryVPCConfig
+type SyntheticsCanaryVPCConfigList []SyntheticsCanaryVPCConfig
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *SyntheticsCanaryVPCConfigList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := SyntheticsCanaryVPCConfig{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = SyntheticsCanaryVPCConfigList{item}
+		return nil
+	}
+	list := []SyntheticsCanaryVPCConfig{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = SyntheticsCanaryVPCConfigList(list)
+		return nil
+	}
+	return err
+}
 // TransferServerEndpointDetails represents the AWS::Transfer::Server.EndpointDetails CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html 
 type TransferServerEndpointDetails struct {
@@ -34778,6 +37380,30 @@ func (l *TransferServerIdentityProviderDetailsList) UnmarshalJSON(buf []byte) er
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = TransferServerIdentityProviderDetailsList(list)
+		return nil
+	}
+	return err
+}
+// TransferServerProtocol represents the AWS::Transfer::Server.Protocol CloudFormation property type
+// See  
+type TransferServerProtocol struct {
+}
+
+// TransferServerProtocolList represents a list of TransferServerProtocol
+type TransferServerProtocolList []TransferServerProtocol
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *TransferServerProtocolList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := TransferServerProtocol{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = TransferServerProtocolList{item}
+		return nil
+	}
+	list := []TransferServerProtocol{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = TransferServerProtocolList(list)
 		return nil
 	}
 	return err
@@ -35588,189 +38214,11 @@ func (l *WAFRegionalXSSMatchSetXSSMatchTupleList) UnmarshalJSON(buf []byte) erro
 	}
 	return err
 }
-// WAFv2IPSetIPAddresses represents the AWS::WAFv2::IPSet.IPAddresses CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-ipset-ipaddresses.html 
-type WAFv2IPSetIPAddresses struct {
-	// IPAddresses docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-ipset-ipaddresses.html#cfn-wafv2-ipset-ipaddresses-ipaddresses
-	IPAddresses *StringListExpr `json:"IPAddresses,omitempty"`
-}
-
-// WAFv2IPSetIPAddressesList represents a list of WAFv2IPSetIPAddresses
-type WAFv2IPSetIPAddressesList []WAFv2IPSetIPAddresses
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2IPSetIPAddressesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2IPSetIPAddresses{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2IPSetIPAddressesList{item}
-		return nil
-	}
-	list := []WAFv2IPSetIPAddresses{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2IPSetIPAddressesList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2IPSetTagList represents the AWS::WAFv2::IPSet.TagList CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-ipset-taglist.html 
-type WAFv2IPSetTagList struct {
-	// TagList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-ipset-taglist.html#cfn-wafv2-ipset-taglist-taglist
-	TagList *TagList `json:"TagList,omitempty"`
-}
-
-// WAFv2IPSetTagListList represents a list of WAFv2IPSetTagList
-type WAFv2IPSetTagListList []WAFv2IPSetTagList
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2IPSetTagListList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2IPSetTagList{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2IPSetTagListList{item}
-		return nil
-	}
-	list := []WAFv2IPSetTagList{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2IPSetTagListList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RegexPatternSetRegex represents the AWS::WAFv2::RegexPatternSet.Regex CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-regexpatternset-regex.html 
-type WAFv2RegexPatternSetRegex struct {
-	// RegexString docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-regexpatternset-regex.html#cfn-wafv2-regexpatternset-regex-regexstring
-	RegexString *StringExpr `json:"RegexString,omitempty"`
-}
-
-// WAFv2RegexPatternSetRegexList represents a list of WAFv2RegexPatternSetRegex
-type WAFv2RegexPatternSetRegexList []WAFv2RegexPatternSetRegex
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RegexPatternSetRegexList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RegexPatternSetRegex{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RegexPatternSetRegexList{item}
-		return nil
-	}
-	list := []WAFv2RegexPatternSetRegex{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RegexPatternSetRegexList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RegexPatternSetRegularExpressionList represents the AWS::WAFv2::RegexPatternSet.RegularExpressionList CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-regexpatternset-regularexpressionlist.html 
-type WAFv2RegexPatternSetRegularExpressionList struct {
-	// RegularExpressionList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-regexpatternset-regularexpressionlist.html#cfn-wafv2-regexpatternset-regularexpressionlist-regularexpressionlist
-	RegularExpressionList *WAFv2RegexPatternSetRegexList `json:"RegularExpressionList,omitempty"`
-}
-
-// WAFv2RegexPatternSetRegularExpressionListList represents a list of WAFv2RegexPatternSetRegularExpressionList
-type WAFv2RegexPatternSetRegularExpressionListList []WAFv2RegexPatternSetRegularExpressionList
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RegexPatternSetRegularExpressionListList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RegexPatternSetRegularExpressionList{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RegexPatternSetRegularExpressionListList{item}
-		return nil
-	}
-	list := []WAFv2RegexPatternSetRegularExpressionList{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RegexPatternSetRegularExpressionListList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RegexPatternSetTagList represents the AWS::WAFv2::RegexPatternSet.TagList CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-regexpatternset-taglist.html 
-type WAFv2RegexPatternSetTagList struct {
-	// TagList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-regexpatternset-taglist.html#cfn-wafv2-regexpatternset-taglist-taglist
-	TagList *TagList `json:"TagList,omitempty"`
-}
-
-// WAFv2RegexPatternSetTagListList represents a list of WAFv2RegexPatternSetTagList
-type WAFv2RegexPatternSetTagListList []WAFv2RegexPatternSetTagList
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RegexPatternSetTagListList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RegexPatternSetTagList{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RegexPatternSetTagListList{item}
-		return nil
-	}
-	list := []WAFv2RegexPatternSetTagList{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RegexPatternSetTagListList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupAllQueryArguments represents the AWS::WAFv2::RuleGroup.AllQueryArguments CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allqueryarguments.html 
-type WAFv2RuleGroupAllQueryArguments struct {
-}
-
-// WAFv2RuleGroupAllQueryArgumentsList represents a list of WAFv2RuleGroupAllQueryArguments
-type WAFv2RuleGroupAllQueryArgumentsList []WAFv2RuleGroupAllQueryArguments
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupAllQueryArgumentsList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupAllQueryArguments{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupAllQueryArgumentsList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupAllQueryArguments{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupAllQueryArgumentsList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupAllowAction represents the AWS::WAFv2::RuleGroup.AllowAction CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allowaction.html 
-type WAFv2RuleGroupAllowAction struct {
-}
-
-// WAFv2RuleGroupAllowActionList represents a list of WAFv2RuleGroupAllowAction
-type WAFv2RuleGroupAllowActionList []WAFv2RuleGroupAllowAction
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupAllowActionList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupAllowAction{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupAllowActionList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupAllowAction{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupAllowActionList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupAndStatementOne represents the AWS::WAFv2::RuleGroup.AndStatementOne CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html 
 type WAFv2RuleGroupAndStatementOne struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
-	Statements *WAFv2RuleGroupStatementTwos `json:"Statements,omitempty"`
+	Statements *WAFv2RuleGroupStatementTwoList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupAndStatementOneList represents a list of WAFv2RuleGroupAndStatementOne
@@ -35796,7 +38244,7 @@ func (l *WAFv2RuleGroupAndStatementOneList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html 
 type WAFv2RuleGroupAndStatementTwo struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
-	Statements *WAFv2RuleGroupStatementThrees `json:"Statements,omitempty"`
+	Statements *WAFv2RuleGroupStatementThreeList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupAndStatementTwoList represents a list of WAFv2RuleGroupAndStatementTwo
@@ -35818,67 +38266,19 @@ func (l *WAFv2RuleGroupAndStatementTwoList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2RuleGroupBlockAction represents the AWS::WAFv2::RuleGroup.BlockAction CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-blockaction.html 
-type WAFv2RuleGroupBlockAction struct {
-}
-
-// WAFv2RuleGroupBlockActionList represents a list of WAFv2RuleGroupBlockAction
-type WAFv2RuleGroupBlockActionList []WAFv2RuleGroupBlockAction
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupBlockActionList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupBlockAction{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupBlockActionList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupBlockAction{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupBlockActionList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupBody represents the AWS::WAFv2::RuleGroup.Body CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-body.html 
-type WAFv2RuleGroupBody struct {
-}
-
-// WAFv2RuleGroupBodyList represents a list of WAFv2RuleGroupBody
-type WAFv2RuleGroupBodyList []WAFv2RuleGroupBody
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupBodyList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupBody{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupBodyList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupBody{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupBodyList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupByteMatchStatement represents the AWS::WAFv2::RuleGroup.ByteMatchStatement CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html 
 type WAFv2RuleGroupByteMatchStatement struct {
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
-	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// PositionalConstraint docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
-	PositionalConstraint *StringExpr `json:"PositionalConstraint,omitempty"`
+	PositionalConstraint *StringExpr `json:"PositionalConstraint,omitempty" validate:"dive,required"`
 	// SearchString docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
 	SearchString *StringExpr `json:"SearchString,omitempty"`
 	// SearchStringBase64 docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
 	SearchStringBase64 *StringExpr `json:"SearchStringBase64,omitempty"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
-	TextTransformations *WAFv2RuleGroupTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2RuleGroupTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupByteMatchStatementList represents a list of WAFv2RuleGroupByteMatchStatement
@@ -35900,73 +38300,23 @@ func (l *WAFv2RuleGroupByteMatchStatementList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2RuleGroupCountAction represents the AWS::WAFv2::RuleGroup.CountAction CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-countaction.html 
-type WAFv2RuleGroupCountAction struct {
-}
-
-// WAFv2RuleGroupCountActionList represents a list of WAFv2RuleGroupCountAction
-type WAFv2RuleGroupCountActionList []WAFv2RuleGroupCountAction
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupCountActionList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupCountAction{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupCountActionList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupCountAction{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupCountActionList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupCountryCodes represents the AWS::WAFv2::RuleGroup.CountryCodes CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-countrycodes.html 
-type WAFv2RuleGroupCountryCodes struct {
-	// CountryCodes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-countrycodes.html#cfn-wafv2-rulegroup-countrycodes-countrycodes
-	CountryCodes *StringListExpr `json:"CountryCodes,omitempty"`
-}
-
-// WAFv2RuleGroupCountryCodesList represents a list of WAFv2RuleGroupCountryCodes
-type WAFv2RuleGroupCountryCodesList []WAFv2RuleGroupCountryCodes
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupCountryCodesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupCountryCodes{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupCountryCodesList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupCountryCodes{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupCountryCodesList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupFieldToMatch represents the AWS::WAFv2::RuleGroup.FieldToMatch CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html 
 type WAFv2RuleGroupFieldToMatch struct {
 	// AllQueryArguments docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
-	AllQueryArguments *WAFv2RuleGroupAllQueryArguments `json:"AllQueryArguments,omitempty"`
+	AllQueryArguments interface{} `json:"AllQueryArguments,omitempty"`
 	// Body docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
-	Body *WAFv2RuleGroupBody `json:"Body,omitempty"`
+	Body interface{} `json:"Body,omitempty"`
 	// Method docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
-	Method *WAFv2RuleGroupMethod `json:"Method,omitempty"`
+	Method interface{} `json:"Method,omitempty"`
 	// QueryString docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
-	QueryString *WAFv2RuleGroupQueryString `json:"QueryString,omitempty"`
+	QueryString interface{} `json:"QueryString,omitempty"`
 	// SingleHeader docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
-	SingleHeader *WAFv2RuleGroupSingleHeader `json:"SingleHeader,omitempty"`
+	SingleHeader interface{} `json:"SingleHeader,omitempty"`
 	// SingleQueryArgument docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
-	SingleQueryArgument *WAFv2RuleGroupSingleQueryArgument `json:"SingleQueryArgument,omitempty"`
+	SingleQueryArgument interface{} `json:"SingleQueryArgument,omitempty"`
 	// URIPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
-	URIPath *WAFv2RuleGroupURIPath `json:"UriPath,omitempty"`
+	URIPath interface{} `json:"UriPath,omitempty"`
 }
 
 // WAFv2RuleGroupFieldToMatchList represents a list of WAFv2RuleGroupFieldToMatch
@@ -35992,7 +38342,7 @@ func (l *WAFv2RuleGroupFieldToMatchList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html 
 type WAFv2RuleGroupGeoMatchStatement struct {
 	// CountryCodes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-	CountryCodes *WAFv2RuleGroupCountryCodes `json:"CountryCodes,omitempty"`
+	CountryCodes *StringListExpr `json:"CountryCodes,omitempty"`
 }
 
 // WAFv2RuleGroupGeoMatchStatementList represents a list of WAFv2RuleGroupGeoMatchStatement
@@ -36018,7 +38368,7 @@ func (l *WAFv2RuleGroupGeoMatchStatementList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html 
 type WAFv2RuleGroupIPSetReferenceStatement struct {
 	// Arn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
-	Arn *StringExpr `json:"Arn,omitempty"`
+	Arn *StringExpr `json:"Arn,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupIPSetReferenceStatementList represents a list of WAFv2RuleGroupIPSetReferenceStatement
@@ -36040,35 +38390,11 @@ func (l *WAFv2RuleGroupIPSetReferenceStatementList) UnmarshalJSON(buf []byte) er
 	}
 	return err
 }
-// WAFv2RuleGroupMethod represents the AWS::WAFv2::RuleGroup.Method CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-method.html 
-type WAFv2RuleGroupMethod struct {
-}
-
-// WAFv2RuleGroupMethodList represents a list of WAFv2RuleGroupMethod
-type WAFv2RuleGroupMethodList []WAFv2RuleGroupMethod
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupMethodList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupMethod{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupMethodList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupMethod{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupMethodList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupNotStatementOne represents the AWS::WAFv2::RuleGroup.NotStatementOne CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html 
 type WAFv2RuleGroupNotStatementOne struct {
 	// Statement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
-	Statement *WAFv2RuleGroupStatementTwo `json:"Statement,omitempty"`
+	Statement *WAFv2RuleGroupStatementTwo `json:"Statement,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupNotStatementOneList represents a list of WAFv2RuleGroupNotStatementOne
@@ -36094,7 +38420,7 @@ func (l *WAFv2RuleGroupNotStatementOneList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html 
 type WAFv2RuleGroupNotStatementTwo struct {
 	// Statement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
-	Statement *WAFv2RuleGroupStatementThree `json:"Statement,omitempty"`
+	Statement *WAFv2RuleGroupStatementThree `json:"Statement,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupNotStatementTwoList represents a list of WAFv2RuleGroupNotStatementTwo
@@ -36120,7 +38446,7 @@ func (l *WAFv2RuleGroupNotStatementTwoList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html 
 type WAFv2RuleGroupOrStatementOne struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
-	Statements *WAFv2RuleGroupStatementTwos `json:"Statements,omitempty"`
+	Statements *WAFv2RuleGroupStatementTwoList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupOrStatementOneList represents a list of WAFv2RuleGroupOrStatementOne
@@ -36146,7 +38472,7 @@ func (l *WAFv2RuleGroupOrStatementOneList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html 
 type WAFv2RuleGroupOrStatementTwo struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
-	Statements *WAFv2RuleGroupStatementThrees `json:"Statements,omitempty"`
+	Statements *WAFv2RuleGroupStatementThreeList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupOrStatementTwoList represents a list of WAFv2RuleGroupOrStatementTwo
@@ -36168,37 +38494,13 @@ func (l *WAFv2RuleGroupOrStatementTwoList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2RuleGroupQueryString represents the AWS::WAFv2::RuleGroup.QueryString CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-querystring.html 
-type WAFv2RuleGroupQueryString struct {
-}
-
-// WAFv2RuleGroupQueryStringList represents a list of WAFv2RuleGroupQueryString
-type WAFv2RuleGroupQueryStringList []WAFv2RuleGroupQueryString
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupQueryStringList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupQueryString{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupQueryStringList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupQueryString{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupQueryStringList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupRateBasedStatementOne represents the AWS::WAFv2::RuleGroup.RateBasedStatementOne CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html 
 type WAFv2RuleGroupRateBasedStatementOne struct {
 	// AggregateKeyType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
-	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty"`
+	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty" validate:"dive,required"`
 	// Limit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
-	Limit *IntegerExpr `json:"Limit,omitempty"`
+	Limit *IntegerExpr `json:"Limit,omitempty" validate:"dive,required"`
 	// ScopeDownStatement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
 	ScopeDownStatement *WAFv2RuleGroupStatementTwo `json:"ScopeDownStatement,omitempty"`
 }
@@ -36226,9 +38528,9 @@ func (l *WAFv2RuleGroupRateBasedStatementOneList) UnmarshalJSON(buf []byte) erro
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html 
 type WAFv2RuleGroupRateBasedStatementTwo struct {
 	// AggregateKeyType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
-	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty"`
+	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty" validate:"dive,required"`
 	// Limit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
-	Limit *IntegerExpr `json:"Limit,omitempty"`
+	Limit *IntegerExpr `json:"Limit,omitempty" validate:"dive,required"`
 	// ScopeDownStatement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
 	ScopeDownStatement *WAFv2RuleGroupStatementThree `json:"ScopeDownStatement,omitempty"`
 }
@@ -36256,11 +38558,11 @@ func (l *WAFv2RuleGroupRateBasedStatementTwoList) UnmarshalJSON(buf []byte) erro
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html 
 type WAFv2RuleGroupRegexPatternSetReferenceStatement struct {
 	// Arn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
-	Arn *StringExpr `json:"Arn,omitempty"`
+	Arn *StringExpr `json:"Arn,omitempty" validate:"dive,required"`
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
-	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
-	TextTransformations *WAFv2RuleGroupTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2RuleGroupTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupRegexPatternSetReferenceStatementList represents a list of WAFv2RuleGroupRegexPatternSetReferenceStatement
@@ -36288,13 +38590,13 @@ type WAFv2RuleGroupRule struct {
 	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
 	Action *WAFv2RuleGroupRuleAction `json:"Action,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
-	Name *StringExpr `json:"Name,omitempty"`
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
 	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-	Priority *IntegerExpr `json:"Priority,omitempty"`
+	Priority *IntegerExpr `json:"Priority,omitempty" validate:"dive,required"`
 	// Statement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-	Statement *WAFv2RuleGroupStatementOne `json:"Statement,omitempty"`
+	Statement *WAFv2RuleGroupStatementOne `json:"Statement,omitempty" validate:"dive,required"`
 	// VisibilityConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
-	VisibilityConfig *WAFv2RuleGroupVisibilityConfig `json:"VisibilityConfig,omitempty"`
+	VisibilityConfig *WAFv2RuleGroupVisibilityConfig `json:"VisibilityConfig,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupRuleList represents a list of WAFv2RuleGroupRule
@@ -36320,11 +38622,11 @@ func (l *WAFv2RuleGroupRuleList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html 
 type WAFv2RuleGroupRuleAction struct {
 	// Allow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
-	Allow *WAFv2RuleGroupAllowAction `json:"Allow,omitempty"`
+	Allow interface{} `json:"Allow,omitempty"`
 	// Block docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
-	Block *WAFv2RuleGroupBlockAction `json:"Block,omitempty"`
+	Block interface{} `json:"Block,omitempty"`
 	// Count docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
-	Count *WAFv2RuleGroupCountAction `json:"Count,omitempty"`
+	Count interface{} `json:"Count,omitempty"`
 }
 
 // WAFv2RuleGroupRuleActionList represents a list of WAFv2RuleGroupRuleAction
@@ -36346,95 +38648,17 @@ func (l *WAFv2RuleGroupRuleActionList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2RuleGroupRules represents the AWS::WAFv2::RuleGroup.Rules CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rules.html 
-type WAFv2RuleGroupRules struct {
-	// Rules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rules.html#cfn-wafv2-rulegroup-rules-rules
-	Rules *WAFv2RuleGroupRuleList `json:"Rules,omitempty"`
-}
-
-// WAFv2RuleGroupRulesList represents a list of WAFv2RuleGroupRules
-type WAFv2RuleGroupRulesList []WAFv2RuleGroupRules
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupRulesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupRules{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupRulesList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupRules{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupRulesList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupSingleHeader represents the AWS::WAFv2::RuleGroup.SingleHeader CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-singleheader.html 
-type WAFv2RuleGroupSingleHeader struct {
-	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-singleheader.html#cfn-wafv2-rulegroup-singleheader-name
-	Name *StringExpr `json:"Name,omitempty"`
-}
-
-// WAFv2RuleGroupSingleHeaderList represents a list of WAFv2RuleGroupSingleHeader
-type WAFv2RuleGroupSingleHeaderList []WAFv2RuleGroupSingleHeader
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupSingleHeaderList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupSingleHeader{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupSingleHeaderList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupSingleHeader{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupSingleHeaderList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupSingleQueryArgument represents the AWS::WAFv2::RuleGroup.SingleQueryArgument CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-singlequeryargument.html 
-type WAFv2RuleGroupSingleQueryArgument struct {
-	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-singlequeryargument.html#cfn-wafv2-rulegroup-singlequeryargument-name
-	Name *StringExpr `json:"Name,omitempty"`
-}
-
-// WAFv2RuleGroupSingleQueryArgumentList represents a list of WAFv2RuleGroupSingleQueryArgument
-type WAFv2RuleGroupSingleQueryArgumentList []WAFv2RuleGroupSingleQueryArgument
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupSingleQueryArgumentList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupSingleQueryArgument{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupSingleQueryArgumentList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupSingleQueryArgument{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupSingleQueryArgumentList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupSizeConstraintStatement represents the AWS::WAFv2::RuleGroup.SizeConstraintStatement CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html 
 type WAFv2RuleGroupSizeConstraintStatement struct {
 	// ComparisonOperator docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
-	ComparisonOperator *StringExpr `json:"ComparisonOperator,omitempty"`
+	ComparisonOperator *StringExpr `json:"ComparisonOperator,omitempty" validate:"dive,required"`
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
-	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// Size docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-	Size *IntegerExpr `json:"Size,omitempty"`
+	Size *IntegerExpr `json:"Size,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
-	TextTransformations *WAFv2RuleGroupTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2RuleGroupTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupSizeConstraintStatementList represents a list of WAFv2RuleGroupSizeConstraintStatement
@@ -36460,9 +38684,9 @@ func (l *WAFv2RuleGroupSizeConstraintStatementList) UnmarshalJSON(buf []byte) er
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html 
 type WAFv2RuleGroupSQLiMatchStatement struct {
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
-	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
-	TextTransformations *WAFv2RuleGroupTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2RuleGroupTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupSQLiMatchStatementList represents a list of WAFv2RuleGroupSQLiMatchStatement
@@ -36568,32 +38792,6 @@ func (l *WAFv2RuleGroupStatementThreeList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2RuleGroupStatementThrees represents the AWS::WAFv2::RuleGroup.StatementThrees CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthrees.html 
-type WAFv2RuleGroupStatementThrees struct {
-	// StatementThrees docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthrees.html#cfn-wafv2-rulegroup-statementthrees-statementthrees
-	StatementThrees *WAFv2RuleGroupStatementThreeList `json:"StatementThrees,omitempty"`
-}
-
-// WAFv2RuleGroupStatementThreesList represents a list of WAFv2RuleGroupStatementThrees
-type WAFv2RuleGroupStatementThreesList []WAFv2RuleGroupStatementThrees
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupStatementThreesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupStatementThrees{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupStatementThreesList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupStatementThrees{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupStatementThreesList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupStatementTwo represents the AWS::WAFv2::RuleGroup.StatementTwo CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html 
 type WAFv2RuleGroupStatementTwo struct {
@@ -36640,65 +38838,13 @@ func (l *WAFv2RuleGroupStatementTwoList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2RuleGroupStatementTwos represents the AWS::WAFv2::RuleGroup.StatementTwos CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwos.html 
-type WAFv2RuleGroupStatementTwos struct {
-	// StatementTwos docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwos.html#cfn-wafv2-rulegroup-statementtwos-statementtwos
-	StatementTwos *WAFv2RuleGroupStatementTwoList `json:"StatementTwos,omitempty"`
-}
-
-// WAFv2RuleGroupStatementTwosList represents a list of WAFv2RuleGroupStatementTwos
-type WAFv2RuleGroupStatementTwosList []WAFv2RuleGroupStatementTwos
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupStatementTwosList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupStatementTwos{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupStatementTwosList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupStatementTwos{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupStatementTwosList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupTagList represents the AWS::WAFv2::RuleGroup.TagList CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-taglist.html 
-type WAFv2RuleGroupTagList struct {
-	// TagList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-taglist.html#cfn-wafv2-rulegroup-taglist-taglist
-	TagList *TagList `json:"TagList,omitempty"`
-}
-
-// WAFv2RuleGroupTagListList represents a list of WAFv2RuleGroupTagList
-type WAFv2RuleGroupTagListList []WAFv2RuleGroupTagList
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupTagListList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupTagList{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupTagListList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupTagList{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupTagListList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupTextTransformation represents the AWS::WAFv2::RuleGroup.TextTransformation CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html 
 type WAFv2RuleGroupTextTransformation struct {
 	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
-	Priority *IntegerExpr `json:"Priority,omitempty"`
+	Priority *IntegerExpr `json:"Priority,omitempty" validate:"dive,required"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
-	Type *StringExpr `json:"Type,omitempty"`
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupTextTransformationList represents a list of WAFv2RuleGroupTextTransformation
@@ -36720,65 +38866,15 @@ func (l *WAFv2RuleGroupTextTransformationList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2RuleGroupTextTransformations represents the AWS::WAFv2::RuleGroup.TextTransformations CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformations.html 
-type WAFv2RuleGroupTextTransformations struct {
-	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformations.html#cfn-wafv2-rulegroup-texttransformations-texttransformations
-	TextTransformations *WAFv2RuleGroupTextTransformationList `json:"TextTransformations,omitempty"`
-}
-
-// WAFv2RuleGroupTextTransformationsList represents a list of WAFv2RuleGroupTextTransformations
-type WAFv2RuleGroupTextTransformationsList []WAFv2RuleGroupTextTransformations
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupTextTransformationsList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupTextTransformations{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupTextTransformationsList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupTextTransformations{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupTextTransformationsList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2RuleGroupURIPath represents the AWS::WAFv2::RuleGroup.UriPath CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-uripath.html 
-type WAFv2RuleGroupURIPath struct {
-}
-
-// WAFv2RuleGroupURIPathList represents a list of WAFv2RuleGroupURIPath
-type WAFv2RuleGroupURIPathList []WAFv2RuleGroupURIPath
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2RuleGroupURIPathList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2RuleGroupURIPath{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2RuleGroupURIPathList{item}
-		return nil
-	}
-	list := []WAFv2RuleGroupURIPath{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2RuleGroupURIPathList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2RuleGroupVisibilityConfig represents the AWS::WAFv2::RuleGroup.VisibilityConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html 
 type WAFv2RuleGroupVisibilityConfig struct {
 	// CloudWatchMetricsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled *BoolExpr `json:"CloudWatchMetricsEnabled,omitempty"`
+	CloudWatchMetricsEnabled *BoolExpr `json:"CloudWatchMetricsEnabled,omitempty" validate:"dive,required"`
 	// MetricName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
-	MetricName *StringExpr `json:"MetricName,omitempty"`
+	MetricName *StringExpr `json:"MetricName,omitempty" validate:"dive,required"`
 	// SampledRequestsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
-	SampledRequestsEnabled *BoolExpr `json:"SampledRequestsEnabled,omitempty"`
+	SampledRequestsEnabled *BoolExpr `json:"SampledRequestsEnabled,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupVisibilityConfigList represents a list of WAFv2RuleGroupVisibilityConfig
@@ -36804,9 +38900,9 @@ func (l *WAFv2RuleGroupVisibilityConfigList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html 
 type WAFv2RuleGroupXSSMatchStatement struct {
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
-	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2RuleGroupFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
-	TextTransformations *WAFv2RuleGroupTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2RuleGroupTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2RuleGroupXSSMatchStatementList represents a list of WAFv2RuleGroupXSSMatchStatement
@@ -36828,59 +38924,11 @@ func (l *WAFv2RuleGroupXSSMatchStatementList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLAllQueryArguments represents the AWS::WAFv2::WebACL.AllQueryArguments CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allqueryarguments.html 
-type WAFv2WebACLAllQueryArguments struct {
-}
-
-// WAFv2WebACLAllQueryArgumentsList represents a list of WAFv2WebACLAllQueryArguments
-type WAFv2WebACLAllQueryArgumentsList []WAFv2WebACLAllQueryArguments
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLAllQueryArgumentsList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLAllQueryArguments{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLAllQueryArgumentsList{item}
-		return nil
-	}
-	list := []WAFv2WebACLAllQueryArguments{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLAllQueryArgumentsList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLAllowAction represents the AWS::WAFv2::WebACL.AllowAction CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html 
-type WAFv2WebACLAllowAction struct {
-}
-
-// WAFv2WebACLAllowActionList represents a list of WAFv2WebACLAllowAction
-type WAFv2WebACLAllowActionList []WAFv2WebACLAllowAction
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLAllowActionList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLAllowAction{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLAllowActionList{item}
-		return nil
-	}
-	list := []WAFv2WebACLAllowAction{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLAllowActionList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLAndStatementOne represents the AWS::WAFv2::WebACL.AndStatementOne CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html 
 type WAFv2WebACLAndStatementOne struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
-	Statements *WAFv2WebACLStatementTwos `json:"Statements,omitempty"`
+	Statements *WAFv2WebACLStatementTwoList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLAndStatementOneList represents a list of WAFv2WebACLAndStatementOne
@@ -36906,7 +38954,7 @@ func (l *WAFv2WebACLAndStatementOneList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html 
 type WAFv2WebACLAndStatementTwo struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
-	Statements *WAFv2WebACLStatementThrees `json:"Statements,omitempty"`
+	Statements *WAFv2WebACLStatementThreeList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLAndStatementTwoList represents a list of WAFv2WebACLAndStatementTwo
@@ -36928,67 +38976,19 @@ func (l *WAFv2WebACLAndStatementTwoList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLBlockAction represents the AWS::WAFv2::WebACL.BlockAction CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html 
-type WAFv2WebACLBlockAction struct {
-}
-
-// WAFv2WebACLBlockActionList represents a list of WAFv2WebACLBlockAction
-type WAFv2WebACLBlockActionList []WAFv2WebACLBlockAction
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLBlockActionList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLBlockAction{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLBlockActionList{item}
-		return nil
-	}
-	list := []WAFv2WebACLBlockAction{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLBlockActionList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLBody represents the AWS::WAFv2::WebACL.Body CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-body.html 
-type WAFv2WebACLBody struct {
-}
-
-// WAFv2WebACLBodyList represents a list of WAFv2WebACLBody
-type WAFv2WebACLBodyList []WAFv2WebACLBody
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLBodyList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLBody{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLBodyList{item}
-		return nil
-	}
-	list := []WAFv2WebACLBody{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLBodyList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLByteMatchStatement represents the AWS::WAFv2::WebACL.ByteMatchStatement CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html 
 type WAFv2WebACLByteMatchStatement struct {
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
-	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// PositionalConstraint docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
-	PositionalConstraint *StringExpr `json:"PositionalConstraint,omitempty"`
+	PositionalConstraint *StringExpr `json:"PositionalConstraint,omitempty" validate:"dive,required"`
 	// SearchString docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
 	SearchString *StringExpr `json:"SearchString,omitempty"`
 	// SearchStringBase64 docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
 	SearchStringBase64 *StringExpr `json:"SearchStringBase64,omitempty"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
-	TextTransformations *WAFv2WebACLTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2WebACLTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLByteMatchStatementList represents a list of WAFv2WebACLByteMatchStatement
@@ -37010,63 +39010,13 @@ func (l *WAFv2WebACLByteMatchStatementList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLCountAction represents the AWS::WAFv2::WebACL.CountAction CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html 
-type WAFv2WebACLCountAction struct {
-}
-
-// WAFv2WebACLCountActionList represents a list of WAFv2WebACLCountAction
-type WAFv2WebACLCountActionList []WAFv2WebACLCountAction
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLCountActionList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLCountAction{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLCountActionList{item}
-		return nil
-	}
-	list := []WAFv2WebACLCountAction{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLCountActionList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLCountryCodes represents the AWS::WAFv2::WebACL.CountryCodes CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countrycodes.html 
-type WAFv2WebACLCountryCodes struct {
-	// CountryCodes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countrycodes.html#cfn-wafv2-webacl-countrycodes-countrycodes
-	CountryCodes *StringListExpr `json:"CountryCodes,omitempty"`
-}
-
-// WAFv2WebACLCountryCodesList represents a list of WAFv2WebACLCountryCodes
-type WAFv2WebACLCountryCodesList []WAFv2WebACLCountryCodes
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLCountryCodesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLCountryCodes{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLCountryCodesList{item}
-		return nil
-	}
-	list := []WAFv2WebACLCountryCodes{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLCountryCodesList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLDefaultAction represents the AWS::WAFv2::WebACL.DefaultAction CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html 
 type WAFv2WebACLDefaultAction struct {
 	// Allow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-	Allow *WAFv2WebACLAllowAction `json:"Allow,omitempty"`
+	Allow interface{} `json:"Allow,omitempty"`
 	// Block docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
-	Block *WAFv2WebACLBlockAction `json:"Block,omitempty"`
+	Block interface{} `json:"Block,omitempty"`
 }
 
 // WAFv2WebACLDefaultActionList represents a list of WAFv2WebACLDefaultAction
@@ -37092,7 +39042,7 @@ func (l *WAFv2WebACLDefaultActionList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html 
 type WAFv2WebACLExcludedRule struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
-	Name *StringExpr `json:"Name,omitempty"`
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLExcludedRuleList represents a list of WAFv2WebACLExcludedRule
@@ -37114,49 +39064,23 @@ func (l *WAFv2WebACLExcludedRuleList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLExcludedRules represents the AWS::WAFv2::WebACL.ExcludedRules CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrules.html 
-type WAFv2WebACLExcludedRules struct {
-	// ExcludedRules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrules.html#cfn-wafv2-webacl-excludedrules-excludedrules
-	ExcludedRules *WAFv2WebACLExcludedRuleList `json:"ExcludedRules,omitempty"`
-}
-
-// WAFv2WebACLExcludedRulesList represents a list of WAFv2WebACLExcludedRules
-type WAFv2WebACLExcludedRulesList []WAFv2WebACLExcludedRules
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLExcludedRulesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLExcludedRules{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLExcludedRulesList{item}
-		return nil
-	}
-	list := []WAFv2WebACLExcludedRules{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLExcludedRulesList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLFieldToMatch represents the AWS::WAFv2::WebACL.FieldToMatch CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html 
 type WAFv2WebACLFieldToMatch struct {
 	// AllQueryArguments docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
-	AllQueryArguments *WAFv2WebACLAllQueryArguments `json:"AllQueryArguments,omitempty"`
+	AllQueryArguments interface{} `json:"AllQueryArguments,omitempty"`
 	// Body docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
-	Body *WAFv2WebACLBody `json:"Body,omitempty"`
+	Body interface{} `json:"Body,omitempty"`
 	// Method docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
-	Method *WAFv2WebACLMethod `json:"Method,omitempty"`
+	Method interface{} `json:"Method,omitempty"`
 	// QueryString docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
-	QueryString *WAFv2WebACLQueryString `json:"QueryString,omitempty"`
+	QueryString interface{} `json:"QueryString,omitempty"`
 	// SingleHeader docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
-	SingleHeader *WAFv2WebACLSingleHeader `json:"SingleHeader,omitempty"`
+	SingleHeader interface{} `json:"SingleHeader,omitempty"`
 	// SingleQueryArgument docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
-	SingleQueryArgument *WAFv2WebACLSingleQueryArgument `json:"SingleQueryArgument,omitempty"`
+	SingleQueryArgument interface{} `json:"SingleQueryArgument,omitempty"`
 	// URIPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
-	URIPath *WAFv2WebACLURIPath `json:"UriPath,omitempty"`
+	URIPath interface{} `json:"UriPath,omitempty"`
 }
 
 // WAFv2WebACLFieldToMatchList represents a list of WAFv2WebACLFieldToMatch
@@ -37182,7 +39106,7 @@ func (l *WAFv2WebACLFieldToMatchList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html 
 type WAFv2WebACLGeoMatchStatement struct {
 	// CountryCodes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
-	CountryCodes *WAFv2WebACLCountryCodes `json:"CountryCodes,omitempty"`
+	CountryCodes *StringListExpr `json:"CountryCodes,omitempty"`
 }
 
 // WAFv2WebACLGeoMatchStatementList represents a list of WAFv2WebACLGeoMatchStatement
@@ -37208,7 +39132,7 @@ func (l *WAFv2WebACLGeoMatchStatementList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html 
 type WAFv2WebACLIPSetReferenceStatement struct {
 	// Arn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
-	Arn *StringExpr `json:"Arn,omitempty"`
+	Arn *StringExpr `json:"Arn,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLIPSetReferenceStatementList represents a list of WAFv2WebACLIPSetReferenceStatement
@@ -37234,11 +39158,11 @@ func (l *WAFv2WebACLIPSetReferenceStatementList) UnmarshalJSON(buf []byte) error
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html 
 type WAFv2WebACLManagedRuleGroupStatement struct {
 	// ExcludedRules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
-	ExcludedRules *WAFv2WebACLExcludedRules `json:"ExcludedRules,omitempty"`
+	ExcludedRules *WAFv2WebACLExcludedRuleList `json:"ExcludedRules,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
-	Name *StringExpr `json:"Name,omitempty"`
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
 	// VendorName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
-	VendorName *StringExpr `json:"VendorName,omitempty"`
+	VendorName *StringExpr `json:"VendorName,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLManagedRuleGroupStatementList represents a list of WAFv2WebACLManagedRuleGroupStatement
@@ -37260,59 +39184,11 @@ func (l *WAFv2WebACLManagedRuleGroupStatementList) UnmarshalJSON(buf []byte) err
 	}
 	return err
 }
-// WAFv2WebACLMethod represents the AWS::WAFv2::WebACL.Method CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-method.html 
-type WAFv2WebACLMethod struct {
-}
-
-// WAFv2WebACLMethodList represents a list of WAFv2WebACLMethod
-type WAFv2WebACLMethodList []WAFv2WebACLMethod
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLMethodList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLMethod{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLMethodList{item}
-		return nil
-	}
-	list := []WAFv2WebACLMethod{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLMethodList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLNoneAction represents the AWS::WAFv2::WebACL.NoneAction CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-noneaction.html 
-type WAFv2WebACLNoneAction struct {
-}
-
-// WAFv2WebACLNoneActionList represents a list of WAFv2WebACLNoneAction
-type WAFv2WebACLNoneActionList []WAFv2WebACLNoneAction
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLNoneActionList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLNoneAction{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLNoneActionList{item}
-		return nil
-	}
-	list := []WAFv2WebACLNoneAction{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLNoneActionList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLNotStatementOne represents the AWS::WAFv2::WebACL.NotStatementOne CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html 
 type WAFv2WebACLNotStatementOne struct {
 	// Statement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
-	Statement *WAFv2WebACLStatementTwo `json:"Statement,omitempty"`
+	Statement *WAFv2WebACLStatementTwo `json:"Statement,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLNotStatementOneList represents a list of WAFv2WebACLNotStatementOne
@@ -37338,7 +39214,7 @@ func (l *WAFv2WebACLNotStatementOneList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html 
 type WAFv2WebACLNotStatementTwo struct {
 	// Statement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
-	Statement *WAFv2WebACLStatementThree `json:"Statement,omitempty"`
+	Statement *WAFv2WebACLStatementThree `json:"Statement,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLNotStatementTwoList represents a list of WAFv2WebACLNotStatementTwo
@@ -37364,7 +39240,7 @@ func (l *WAFv2WebACLNotStatementTwoList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html 
 type WAFv2WebACLOrStatementOne struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
-	Statements *WAFv2WebACLStatementTwos `json:"Statements,omitempty"`
+	Statements *WAFv2WebACLStatementTwoList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLOrStatementOneList represents a list of WAFv2WebACLOrStatementOne
@@ -37390,7 +39266,7 @@ func (l *WAFv2WebACLOrStatementOneList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html 
 type WAFv2WebACLOrStatementTwo struct {
 	// Statements docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
-	Statements *WAFv2WebACLStatementThrees `json:"Statements,omitempty"`
+	Statements *WAFv2WebACLStatementThreeList `json:"Statements,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLOrStatementTwoList represents a list of WAFv2WebACLOrStatementTwo
@@ -37416,9 +39292,9 @@ func (l *WAFv2WebACLOrStatementTwoList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html 
 type WAFv2WebACLOverrideAction struct {
 	// Count docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
-	Count *WAFv2WebACLCountAction `json:"Count,omitempty"`
+	Count interface{} `json:"Count,omitempty"`
 	// None docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
-	None *WAFv2WebACLNoneAction `json:"None,omitempty"`
+	None interface{} `json:"None,omitempty"`
 }
 
 // WAFv2WebACLOverrideActionList represents a list of WAFv2WebACLOverrideAction
@@ -37440,37 +39316,13 @@ func (l *WAFv2WebACLOverrideActionList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLQueryString represents the AWS::WAFv2::WebACL.QueryString CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-querystring.html 
-type WAFv2WebACLQueryString struct {
-}
-
-// WAFv2WebACLQueryStringList represents a list of WAFv2WebACLQueryString
-type WAFv2WebACLQueryStringList []WAFv2WebACLQueryString
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLQueryStringList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLQueryString{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLQueryStringList{item}
-		return nil
-	}
-	list := []WAFv2WebACLQueryString{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLQueryStringList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLRateBasedStatementOne represents the AWS::WAFv2::WebACL.RateBasedStatementOne CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html 
 type WAFv2WebACLRateBasedStatementOne struct {
 	// AggregateKeyType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
-	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty"`
+	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty" validate:"dive,required"`
 	// Limit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
-	Limit *IntegerExpr `json:"Limit,omitempty"`
+	Limit *IntegerExpr `json:"Limit,omitempty" validate:"dive,required"`
 	// ScopeDownStatement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
 	ScopeDownStatement *WAFv2WebACLStatementTwo `json:"ScopeDownStatement,omitempty"`
 }
@@ -37498,9 +39350,9 @@ func (l *WAFv2WebACLRateBasedStatementOneList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html 
 type WAFv2WebACLRateBasedStatementTwo struct {
 	// AggregateKeyType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
-	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty"`
+	AggregateKeyType *StringExpr `json:"AggregateKeyType,omitempty" validate:"dive,required"`
 	// Limit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
-	Limit *IntegerExpr `json:"Limit,omitempty"`
+	Limit *IntegerExpr `json:"Limit,omitempty" validate:"dive,required"`
 	// ScopeDownStatement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
 	ScopeDownStatement *WAFv2WebACLStatementThree `json:"ScopeDownStatement,omitempty"`
 }
@@ -37528,11 +39380,11 @@ func (l *WAFv2WebACLRateBasedStatementTwoList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html 
 type WAFv2WebACLRegexPatternSetReferenceStatement struct {
 	// Arn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
-	Arn *StringExpr `json:"Arn,omitempty"`
+	Arn *StringExpr `json:"Arn,omitempty" validate:"dive,required"`
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
-	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
-	TextTransformations *WAFv2WebACLTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2WebACLTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLRegexPatternSetReferenceStatementList represents a list of WAFv2WebACLRegexPatternSetReferenceStatement
@@ -37560,15 +39412,15 @@ type WAFv2WebACLRule struct {
 	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
 	Action *WAFv2WebACLRuleAction `json:"Action,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
-	Name *StringExpr `json:"Name,omitempty"`
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
 	// OverrideAction docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
 	OverrideAction *WAFv2WebACLOverrideAction `json:"OverrideAction,omitempty"`
 	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-	Priority *IntegerExpr `json:"Priority,omitempty"`
+	Priority *IntegerExpr `json:"Priority,omitempty" validate:"dive,required"`
 	// Statement docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-	Statement *WAFv2WebACLStatementOne `json:"Statement,omitempty"`
+	Statement *WAFv2WebACLStatementOne `json:"Statement,omitempty" validate:"dive,required"`
 	// VisibilityConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
-	VisibilityConfig *WAFv2WebACLVisibilityConfig `json:"VisibilityConfig,omitempty"`
+	VisibilityConfig *WAFv2WebACLVisibilityConfig `json:"VisibilityConfig,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLRuleList represents a list of WAFv2WebACLRule
@@ -37594,11 +39446,11 @@ func (l *WAFv2WebACLRuleList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html 
 type WAFv2WebACLRuleAction struct {
 	// Allow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-	Allow *WAFv2WebACLAllowAction `json:"Allow,omitempty"`
+	Allow interface{} `json:"Allow,omitempty"`
 	// Block docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-	Block *WAFv2WebACLBlockAction `json:"Block,omitempty"`
+	Block interface{} `json:"Block,omitempty"`
 	// Count docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-	Count *WAFv2WebACLCountAction `json:"Count,omitempty"`
+	Count interface{} `json:"Count,omitempty"`
 }
 
 // WAFv2WebACLRuleActionList represents a list of WAFv2WebACLRuleAction
@@ -37624,9 +39476,9 @@ func (l *WAFv2WebACLRuleActionList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html 
 type WAFv2WebACLRuleGroupReferenceStatement struct {
 	// Arn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-	Arn *StringExpr `json:"Arn,omitempty"`
+	Arn *StringExpr `json:"Arn,omitempty" validate:"dive,required"`
 	// ExcludedRules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
-	ExcludedRules *WAFv2WebACLExcludedRules `json:"ExcludedRules,omitempty"`
+	ExcludedRules *WAFv2WebACLExcludedRuleList `json:"ExcludedRules,omitempty"`
 }
 
 // WAFv2WebACLRuleGroupReferenceStatementList represents a list of WAFv2WebACLRuleGroupReferenceStatement
@@ -37648,95 +39500,17 @@ func (l *WAFv2WebACLRuleGroupReferenceStatementList) UnmarshalJSON(buf []byte) e
 	}
 	return err
 }
-// WAFv2WebACLRules represents the AWS::WAFv2::WebACL.Rules CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rules.html 
-type WAFv2WebACLRules struct {
-	// Rules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rules.html#cfn-wafv2-webacl-rules-rules
-	Rules *WAFv2WebACLRuleList `json:"Rules,omitempty"`
-}
-
-// WAFv2WebACLRulesList represents a list of WAFv2WebACLRules
-type WAFv2WebACLRulesList []WAFv2WebACLRules
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLRulesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLRules{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLRulesList{item}
-		return nil
-	}
-	list := []WAFv2WebACLRules{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLRulesList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLSingleHeader represents the AWS::WAFv2::WebACL.SingleHeader CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singleheader.html 
-type WAFv2WebACLSingleHeader struct {
-	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singleheader.html#cfn-wafv2-webacl-singleheader-name
-	Name *StringExpr `json:"Name,omitempty"`
-}
-
-// WAFv2WebACLSingleHeaderList represents a list of WAFv2WebACLSingleHeader
-type WAFv2WebACLSingleHeaderList []WAFv2WebACLSingleHeader
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLSingleHeaderList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLSingleHeader{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLSingleHeaderList{item}
-		return nil
-	}
-	list := []WAFv2WebACLSingleHeader{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLSingleHeaderList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLSingleQueryArgument represents the AWS::WAFv2::WebACL.SingleQueryArgument CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html 
-type WAFv2WebACLSingleQueryArgument struct {
-	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html#cfn-wafv2-webacl-singlequeryargument-name
-	Name *StringExpr `json:"Name,omitempty"`
-}
-
-// WAFv2WebACLSingleQueryArgumentList represents a list of WAFv2WebACLSingleQueryArgument
-type WAFv2WebACLSingleQueryArgumentList []WAFv2WebACLSingleQueryArgument
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLSingleQueryArgumentList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLSingleQueryArgument{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLSingleQueryArgumentList{item}
-		return nil
-	}
-	list := []WAFv2WebACLSingleQueryArgument{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLSingleQueryArgumentList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLSizeConstraintStatement represents the AWS::WAFv2::WebACL.SizeConstraintStatement CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html 
 type WAFv2WebACLSizeConstraintStatement struct {
 	// ComparisonOperator docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
-	ComparisonOperator *StringExpr `json:"ComparisonOperator,omitempty"`
+	ComparisonOperator *StringExpr `json:"ComparisonOperator,omitempty" validate:"dive,required"`
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
-	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// Size docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-	Size *IntegerExpr `json:"Size,omitempty"`
+	Size *IntegerExpr `json:"Size,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
-	TextTransformations *WAFv2WebACLTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2WebACLTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLSizeConstraintStatementList represents a list of WAFv2WebACLSizeConstraintStatement
@@ -37762,9 +39536,9 @@ func (l *WAFv2WebACLSizeConstraintStatementList) UnmarshalJSON(buf []byte) error
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html 
 type WAFv2WebACLSQLiMatchStatement struct {
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
-	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
-	TextTransformations *WAFv2WebACLTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2WebACLTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLSQLiMatchStatementList represents a list of WAFv2WebACLSQLiMatchStatement
@@ -37878,32 +39652,6 @@ func (l *WAFv2WebACLStatementThreeList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLStatementThrees represents the AWS::WAFv2::WebACL.StatementThrees CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthrees.html 
-type WAFv2WebACLStatementThrees struct {
-	// StatementThrees docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthrees.html#cfn-wafv2-webacl-statementthrees-statementthrees
-	StatementThrees *WAFv2WebACLStatementThreeList `json:"StatementThrees,omitempty"`
-}
-
-// WAFv2WebACLStatementThreesList represents a list of WAFv2WebACLStatementThrees
-type WAFv2WebACLStatementThreesList []WAFv2WebACLStatementThrees
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLStatementThreesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLStatementThrees{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLStatementThreesList{item}
-		return nil
-	}
-	list := []WAFv2WebACLStatementThrees{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLStatementThreesList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLStatementTwo represents the AWS::WAFv2::WebACL.StatementTwo CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html 
 type WAFv2WebACLStatementTwo struct {
@@ -37954,65 +39702,13 @@ func (l *WAFv2WebACLStatementTwoList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLStatementTwos represents the AWS::WAFv2::WebACL.StatementTwos CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwos.html 
-type WAFv2WebACLStatementTwos struct {
-	// StatementTwos docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwos.html#cfn-wafv2-webacl-statementtwos-statementtwos
-	StatementTwos *WAFv2WebACLStatementTwoList `json:"StatementTwos,omitempty"`
-}
-
-// WAFv2WebACLStatementTwosList represents a list of WAFv2WebACLStatementTwos
-type WAFv2WebACLStatementTwosList []WAFv2WebACLStatementTwos
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLStatementTwosList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLStatementTwos{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLStatementTwosList{item}
-		return nil
-	}
-	list := []WAFv2WebACLStatementTwos{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLStatementTwosList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLTagList represents the AWS::WAFv2::WebACL.TagList CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-taglist.html 
-type WAFv2WebACLTagList struct {
-	// TagList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-taglist.html#cfn-wafv2-webacl-taglist-taglist
-	TagList *TagList `json:"TagList,omitempty"`
-}
-
-// WAFv2WebACLTagListList represents a list of WAFv2WebACLTagList
-type WAFv2WebACLTagListList []WAFv2WebACLTagList
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLTagListList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLTagList{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLTagListList{item}
-		return nil
-	}
-	list := []WAFv2WebACLTagList{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLTagListList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLTextTransformation represents the AWS::WAFv2::WebACL.TextTransformation CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html 
 type WAFv2WebACLTextTransformation struct {
 	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority
-	Priority *IntegerExpr `json:"Priority,omitempty"`
+	Priority *IntegerExpr `json:"Priority,omitempty" validate:"dive,required"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-type
-	Type *StringExpr `json:"Type,omitempty"`
+	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLTextTransformationList represents a list of WAFv2WebACLTextTransformation
@@ -38034,65 +39730,15 @@ func (l *WAFv2WebACLTextTransformationList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// WAFv2WebACLTextTransformations represents the AWS::WAFv2::WebACL.TextTransformations CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformations.html 
-type WAFv2WebACLTextTransformations struct {
-	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformations.html#cfn-wafv2-webacl-texttransformations-texttransformations
-	TextTransformations *WAFv2WebACLTextTransformationList `json:"TextTransformations,omitempty"`
-}
-
-// WAFv2WebACLTextTransformationsList represents a list of WAFv2WebACLTextTransformations
-type WAFv2WebACLTextTransformationsList []WAFv2WebACLTextTransformations
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLTextTransformationsList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLTextTransformations{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLTextTransformationsList{item}
-		return nil
-	}
-	list := []WAFv2WebACLTextTransformations{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLTextTransformationsList(list)
-		return nil
-	}
-	return err
-}
-// WAFv2WebACLURIPath represents the AWS::WAFv2::WebACL.UriPath CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-uripath.html 
-type WAFv2WebACLURIPath struct {
-}
-
-// WAFv2WebACLURIPathList represents a list of WAFv2WebACLURIPath
-type WAFv2WebACLURIPathList []WAFv2WebACLURIPath
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *WAFv2WebACLURIPathList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := WAFv2WebACLURIPath{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = WAFv2WebACLURIPathList{item}
-		return nil
-	}
-	list := []WAFv2WebACLURIPath{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = WAFv2WebACLURIPathList(list)
-		return nil
-	}
-	return err
-}
 // WAFv2WebACLVisibilityConfig represents the AWS::WAFv2::WebACL.VisibilityConfig CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html 
 type WAFv2WebACLVisibilityConfig struct {
 	// CloudWatchMetricsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled *BoolExpr `json:"CloudWatchMetricsEnabled,omitempty"`
+	CloudWatchMetricsEnabled *BoolExpr `json:"CloudWatchMetricsEnabled,omitempty" validate:"dive,required"`
 	// MetricName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
-	MetricName *StringExpr `json:"MetricName,omitempty"`
+	MetricName *StringExpr `json:"MetricName,omitempty" validate:"dive,required"`
 	// SampledRequestsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
-	SampledRequestsEnabled *BoolExpr `json:"SampledRequestsEnabled,omitempty"`
+	SampledRequestsEnabled *BoolExpr `json:"SampledRequestsEnabled,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLVisibilityConfigList represents a list of WAFv2WebACLVisibilityConfig
@@ -38118,9 +39764,9 @@ func (l *WAFv2WebACLVisibilityConfigList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html 
 type WAFv2WebACLXSSMatchStatement struct {
 	// FieldToMatch docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty"`
+	FieldToMatch *WAFv2WebACLFieldToMatch `json:"FieldToMatch,omitempty" validate:"dive,required"`
 	// TextTransformations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
-	TextTransformations *WAFv2WebACLTextTransformations `json:"TextTransformations,omitempty"`
+	TextTransformations *WAFv2WebACLTextTransformationList `json:"TextTransformations,omitempty" validate:"dive,required"`
 }
 
 // WAFv2WebACLXSSMatchStatementList represents a list of WAFv2WebACLXSSMatchStatement
@@ -39214,6 +40860,8 @@ func (s APIGatewayV2DomainName) CfnResourceAttributes() []string {
 type APIGatewayV2Integration struct {
 	// APIID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-apiid
 	APIID *StringExpr `json:"ApiId,omitempty" validate:"dive,required"`
+	// ConnectionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectionid
+	ConnectionID *StringExpr `json:"ConnectionId,omitempty"`
 	// ConnectionType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectiontype
 	ConnectionType *StringExpr `json:"ConnectionType,omitempty"`
 	// ContentHandlingStrategy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-contenthandlingstrategy
@@ -39240,6 +40888,8 @@ type APIGatewayV2Integration struct {
 	TemplateSelectionExpression *StringExpr `json:"TemplateSelectionExpression,omitempty"`
 	// TimeoutInMillis docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-timeoutinmillis
 	TimeoutInMillis *IntegerExpr `json:"TimeoutInMillis,omitempty"`
+	// TlsConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-tlsconfig
+	TlsConfig *APIGatewayV2IntegrationTlsConfig `json:"TlsConfig,omitempty"`
 }
 
 // CfnResourceType returns AWS::ApiGatewayV2::Integration to implement the ResourceProperties interface
@@ -39551,13 +41201,15 @@ func (s AppMeshMesh) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshMesh) CfnResourceAttributes() []string {
-	return []string{"Arn","MeshName","Uid"}
+	return []string{"Arn","MeshName","MeshOwner","ResourceOwner","Uid"}
 }
 // AppMeshRoute represents the AWS::AppMesh::Route CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html 
 type AppMeshRoute struct {
 	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshname
 	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// MeshOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshowner
+	MeshOwner *StringExpr `json:"MeshOwner,omitempty"`
 	// RouteName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-routename
 	RouteName *StringExpr `json:"RouteName,omitempty" validate:"dive,required"`
 	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-spec
@@ -39575,13 +41227,15 @@ func (s AppMeshRoute) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshRoute) CfnResourceAttributes() []string {
-	return []string{"Arn","MeshName","RouteName","Uid","VirtualRouterName"}
+	return []string{"Arn","MeshName","MeshOwner","ResourceOwner","RouteName","Uid","VirtualRouterName"}
 }
 // AppMeshVirtualNode represents the AWS::AppMesh::VirtualNode CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html 
 type AppMeshVirtualNode struct {
 	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-meshname
 	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// MeshOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-meshowner
+	MeshOwner *StringExpr `json:"MeshOwner,omitempty"`
 	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-spec
 	Spec *AppMeshVirtualNodeVirtualNodeSpec `json:"Spec,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-tags
@@ -39597,13 +41251,15 @@ func (s AppMeshVirtualNode) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshVirtualNode) CfnResourceAttributes() []string {
-	return []string{"Arn","MeshName","Uid","VirtualNodeName"}
+	return []string{"Arn","MeshName","MeshOwner","ResourceOwner","Uid","VirtualNodeName"}
 }
 // AppMeshVirtualRouter represents the AWS::AppMesh::VirtualRouter CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html 
 type AppMeshVirtualRouter struct {
 	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshname
 	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// MeshOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshowner
+	MeshOwner *StringExpr `json:"MeshOwner,omitempty"`
 	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-spec
 	Spec *AppMeshVirtualRouterVirtualRouterSpec `json:"Spec,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-tags
@@ -39619,13 +41275,15 @@ func (s AppMeshVirtualRouter) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshVirtualRouter) CfnResourceAttributes() []string {
-	return []string{"Arn","MeshName","Uid","VirtualRouterName"}
+	return []string{"Arn","MeshName","MeshOwner","ResourceOwner","Uid","VirtualRouterName"}
 }
 // AppMeshVirtualService represents the AWS::AppMesh::VirtualService CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html 
 type AppMeshVirtualService struct {
 	// MeshName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshname
 	MeshName *StringExpr `json:"MeshName,omitempty" validate:"dive,required"`
+	// MeshOwner docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshowner
+	MeshOwner *StringExpr `json:"MeshOwner,omitempty"`
 	// Spec docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-spec
 	Spec *AppMeshVirtualServiceVirtualServiceSpec `json:"Spec,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-tags
@@ -39641,7 +41299,7 @@ func (s AppMeshVirtualService) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AppMeshVirtualService) CfnResourceAttributes() []string {
-	return []string{"Arn","MeshName","Uid","VirtualServiceName"}
+	return []string{"Arn","MeshName","MeshOwner","ResourceOwner","Uid","VirtualServiceName"}
 }
 // AppStreamDirectoryConfig represents the AWS::AppStream::DirectoryConfig CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html 
@@ -40131,6 +41789,34 @@ func (s AthenaNamedQuery) CfnResourceType() string {
 func (s AthenaNamedQuery) CfnResourceAttributes() []string {
 	return []string{}
 }
+// AthenaWorkGroup represents the AWS::Athena::WorkGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html 
+type AthenaWorkGroup struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// RecursiveDeleteOption docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
+	RecursiveDeleteOption *BoolExpr `json:"RecursiveDeleteOption,omitempty"`
+	// State docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
+	State *StringExpr `json:"State,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
+	Tags *AthenaWorkGroupTags `json:"Tags,omitempty"`
+	// WorkGroupConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+	WorkGroupConfiguration *AthenaWorkGroupWorkGroupConfiguration `json:"WorkGroupConfiguration,omitempty"`
+	// WorkGroupConfigurationUpdates docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+	WorkGroupConfigurationUpdates *AthenaWorkGroupWorkGroupConfigurationUpdates `json:"WorkGroupConfigurationUpdates,omitempty"`
+}
+
+// CfnResourceType returns AWS::Athena::WorkGroup to implement the ResourceProperties interface
+func (s AthenaWorkGroup) CfnResourceType() string {
+	
+	return "AWS::Athena::WorkGroup"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s AthenaWorkGroup) CfnResourceAttributes() []string {
+	return []string{"CreationTime"}
+}
 // AutoScalingAutoScalingGroup represents the AWS::AutoScaling::AutoScalingGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html 
 type AutoScalingAutoScalingGroup struct {
@@ -40156,6 +41842,8 @@ type AutoScalingAutoScalingGroup struct {
 	LifecycleHookSpecificationList *AutoScalingAutoScalingGroupLifecycleHookSpecificationList `json:"LifecycleHookSpecificationList,omitempty"`
 	// LoadBalancerNames docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
 	LoadBalancerNames *StringListExpr `json:"LoadBalancerNames,omitempty"`
+	// MaxInstanceLifetime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxinstancelifetime
+	MaxInstanceLifetime *IntegerExpr `json:"MaxInstanceLifetime,omitempty"`
 	// MaxSize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize
 	MaxSize *StringExpr `json:"MaxSize,omitempty" validate:"dive,required"`
 	// MetricsCollection docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-metricscollection
@@ -40501,6 +42189,48 @@ func (s BudgetsBudget) CfnResourceType() string {
 func (s BudgetsBudget) CfnResourceAttributes() []string {
 	return []string{}
 }
+// CassandraKeyspace represents the AWS::Cassandra::Keyspace CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html 
+type CassandraKeyspace struct {
+	// KeyspaceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+	KeyspaceName *StringExpr `json:"KeyspaceName,omitempty"`
+}
+
+// CfnResourceType returns AWS::Cassandra::Keyspace to implement the ResourceProperties interface
+func (s CassandraKeyspace) CfnResourceType() string {
+	
+	return "AWS::Cassandra::Keyspace"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CassandraKeyspace) CfnResourceAttributes() []string {
+	return []string{}
+}
+// CassandraTable represents the AWS::Cassandra::Table CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html 
+type CassandraTable struct {
+	// BillingMode docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
+	BillingMode *CassandraTableBillingMode `json:"BillingMode,omitempty"`
+	// ClusteringKeyColumns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+	ClusteringKeyColumns *CassandraTableClusteringKeyColumnList `json:"ClusteringKeyColumns,omitempty"`
+	// KeyspaceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+	KeyspaceName *StringExpr `json:"KeyspaceName,omitempty" validate:"dive,required"`
+	// PartitionKeyColumns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+	PartitionKeyColumns *CassandraTableColumnList `json:"PartitionKeyColumns,omitempty" validate:"dive,required"`
+	// RegularColumns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+	RegularColumns *CassandraTableColumnList `json:"RegularColumns,omitempty"`
+	// TableName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+	TableName *StringExpr `json:"TableName,omitempty"`
+}
+
+// CfnResourceType returns AWS::Cassandra::Table to implement the ResourceProperties interface
+func (s CassandraTable) CfnResourceType() string {
+	
+	return "AWS::Cassandra::Table"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CassandraTable) CfnResourceAttributes() []string {
+	return []string{}
+}
 // CertificateManagerCertificate represents the AWS::CertificateManager::Certificate CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html 
 type CertificateManagerCertificate struct {
@@ -40523,6 +42253,34 @@ func (s CertificateManagerCertificate) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s CertificateManagerCertificate) CfnResourceAttributes() []string {
+	return []string{}
+}
+// ChatbotSlackChannelConfiguration represents the AWS::Chatbot::SlackChannelConfiguration CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html 
+type ChatbotSlackChannelConfiguration struct {
+	// Arn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-arn
+	Arn *StringExpr `json:"Arn,omitempty"`
+	// ConfigurationName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
+	ConfigurationName *StringExpr `json:"ConfigurationName,omitempty" validate:"dive,required"`
+	// IamRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
+	IamRoleArn *StringExpr `json:"IamRoleArn,omitempty" validate:"dive,required"`
+	// LoggingLevel docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
+	LoggingLevel *StringExpr `json:"LoggingLevel,omitempty"`
+	// SlackChannelID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
+	SlackChannelID *StringExpr `json:"SlackChannelId,omitempty" validate:"dive,required"`
+	// SlackWorkspaceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
+	SlackWorkspaceID *StringExpr `json:"SlackWorkspaceId,omitempty" validate:"dive,required"`
+	// SnsTopicArns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+	SnsTopicArns *StringListExpr `json:"SnsTopicArns,omitempty"`
+}
+
+// CfnResourceType returns AWS::Chatbot::SlackChannelConfiguration to implement the ResourceProperties interface
+func (s ChatbotSlackChannelConfiguration) CfnResourceType() string {
+	
+	return "AWS::Chatbot::SlackChannelConfiguration"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ChatbotSlackChannelConfiguration) CfnResourceAttributes() []string {
 	return []string{}
 }
 // Cloud9EnvironmentEC2 represents the AWS::Cloud9::EnvironmentEC2 CloudFormation resource type
@@ -40832,6 +42590,34 @@ func (s CloudWatchAnomalyDetector) CfnResourceType() string {
 func (s CloudWatchAnomalyDetector) CfnResourceAttributes() []string {
 	return []string{}
 }
+// CloudWatchCompositeAlarm represents the AWS::CloudWatch::CompositeAlarm CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html 
+type CloudWatchCompositeAlarm struct {
+	// ActionsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+	ActionsEnabled *BoolExpr `json:"ActionsEnabled,omitempty"`
+	// AlarmActions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+	AlarmActions *StringListExpr `json:"AlarmActions,omitempty"`
+	// AlarmDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+	AlarmDescription *StringExpr `json:"AlarmDescription,omitempty"`
+	// AlarmName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+	AlarmName *StringExpr `json:"AlarmName,omitempty" validate:"dive,required"`
+	// AlarmRule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+	AlarmRule *StringExpr `json:"AlarmRule,omitempty" validate:"dive,required"`
+	// InsufficientDataActions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+	InsufficientDataActions *StringListExpr `json:"InsufficientDataActions,omitempty"`
+	// OKActions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+	OKActions *StringListExpr `json:"OKActions,omitempty"`
+}
+
+// CfnResourceType returns AWS::CloudWatch::CompositeAlarm to implement the ResourceProperties interface
+func (s CloudWatchCompositeAlarm) CfnResourceType() string {
+	
+	return "AWS::CloudWatch::CompositeAlarm"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CloudWatchCompositeAlarm) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
 // CloudWatchDashboard represents the AWS::CloudWatch::Dashboard CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html 
 type CloudWatchDashboard struct {
@@ -40859,6 +42645,8 @@ type CloudWatchInsightRule struct {
 	RuleName *StringExpr `json:"RuleName,omitempty" validate:"dive,required"`
 	// RuleState docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulestate
 	RuleState *StringExpr `json:"RuleState,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-tags
+	Tags *CloudWatchInsightRuleTags `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::CloudWatch::InsightRule to implement the ResourceProperties interface
@@ -40885,6 +42673,8 @@ type CodeBuildProject struct {
 	EncryptionKey *StringExpr `json:"EncryptionKey,omitempty"`
 	// Environment docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
 	Environment *CodeBuildProjectEnvironment `json:"Environment,omitempty" validate:"dive,required"`
+	// FileSystemLocations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-filesystemlocations
+	FileSystemLocations *CodeBuildProjectProjectFileSystemLocationList `json:"FileSystemLocations,omitempty"`
 	// LogsConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig
 	LogsConfig *CodeBuildProjectLogsConfig `json:"LogsConfig,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
@@ -40929,6 +42719,8 @@ type CodeBuildReportGroup struct {
 	ExportConfig *CodeBuildReportGroupReportExportConfig `json:"ExportConfig,omitempty" validate:"dive,required"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-name
 	Name *StringExpr `json:"Name,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-tags
+	Tags *TagList `json:"Tags,omitempty"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-type
 	Type *StringExpr `json:"Type,omitempty" validate:"dive,required"`
 }
@@ -41068,6 +42860,22 @@ func (s CodeDeployDeploymentGroup) CfnResourceType() string {
 func (s CodeDeployDeploymentGroup) CfnResourceAttributes() []string {
 	return []string{}
 }
+// CodeGuruProfilerProfilingGroup represents the AWS::CodeGuruProfiler::ProfilingGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html 
+type CodeGuruProfilerProfilingGroup struct {
+	// ProfilingGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
+	ProfilingGroupName *StringExpr `json:"ProfilingGroupName,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::CodeGuruProfiler::ProfilingGroup to implement the ResourceProperties interface
+func (s CodeGuruProfilerProfilingGroup) CfnResourceType() string {
+	
+	return "AWS::CodeGuruProfiler::ProfilingGroup"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CodeGuruProfilerProfilingGroup) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
 // CodePipelineCustomActionType represents the AWS::CodePipeline::CustomActionType CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html 
 type CodePipelineCustomActionType struct {
@@ -41185,6 +42993,24 @@ func (s CodeStarGitHubRepository) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s CodeStarGitHubRepository) CfnResourceAttributes() []string {
 	return []string{}
+}
+// CodeStarConnectionsConnection represents the AWS::CodeStarConnections::Connection CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html 
+type CodeStarConnectionsConnection struct {
+	// ConnectionName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
+	ConnectionName *StringExpr `json:"ConnectionName,omitempty" validate:"dive,required"`
+	// ProviderType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
+	ProviderType *StringExpr `json:"ProviderType,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::CodeStarConnections::Connection to implement the ResourceProperties interface
+func (s CodeStarConnectionsConnection) CfnResourceType() string {
+	
+	return "AWS::CodeStarConnections::Connection"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s CodeStarConnectionsConnection) CfnResourceAttributes() []string {
+	return []string{"ConnectionArn","ConnectionStatus","OwnerAccountId"}
 }
 // CodeStarNotificationsNotificationRule represents the AWS::CodeStarNotifications::NotificationRule CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html 
@@ -41313,6 +43139,8 @@ type CognitoUserPool struct {
 	UserPoolTags interface{} `json:"UserPoolTags,omitempty"`
 	// UsernameAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameattributes
 	UsernameAttributes *StringListExpr `json:"UsernameAttributes,omitempty"`
+	// UsernameConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameconfiguration
+	UsernameConfiguration *CognitoUserPoolUsernameConfiguration `json:"UsernameConfiguration,omitempty"`
 	// VerificationMessageTemplate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-verificationmessagetemplate
 	VerificationMessageTemplate *CognitoUserPoolVerificationMessageTemplate `json:"VerificationMessageTemplate,omitempty"`
 }
@@ -41565,6 +43393,8 @@ type ConfigAggregationAuthorization struct {
 	AuthorizedAccountID *StringExpr `json:"AuthorizedAccountId,omitempty" validate:"dive,required"`
 	// AuthorizedAwsRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedawsregion
 	AuthorizedAwsRegion *StringExpr `json:"AuthorizedAwsRegion,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::Config::AggregationAuthorization to implement the ResourceProperties interface
@@ -41611,6 +43441,8 @@ type ConfigConfigurationAggregator struct {
 	ConfigurationAggregatorName *StringExpr `json:"ConfigurationAggregatorName,omitempty" validate:"dive,required"`
 	// OrganizationAggregationSource docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
 	OrganizationAggregationSource *ConfigConfigurationAggregatorOrganizationAggregationSource `json:"OrganizationAggregationSource,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::Config::ConfigurationAggregator to implement the ResourceProperties interface
@@ -41640,6 +43472,32 @@ func (s ConfigConfigurationRecorder) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ConfigConfigurationRecorder) CfnResourceAttributes() []string {
+	return []string{}
+}
+// ConfigConformancePack represents the AWS::Config::ConformancePack CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html 
+type ConfigConformancePack struct {
+	// ConformancePackInputParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
+	ConformancePackInputParameters *ConfigConformancePackConformancePackInputParameterList `json:"ConformancePackInputParameters,omitempty"`
+	// ConformancePackName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
+	ConformancePackName *StringExpr `json:"ConformancePackName,omitempty" validate:"dive,required"`
+	// DeliveryS3Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
+	DeliveryS3Bucket *StringExpr `json:"DeliveryS3Bucket,omitempty" validate:"dive,required"`
+	// DeliveryS3KeyPrefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
+	DeliveryS3KeyPrefix *StringExpr `json:"DeliveryS3KeyPrefix,omitempty"`
+	// TemplateBody docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+	TemplateBody *StringExpr `json:"TemplateBody,omitempty"`
+	// TemplateS3URI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+	TemplateS3URI *StringExpr `json:"TemplateS3Uri,omitempty"`
+}
+
+// CfnResourceType returns AWS::Config::ConformancePack to implement the ResourceProperties interface
+func (s ConfigConformancePack) CfnResourceType() string {
+	
+	return "AWS::Config::ConformancePack"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ConfigConformancePack) CfnResourceAttributes() []string {
 	return []string{}
 }
 // ConfigDeliveryChannel represents the AWS::Config::DeliveryChannel CloudFormation resource type
@@ -41686,6 +43544,34 @@ func (s ConfigOrganizationConfigRule) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s ConfigOrganizationConfigRule) CfnResourceAttributes() []string {
+	return []string{}
+}
+// ConfigOrganizationConformancePack represents the AWS::Config::OrganizationConformancePack CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html 
+type ConfigOrganizationConformancePack struct {
+	// ConformancePackInputParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
+	ConformancePackInputParameters *ConfigOrganizationConformancePackConformancePackInputParameterList `json:"ConformancePackInputParameters,omitempty"`
+	// DeliveryS3Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
+	DeliveryS3Bucket *StringExpr `json:"DeliveryS3Bucket,omitempty" validate:"dive,required"`
+	// DeliveryS3KeyPrefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
+	DeliveryS3KeyPrefix *StringExpr `json:"DeliveryS3KeyPrefix,omitempty"`
+	// ExcludedAccounts docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
+	ExcludedAccounts *StringListExpr `json:"ExcludedAccounts,omitempty"`
+	// OrganizationConformancePackName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
+	OrganizationConformancePackName *StringExpr `json:"OrganizationConformancePackName,omitempty" validate:"dive,required"`
+	// TemplateBody docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
+	TemplateBody *StringExpr `json:"TemplateBody,omitempty"`
+	// TemplateS3URI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+	TemplateS3URI *StringExpr `json:"TemplateS3Uri,omitempty"`
+}
+
+// CfnResourceType returns AWS::Config::OrganizationConformancePack to implement the ResourceProperties interface
+func (s ConfigOrganizationConformancePack) CfnResourceType() string {
+	
+	return "AWS::Config::OrganizationConformancePack"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ConfigOrganizationConformancePack) CfnResourceAttributes() []string {
 	return []string{}
 }
 // ConfigRemediationConfiguration represents the AWS::Config::RemediationConfiguration CloudFormation resource type
@@ -41863,6 +43749,8 @@ type DMSEndpoint struct {
 	EngineName *StringExpr `json:"EngineName,omitempty" validate:"dive,required"`
 	// ExtraConnectionAttributes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-extraconnectionattributes
 	ExtraConnectionAttributes *StringExpr `json:"ExtraConnectionAttributes,omitempty"`
+	// KafkaSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kafkasettings
+	KafkaSettings *DMSEndpointKafkaSettings `json:"KafkaSettings,omitempty"`
 	// KinesisSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kinesissettings
 	KinesisSettings *DMSEndpointKinesisSettings `json:"KinesisSettings,omitempty"`
 	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kmskeyid
@@ -42050,6 +43938,42 @@ func (s DataPipelinePipeline) CfnResourceType() string {
 func (s DataPipelinePipeline) CfnResourceAttributes() []string {
 	return []string{}
 }
+// DetectiveGraph represents the AWS::Detective::Graph CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html 
+type DetectiveGraph struct {
+}
+
+// CfnResourceType returns AWS::Detective::Graph to implement the ResourceProperties interface
+func (s DetectiveGraph) CfnResourceType() string {
+	
+	return "AWS::Detective::Graph"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s DetectiveGraph) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
+// DetectiveMemberInvitation represents the AWS::Detective::MemberInvitation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html 
+type DetectiveMemberInvitation struct {
+	// GraphArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+	GraphArn *StringExpr `json:"GraphArn,omitempty" validate:"dive,required"`
+	// MemberEmailAddress docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+	MemberEmailAddress *StringExpr `json:"MemberEmailAddress,omitempty" validate:"dive,required"`
+	// MemberID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+	MemberID *StringExpr `json:"MemberId,omitempty" validate:"dive,required"`
+	// Message docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+	Message *StringExpr `json:"Message,omitempty"`
+}
+
+// CfnResourceType returns AWS::Detective::MemberInvitation to implement the ResourceProperties interface
+func (s DetectiveMemberInvitation) CfnResourceType() string {
+	
+	return "AWS::Detective::MemberInvitation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s DetectiveMemberInvitation) CfnResourceAttributes() []string {
+	return []string{}
+}
 // DirectoryServiceMicrosoftAD represents the AWS::DirectoryService::MicrosoftAD CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html 
 type DirectoryServiceMicrosoftAD struct {
@@ -42121,6 +44045,8 @@ type DocDBDBCluster struct {
 	DBClusterParameterGroupName *StringExpr `json:"DBClusterParameterGroupName,omitempty"`
 	// DBSubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbsubnetgroupname
 	DBSubnetGroupName *StringExpr `json:"DBSubnetGroupName,omitempty"`
+	// DeletionProtection docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-deletionprotection
+	DeletionProtection *BoolExpr `json:"DeletionProtection,omitempty"`
 	// EnableCloudwatchLogsExports docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-enablecloudwatchlogsexports
 	EnableCloudwatchLogsExports *StringListExpr `json:"EnableCloudwatchLogsExports,omitempty"`
 	// EngineVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion
@@ -42341,6 +44267,8 @@ type EC2ClientVpnEndpoint struct {
 	Description *StringExpr `json:"Description,omitempty"`
 	// DNSServers docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-dnsservers
 	DNSServers *StringListExpr `json:"DnsServers,omitempty"`
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
 	// ServerCertificateArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
 	ServerCertificateArn *StringExpr `json:"ServerCertificateArn,omitempty" validate:"dive,required"`
 	// SplitTunnel docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-splittunnel
@@ -42349,6 +44277,8 @@ type EC2ClientVpnEndpoint struct {
 	TagSpecifications *EC2ClientVpnEndpointTagSpecificationList `json:"TagSpecifications,omitempty"`
 	// TransportProtocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-transportprotocol
 	TransportProtocol *StringExpr `json:"TransportProtocol,omitempty"`
+	// VPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-vpcid
+	VPCID *StringExpr `json:"VpcId,omitempty"`
 	// VpnPort docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-vpnport
 	VpnPort *IntegerExpr `json:"VpnPort,omitempty"`
 }
@@ -42737,6 +44667,46 @@ func (s EC2LaunchTemplate) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EC2LaunchTemplate) CfnResourceAttributes() []string {
 	return []string{"DefaultVersionNumber","LatestVersionNumber"}
+}
+// EC2LocalGatewayRoute represents the AWS::EC2::LocalGatewayRoute CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html 
+type EC2LocalGatewayRoute struct {
+	// DestinationCidrBlock docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+	DestinationCidrBlock *StringExpr `json:"DestinationCidrBlock,omitempty" validate:"dive,required"`
+	// LocalGatewayRouteTableID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+	LocalGatewayRouteTableID *StringExpr `json:"LocalGatewayRouteTableId,omitempty" validate:"dive,required"`
+	// LocalGatewayVirtualInterfaceGroupID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+	LocalGatewayVirtualInterfaceGroupID *StringExpr `json:"LocalGatewayVirtualInterfaceGroupId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::EC2::LocalGatewayRoute to implement the ResourceProperties interface
+func (s EC2LocalGatewayRoute) CfnResourceType() string {
+	
+	return "AWS::EC2::LocalGatewayRoute"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EC2LocalGatewayRoute) CfnResourceAttributes() []string {
+	return []string{"State","Type"}
+}
+// EC2LocalGatewayRouteTableVPCAssociation represents the AWS::EC2::LocalGatewayRouteTableVPCAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html 
+type EC2LocalGatewayRouteTableVPCAssociation struct {
+	// LocalGatewayRouteTableID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+	LocalGatewayRouteTableID *StringExpr `json:"LocalGatewayRouteTableId,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
+	Tags *EC2LocalGatewayRouteTableVPCAssociationTags `json:"Tags,omitempty"`
+	// VPCID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+	VPCID *StringExpr `json:"VpcId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::EC2::LocalGatewayRouteTableVPCAssociation to implement the ResourceProperties interface
+func (s EC2LocalGatewayRouteTableVPCAssociation) CfnResourceType() string {
+	
+	return "AWS::EC2::LocalGatewayRouteTableVPCAssociation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EC2LocalGatewayRouteTableVPCAssociation) CfnResourceAttributes() []string {
+	return []string{"LocalGatewayId","LocalGatewayRouteTableVpcAssociationId","State"}
 }
 // EC2NatGateway represents the AWS::EC2::NatGateway CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html 
@@ -43653,6 +45623,8 @@ type EC2Volume struct {
 	Iops *IntegerExpr `json:"Iops,omitempty"`
 	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-kmskeyid
 	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// MultiAttachEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-multiattachenabled
+	MultiAttachEnabled *BoolExpr `json:"MultiAttachEnabled,omitempty"`
 	// Size docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size
 	Size *IntegerExpr `json:"Size,omitempty"`
 	// SnapshotID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-snapshotid
@@ -43937,6 +45909,8 @@ func (s EFSMountTarget) CfnResourceAttributes() []string {
 // EKSCluster represents the AWS::EKS::Cluster CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html 
 type EKSCluster struct {
+	// EncryptionConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
+	EncryptionConfig *EKSClusterEncryptionConfigList `json:"EncryptionConfig,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// ResourcesVPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
@@ -43954,7 +45928,7 @@ func (s EKSCluster) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s EKSCluster) CfnResourceAttributes() []string {
-	return []string{"Arn","CertificateAuthorityData","ClusterSecurityGroupId","Endpoint"}
+	return []string{"Arn","CertificateAuthorityData","ClusterSecurityGroupId","EncryptionConfigKeyArn","Endpoint"}
 }
 // EKSNodegroup represents the AWS::EKS::Nodegroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html 
@@ -44734,6 +46708,26 @@ func (s EventSchemasRegistry) CfnResourceType() string {
 func (s EventSchemasRegistry) CfnResourceAttributes() []string {
 	return []string{"RegistryArn","RegistryName"}
 }
+// EventSchemasRegistryPolicy represents the AWS::EventSchemas::RegistryPolicy CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html 
+type EventSchemasRegistryPolicy struct {
+	// Policy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
+	Policy interface{} `json:"Policy,omitempty" validate:"dive,required"`
+	// RegistryName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
+	RegistryName *StringExpr `json:"RegistryName,omitempty" validate:"dive,required"`
+	// RevisionID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
+	RevisionID *StringExpr `json:"RevisionId,omitempty"`
+}
+
+// CfnResourceType returns AWS::EventSchemas::RegistryPolicy to implement the ResourceProperties interface
+func (s EventSchemasRegistryPolicy) CfnResourceType() string {
+	
+	return "AWS::EventSchemas::RegistryPolicy"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s EventSchemasRegistryPolicy) CfnResourceAttributes() []string {
+	return []string{"Id"}
+}
 // EventSchemasSchema represents the AWS::EventSchemas::Schema CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html 
 type EventSchemasSchema struct {
@@ -44832,6 +46826,60 @@ func (s EventsRule) CfnResourceType() string {
 func (s EventsRule) CfnResourceAttributes() []string {
 	return []string{"Arn"}
 }
+// FMSNotificationChannel represents the AWS::FMS::NotificationChannel CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html 
+type FMSNotificationChannel struct {
+	// SnsRoleName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
+	SnsRoleName *StringExpr `json:"SnsRoleName,omitempty" validate:"dive,required"`
+	// SnsTopicArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
+	SnsTopicArn *StringExpr `json:"SnsTopicArn,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::FMS::NotificationChannel to implement the ResourceProperties interface
+func (s FMSNotificationChannel) CfnResourceType() string {
+	
+	return "AWS::FMS::NotificationChannel"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s FMSNotificationChannel) CfnResourceAttributes() []string {
+	return []string{}
+}
+// FMSPolicy represents the AWS::FMS::Policy CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html 
+type FMSPolicy struct {
+	// DeleteAllPolicyResources docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
+	DeleteAllPolicyResources *BoolExpr `json:"DeleteAllPolicyResources,omitempty"`
+	// ExcludeMap docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
+	ExcludeMap *FMSPolicyIEMap `json:"ExcludeMap,omitempty"`
+	// ExcludeResourceTags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
+	ExcludeResourceTags *BoolExpr `json:"ExcludeResourceTags,omitempty" validate:"dive,required"`
+	// IncludeMap docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
+	IncludeMap *FMSPolicyIEMap `json:"IncludeMap,omitempty"`
+	// PolicyName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
+	PolicyName *StringExpr `json:"PolicyName,omitempty" validate:"dive,required"`
+	// RemediationEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
+	RemediationEnabled *BoolExpr `json:"RemediationEnabled,omitempty" validate:"dive,required"`
+	// ResourceTags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
+	ResourceTags *FMSPolicyResourceTagList `json:"ResourceTags,omitempty"`
+	// ResourceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
+	ResourceType *StringExpr `json:"ResourceType,omitempty" validate:"dive,required"`
+	// ResourceTypeList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
+	ResourceTypeList *StringListExpr `json:"ResourceTypeList,omitempty"`
+	// SecurityServicePolicyData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
+	SecurityServicePolicyData interface{} `json:"SecurityServicePolicyData,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
+	Tags *FMSPolicyPolicyTagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::FMS::Policy to implement the ResourceProperties interface
+func (s FMSPolicy) CfnResourceType() string {
+	
+	return "AWS::FMS::Policy"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s FMSPolicy) CfnResourceAttributes() []string {
+	return []string{"Arn","Id"}
+}
 // FSxFileSystem represents the AWS::FSx::FileSystem CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html 
 type FSxFileSystem struct {
@@ -44847,6 +46895,8 @@ type FSxFileSystem struct {
 	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
 	// StorageCapacity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagecapacity
 	StorageCapacity *IntegerExpr `json:"StorageCapacity,omitempty"`
+	// StorageType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagetype
+	StorageType *StringExpr `json:"StorageType,omitempty"`
 	// SubnetIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-subnetids
 	SubnetIDs *StringListExpr `json:"SubnetIds,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags
@@ -44862,7 +46912,7 @@ func (s FSxFileSystem) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s FSxFileSystem) CfnResourceAttributes() []string {
-	return []string{}
+	return []string{"LustreMountName"}
 }
 // GameLiftAlias represents the AWS::GameLift::Alias CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html 
@@ -45195,6 +47245,8 @@ type GlueDevEndpoint struct {
 	NumberOfWorkers *IntegerExpr `json:"NumberOfWorkers,omitempty"`
 	// PublicKey docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-publickey
 	PublicKey *StringExpr `json:"PublicKey,omitempty"`
+	// PublicKeys docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-publickeys
+	PublicKeys *StringListExpr `json:"PublicKeys,omitempty"`
 	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-rolearn
 	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
 	// SecurityConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-securityconfiguration
@@ -45287,6 +47339,8 @@ type GlueMLTransform struct {
 	NumberOfWorkers *IntegerExpr `json:"NumberOfWorkers,omitempty"`
 	// Role docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-role
 	Role *StringExpr `json:"Role,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-tags
+	Tags interface{} `json:"Tags,omitempty"`
 	// Timeout docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-timeout
 	Timeout *IntegerExpr `json:"Timeout,omitempty"`
 	// TransformParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformparameters
@@ -45737,6 +47791,72 @@ func (s GreengrassSubscriptionDefinitionVersion) CfnResourceType() string {
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s GreengrassSubscriptionDefinitionVersion) CfnResourceAttributes() []string {
 	return []string{}
+}
+// GroundStationConfig represents the AWS::GroundStation::Config CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html 
+type GroundStationConfig struct {
+	// ConfigData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
+	ConfigData interface{} `json:"ConfigData,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::GroundStation::Config to implement the ResourceProperties interface
+func (s GroundStationConfig) CfnResourceType() string {
+	
+	return "AWS::GroundStation::Config"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GroundStationConfig) CfnResourceAttributes() []string {
+	return []string{"Arn","Id","Type"}
+}
+// GroundStationDataflowEndpointGroup represents the AWS::GroundStation::DataflowEndpointGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html 
+type GroundStationDataflowEndpointGroup struct {
+	// EndpointDetails docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
+	EndpointDetails *GroundStationDataflowEndpointGroupEndpointDetailsList `json:"EndpointDetails,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::GroundStation::DataflowEndpointGroup to implement the ResourceProperties interface
+func (s GroundStationDataflowEndpointGroup) CfnResourceType() string {
+	
+	return "AWS::GroundStation::DataflowEndpointGroup"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GroundStationDataflowEndpointGroup) CfnResourceAttributes() []string {
+	return []string{"Arn","Id","Status"}
+}
+// GroundStationMissionProfile represents the AWS::GroundStation::MissionProfile CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html 
+type GroundStationMissionProfile struct {
+	// ContactPostPassDurationSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+	ContactPostPassDurationSeconds *IntegerExpr `json:"ContactPostPassDurationSeconds,omitempty"`
+	// ContactPrePassDurationSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
+	ContactPrePassDurationSeconds *IntegerExpr `json:"ContactPrePassDurationSeconds,omitempty"`
+	// DataflowEdges docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
+	DataflowEdges *GroundStationMissionProfileDataflowEdgeList `json:"DataflowEdges,omitempty" validate:"dive,required"`
+	// MinimumViableContactDurationSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+	MinimumViableContactDurationSeconds *IntegerExpr `json:"MinimumViableContactDurationSeconds,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// TrackingConfigArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
+	TrackingConfigArn *StringExpr `json:"TrackingConfigArn,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::GroundStation::MissionProfile to implement the ResourceProperties interface
+func (s GroundStationMissionProfile) CfnResourceType() string {
+	
+	return "AWS::GroundStation::MissionProfile"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GroundStationMissionProfile) CfnResourceAttributes() []string {
+	return []string{"Arn","Id","Region"}
 }
 // GuardDutyDetector represents the AWS::GuardDuty::Detector CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html 
@@ -46635,6 +48755,8 @@ type KinesisAnalyticsV2Application struct {
 	RuntimeEnvironment *StringExpr `json:"RuntimeEnvironment,omitempty" validate:"dive,required"`
 	// ServiceExecutionRole docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
 	ServiceExecutionRole *StringExpr `json:"ServiceExecutionRole,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::KinesisAnalyticsV2::Application to implement the ResourceProperties interface
@@ -47131,6 +49253,8 @@ type MSKCluster struct {
 	EnhancedMonitoring *StringExpr `json:"EnhancedMonitoring,omitempty"`
 	// KafkaVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-kafkaversion
 	KafkaVersion *StringExpr `json:"KafkaVersion,omitempty" validate:"dive,required"`
+	// LoggingInfo docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-logginginfo
+	LoggingInfo *MSKClusterLoggingInfo `json:"LoggingInfo,omitempty"`
 	// NumberOfBrokerNodes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes
 	NumberOfBrokerNodes *IntegerExpr `json:"NumberOfBrokerNodes,omitempty" validate:"dive,required"`
 	// OpenMonitoring docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-openmonitoring
@@ -47157,6 +49281,8 @@ type MediaConvertJobTemplate struct {
 	Category *StringExpr `json:"Category,omitempty"`
 	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-description
 	Description *StringExpr `json:"Description,omitempty"`
+	// HopDestinations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-hopdestinations
+	HopDestinations *MediaConvertJobTemplateHopDestinationList `json:"HopDestinations,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// Priority docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-priority
@@ -47347,8 +49473,12 @@ type NeptuneDBCluster struct {
 	DBClusterParameterGroupName *StringExpr `json:"DBClusterParameterGroupName,omitempty"`
 	// DBSubnetGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbsubnetgroupname
 	DBSubnetGroupName *StringExpr `json:"DBSubnetGroupName,omitempty"`
+	// DeletionProtection docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-deletionprotection
+	DeletionProtection *BoolExpr `json:"DeletionProtection,omitempty"`
 	// EnableCloudwatchLogsExports docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-enablecloudwatchlogsexports
 	EnableCloudwatchLogsExports *StringListExpr `json:"EnableCloudwatchLogsExports,omitempty"`
+	// EngineVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-engineversion
+	EngineVersion *StringExpr `json:"EngineVersion,omitempty"`
 	// IamAuthEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled
 	IamAuthEnabled *BoolExpr `json:"IamAuthEnabled,omitempty"`
 	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-kmskeyid
@@ -47482,6 +49612,166 @@ func (s NeptuneDBSubnetGroup) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s NeptuneDBSubnetGroup) CfnResourceAttributes() []string {
+	return []string{}
+}
+// NetworkManagerCustomerGatewayAssociation represents the AWS::NetworkManager::CustomerGatewayAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html 
+type NetworkManagerCustomerGatewayAssociation struct {
+	// CustomerGatewayArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
+	CustomerGatewayArn *StringExpr `json:"CustomerGatewayArn,omitempty" validate:"dive,required"`
+	// DeviceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
+	DeviceID *StringExpr `json:"DeviceId,omitempty" validate:"dive,required"`
+	// GlobalNetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
+	GlobalNetworkID *StringExpr `json:"GlobalNetworkId,omitempty" validate:"dive,required"`
+	// LinkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+	LinkID *StringExpr `json:"LinkId,omitempty"`
+}
+
+// CfnResourceType returns AWS::NetworkManager::CustomerGatewayAssociation to implement the ResourceProperties interface
+func (s NetworkManagerCustomerGatewayAssociation) CfnResourceType() string {
+	
+	return "AWS::NetworkManager::CustomerGatewayAssociation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s NetworkManagerCustomerGatewayAssociation) CfnResourceAttributes() []string {
+	return []string{}
+}
+// NetworkManagerDevice represents the AWS::NetworkManager::Device CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html 
+type NetworkManagerDevice struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// GlobalNetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
+	GlobalNetworkID *StringExpr `json:"GlobalNetworkId,omitempty" validate:"dive,required"`
+	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
+	Location *NetworkManagerDeviceLocation `json:"Location,omitempty"`
+	// Model docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
+	Model *StringExpr `json:"Model,omitempty"`
+	// SerialNumber docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
+	SerialNumber *StringExpr `json:"SerialNumber,omitempty"`
+	// SiteID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
+	SiteID *StringExpr `json:"SiteId,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
+	Type *StringExpr `json:"Type,omitempty"`
+	// Vendor docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+	Vendor *StringExpr `json:"Vendor,omitempty"`
+}
+
+// CfnResourceType returns AWS::NetworkManager::Device to implement the ResourceProperties interface
+func (s NetworkManagerDevice) CfnResourceType() string {
+	
+	return "AWS::NetworkManager::Device"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s NetworkManagerDevice) CfnResourceAttributes() []string {
+	return []string{"DeviceArn","DeviceId"}
+}
+// NetworkManagerGlobalNetwork represents the AWS::NetworkManager::GlobalNetwork CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html 
+type NetworkManagerGlobalNetwork struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::NetworkManager::GlobalNetwork to implement the ResourceProperties interface
+func (s NetworkManagerGlobalNetwork) CfnResourceType() string {
+	
+	return "AWS::NetworkManager::GlobalNetwork"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s NetworkManagerGlobalNetwork) CfnResourceAttributes() []string {
+	return []string{"Arn","Id"}
+}
+// NetworkManagerLink represents the AWS::NetworkManager::Link CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html 
+type NetworkManagerLink struct {
+	// Bandwidth docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
+	Bandwidth *NetworkManagerLinkBandwidth `json:"Bandwidth,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// GlobalNetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
+	GlobalNetworkID *StringExpr `json:"GlobalNetworkId,omitempty" validate:"dive,required"`
+	// Provider docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
+	Provider *StringExpr `json:"Provider,omitempty"`
+	// SiteID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
+	SiteID *StringExpr `json:"SiteId,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+	Type *StringExpr `json:"Type,omitempty"`
+}
+
+// CfnResourceType returns AWS::NetworkManager::Link to implement the ResourceProperties interface
+func (s NetworkManagerLink) CfnResourceType() string {
+	
+	return "AWS::NetworkManager::Link"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s NetworkManagerLink) CfnResourceAttributes() []string {
+	return []string{"LinkArn","LinkId"}
+}
+// NetworkManagerLinkAssociation represents the AWS::NetworkManager::LinkAssociation CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html 
+type NetworkManagerLinkAssociation struct {
+	// DeviceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
+	DeviceID *StringExpr `json:"DeviceId,omitempty" validate:"dive,required"`
+	// GlobalNetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
+	GlobalNetworkID *StringExpr `json:"GlobalNetworkId,omitempty" validate:"dive,required"`
+	// LinkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+	LinkID *StringExpr `json:"LinkId,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::NetworkManager::LinkAssociation to implement the ResourceProperties interface
+func (s NetworkManagerLinkAssociation) CfnResourceType() string {
+	
+	return "AWS::NetworkManager::LinkAssociation"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s NetworkManagerLinkAssociation) CfnResourceAttributes() []string {
+	return []string{}
+}
+// NetworkManagerSite represents the AWS::NetworkManager::Site CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html 
+type NetworkManagerSite struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// GlobalNetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+	GlobalNetworkID *StringExpr `json:"GlobalNetworkId,omitempty" validate:"dive,required"`
+	// Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+	Location *NetworkManagerSiteLocation `json:"Location,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::NetworkManager::Site to implement the ResourceProperties interface
+func (s NetworkManagerSite) CfnResourceType() string {
+	
+	return "AWS::NetworkManager::Site"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s NetworkManagerSite) CfnResourceAttributes() []string {
+	return []string{"SiteArn","SiteId"}
+}
+// NetworkManagerTransitGatewayRegistration represents the AWS::NetworkManager::TransitGatewayRegistration CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html 
+type NetworkManagerTransitGatewayRegistration struct {
+	// GlobalNetworkID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+	GlobalNetworkID *StringExpr `json:"GlobalNetworkId,omitempty" validate:"dive,required"`
+	// TransitGatewayArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+	TransitGatewayArn *StringExpr `json:"TransitGatewayArn,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::NetworkManager::TransitGatewayRegistration to implement the ResourceProperties interface
+func (s NetworkManagerTransitGatewayRegistration) CfnResourceType() string {
+	
+	return "AWS::NetworkManager::TransitGatewayRegistration"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s NetworkManagerTransitGatewayRegistration) CfnResourceAttributes() []string {
 	return []string{}
 }
 // OpsWorksApp represents the AWS::OpsWorks::App CloudFormation resource type
@@ -48926,6 +51216,28 @@ func (s RedshiftClusterSubnetGroup) CfnResourceType() string {
 func (s RedshiftClusterSubnetGroup) CfnResourceAttributes() []string {
 	return []string{}
 }
+// ResourceGroupsGroup represents the AWS::ResourceGroups::Group CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html 
+type ResourceGroupsGroup struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// ResourceQuery docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
+	ResourceQuery *ResourceGroupsGroupResourceQuery `json:"ResourceQuery,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::ResourceGroups::Group to implement the ResourceProperties interface
+func (s ResourceGroupsGroup) CfnResourceType() string {
+	
+	return "AWS::ResourceGroups::Group"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ResourceGroupsGroup) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
 // RoboMakerFleet represents the AWS::RoboMaker::Fleet CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html 
 type RoboMakerFleet struct {
@@ -50227,12 +52539,14 @@ type ServiceCatalogLaunchRoleConstraint struct {
 	AcceptLanguage *StringExpr `json:"AcceptLanguage,omitempty"`
 	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-description
 	Description *StringExpr `json:"Description,omitempty"`
+	// LocalRoleName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-localrolename
+	LocalRoleName *StringExpr `json:"LocalRoleName,omitempty"`
 	// PortfolioID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-portfolioid
 	PortfolioID *StringExpr `json:"PortfolioId,omitempty" validate:"dive,required"`
 	// ProductID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-productid
 	ProductID *StringExpr `json:"ProductId,omitempty" validate:"dive,required"`
 	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-rolearn
-	RoleArn *StringExpr `json:"RoleArn,omitempty" validate:"dive,required"`
+	RoleArn *StringExpr `json:"RoleArn,omitempty"`
 }
 
 // CfnResourceType returns AWS::ServiceCatalog::LaunchRoleConstraint to implement the ResourceProperties interface
@@ -50596,9 +52910,49 @@ func (s StepFunctionsStateMachine) CfnResourceType() string {
 func (s StepFunctionsStateMachine) CfnResourceAttributes() []string {
 	return []string{"Name"}
 }
+// SyntheticsCanary represents the AWS::Synthetics::Canary CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html 
+type SyntheticsCanary struct {
+	// ArtifactS3Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
+	ArtifactS3Location *StringExpr `json:"ArtifactS3Location,omitempty" validate:"dive,required"`
+	// Code docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
+	Code *SyntheticsCanaryCode `json:"Code,omitempty" validate:"dive,required"`
+	// ExecutionRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
+	ExecutionRoleArn *StringExpr `json:"ExecutionRoleArn,omitempty" validate:"dive,required"`
+	// FailureRetentionPeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
+	FailureRetentionPeriod *IntegerExpr `json:"FailureRetentionPeriod,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// RunConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
+	RunConfig *SyntheticsCanaryRunConfig `json:"RunConfig,omitempty"`
+	// RuntimeVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
+	RuntimeVersion *StringExpr `json:"RuntimeVersion,omitempty" validate:"dive,required"`
+	// Schedule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
+	Schedule *SyntheticsCanarySchedule `json:"Schedule,omitempty" validate:"dive,required"`
+	// StartCanaryAfterCreation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+	StartCanaryAfterCreation *BoolExpr `json:"StartCanaryAfterCreation,omitempty" validate:"dive,required"`
+	// SuccessRetentionPeriod docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
+	SuccessRetentionPeriod *IntegerExpr `json:"SuccessRetentionPeriod,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
+	Tags *TagList `json:"Tags,omitempty"`
+	// VPCConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+	VPCConfig *SyntheticsCanaryVPCConfig `json:"VPCConfig,omitempty"`
+}
+
+// CfnResourceType returns AWS::Synthetics::Canary to implement the ResourceProperties interface
+func (s SyntheticsCanary) CfnResourceType() string {
+	
+	return "AWS::Synthetics::Canary"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s SyntheticsCanary) CfnResourceAttributes() []string {
+	return []string{"Id","State"}
+}
 // TransferServer represents the AWS::Transfer::Server CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html 
 type TransferServer struct {
+	// Certificate docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-certificate
+	Certificate *StringExpr `json:"Certificate,omitempty"`
 	// EndpointDetails docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-endpointdetails
 	EndpointDetails *TransferServerEndpointDetails `json:"EndpointDetails,omitempty"`
 	// EndpointType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-endpointtype
@@ -50609,6 +52963,8 @@ type TransferServer struct {
 	IdentityProviderType *StringExpr `json:"IdentityProviderType,omitempty"`
 	// LoggingRole docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-loggingrole
 	LoggingRole *StringExpr `json:"LoggingRole,omitempty"`
+	// Protocols docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocols
+	Protocols *TransferServerProtocolList `json:"Protocols,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
 	Tags *TagList `json:"Tags,omitempty"`
 }
@@ -51000,7 +53356,7 @@ func (s WAFRegionalXSSMatchSet) CfnResourceAttributes() []string {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html 
 type WAFv2IPSet struct {
 	// Addresses docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-	Addresses *WAFv2IPSetIPAddresses `json:"Addresses,omitempty" validate:"dive,required"`
+	Addresses *StringListExpr `json:"Addresses,omitempty" validate:"dive,required"`
 	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
 	Description *StringExpr `json:"Description,omitempty"`
 	// IPAddressVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
@@ -51010,7 +53366,7 @@ type WAFv2IPSet struct {
 	// Scope docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
 	Scope *StringExpr `json:"Scope,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-	Tags *WAFv2IPSetTagList `json:"Tags,omitempty"`
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::WAFv2::IPSet to implement the ResourceProperties interface
@@ -51030,11 +53386,11 @@ type WAFv2RegexPatternSet struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// RegularExpressionList docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regularexpressionlist
-	RegularExpressionList *WAFv2RegexPatternSetRegularExpressionList `json:"RegularExpressionList,omitempty" validate:"dive,required"`
+	RegularExpressionList *StringListExpr `json:"RegularExpressionList,omitempty" validate:"dive,required"`
 	// Scope docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-scope
 	Scope *StringExpr `json:"Scope,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-tags
-	Tags *WAFv2RegexPatternSetTagList `json:"Tags,omitempty"`
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::WAFv2::RegexPatternSet to implement the ResourceProperties interface
@@ -51056,11 +53412,11 @@ type WAFv2RuleGroup struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// Rules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-	Rules *WAFv2RuleGroupRules `json:"Rules,omitempty"`
+	Rules *WAFv2RuleGroupRuleList `json:"Rules,omitempty"`
 	// Scope docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
 	Scope *StringExpr `json:"Scope,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-	Tags *WAFv2RuleGroupTagList `json:"Tags,omitempty"`
+	Tags *TagList `json:"Tags,omitempty"`
 	// VisibilityConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
 	VisibilityConfig *WAFv2RuleGroupVisibilityConfig `json:"VisibilityConfig,omitempty" validate:"dive,required"`
 }
@@ -51084,11 +53440,11 @@ type WAFv2WebACL struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
 	Name *StringExpr `json:"Name,omitempty"`
 	// Rules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-	Rules *WAFv2WebACLRules `json:"Rules,omitempty"`
+	Rules *WAFv2WebACLRuleList `json:"Rules,omitempty"`
 	// Scope docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
 	Scope *StringExpr `json:"Scope,omitempty" validate:"dive,required"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-	Tags *WAFv2WebACLTagList `json:"Tags,omitempty"`
+	Tags *TagList `json:"Tags,omitempty"`
 	// VisibilityConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
 	VisibilityConfig *WAFv2WebACLVisibilityConfig `json:"VisibilityConfig,omitempty" validate:"dive,required"`
 }
@@ -51307,6 +53663,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &ApplicationAutoScalingScalingPolicy{}
 	case "AWS::Athena::NamedQuery":
 		return &AthenaNamedQuery{}
+	case "AWS::Athena::WorkGroup":
+		return &AthenaWorkGroup{}
 	case "AWS::AutoScaling::AutoScalingGroup":
 		return &AutoScalingAutoScalingGroup{}
 	case "AWS::AutoScaling::LaunchConfiguration":
@@ -51333,8 +53691,14 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &BatchJobQueue{}
 	case "AWS::Budgets::Budget":
 		return &BudgetsBudget{}
+	case "AWS::Cassandra::Keyspace":
+		return &CassandraKeyspace{}
+	case "AWS::Cassandra::Table":
+		return &CassandraTable{}
 	case "AWS::CertificateManager::Certificate":
 		return &CertificateManagerCertificate{}
+	case "AWS::Chatbot::SlackChannelConfiguration":
+		return &ChatbotSlackChannelConfiguration{}
 	case "AWS::Cloud9::EnvironmentEC2":
 		return &Cloud9EnvironmentEC2{}
 	case "AWS::CloudFormation::CustomResource":
@@ -51359,6 +53723,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &CloudWatchAlarm{}
 	case "AWS::CloudWatch::AnomalyDetector":
 		return &CloudWatchAnomalyDetector{}
+	case "AWS::CloudWatch::CompositeAlarm":
+		return &CloudWatchCompositeAlarm{}
 	case "AWS::CloudWatch::Dashboard":
 		return &CloudWatchDashboard{}
 	case "AWS::CloudWatch::InsightRule":
@@ -51377,6 +53743,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &CodeDeployDeploymentConfig{}
 	case "AWS::CodeDeploy::DeploymentGroup":
 		return &CodeDeployDeploymentGroup{}
+	case "AWS::CodeGuruProfiler::ProfilingGroup":
+		return &CodeGuruProfilerProfilingGroup{}
 	case "AWS::CodePipeline::CustomActionType":
 		return &CodePipelineCustomActionType{}
 	case "AWS::CodePipeline::Pipeline":
@@ -51385,6 +53753,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &CodePipelineWebhook{}
 	case "AWS::CodeStar::GitHubRepository":
 		return &CodeStarGitHubRepository{}
+	case "AWS::CodeStarConnections::Connection":
+		return &CodeStarConnectionsConnection{}
 	case "AWS::CodeStarNotifications::NotificationRule":
 		return &CodeStarNotificationsNotificationRule{}
 	case "AWS::Cognito::IdentityPool":
@@ -51419,10 +53789,14 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &ConfigConfigurationAggregator{}
 	case "AWS::Config::ConfigurationRecorder":
 		return &ConfigConfigurationRecorder{}
+	case "AWS::Config::ConformancePack":
+		return &ConfigConformancePack{}
 	case "AWS::Config::DeliveryChannel":
 		return &ConfigDeliveryChannel{}
 	case "AWS::Config::OrganizationConfigRule":
 		return &ConfigOrganizationConfigRule{}
+	case "AWS::Config::OrganizationConformancePack":
+		return &ConfigOrganizationConformancePack{}
 	case "AWS::Config::RemediationConfiguration":
 		return &ConfigRemediationConfiguration{}
 	case "AWS::DAX::Cluster":
@@ -51447,6 +53821,10 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &DMSReplicationTask{}
 	case "AWS::DataPipeline::Pipeline":
 		return &DataPipelinePipeline{}
+	case "AWS::Detective::Graph":
+		return &DetectiveGraph{}
+	case "AWS::Detective::MemberInvitation":
+		return &DetectiveMemberInvitation{}
 	case "AWS::DirectoryService::MicrosoftAD":
 		return &DirectoryServiceMicrosoftAD{}
 	case "AWS::DirectoryService::SimpleAD":
@@ -51495,6 +53873,10 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EC2InternetGateway{}
 	case "AWS::EC2::LaunchTemplate":
 		return &EC2LaunchTemplate{}
+	case "AWS::EC2::LocalGatewayRoute":
+		return &EC2LocalGatewayRoute{}
+	case "AWS::EC2::LocalGatewayRouteTableVPCAssociation":
+		return &EC2LocalGatewayRouteTableVPCAssociation{}
 	case "AWS::EC2::NatGateway":
 		return &EC2NatGateway{}
 	case "AWS::EC2::NetworkAcl":
@@ -51645,6 +54027,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EventSchemasDiscoverer{}
 	case "AWS::EventSchemas::Registry":
 		return &EventSchemasRegistry{}
+	case "AWS::EventSchemas::RegistryPolicy":
+		return &EventSchemasRegistryPolicy{}
 	case "AWS::EventSchemas::Schema":
 		return &EventSchemasSchema{}
 	case "AWS::Events::EventBus":
@@ -51653,6 +54037,10 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &EventsEventBusPolicy{}
 	case "AWS::Events::Rule":
 		return &EventsRule{}
+	case "AWS::FMS::NotificationChannel":
+		return &FMSNotificationChannel{}
+	case "AWS::FMS::Policy":
+		return &FMSPolicy{}
 	case "AWS::FSx::FileSystem":
 		return &FSxFileSystem{}
 	case "AWS::GameLift::Alias":
@@ -51727,6 +54115,12 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &GreengrassSubscriptionDefinition{}
 	case "AWS::Greengrass::SubscriptionDefinitionVersion":
 		return &GreengrassSubscriptionDefinitionVersion{}
+	case "AWS::GroundStation::Config":
+		return &GroundStationConfig{}
+	case "AWS::GroundStation::DataflowEndpointGroup":
+		return &GroundStationDataflowEndpointGroup{}
+	case "AWS::GroundStation::MissionProfile":
+		return &GroundStationMissionProfile{}
 	case "AWS::GuardDuty::Detector":
 		return &GuardDutyDetector{}
 	case "AWS::GuardDuty::Filter":
@@ -51877,6 +54271,20 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &NeptuneDBParameterGroup{}
 	case "AWS::Neptune::DBSubnetGroup":
 		return &NeptuneDBSubnetGroup{}
+	case "AWS::NetworkManager::CustomerGatewayAssociation":
+		return &NetworkManagerCustomerGatewayAssociation{}
+	case "AWS::NetworkManager::Device":
+		return &NetworkManagerDevice{}
+	case "AWS::NetworkManager::GlobalNetwork":
+		return &NetworkManagerGlobalNetwork{}
+	case "AWS::NetworkManager::Link":
+		return &NetworkManagerLink{}
+	case "AWS::NetworkManager::LinkAssociation":
+		return &NetworkManagerLinkAssociation{}
+	case "AWS::NetworkManager::Site":
+		return &NetworkManagerSite{}
+	case "AWS::NetworkManager::TransitGatewayRegistration":
+		return &NetworkManagerTransitGatewayRegistration{}
 	case "AWS::OpsWorks::App":
 		return &OpsWorksApp{}
 	case "AWS::OpsWorks::ElasticLoadBalancerAttachment":
@@ -51969,6 +54377,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &RedshiftClusterSecurityGroupIngress{}
 	case "AWS::Redshift::ClusterSubnetGroup":
 		return &RedshiftClusterSubnetGroup{}
+	case "AWS::ResourceGroups::Group":
+		return &ResourceGroupsGroup{}
 	case "AWS::RoboMaker::Fleet":
 		return &RoboMakerFleet{}
 	case "AWS::RoboMaker::Robot":
@@ -52107,6 +54517,8 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &StepFunctionsActivity{}
 	case "AWS::StepFunctions::StateMachine":
 		return &StepFunctionsStateMachine{}
+	case "AWS::Synthetics::Canary":
+		return &SyntheticsCanary{}
 	case "AWS::Transfer::Server":
 		return &TransferServer{}
 	case "AWS::Transfer::User":
