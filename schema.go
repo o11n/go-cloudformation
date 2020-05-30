@@ -1,12 +1,12 @@
 package cloudformation
-// RESOURCE SPECIFICATION VERSION: 14.1.0
-// SOURCE CODE SHA: 244753d8838ea6605437db0f7d85ffc8f14d7850
-// GENERATED: 2020-05-03 00:01:19.479187 +0000 UTC
+// RESOURCE SPECIFICATION VERSION: 14.4.0
+// SOURCE CODE SHA: 7b355618fec954d607d0787e4c51d2e9040dc6c8
+// GENERATED: 2020-05-30 22:07:15.005585 +0000 UTC
 import "time"
 import "encoding/json"
 import _ "gopkg.in/go-playground/validator.v9" // Used for struct level validation tags
 
-const ResourceSpecificationVersion = "14.1.0"
+const ResourceSpecificationVersion = "14.4.0"
 
 // CustomResourceProvider allows extend the NewResourceByType factory method
 // with their own resource types.
@@ -10907,10 +10907,12 @@ func (l *DAXClusterSSESpecificationList) UnmarshalJSON(buf []byte) error {
 // DLMLifecyclePolicyCreateRule represents the AWS::DLM::LifecyclePolicy.CreateRule CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html 
 type DLMLifecyclePolicyCreateRule struct {
+	// CronExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-cronexpression
+	CronExpression *StringExpr `json:"CronExpression,omitempty"`
 	// Interval docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-interval
-	Interval *IntegerExpr `json:"Interval,omitempty" validate:"dive,required"`
+	Interval *IntegerExpr `json:"Interval,omitempty"`
 	// IntervalUnit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-intervalunit
-	IntervalUnit *StringExpr `json:"IntervalUnit,omitempty" validate:"dive,required"`
+	IntervalUnit *StringExpr `json:"IntervalUnit,omitempty"`
 	// Times docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-times
 	Times *StringListExpr `json:"Times,omitempty"`
 }
@@ -10938,9 +10940,9 @@ func (l *DLMLifecyclePolicyCreateRuleList) UnmarshalJSON(buf []byte) error {
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html 
 type DLMLifecyclePolicyCrossRegionCopyRetainRule struct {
 	// Interval docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-interval
-	Interval *IntegerExpr `json:"Interval,omitempty"`
+	Interval *IntegerExpr `json:"Interval,omitempty" validate:"dive,required"`
 	// IntervalUnit docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-intervalunit
-	IntervalUnit *StringExpr `json:"IntervalUnit,omitempty"`
+	IntervalUnit *StringExpr `json:"IntervalUnit,omitempty" validate:"dive,required"`
 }
 
 // DLMLifecyclePolicyCrossRegionCopyRetainRuleList represents a list of DLMLifecyclePolicyCrossRegionCopyRetainRule
@@ -10970,11 +10972,11 @@ type DLMLifecyclePolicyCrossRegionCopyRule struct {
 	// CopyTags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-copytags
 	CopyTags *BoolExpr `json:"CopyTags,omitempty"`
 	// Encrypted docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-encrypted
-	Encrypted *BoolExpr `json:"Encrypted,omitempty"`
+	Encrypted *BoolExpr `json:"Encrypted,omitempty" validate:"dive,required"`
 	// RetainRule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-retainrule
 	RetainRule *DLMLifecyclePolicyCrossRegionCopyRetainRule `json:"RetainRule,omitempty"`
 	// TargetRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-targetregion
-	TargetRegion *StringExpr `json:"TargetRegion,omitempty"`
+	TargetRegion *StringExpr `json:"TargetRegion,omitempty" validate:"dive,required"`
 }
 
 // DLMLifecyclePolicyCrossRegionCopyRuleList represents a list of DLMLifecyclePolicyCrossRegionCopyRule
@@ -11316,6 +11318,44 @@ func (l *DMSEndpointMongoDbSettingsList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = DMSEndpointMongoDbSettingsList(list)
+		return nil
+	}
+	return err
+}
+// DMSEndpointNeptuneSettings represents the AWS::DMS::Endpoint.NeptuneSettings CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html 
+type DMSEndpointNeptuneSettings struct {
+	// ErrorRetryDuration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html#cfn-dms-endpoint-neptunesettings-errorretryduration
+	ErrorRetryDuration *IntegerExpr `json:"ErrorRetryDuration,omitempty"`
+	// IamAuthEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html#cfn-dms-endpoint-neptunesettings-iamauthenabled
+	IamAuthEnabled *BoolExpr `json:"IamAuthEnabled,omitempty"`
+	// MaxFileSize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html#cfn-dms-endpoint-neptunesettings-maxfilesize
+	MaxFileSize *IntegerExpr `json:"MaxFileSize,omitempty"`
+	// MaxRetryCount docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html#cfn-dms-endpoint-neptunesettings-maxretrycount
+	MaxRetryCount *IntegerExpr `json:"MaxRetryCount,omitempty"`
+	// S3BucketFolder docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html#cfn-dms-endpoint-neptunesettings-s3bucketfolder
+	S3BucketFolder *StringExpr `json:"S3BucketFolder,omitempty"`
+	// S3BucketName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html#cfn-dms-endpoint-neptunesettings-s3bucketname
+	S3BucketName *StringExpr `json:"S3BucketName,omitempty"`
+	// ServiceAccessRoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html#cfn-dms-endpoint-neptunesettings-serviceaccessrolearn
+	ServiceAccessRoleArn *StringExpr `json:"ServiceAccessRoleArn,omitempty"`
+}
+
+// DMSEndpointNeptuneSettingsList represents a list of DMSEndpointNeptuneSettings
+type DMSEndpointNeptuneSettingsList []DMSEndpointNeptuneSettings
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *DMSEndpointNeptuneSettingsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := DMSEndpointNeptuneSettings{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = DMSEndpointNeptuneSettingsList{item}
+		return nil
+	}
+	list := []DMSEndpointNeptuneSettings{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = DMSEndpointNeptuneSettingsList(list)
 		return nil
 	}
 	return err
@@ -11929,6 +11969,8 @@ func (l *EC2ClientVpnEndpointCertificateAuthenticationRequestList) UnmarshalJSON
 type EC2ClientVpnEndpointClientAuthenticationRequest struct {
 	// ActiveDirectory docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-activedirectory
 	ActiveDirectory *EC2ClientVpnEndpointDirectoryServiceAuthenticationRequest `json:"ActiveDirectory,omitempty"`
+	// FederatedAuthentication docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication
+	FederatedAuthentication *EC2ClientVpnEndpointFederatedAuthenticationRequest `json:"FederatedAuthentication,omitempty"`
 	// MutualAuthentication docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-mutualauthentication
 	MutualAuthentication *EC2ClientVpnEndpointCertificateAuthenticationRequest `json:"MutualAuthentication,omitempty"`
 	// Type docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type
@@ -12006,6 +12048,32 @@ func (l *EC2ClientVpnEndpointDirectoryServiceAuthenticationRequestList) Unmarsha
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = EC2ClientVpnEndpointDirectoryServiceAuthenticationRequestList(list)
+		return nil
+	}
+	return err
+}
+// EC2ClientVpnEndpointFederatedAuthenticationRequest represents the AWS::EC2::ClientVpnEndpoint.FederatedAuthenticationRequest CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html 
+type EC2ClientVpnEndpointFederatedAuthenticationRequest struct {
+	// SAMLProviderArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
+	SAMLProviderArn *StringExpr `json:"SAMLProviderArn,omitempty" validate:"dive,required"`
+}
+
+// EC2ClientVpnEndpointFederatedAuthenticationRequestList represents a list of EC2ClientVpnEndpointFederatedAuthenticationRequest
+type EC2ClientVpnEndpointFederatedAuthenticationRequestList []EC2ClientVpnEndpointFederatedAuthenticationRequest
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *EC2ClientVpnEndpointFederatedAuthenticationRequestList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := EC2ClientVpnEndpointFederatedAuthenticationRequest{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = EC2ClientVpnEndpointFederatedAuthenticationRequestList{item}
+		return nil
+	}
+	list := []EC2ClientVpnEndpointFederatedAuthenticationRequest{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = EC2ClientVpnEndpointFederatedAuthenticationRequestList(list)
 		return nil
 	}
 	return err
@@ -12836,35 +12904,11 @@ func (l *EC2LaunchTemplateBlockDeviceMappingList) UnmarshalJSON(buf []byte) erro
 	}
 	return err
 }
-// EC2LaunchTemplateCapacityReservationPreference represents the AWS::EC2::LaunchTemplate.CapacityReservationPreference CloudFormation property type
-// See  
-type EC2LaunchTemplateCapacityReservationPreference struct {
-}
-
-// EC2LaunchTemplateCapacityReservationPreferenceList represents a list of EC2LaunchTemplateCapacityReservationPreference
-type EC2LaunchTemplateCapacityReservationPreferenceList []EC2LaunchTemplateCapacityReservationPreference
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *EC2LaunchTemplateCapacityReservationPreferenceList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := EC2LaunchTemplateCapacityReservationPreference{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = EC2LaunchTemplateCapacityReservationPreferenceList{item}
-		return nil
-	}
-	list := []EC2LaunchTemplateCapacityReservationPreference{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = EC2LaunchTemplateCapacityReservationPreferenceList(list)
-		return nil
-	}
-	return err
-}
 // EC2LaunchTemplateCapacityReservationSpecification represents the AWS::EC2::LaunchTemplate.CapacityReservationSpecification CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html 
 type EC2LaunchTemplateCapacityReservationSpecification struct {
 	// CapacityReservationPreference docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationpreference
-	CapacityReservationPreference *EC2LaunchTemplateCapacityReservationPreference `json:"CapacityReservationPreference,omitempty"`
+	CapacityReservationPreference *StringExpr `json:"CapacityReservationPreference,omitempty"`
 	// CapacityReservationTarget docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationtarget
 	CapacityReservationTarget *EC2LaunchTemplateCapacityReservationTarget `json:"CapacityReservationTarget,omitempty"`
 }
@@ -14448,30 +14492,30 @@ func (l *ECRRepositoryLifecyclePolicyList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
-// ECSClusterClusterSetting represents the AWS::ECS::Cluster.ClusterSetting CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersetting.html 
-type ECSClusterClusterSetting struct {
-	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersetting.html#cfn-ecs-cluster-clustersetting-name
-	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
-	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersetting.html#cfn-ecs-cluster-clustersetting-value
-	Value *StringExpr `json:"Value,omitempty" validate:"dive,required"`
+// ECSClusterClusterSettings represents the AWS::ECS::Cluster.ClusterSettings CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html 
+type ECSClusterClusterSettings struct {
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-name
+	Name *StringExpr `json:"Name,omitempty"`
+	// Value docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-value
+	Value *StringExpr `json:"Value,omitempty"`
 }
 
-// ECSClusterClusterSettingList represents a list of ECSClusterClusterSetting
-type ECSClusterClusterSettingList []ECSClusterClusterSetting
+// ECSClusterClusterSettingsList represents a list of ECSClusterClusterSettings
+type ECSClusterClusterSettingsList []ECSClusterClusterSettings
 
 // UnmarshalJSON sets the object from the provided JSON representation
-func (l *ECSClusterClusterSettingList) UnmarshalJSON(buf []byte) error {
+func (l *ECSClusterClusterSettingsList) UnmarshalJSON(buf []byte) error {
 	// Cloudformation allows a single object when a list of objects is expected
-	item := ECSClusterClusterSetting{}
+	item := ECSClusterClusterSettings{}
 	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = ECSClusterClusterSettingList{item}
+		*l = ECSClusterClusterSettingsList{item}
 		return nil
 	}
-	list := []ECSClusterClusterSetting{}
+	list := []ECSClusterClusterSettings{}
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
-		*l = ECSClusterClusterSettingList(list)
+		*l = ECSClusterClusterSettingsList(list)
 		return nil
 	}
 	return err
@@ -20068,6 +20112,64 @@ func (l *GameLiftScriptS3LocationList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// GlobalAcceleratorEndpointGroupEndpointConfiguration represents the AWS::GlobalAccelerator::EndpointGroup.EndpointConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html 
+type GlobalAcceleratorEndpointGroupEndpointConfiguration struct {
+	// ClientIPPreservationEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
+	ClientIPPreservationEnabled *BoolExpr `json:"ClientIPPreservationEnabled,omitempty"`
+	// EndpointID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
+	EndpointID *StringExpr `json:"EndpointId,omitempty" validate:"dive,required"`
+	// Weight docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
+	Weight *IntegerExpr `json:"Weight,omitempty"`
+}
+
+// GlobalAcceleratorEndpointGroupEndpointConfigurationList represents a list of GlobalAcceleratorEndpointGroupEndpointConfiguration
+type GlobalAcceleratorEndpointGroupEndpointConfigurationList []GlobalAcceleratorEndpointGroupEndpointConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GlobalAcceleratorEndpointGroupEndpointConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GlobalAcceleratorEndpointGroupEndpointConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GlobalAcceleratorEndpointGroupEndpointConfigurationList{item}
+		return nil
+	}
+	list := []GlobalAcceleratorEndpointGroupEndpointConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GlobalAcceleratorEndpointGroupEndpointConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// GlobalAcceleratorListenerPortRange represents the AWS::GlobalAccelerator::Listener.PortRange CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html 
+type GlobalAcceleratorListenerPortRange struct {
+	// FromPort docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
+	FromPort *IntegerExpr `json:"FromPort,omitempty" validate:"dive,required"`
+	// ToPort docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
+	ToPort *IntegerExpr `json:"ToPort,omitempty" validate:"dive,required"`
+}
+
+// GlobalAcceleratorListenerPortRangeList represents a list of GlobalAcceleratorListenerPortRange
+type GlobalAcceleratorListenerPortRangeList []GlobalAcceleratorListenerPortRange
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *GlobalAcceleratorListenerPortRangeList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := GlobalAcceleratorListenerPortRange{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = GlobalAcceleratorListenerPortRangeList{item}
+		return nil
+	}
+	list := []GlobalAcceleratorListenerPortRange{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = GlobalAcceleratorListenerPortRangeList(list)
+		return nil
+	}
+	return err
+}
 // GlueClassifierCsvClassifier represents the AWS::Glue::Classifier.CsvClassifier CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html 
 type GlueClassifierCsvClassifier struct {
@@ -23276,6 +23378,270 @@ func (l *IAMUserPolicyList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = IAMUserPolicyList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderDistributionConfigurationDistribution represents the AWS::ImageBuilder::DistributionConfiguration.Distribution CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html 
+type ImageBuilderDistributionConfigurationDistribution struct {
+	// AmiDistributionConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
+	AmiDistributionConfiguration interface{} `json:"AmiDistributionConfiguration,omitempty"`
+	// LicenseConfigurationArns docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+	LicenseConfigurationArns *StringListExpr `json:"LicenseConfigurationArns,omitempty"`
+	// Region docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
+	Region *StringExpr `json:"Region,omitempty"`
+}
+
+// ImageBuilderDistributionConfigurationDistributionList represents a list of ImageBuilderDistributionConfigurationDistribution
+type ImageBuilderDistributionConfigurationDistributionList []ImageBuilderDistributionConfigurationDistribution
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderDistributionConfigurationDistributionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderDistributionConfigurationDistribution{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderDistributionConfigurationDistributionList{item}
+		return nil
+	}
+	list := []ImageBuilderDistributionConfigurationDistribution{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderDistributionConfigurationDistributionList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderImageImageTestsConfiguration represents the AWS::ImageBuilder::Image.ImageTestsConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html 
+type ImageBuilderImageImageTestsConfiguration struct {
+	// ImageTestsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
+	ImageTestsEnabled *BoolExpr `json:"ImageTestsEnabled,omitempty"`
+	// TimeoutMinutes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
+	TimeoutMinutes *IntegerExpr `json:"TimeoutMinutes,omitempty"`
+}
+
+// ImageBuilderImageImageTestsConfigurationList represents a list of ImageBuilderImageImageTestsConfiguration
+type ImageBuilderImageImageTestsConfigurationList []ImageBuilderImageImageTestsConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderImageImageTestsConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderImageImageTestsConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderImageImageTestsConfigurationList{item}
+		return nil
+	}
+	list := []ImageBuilderImageImageTestsConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderImageImageTestsConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderImagePipelineImageTestsConfiguration represents the AWS::ImageBuilder::ImagePipeline.ImageTestsConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html 
+type ImageBuilderImagePipelineImageTestsConfiguration struct {
+	// ImageTestsEnabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
+	ImageTestsEnabled *BoolExpr `json:"ImageTestsEnabled,omitempty"`
+	// TimeoutMinutes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+	TimeoutMinutes *IntegerExpr `json:"TimeoutMinutes,omitempty"`
+}
+
+// ImageBuilderImagePipelineImageTestsConfigurationList represents a list of ImageBuilderImagePipelineImageTestsConfiguration
+type ImageBuilderImagePipelineImageTestsConfigurationList []ImageBuilderImagePipelineImageTestsConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderImagePipelineImageTestsConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderImagePipelineImageTestsConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderImagePipelineImageTestsConfigurationList{item}
+		return nil
+	}
+	list := []ImageBuilderImagePipelineImageTestsConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderImagePipelineImageTestsConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderImagePipelineSchedule represents the AWS::ImageBuilder::ImagePipeline.Schedule CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html 
+type ImageBuilderImagePipelineSchedule struct {
+	// PipelineExecutionStartCondition docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
+	PipelineExecutionStartCondition *StringExpr `json:"PipelineExecutionStartCondition,omitempty"`
+	// ScheduleExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
+	ScheduleExpression *StringExpr `json:"ScheduleExpression,omitempty"`
+}
+
+// ImageBuilderImagePipelineScheduleList represents a list of ImageBuilderImagePipelineSchedule
+type ImageBuilderImagePipelineScheduleList []ImageBuilderImagePipelineSchedule
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderImagePipelineScheduleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderImagePipelineSchedule{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderImagePipelineScheduleList{item}
+		return nil
+	}
+	list := []ImageBuilderImagePipelineSchedule{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderImagePipelineScheduleList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderImageRecipeComponentConfiguration represents the AWS::ImageBuilder::ImageRecipe.ComponentConfiguration CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html 
+type ImageBuilderImageRecipeComponentConfiguration struct {
+	// ComponentArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
+	ComponentArn *StringExpr `json:"ComponentArn,omitempty"`
+}
+
+// ImageBuilderImageRecipeComponentConfigurationList represents a list of ImageBuilderImageRecipeComponentConfiguration
+type ImageBuilderImageRecipeComponentConfigurationList []ImageBuilderImageRecipeComponentConfiguration
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderImageRecipeComponentConfigurationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderImageRecipeComponentConfiguration{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderImageRecipeComponentConfigurationList{item}
+		return nil
+	}
+	list := []ImageBuilderImageRecipeComponentConfiguration{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderImageRecipeComponentConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification represents the AWS::ImageBuilder::ImageRecipe.EbsInstanceBlockDeviceSpecification CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html 
+type ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification struct {
+	// DeleteOnTermination docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
+	DeleteOnTermination *BoolExpr `json:"DeleteOnTermination,omitempty"`
+	// Encrypted docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-encrypted
+	Encrypted *BoolExpr `json:"Encrypted,omitempty"`
+	// Iops docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-iops
+	Iops *IntegerExpr `json:"Iops,omitempty"`
+	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-kmskeyid
+	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// SnapshotID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-snapshotid
+	SnapshotID *StringExpr `json:"SnapshotId,omitempty"`
+	// VolumeSize docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumesize
+	VolumeSize *IntegerExpr `json:"VolumeSize,omitempty"`
+	// VolumeType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumetype
+	VolumeType *StringExpr `json:"VolumeType,omitempty"`
+}
+
+// ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecificationList represents a list of ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification
+type ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecificationList []ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecificationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecificationList{item}
+		return nil
+	}
+	list := []ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecificationList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderImageRecipeInstanceBlockDeviceMapping represents the AWS::ImageBuilder::ImageRecipe.InstanceBlockDeviceMapping CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html 
+type ImageBuilderImageRecipeInstanceBlockDeviceMapping struct {
+	// DeviceName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+	DeviceName *StringExpr `json:"DeviceName,omitempty"`
+	// Ebs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+	Ebs *ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification `json:"Ebs,omitempty"`
+	// NoDevice docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
+	NoDevice *StringExpr `json:"NoDevice,omitempty"`
+	// VirtualName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
+	VirtualName *StringExpr `json:"VirtualName,omitempty"`
+}
+
+// ImageBuilderImageRecipeInstanceBlockDeviceMappingList represents a list of ImageBuilderImageRecipeInstanceBlockDeviceMapping
+type ImageBuilderImageRecipeInstanceBlockDeviceMappingList []ImageBuilderImageRecipeInstanceBlockDeviceMapping
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderImageRecipeInstanceBlockDeviceMappingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderImageRecipeInstanceBlockDeviceMapping{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderImageRecipeInstanceBlockDeviceMappingList{item}
+		return nil
+	}
+	list := []ImageBuilderImageRecipeInstanceBlockDeviceMapping{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderImageRecipeInstanceBlockDeviceMappingList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderInfrastructureConfigurationLogging represents the AWS::ImageBuilder::InfrastructureConfiguration.Logging CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html 
+type ImageBuilderInfrastructureConfigurationLogging struct {
+	// S3Logs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs
+	S3Logs *ImageBuilderInfrastructureConfigurationS3Logs `json:"S3Logs,omitempty"`
+}
+
+// ImageBuilderInfrastructureConfigurationLoggingList represents a list of ImageBuilderInfrastructureConfigurationLogging
+type ImageBuilderInfrastructureConfigurationLoggingList []ImageBuilderInfrastructureConfigurationLogging
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderInfrastructureConfigurationLoggingList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderInfrastructureConfigurationLogging{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderInfrastructureConfigurationLoggingList{item}
+		return nil
+	}
+	list := []ImageBuilderInfrastructureConfigurationLogging{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderInfrastructureConfigurationLoggingList(list)
+		return nil
+	}
+	return err
+}
+// ImageBuilderInfrastructureConfigurationS3Logs represents the AWS::ImageBuilder::InfrastructureConfiguration.S3Logs CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html 
+type ImageBuilderInfrastructureConfigurationS3Logs struct {
+	// S3BucketName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3bucketname
+	S3BucketName *StringExpr `json:"S3BucketName,omitempty"`
+	// S3KeyPrefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix
+	S3KeyPrefix *StringExpr `json:"S3KeyPrefix,omitempty"`
+}
+
+// ImageBuilderInfrastructureConfigurationS3LogsList represents a list of ImageBuilderInfrastructureConfigurationS3Logs
+type ImageBuilderInfrastructureConfigurationS3LogsList []ImageBuilderInfrastructureConfigurationS3Logs
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *ImageBuilderInfrastructureConfigurationS3LogsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := ImageBuilderInfrastructureConfigurationS3Logs{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = ImageBuilderInfrastructureConfigurationS3LogsList{item}
+		return nil
+	}
+	list := []ImageBuilderInfrastructureConfigurationS3Logs{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = ImageBuilderInfrastructureConfigurationS3LogsList(list)
 		return nil
 	}
 	return err
@@ -30032,6 +30398,56 @@ func (l *MSKClusterTlsList) UnmarshalJSON(buf []byte) error {
 	}
 	return err
 }
+// MacieFindingsFilterCriterion represents the AWS::Macie::FindingsFilter.Criterion CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html 
+type MacieFindingsFilterCriterion struct {
+}
+
+// MacieFindingsFilterCriterionList represents a list of MacieFindingsFilterCriterion
+type MacieFindingsFilterCriterionList []MacieFindingsFilterCriterion
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MacieFindingsFilterCriterionList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MacieFindingsFilterCriterion{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MacieFindingsFilterCriterionList{item}
+		return nil
+	}
+	list := []MacieFindingsFilterCriterion{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MacieFindingsFilterCriterionList(list)
+		return nil
+	}
+	return err
+}
+// MacieFindingsFilterFindingCriteria represents the AWS::Macie::FindingsFilter.FindingCriteria CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html 
+type MacieFindingsFilterFindingCriteria struct {
+	// Criterion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
+	Criterion *MacieFindingsFilterCriterion `json:"Criterion,omitempty"`
+}
+
+// MacieFindingsFilterFindingCriteriaList represents a list of MacieFindingsFilterFindingCriteria
+type MacieFindingsFilterFindingCriteriaList []MacieFindingsFilterFindingCriteria
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MacieFindingsFilterFindingCriteriaList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MacieFindingsFilterFindingCriteria{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MacieFindingsFilterFindingCriteriaList{item}
+		return nil
+	}
+	list := []MacieFindingsFilterFindingCriteria{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MacieFindingsFilterFindingCriteriaList(list)
+		return nil
+	}
+	return err
+}
 // MediaConvertJobTemplateAccelerationSettings represents the AWS::MediaConvert::JobTemplate.AccelerationSettings CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html 
 type MediaConvertJobTemplateAccelerationSettings struct {
@@ -30982,6 +31398,62 @@ func (l *MediaStoreContainerCorsRuleList) UnmarshalJSON(buf []byte) error {
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = MediaStoreContainerCorsRuleList(list)
+		return nil
+	}
+	return err
+}
+// MediaStoreContainerMetricPolicy represents the AWS::MediaStore::Container.MetricPolicy CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html 
+type MediaStoreContainerMetricPolicy struct {
+	// ContainerLevelMetrics docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-containerlevelmetrics
+	ContainerLevelMetrics *StringExpr `json:"ContainerLevelMetrics,omitempty" validate:"dive,required"`
+	// MetricPolicyRules docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-metricpolicyrules
+	MetricPolicyRules *MediaStoreContainerMetricPolicyRuleList `json:"MetricPolicyRules,omitempty"`
+}
+
+// MediaStoreContainerMetricPolicyList represents a list of MediaStoreContainerMetricPolicy
+type MediaStoreContainerMetricPolicyList []MediaStoreContainerMetricPolicy
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MediaStoreContainerMetricPolicyList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MediaStoreContainerMetricPolicy{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MediaStoreContainerMetricPolicyList{item}
+		return nil
+	}
+	list := []MediaStoreContainerMetricPolicy{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MediaStoreContainerMetricPolicyList(list)
+		return nil
+	}
+	return err
+}
+// MediaStoreContainerMetricPolicyRule represents the AWS::MediaStore::Container.MetricPolicyRule CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html 
+type MediaStoreContainerMetricPolicyRule struct {
+	// ObjectGroup docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroup
+	ObjectGroup *StringExpr `json:"ObjectGroup,omitempty" validate:"dive,required"`
+	// ObjectGroupName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroupname
+	ObjectGroupName *StringExpr `json:"ObjectGroupName,omitempty" validate:"dive,required"`
+}
+
+// MediaStoreContainerMetricPolicyRuleList represents a list of MediaStoreContainerMetricPolicyRule
+type MediaStoreContainerMetricPolicyRuleList []MediaStoreContainerMetricPolicyRule
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *MediaStoreContainerMetricPolicyRuleList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := MediaStoreContainerMetricPolicyRule{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = MediaStoreContainerMetricPolicyRuleList{item}
+		return nil
+	}
+	list := []MediaStoreContainerMetricPolicyRule{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = MediaStoreContainerMetricPolicyRuleList(list)
 		return nil
 	}
 	return err
@@ -35904,32 +36376,6 @@ func (l *SSMAssociationInstanceAssociationOutputLocationList) UnmarshalJSON(buf 
 	}
 	return err
 }
-// SSMAssociationParameterValues represents the AWS::SSM::Association.ParameterValues CloudFormation property type
-// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html 
-type SSMAssociationParameterValues struct {
-	// ParameterValues docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
-	ParameterValues *StringListExpr `json:"ParameterValues,omitempty" validate:"dive,required"`
-}
-
-// SSMAssociationParameterValuesList represents a list of SSMAssociationParameterValues
-type SSMAssociationParameterValuesList []SSMAssociationParameterValues
-
-// UnmarshalJSON sets the object from the provided JSON representation
-func (l *SSMAssociationParameterValuesList) UnmarshalJSON(buf []byte) error {
-	// Cloudformation allows a single object when a list of objects is expected
-	item := SSMAssociationParameterValues{}
-	if err := json.Unmarshal(buf, &item); err == nil {
-		*l = SSMAssociationParameterValuesList{item}
-		return nil
-	}
-	list := []SSMAssociationParameterValues{}
-	err := json.Unmarshal(buf, &list)
-	if err == nil {
-		*l = SSMAssociationParameterValuesList(list)
-		return nil
-	}
-	return err
-}
 // SSMAssociationS3OutputLocation represents the AWS::SSM::Association.S3OutputLocation CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html 
 type SSMAssociationS3OutputLocation struct {
@@ -35937,6 +36383,8 @@ type SSMAssociationS3OutputLocation struct {
 	OutputS3BucketName *StringExpr `json:"OutputS3BucketName,omitempty"`
 	// OutputS3KeyPrefix docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
 	OutputS3KeyPrefix *StringExpr `json:"OutputS3KeyPrefix,omitempty"`
+	// OutputS3Region docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
+	OutputS3Region *StringExpr `json:"OutputS3Region,omitempty"`
 }
 
 // SSMAssociationS3OutputLocationList represents a list of SSMAssociationS3OutputLocation
@@ -37122,6 +37570,30 @@ func (l *StepFunctionsStateMachineCloudWatchLogsLogGroupList) UnmarshalJSON(buf 
 	}
 	return err
 }
+// StepFunctionsStateMachineDefinitionSubstitutions represents the AWS::StepFunctions::StateMachine.DefinitionSubstitutions CloudFormation property type
+// See  
+type StepFunctionsStateMachineDefinitionSubstitutions struct {
+}
+
+// StepFunctionsStateMachineDefinitionSubstitutionsList represents a list of StepFunctionsStateMachineDefinitionSubstitutions
+type StepFunctionsStateMachineDefinitionSubstitutionsList []StepFunctionsStateMachineDefinitionSubstitutions
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *StepFunctionsStateMachineDefinitionSubstitutionsList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := StepFunctionsStateMachineDefinitionSubstitutions{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = StepFunctionsStateMachineDefinitionSubstitutionsList{item}
+		return nil
+	}
+	list := []StepFunctionsStateMachineDefinitionSubstitutions{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = StepFunctionsStateMachineDefinitionSubstitutionsList(list)
+		return nil
+	}
+	return err
+}
 // StepFunctionsStateMachineLogDestination represents the AWS::StepFunctions::StateMachine.LogDestination CloudFormation property type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html 
 type StepFunctionsStateMachineLogDestination struct {
@@ -37174,6 +37646,36 @@ func (l *StepFunctionsStateMachineLoggingConfigurationList) UnmarshalJSON(buf []
 	err := json.Unmarshal(buf, &list)
 	if err == nil {
 		*l = StepFunctionsStateMachineLoggingConfigurationList(list)
+		return nil
+	}
+	return err
+}
+// StepFunctionsStateMachineS3Location represents the AWS::StepFunctions::StateMachine.S3Location CloudFormation property type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html 
+type StepFunctionsStateMachineS3Location struct {
+	// Bucket docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-bucket
+	Bucket *StringExpr `json:"Bucket,omitempty" validate:"dive,required"`
+	// Key docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-key
+	Key *StringExpr `json:"Key,omitempty" validate:"dive,required"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-version
+	Version *StringExpr `json:"Version,omitempty"`
+}
+
+// StepFunctionsStateMachineS3LocationList represents a list of StepFunctionsStateMachineS3Location
+type StepFunctionsStateMachineS3LocationList []StepFunctionsStateMachineS3Location
+
+// UnmarshalJSON sets the object from the provided JSON representation
+func (l *StepFunctionsStateMachineS3LocationList) UnmarshalJSON(buf []byte) error {
+	// Cloudformation allows a single object when a list of objects is expected
+	item := StepFunctionsStateMachineS3Location{}
+	if err := json.Unmarshal(buf, &item); err == nil {
+		*l = StepFunctionsStateMachineS3LocationList{item}
+		return nil
+	}
+	list := []StepFunctionsStateMachineS3Location{}
+	err := json.Unmarshal(buf, &list)
+	if err == nil {
+		*l = StepFunctionsStateMachineS3LocationList(list)
 		return nil
 	}
 	return err
@@ -41787,7 +42289,7 @@ func (s AthenaNamedQuery) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s AthenaNamedQuery) CfnResourceAttributes() []string {
-	return []string{}
+	return []string{"NamedQueryId"}
 }
 // AthenaWorkGroup represents the AWS::Athena::WorkGroup CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html 
@@ -42288,6 +42790,8 @@ func (s ChatbotSlackChannelConfiguration) CfnResourceAttributes() []string {
 type Cloud9EnvironmentEC2 struct {
 	// AutomaticStopTimeMinutes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-automaticstoptimeminutes
 	AutomaticStopTimeMinutes *IntegerExpr `json:"AutomaticStopTimeMinutes,omitempty"`
+	// ConnectionType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-connectiontype
+	ConnectionType *StringExpr `json:"ConnectionType,omitempty"`
 	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-description
 	Description *StringExpr `json:"Description,omitempty"`
 	// InstanceType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-instancetype
@@ -43001,6 +43505,8 @@ type CodeStarConnectionsConnection struct {
 	ConnectionName *StringExpr `json:"ConnectionName,omitempty" validate:"dive,required"`
 	// ProviderType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
 	ProviderType *StringExpr `json:"ProviderType,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::CodeStarConnections::Connection to implement the ResourceProperties interface
@@ -43757,6 +44263,8 @@ type DMSEndpoint struct {
 	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
 	// MongoDbSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-mongodbsettings
 	MongoDbSettings *DMSEndpointMongoDbSettings `json:"MongoDbSettings,omitempty"`
+	// NeptuneSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-neptunesettings
+	NeptuneSettings *DMSEndpointNeptuneSettings `json:"NeptuneSettings,omitempty"`
 	// Password docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-password
 	Password *StringExpr `json:"Password,omitempty"`
 	// Port docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-port
@@ -43899,6 +44407,8 @@ type DMSReplicationTask struct {
 	Tags *TagList `json:"Tags,omitempty"`
 	// TargetEndpointArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-targetendpointarn
 	TargetEndpointArn *StringExpr `json:"TargetEndpointArn,omitempty" validate:"dive,required"`
+	// TaskData docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-taskdata
+	TaskData *StringExpr `json:"TaskData,omitempty"`
 }
 
 // CfnResourceType returns AWS::DMS::ReplicationTask to implement the ResourceProperties interface
@@ -45692,7 +46202,7 @@ type ECSCluster struct {
 	// ClusterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
 	ClusterName *StringExpr `json:"ClusterName,omitempty"`
 	// ClusterSettings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
-	ClusterSettings *ECSClusterClusterSettingList `json:"ClusterSettings,omitempty"`
+	ClusterSettings *ECSClusterClusterSettingsList `json:"ClusterSettings,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
 	Tags *TagList `json:"Tags,omitempty"`
 }
@@ -47112,6 +47622,84 @@ func (s GameLiftScript) CfnResourceType() string {
 func (s GameLiftScript) CfnResourceAttributes() []string {
 	return []string{"Arn","Id"}
 }
+// GlobalAcceleratorAccelerator represents the AWS::GlobalAccelerator::Accelerator CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html 
+type GlobalAcceleratorAccelerator struct {
+	// Enabled docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+	Enabled *BoolExpr `json:"Enabled,omitempty"`
+	// IPAddressType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+	IPAddressType *StringExpr `json:"IpAddressType,omitempty"`
+	// IPAddresses docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+	IPAddresses *StringListExpr `json:"IpAddresses,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
+	Tags *TagList `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::GlobalAccelerator::Accelerator to implement the ResourceProperties interface
+func (s GlobalAcceleratorAccelerator) CfnResourceType() string {
+	
+	return "AWS::GlobalAccelerator::Accelerator"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GlobalAcceleratorAccelerator) CfnResourceAttributes() []string {
+	return []string{"AcceleratorArn","DnsName"}
+}
+// GlobalAcceleratorEndpointGroup represents the AWS::GlobalAccelerator::EndpointGroup CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html 
+type GlobalAcceleratorEndpointGroup struct {
+	// EndpointConfigurations docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+	EndpointConfigurations *GlobalAcceleratorEndpointGroupEndpointConfigurationList `json:"EndpointConfigurations,omitempty"`
+	// EndpointGroupRegion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+	EndpointGroupRegion *StringExpr `json:"EndpointGroupRegion,omitempty" validate:"dive,required"`
+	// HealthCheckIntervalSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+	HealthCheckIntervalSeconds *IntegerExpr `json:"HealthCheckIntervalSeconds,omitempty"`
+	// HealthCheckPath docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
+	HealthCheckPath *StringExpr `json:"HealthCheckPath,omitempty"`
+	// HealthCheckPort docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+	HealthCheckPort *IntegerExpr `json:"HealthCheckPort,omitempty"`
+	// HealthCheckProtocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+	HealthCheckProtocol *StringExpr `json:"HealthCheckProtocol,omitempty"`
+	// ListenerArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+	ListenerArn *StringExpr `json:"ListenerArn,omitempty" validate:"dive,required"`
+	// ThresholdCount docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+	ThresholdCount *IntegerExpr `json:"ThresholdCount,omitempty"`
+	// TrafficDialPercentage docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+	TrafficDialPercentage *IntegerExpr `json:"TrafficDialPercentage,omitempty"`
+}
+
+// CfnResourceType returns AWS::GlobalAccelerator::EndpointGroup to implement the ResourceProperties interface
+func (s GlobalAcceleratorEndpointGroup) CfnResourceType() string {
+	
+	return "AWS::GlobalAccelerator::EndpointGroup"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GlobalAcceleratorEndpointGroup) CfnResourceAttributes() []string {
+	return []string{"EndpointGroupArn"}
+}
+// GlobalAcceleratorListener represents the AWS::GlobalAccelerator::Listener CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html 
+type GlobalAcceleratorListener struct {
+	// AcceleratorArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+	AcceleratorArn *StringExpr `json:"AcceleratorArn,omitempty" validate:"dive,required"`
+	// ClientAffinity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+	ClientAffinity *StringExpr `json:"ClientAffinity,omitempty"`
+	// PortRanges docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
+	PortRanges *GlobalAcceleratorListenerPortRangeList `json:"PortRanges,omitempty" validate:"dive,required"`
+	// Protocol docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+	Protocol *StringExpr `json:"Protocol,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::GlobalAccelerator::Listener to implement the ResourceProperties interface
+func (s GlobalAcceleratorListener) CfnResourceType() string {
+	
+	return "AWS::GlobalAccelerator::Listener"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s GlobalAcceleratorListener) CfnResourceAttributes() []string {
+	return []string{"ListenerArn"}
+}
 // GlueClassifier represents the AWS::Glue::Classifier CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html 
 type GlueClassifier struct {
@@ -48210,6 +48798,180 @@ func (s IAMUserToGroupAddition) CfnResourceType() string {
 func (s IAMUserToGroupAddition) CfnResourceAttributes() []string {
 	return []string{}
 }
+// ImageBuilderComponent represents the AWS::ImageBuilder::Component CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html 
+type ImageBuilderComponent struct {
+	// ChangeDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
+	ChangeDescription *StringExpr `json:"ChangeDescription,omitempty"`
+	// Data docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
+	Data *StringExpr `json:"Data,omitempty"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// KmsKeyID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
+	KmsKeyID *StringExpr `json:"KmsKeyId,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Platform docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+	Platform *StringExpr `json:"Platform,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
+	Tags interface{} `json:"Tags,omitempty"`
+	// URI docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+	URI *StringExpr `json:"Uri,omitempty"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+	Version *StringExpr `json:"Version,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::ImageBuilder::Component to implement the ResourceProperties interface
+func (s ImageBuilderComponent) CfnResourceType() string {
+	
+	return "AWS::ImageBuilder::Component"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ImageBuilderComponent) CfnResourceAttributes() []string {
+	return []string{"Arn","Encrypted","Type"}
+}
+// ImageBuilderDistributionConfiguration represents the AWS::ImageBuilder::DistributionConfiguration CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html 
+type ImageBuilderDistributionConfiguration struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Distributions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+	Distributions *ImageBuilderDistributionConfigurationDistributionList `json:"Distributions,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
+	Tags interface{} `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::ImageBuilder::DistributionConfiguration to implement the ResourceProperties interface
+func (s ImageBuilderDistributionConfiguration) CfnResourceType() string {
+	
+	return "AWS::ImageBuilder::DistributionConfiguration"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ImageBuilderDistributionConfiguration) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
+// ImageBuilderImage represents the AWS::ImageBuilder::Image CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html 
+type ImageBuilderImage struct {
+	// DistributionConfigurationArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+	DistributionConfigurationArn *StringExpr `json:"DistributionConfigurationArn,omitempty"`
+	// ImageRecipeArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+	ImageRecipeArn *StringExpr `json:"ImageRecipeArn,omitempty" validate:"dive,required"`
+	// ImageTestsConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+	ImageTestsConfiguration *ImageBuilderImageImageTestsConfiguration `json:"ImageTestsConfiguration,omitempty"`
+	// InfrastructureConfigurationArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+	InfrastructureConfigurationArn *StringExpr `json:"InfrastructureConfigurationArn,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+	Tags interface{} `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::ImageBuilder::Image to implement the ResourceProperties interface
+func (s ImageBuilderImage) CfnResourceType() string {
+	
+	return "AWS::ImageBuilder::Image"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ImageBuilderImage) CfnResourceAttributes() []string {
+	return []string{"Arn","ImageId","OutputResources"}
+}
+// ImageBuilderImagePipeline represents the AWS::ImageBuilder::ImagePipeline CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html 
+type ImageBuilderImagePipeline struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// DistributionConfigurationArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
+	DistributionConfigurationArn *StringExpr `json:"DistributionConfigurationArn,omitempty"`
+	// ImageRecipeArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
+	ImageRecipeArn *StringExpr `json:"ImageRecipeArn,omitempty" validate:"dive,required"`
+	// ImageTestsConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
+	ImageTestsConfiguration *ImageBuilderImagePipelineImageTestsConfiguration `json:"ImageTestsConfiguration,omitempty"`
+	// InfrastructureConfigurationArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
+	InfrastructureConfigurationArn *StringExpr `json:"InfrastructureConfigurationArn,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Schedule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
+	Schedule *ImageBuilderImagePipelineSchedule `json:"Schedule,omitempty"`
+	// Status docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
+	Status *StringExpr `json:"Status,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+	Tags interface{} `json:"Tags,omitempty"`
+}
+
+// CfnResourceType returns AWS::ImageBuilder::ImagePipeline to implement the ResourceProperties interface
+func (s ImageBuilderImagePipeline) CfnResourceType() string {
+	
+	return "AWS::ImageBuilder::ImagePipeline"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ImageBuilderImagePipeline) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
+// ImageBuilderImageRecipe represents the AWS::ImageBuilder::ImageRecipe CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html 
+type ImageBuilderImageRecipe struct {
+	// BlockDeviceMappings docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
+	BlockDeviceMappings *ImageBuilderImageRecipeInstanceBlockDeviceMappingList `json:"BlockDeviceMappings,omitempty"`
+	// Components docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+	Components *ImageBuilderImageRecipeComponentConfigurationList `json:"Components,omitempty" validate:"dive,required"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// ParentImage docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+	ParentImage *StringExpr `json:"ParentImage,omitempty" validate:"dive,required"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+	Tags interface{} `json:"Tags,omitempty"`
+	// Version docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+	Version *StringExpr `json:"Version,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::ImageBuilder::ImageRecipe to implement the ResourceProperties interface
+func (s ImageBuilderImageRecipe) CfnResourceType() string {
+	
+	return "AWS::ImageBuilder::ImageRecipe"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ImageBuilderImageRecipe) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
+// ImageBuilderInfrastructureConfiguration represents the AWS::ImageBuilder::InfrastructureConfiguration CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html 
+type ImageBuilderInfrastructureConfiguration struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// InstanceProfileName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+	InstanceProfileName *StringExpr `json:"InstanceProfileName,omitempty" validate:"dive,required"`
+	// InstanceTypes docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+	InstanceTypes *StringListExpr `json:"InstanceTypes,omitempty"`
+	// KeyPair docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+	KeyPair *StringExpr `json:"KeyPair,omitempty"`
+	// Logging docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
+	Logging *ImageBuilderInfrastructureConfigurationLogging `json:"Logging,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// SecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+	SecurityGroupIDs *StringListExpr `json:"SecurityGroupIds,omitempty"`
+	// SnsTopicArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+	SnsTopicArn *StringExpr `json:"SnsTopicArn,omitempty"`
+	// SubnetID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+	SubnetID *StringExpr `json:"SubnetId,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
+	Tags interface{} `json:"Tags,omitempty"`
+	// TerminateInstanceOnFailure docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+	TerminateInstanceOnFailure *BoolExpr `json:"TerminateInstanceOnFailure,omitempty"`
+}
+
+// CfnResourceType returns AWS::ImageBuilder::InfrastructureConfiguration to implement the ResourceProperties interface
+func (s ImageBuilderInfrastructureConfiguration) CfnResourceType() string {
+	
+	return "AWS::ImageBuilder::InfrastructureConfiguration"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s ImageBuilderInfrastructureConfiguration) CfnResourceAttributes() []string {
+	return []string{"Arn"}
+}
 // InspectorAssessmentTarget represents the AWS::Inspector::AssessmentTarget CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html 
 type InspectorAssessmentTarget struct {
@@ -49272,6 +50034,74 @@ func (s MSKCluster) CfnResourceType() string {
 func (s MSKCluster) CfnResourceAttributes() []string {
 	return []string{}
 }
+// MacieCustomDataIDentifier represents the AWS::Macie::CustomDataIdentifier CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html 
+type MacieCustomDataIDentifier struct {
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// IgnoreWords docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
+	IgnoreWords *StringListExpr `json:"IgnoreWords,omitempty"`
+	// Keywords docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
+	Keywords *StringListExpr `json:"Keywords,omitempty"`
+	// MaximumMatchDistance docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
+	MaximumMatchDistance *IntegerExpr `json:"MaximumMatchDistance,omitempty"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Regex docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
+	Regex *StringExpr `json:"Regex,omitempty" validate:"dive,required"`
+}
+
+// CfnResourceType returns AWS::Macie::CustomDataIdentifier to implement the ResourceProperties interface
+func (s MacieCustomDataIDentifier) CfnResourceType() string {
+	
+	return "AWS::Macie::CustomDataIdentifier"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s MacieCustomDataIDentifier) CfnResourceAttributes() []string {
+	return []string{"Arn","CreatedAt","Deleted","Id"}
+}
+// MacieFindingsFilter represents the AWS::Macie::FindingsFilter CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html 
+type MacieFindingsFilter struct {
+	// Action docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+	Action *StringExpr `json:"Action,omitempty"`
+	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+	Description *StringExpr `json:"Description,omitempty"`
+	// FindingCriteria docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+	FindingCriteria *MacieFindingsFilterFindingCriteria `json:"FindingCriteria,omitempty" validate:"dive,required"`
+	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
+	// Position docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+	Position *IntegerExpr `json:"Position,omitempty"`
+}
+
+// CfnResourceType returns AWS::Macie::FindingsFilter to implement the ResourceProperties interface
+func (s MacieFindingsFilter) CfnResourceType() string {
+	
+	return "AWS::Macie::FindingsFilter"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s MacieFindingsFilter) CfnResourceAttributes() []string {
+	return []string{"Arn","FindingsFilterListItems","Id"}
+}
+// MacieSession represents the AWS::Macie::Session CloudFormation resource type
+// See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html 
+type MacieSession struct {
+	// FindingPublishingFrequency docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+	FindingPublishingFrequency *StringExpr `json:"FindingPublishingFrequency,omitempty"`
+	// Status docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+	Status *StringExpr `json:"Status,omitempty"`
+}
+
+// CfnResourceType returns AWS::Macie::Session to implement the ResourceProperties interface
+func (s MacieSession) CfnResourceType() string {
+	
+	return "AWS::Macie::Session"
+}
+// CfnResourceAttributes returns the attributes produced by this resource
+func (s MacieSession) CfnResourceAttributes() []string {
+	return []string{"AwsAccountId","ServiceRole"}
+}
 // MediaConvertJobTemplate represents the AWS::MediaConvert::JobTemplate CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html 
 type MediaConvertJobTemplate struct {
@@ -49447,8 +50277,12 @@ type MediaStoreContainer struct {
 	CorsPolicy *MediaStoreContainerCorsRuleList `json:"CorsPolicy,omitempty"`
 	// LifecyclePolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-lifecyclepolicy
 	LifecyclePolicy *StringExpr `json:"LifecyclePolicy,omitempty"`
+	// MetricPolicy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-metricpolicy
+	MetricPolicy *MediaStoreContainerMetricPolicy `json:"MetricPolicy,omitempty"`
 	// Policy docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-policy
 	Policy *StringExpr `json:"Policy,omitempty"`
+	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-tags
+	Tags *TagList `json:"Tags,omitempty"`
 }
 
 // CfnResourceType returns AWS::MediaStore::Container to implement the ResourceProperties interface
@@ -49489,12 +50323,20 @@ type NeptuneDBCluster struct {
 	PreferredBackupWindow *StringExpr `json:"PreferredBackupWindow,omitempty"`
 	// PreferredMaintenanceWindow docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-preferredmaintenancewindow
 	PreferredMaintenanceWindow *StringExpr `json:"PreferredMaintenanceWindow,omitempty"`
+	// RestoreToTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretotime
+	RestoreToTime time.Time `json:"RestoreToTime,omitempty"`
+	// RestoreType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretype
+	RestoreType *StringExpr `json:"RestoreType,omitempty"`
 	// SnapshotIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-snapshotidentifier
 	SnapshotIDentifier *StringExpr `json:"SnapshotIdentifier,omitempty"`
+	// SourceDBClusterIDentifier docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-sourcedbclusteridentifier
+	SourceDBClusterIDentifier *StringExpr `json:"SourceDBClusterIdentifier,omitempty"`
 	// StorageEncrypted docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-storageencrypted
 	StorageEncrypted *BoolExpr `json:"StorageEncrypted,omitempty"`
 	// Tags docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-tags
 	Tags *TagList `json:"Tags,omitempty"`
+	// UseLatestRestorableTime docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-uselatestrestorabletime
+	UseLatestRestorableTime *BoolExpr `json:"UseLatestRestorableTime,omitempty"`
 	// VPCSecurityGroupIDs docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-vpcsecuritygroupids
 	VPCSecurityGroupIDs *StringListExpr `json:"VpcSecurityGroupIds,omitempty"`
 }
@@ -51895,10 +52737,18 @@ func (s SQSQueuePolicy) CfnResourceAttributes() []string {
 type SSMAssociation struct {
 	// AssociationName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 	AssociationName *StringExpr `json:"AssociationName,omitempty"`
+	// AutomationTargetParameterName docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
+	AutomationTargetParameterName *StringExpr `json:"AutomationTargetParameterName,omitempty"`
+	// ComplianceSeverity docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
+	ComplianceSeverity *StringExpr `json:"ComplianceSeverity,omitempty"`
 	// DocumentVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
 	DocumentVersion *StringExpr `json:"DocumentVersion,omitempty"`
 	// InstanceID docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
 	InstanceID *StringExpr `json:"InstanceId,omitempty"`
+	// MaxConcurrency docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+	MaxConcurrency *StringExpr `json:"MaxConcurrency,omitempty"`
+	// MaxErrors docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
+	MaxErrors *StringExpr `json:"MaxErrors,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
 	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
 	// OutputLocation docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
@@ -51907,8 +52757,12 @@ type SSMAssociation struct {
 	Parameters interface{} `json:"Parameters,omitempty"`
 	// ScheduleExpression docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
 	ScheduleExpression *StringExpr `json:"ScheduleExpression,omitempty"`
+	// SyncCompliance docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
+	SyncCompliance *StringExpr `json:"SyncCompliance,omitempty"`
 	// Targets docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
 	Targets *SSMAssociationTargetList `json:"Targets,omitempty"`
+	// WaitForSuccessTimeoutSeconds docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+	WaitForSuccessTimeoutSeconds *IntegerExpr `json:"WaitForSuccessTimeoutSeconds,omitempty"`
 }
 
 // CfnResourceType returns AWS::SSM::Association to implement the ResourceProperties interface
@@ -51918,7 +52772,7 @@ func (s SSMAssociation) CfnResourceType() string {
 }
 // CfnResourceAttributes returns the attributes produced by this resource
 func (s SSMAssociation) CfnResourceAttributes() []string {
-	return []string{}
+	return []string{"AssociationId"}
 }
 // SSMDocument represents the AWS::SSM::Document CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html 
@@ -52047,6 +52901,8 @@ func (s SSMMaintenanceWindowTask) CfnResourceAttributes() []string {
 type SSMParameter struct {
 	// AllowedPattern docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern
 	AllowedPattern *StringExpr `json:"AllowedPattern,omitempty"`
+	// DataType docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-datatype
+	DataType *StringExpr `json:"DataType,omitempty"`
 	// Description docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description
 	Description *StringExpr `json:"Description,omitempty"`
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-name
@@ -52453,6 +53309,8 @@ type ServiceCatalogCloudFormationProduct struct {
 	Owner *StringExpr `json:"Owner,omitempty" validate:"dive,required"`
 	// ProvisioningArtifactParameters docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactparameters
 	ProvisioningArtifactParameters *ServiceCatalogCloudFormationProductProvisioningArtifactPropertiesList `json:"ProvisioningArtifactParameters,omitempty" validate:"dive,required"`
+	// ReplaceProvisioningArtifacts docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-replaceprovisioningartifacts
+	ReplaceProvisioningArtifacts *BoolExpr `json:"ReplaceProvisioningArtifacts,omitempty"`
 	// SupportDescription docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-supportdescription
 	SupportDescription *StringExpr `json:"SupportDescription,omitempty"`
 	// SupportEmail docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-supportemail
@@ -52887,8 +53745,12 @@ func (s StepFunctionsActivity) CfnResourceAttributes() []string {
 // StepFunctionsStateMachine represents the AWS::StepFunctions::StateMachine CloudFormation resource type
 // See http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html 
 type StepFunctionsStateMachine struct {
+	// DefinitionS3Location docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
+	DefinitionS3Location *StepFunctionsStateMachineS3Location `json:"DefinitionS3Location,omitempty"`
 	// DefinitionString docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-	DefinitionString *StringExpr `json:"DefinitionString,omitempty" validate:"dive,required"`
+	DefinitionString *StringExpr `json:"DefinitionString,omitempty"`
+	// DefinitionSubstitutions docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
+	DefinitionSubstitutions *StepFunctionsStateMachineDefinitionSubstitutions `json:"DefinitionSubstitutions,omitempty"`
 	// LoggingConfiguration docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
 	LoggingConfiguration *StepFunctionsStateMachineLoggingConfiguration `json:"LoggingConfiguration,omitempty"`
 	// RoleArn docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
@@ -52924,7 +53786,7 @@ type SyntheticsCanary struct {
 	// Name docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
 	Name *StringExpr `json:"Name,omitempty" validate:"dive,required"`
 	// RunConfig docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-	RunConfig *SyntheticsCanaryRunConfig `json:"RunConfig,omitempty"`
+	RunConfig *SyntheticsCanaryRunConfig `json:"RunConfig,omitempty" validate:"dive,required"`
 	// RuntimeVersion docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
 	RuntimeVersion *StringExpr `json:"RuntimeVersion,omitempty" validate:"dive,required"`
 	// Schedule docs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
@@ -54057,6 +54919,12 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &GameLiftMatchmakingRuleSet{}
 	case "AWS::GameLift::Script":
 		return &GameLiftScript{}
+	case "AWS::GlobalAccelerator::Accelerator":
+		return &GlobalAcceleratorAccelerator{}
+	case "AWS::GlobalAccelerator::EndpointGroup":
+		return &GlobalAcceleratorEndpointGroup{}
+	case "AWS::GlobalAccelerator::Listener":
+		return &GlobalAcceleratorListener{}
 	case "AWS::Glue::Classifier":
 		return &GlueClassifier{}
 	case "AWS::Glue::Connection":
@@ -54151,6 +55019,18 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &IAMUser{}
 	case "AWS::IAM::UserToGroupAddition":
 		return &IAMUserToGroupAddition{}
+	case "AWS::ImageBuilder::Component":
+		return &ImageBuilderComponent{}
+	case "AWS::ImageBuilder::DistributionConfiguration":
+		return &ImageBuilderDistributionConfiguration{}
+	case "AWS::ImageBuilder::Image":
+		return &ImageBuilderImage{}
+	case "AWS::ImageBuilder::ImagePipeline":
+		return &ImageBuilderImagePipeline{}
+	case "AWS::ImageBuilder::ImageRecipe":
+		return &ImageBuilderImageRecipe{}
+	case "AWS::ImageBuilder::InfrastructureConfiguration":
+		return &ImageBuilderInfrastructureConfiguration{}
 	case "AWS::Inspector::AssessmentTarget":
 		return &InspectorAssessmentTarget{}
 	case "AWS::Inspector::AssessmentTemplate":
@@ -54247,6 +55127,12 @@ func NewResourceByType(typeName string) ResourceProperties {
 		return &LogsSubscriptionFilter{}
 	case "AWS::MSK::Cluster":
 		return &MSKCluster{}
+	case "AWS::Macie::CustomDataIdentifier":
+		return &MacieCustomDataIDentifier{}
+	case "AWS::Macie::FindingsFilter":
+		return &MacieFindingsFilter{}
+	case "AWS::Macie::Session":
+		return &MacieSession{}
 	case "AWS::MediaConvert::JobTemplate":
 		return &MediaConvertJobTemplate{}
 	case "AWS::MediaConvert::Preset":
