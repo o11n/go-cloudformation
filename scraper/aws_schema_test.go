@@ -194,6 +194,11 @@ func canonicalGoTypename(t *testing.T, awsName string, isTopLevel bool) string {
 			"EC2SecurityGroupEgress",
 			"ElasticLoadBalancingV2ListenerCertificate":
 			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
+		case "KendraDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList",
+			"KendraDataSourceSalesforceStandardObjectConfigurationList",
+			"KendraDataSourceDataSourceToIndexFieldMappingList",
+			"KendraIndexDocumentMetadataConfigurationList":
+			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
 		default:
 			// NOP
 		}
@@ -272,7 +277,8 @@ func writePropertyFieldDefinition(t *testing.T,
 				} else if "String" == propertyTypeProperties.ItemType ||
 					"String" == propertyTypeProperties.PrimitiveItemType {
 					golangType = "*StringListExpr"
-				} else if "Json" == propertyTypeProperties.PrimitiveItemType {
+				} else if "Json" == propertyTypeProperties.PrimitiveItemType ||
+					"Json" == propertyTypeProperties.ItemType {
 					golangType = "[]interface{}"
 				} else if "" != propertyTypeProperties.PrimitiveItemType {
 					golangType = fmt.Sprintf("[]*%s", golangPrimitiveValueType(propertyTypeProperties.PrimitiveItemType))
@@ -308,6 +314,9 @@ func writePropertyFieldDefinition(t *testing.T,
 		}
 	} else if "" != propertyTypeProperties.PrimitiveType {
 		golangType = golangPrimitiveValueType(propertyTypeProperties.PrimitiveType)
+	} else if propertyTypeProperties.Documentation == "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext" ||
+		propertyTypeProperties.Documentation == "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy" {
+		golangType = golangPrimitiveValueType("Json")
 	} else {
 		t.Fatalf("Failed to get Go type for %+v", propertyTypeProperties)
 	}
