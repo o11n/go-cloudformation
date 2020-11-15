@@ -16,6 +16,7 @@ func NewTemplate() *Template {
 		Resources:                map[string]*Resource{},
 		Outputs:                  map[string]*Output{},
 		Conditions:               map[string]interface{}{},
+		Metadata:                 map[string]interface{}{},
 	}
 }
 
@@ -23,6 +24,7 @@ func NewTemplate() *Template {
 type Template struct {
 	AWSTemplateFormatVersion string                 `json:",omitempty"`
 	Description              string                 `json:",omitempty"`
+	Metadata                 map[string]interface{} `json:",omitempty"`
 	Mappings                 map[string]*Mapping    `json:",omitempty"`
 	Parameters               map[string]*Parameter  `json:",omitempty"`
 	Transform                []string               `json:",omitempty"`
