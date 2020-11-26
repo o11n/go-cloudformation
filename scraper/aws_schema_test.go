@@ -197,7 +197,10 @@ func canonicalGoTypename(t *testing.T, awsName string, isTopLevel bool) string {
 		case "KendraDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList",
 			"KendraDataSourceSalesforceStandardObjectConfigurationList",
 			"KendraDataSourceDataSourceToIndexFieldMappingList",
-			"KendraIndexDocumentMetadataConfigurationList":
+			"KendraIndexDocumentMetadataConfigurationList",
+			"KendraIndexUserTokenConfigurationList":
+			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
+		case "NetworkFirewallRuleGroupRulesSourceList":
 			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
 		default:
 			// NOP
@@ -318,7 +321,8 @@ func writePropertyFieldDefinition(t *testing.T,
 		propertyTypeProperties.Documentation == "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy" {
 		golangType = golangPrimitiveValueType("Json")
 	} else {
-		t.Fatalf("Failed to get Go type for %+v", propertyTypeProperties)
+		t.Logf("WARNING: Failed to get Go type for %+v", propertyTypeProperties)
+		golangType = "interface{}"
 	}
 
 	golintPropName := golintTransformedIdentifier(propertyTypeName)
