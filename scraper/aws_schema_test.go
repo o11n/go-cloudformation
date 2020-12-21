@@ -202,6 +202,12 @@ func canonicalGoTypename(t *testing.T, awsName string, isTopLevel bool) string {
 			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
 		case "NetworkFirewallRuleGroupRulesSourceList":
 			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
+		case "LicenseManagerGrantFilterList",
+			"LicenseManagerLicenseEntitlementList",
+			"LicenseManagerLicenseFilterList",
+			"LicenseManagerLicenseMetadataList",
+			"LicenseManagerLicenseRuleList":
+			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
 		default:
 			// NOP
 		}
@@ -283,6 +289,8 @@ func writePropertyFieldDefinition(t *testing.T,
 				} else if "Json" == propertyTypeProperties.PrimitiveItemType ||
 					"Json" == propertyTypeProperties.ItemType {
 					golangType = "[]interface{}"
+				} else if "Tag" == propertyTypeProperties.Type.Scalar {
+					golangType = "interface{}"
 				} else if "" != propertyTypeProperties.PrimitiveItemType {
 					golangType = fmt.Sprintf("[]*%s", golangPrimitiveValueType(propertyTypeProperties.PrimitiveItemType))
 				} else {
@@ -305,6 +313,10 @@ func writePropertyFieldDefinition(t *testing.T,
 				}
 			}
 		case "Map":
+			{
+				golangType = "interface{}"
+			}
+		case "Tag":
 			{
 				golangType = "interface{}"
 			}
