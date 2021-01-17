@@ -62,6 +62,7 @@ var golintTransformations = map[string]string{
 	"Url":     "URL",
 	"Acl":     "ACL",
 	"Ip":      "IP",
+	"Tls":     "TLS",
 	"Uri":     "URI",
 	"Http":    "HTTP",
 	"Dns":     "DNS",
@@ -184,6 +185,7 @@ func canonicalGoTypename(t *testing.T, awsName string, isTopLevel bool) string {
 	if "AWS" == nameParts[0] {
 		nameParts = nameParts[1:]
 	}
+	// AWS::ApiGatewayV2::Integration.ResponseParameterList
 	// Special case "AWS::RDS::DBSecurityGroup.Ingress", which is defined
 	// as both property and resource
 	canonicalName := strings.Join(nameParts, "")
@@ -207,6 +209,10 @@ func canonicalGoTypename(t *testing.T, awsName string, isTopLevel bool) string {
 			"LicenseManagerLicenseFilterList",
 			"LicenseManagerLicenseMetadataList",
 			"LicenseManagerLicenseRuleList":
+			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
+		case "ApiGatewayV2IntegrationResponseParameterList":
+			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
+		case "MediaConnectFlowSource":
 			canonicalName = fmt.Sprintf("%sProperty", canonicalName)
 		default:
 			// NOP
@@ -382,9 +388,11 @@ func writePropertyDefinition(t *testing.T,
 	fmt.Fprintf(w, "// See %s \n", documentationURL)
 	fmt.Fprintf(w, "type %s struct {\n", golangTypename)
 	for _, eachSortedProp := range sortedPropertyNames {
+		// Ensure that the first character in the name is capitalized...
+		capName := strings.Title(eachSortedProp)
 		writePropertyFieldDefinition(t,
 			cloudFormationPropertyTypeName,
-			eachSortedProp,
+			capName,
 			propertyTypes[eachSortedProp],
 			isTopLevel,
 			w)
